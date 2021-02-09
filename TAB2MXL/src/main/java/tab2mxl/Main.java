@@ -7,6 +7,8 @@ public class Main {
 
 		System.out.println("Restart Repo");
 		
+		
+		//testing marshalling
 		AttributesJAXB obj = new AttributesJAXB();
 		obj.marshall();
 
