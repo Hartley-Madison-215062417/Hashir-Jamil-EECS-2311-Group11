@@ -34,7 +34,7 @@ public class Parser {
 	 * @param str, a string to be converted into an ArrayList
 	 * @return the ArrayList
 	 */
-	public List<String> tabToPrimitiveArray(String str) {
+	public List<String> tabToMatrix(String str) {
 		
 		String regexPattern = "^[A-Z|a-z][|]{1}[0-9[-][p|h|s|x|o|b|/]]+[|]$";
 		Pattern pattern = Pattern.compile(regexPattern);

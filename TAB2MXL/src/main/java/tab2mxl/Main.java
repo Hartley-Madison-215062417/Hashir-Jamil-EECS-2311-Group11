@@ -7,7 +7,7 @@ public class Main {
 		System.out.println("Restart Repo");
 
 		Parser p = new Parser();
-		System.out.println(p.tabToPrimitiveArray("e|-------5-7-----7-|"));
+		System.out.println(p.tabToMatrix("e|-------5-7-----7-|"));
 		//System.out.println(p.tabToPrimitiveArray("|-----5-----5-----|---5-------3-----|---1---1-----1---|-0-1-1-----------|"));
 		//System.out.println(p.tabToPrimitiveArray("|---5---------5---|-----5-------2---|-----2---------2-|-0-2-2---2-------|"));
 		//System.out.println(p.tabToPrimitiveArray("|-7-------6-------|-5-------4-------|-3---------------|-----------------|"));
@@ -16,6 +16,17 @@ public class Main {
 
 	}
 
+	/*
+	 * |-----------0-----|-0---------------|
+	   |---------0---0---|-0---------------|
+       |-------1-------1-|-1---------------|
+       |-----2-----------|-2---------------|
+       |---2-------------|-2---------------|
+       |-0---------------|-0---------------|
+     *  
+	 */
+	
+	
 	/*
 	 * Stairway To Heaven tab by Led Zeppelin 
 	 * 

@@ -26,7 +26,7 @@ public class ParserTest {
 		
 		Parser p = new Parser();
 		String str = "";
-		assertEquals(str, p.tabToPrimitiveArray(str));
+		assertEquals(str, p.tabToMatrix(str));
 		
 	}
 	
@@ -35,7 +35,7 @@ public class ParserTest {
 		
 		Parser p = new Parser();
 		String str = "NonsenseString23094870";
-		assertEquals(str, p.tabToPrimitiveArray(str));
+		assertEquals(str, p.tabToMatrix(str));
 		
 	}
 	
