@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<attributes>
+    <clef>
+        <line>2</line>
+        <sign>G</sign>
+    </clef>
+    <division>24</division>
+    <key>
+        <fifths>0</fifths>
+        <mode>minor</mode>
+    </key>
+    <staffdetails>
+        <staffLines>6</staffLines>
+    </staffdetails>
+    <time>
+        <beats>3</beats>
+    </time>
+</attributes>

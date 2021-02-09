@@ -1,13 +1,17 @@
 package tab2mxl;
 
+
 public class Main {
 
 	public static void main(String[] args ) {
 
 		System.out.println("Restart Repo");
+		
+		AttributesJAXB obj = new AttributesJAXB();
+		obj.marshall();
 
-		Parser p = new Parser();
-		System.out.println(p.tabToPrimitiveArray("e|-------5-7-----7-|"));
+		//Parser p = new Parser();
+		//System.out.println(p.tabToPrimitiveArray("e|-------5-7-----7-|"));
 		//System.out.println(p.tabToPrimitiveArray("|-----5-----5-----|---5-------3-----|---1---1-----1---|-0-1-1-----------|"));
 		//System.out.println(p.tabToPrimitiveArray("|---5---------5---|-----5-------2---|-----2---------2-|-0-2-2---2-------|"));
 		//System.out.println(p.tabToPrimitiveArray("|-7-------6-------|-5-------4-------|-3---------------|-----------------|"));
