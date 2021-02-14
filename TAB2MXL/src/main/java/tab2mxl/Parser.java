@@ -12,7 +12,9 @@ import java.io.*;
  *
  */
 public class Parser {
-	
+	private int tabCharMatrix;
+	private ArrayList<String> tab = new ArrayList<String>();
+	private File inputFile;
 	private String outputFile;
 	//List<String> primitiveTabArr = new ArrayList<>();
 	//public static int dashCount;
@@ -27,6 +29,58 @@ public class Parser {
 	}
 	
 	/**
+	 * Input File Specified Constructor
+	 * @param inFile
+	 */
+	public Parser(String inFile) {
+		inputFile = new File(inFile);		
+		tab = new ArrayList<String>();
+		this.readFile();
+	}
+	
+	/**
+	 * 
+	 */
+	private void readFile() {
+		
+		Scanner sc = null; 
+		try {
+			sc = new Scanner(inputFile);	
+			while(sc.hasNextLine()){
+				tab.add(sc.nextLine());
+			}      
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			sc.close();
+		}
+	}
+	public ArrayList<String> getTab() {
+		return this.tab;
+	}
+	
+	/**
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public char[][] tabToCharMatrix(List<String> list) {
+		
+		int row = this.tab.size();
+		int col = this.tab.get(0).length();		
+		char[][] tabMatrix = new char[row][col];
+		
+		for (int i = 0; i < row; i++) {
+			tabMatrix[i] = list.get(i).toCharArray();
+		}
+		return tabMatrix;
+	}
+	
+	
+	
+	/**
 	 * 
 	 * @author Hashir Jamil, Abhirami Venugopal, Tommy Lam
 	 * This method converts a line of tabs into an ArrayList
@@ -34,7 +88,7 @@ public class Parser {
 	 * @param str, a string to be converted into an ArrayList
 	 * @return the ArrayList
 	 */
-	public List<String> tabToPrimitiveArray(String str) {
+	public List<String> tabToMatrix(String str) {
 		
 		String regexPattern = "^[A-Z|a-z][|]{1}[0-9[-][p|h|s|x|o|b|/]]+[|]$";
 		Pattern pattern = Pattern.compile(regexPattern);
