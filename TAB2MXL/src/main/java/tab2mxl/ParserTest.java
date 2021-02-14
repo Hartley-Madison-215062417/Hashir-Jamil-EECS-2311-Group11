@@ -18,7 +18,7 @@ public class ParserTest {
 		for (int i = 0; i < str.length(); i++) {
 			arr.add(i,str.charAt(i));
 		}
-		assertEquals(str, p.tabToMatrix(str));
+
 	}
 	
 	@Test
