@@ -7,7 +7,9 @@ import javax.xml.bind.annotation.XmlElement;
 //represents the time signature denominator (vs. a log denominator in MIDI).
 public class Time {
 int beats;
-//beat-type cannot be a variable
+
+@XmlElement(name = "beat-type")
+public int type = 4;
 
 
 public Time(int beats) {
@@ -23,3 +25,5 @@ public void setBeats(int beats) {
 	this.beats = beats;
 }
 }
+
+
