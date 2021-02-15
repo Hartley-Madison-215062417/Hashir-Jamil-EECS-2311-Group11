@@ -2,6 +2,7 @@ package tab2mxl;
 
 import org.junit.jupiter.api.*;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class ParserTest {
 			arr.add(i,str.charAt(i));
 		}
 		
-		assertEquals(str, p.tabToPrimitiveArray(str));
+		assertEquals(str, p.tabToMatrix(str));
 		
 	}
 	
@@ -28,7 +29,7 @@ public class ParserTest {
 		
 		Parser p = new Parser();
 		String str = "";
-		assertEquals(str, p.tabToPrimitiveArray(str));
+		assertEquals(str, p.tabToMatrix(str));
 		
 	}
 	
@@ -37,7 +38,7 @@ public class ParserTest {
 		
 		Parser p = new Parser();
 		String str = "NonsenseString23094870";
-		assertEquals(str, p.tabToPrimitiveArray(str));
+		assertEquals(str, p.tabToMatrix(str));
 		
 	}
 	
