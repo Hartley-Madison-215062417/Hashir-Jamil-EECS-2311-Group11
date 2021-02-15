@@ -13,7 +13,15 @@ public class Main {
 		//System.out.println(p.tabToPrimitiveArray("|-7-------6-------|-5-------4-------|-3---------------|-----------------|"));
 		//System.out.println(p.tabToPrimitiveArray("|-----------------|-----------------|-----------------|-2-0-0---0--/8-7-|"));
 		//System.out.println(p.tabToPrimitiveArray("|-----------------|-----------------|-----------------|-----------------|"));
-
+		
+		
+			TokenMaker tokentmp = new TokenMaker();
+			tokentmp.add("-", 1);
+			
+			
+		
+		
+		
 	}
 
 	/*
