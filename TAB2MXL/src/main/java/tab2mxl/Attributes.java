@@ -26,7 +26,7 @@ public class Attributes {
 	 * @return
 	 */
 	private int constructDivision(Parser p) {
-		int division = 0; //counter variable
+		int division = 0; //counter variable to be returned
 		
 		char[] firstRow = p.getTabCharMatrix()[1];
 		
