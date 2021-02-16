@@ -5,7 +5,6 @@ public class Clef {
 	int line;
 	
 	public Clef(char sign, int line) {
-		super();
 		this.sign = sign;
 		this.line = line;
 	}

@@ -7,13 +7,44 @@ public class Attributes {
 	Clef clef;
 	StaffDetails staffdetails;
 	
-	public Attributes(int division, Key key, Time time, Clef clef, StaffDetails staffdetails) {
-		super();
-		this.division = division;
+	public Attributes(Parser p) {
+		this.division = this.constructDivision(p);
+	}
+	
+	public Attributes(Parser p, Key key, Time time, Clef clef, StaffDetails staffdetails) {
+		this.division = this.constructDivision(p);;
 		this.key = key;
 		this.time = time;
 		this.clef = clef;
 		this.staffdetails = staffdetails;
+	}
+	
+	
+	/**
+	 * @author Hashir Jamil & Madison Hartley
+	 * @param p
+	 * @return
+	 */
+	private int constructDivision(Parser p) {
+		int division = 0; //counter variable
+		
+		char[] firstRow = p.getTabCharMatrix()[1];
+		
+		int index = 0;
+		
+		while(firstRow[index] != '|') {
+			index++;
+		}
+		
+		index += 1;
+		
+		while(firstRow[index] != '|') {
+			index++;
+			division++;
+		}
+		
+		return division - 1; //need to decrement by 1 for proper return
+		
 	}
 	
 	public int getDivision() {

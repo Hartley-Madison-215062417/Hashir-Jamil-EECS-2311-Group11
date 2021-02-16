@@ -5,7 +5,6 @@ public class StaffTuning {
 	int tuningOctave;
 	
 	public StaffTuning(int tuningStep, int tuningOctave) {
-		super();
 		this.tuningStep = tuningStep;
 		this.tuningOctave = tuningOctave;
 	}
