@@ -5,7 +5,6 @@ public class Pitch {
 	int octave;
 	
 	public Pitch(int step, int octave) {
-		super();
 		this.step = step;
 		this.octave = octave;
 	}

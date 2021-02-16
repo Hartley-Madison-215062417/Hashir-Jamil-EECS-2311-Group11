@@ -12,42 +12,46 @@ import java.io.*;
  *
  */
 public class Parser {
+
 	//private int tabCharMatrix;
-	private ArrayList<String> tab;
+	//private ArrayList<String> tab;
+
+	private List<String> tabList;
+
 	private File inputFile;
+	private char[][] tabCharMatrix;
 	private String outputFile;
-	//List<String> primitiveTabArr = new ArrayList<>();
-	//public static int dashCount;
-	
+
 	/**
 	 * 
 	 * Default constructor
 	 * 
 	 */
 	public Parser() {
-		
+
 	}
-	
+
 	/**
 	 * Input File Specified Constructor
-	 * @param inFile
+	 * @param inFile, a file path containing a tab in txt form
 	 */
 	public Parser(String inFile) {
 		inputFile = new File(inFile);		
-		tab = new ArrayList<String>();
+		tabList = new ArrayList<String>();
 		this.readFile();
+		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
 	}
-	
+
 	/**
 	 * 
 	 */
 	private void readFile() {
-		
+
 		Scanner sc = null; 
 		try {
 			sc = new Scanner(inputFile);	
 			while(sc.hasNextLine()){
-				tab.add(sc.nextLine());
+				tabList.add(sc.nextLine());
 			}      
 		}
 		catch (FileNotFoundException e) {
@@ -57,29 +61,37 @@ public class Parser {
 			sc.close();
 		}
 	}
-	public ArrayList<String> getTab() {
-		return this.tab;
+
+
+	public List<String> getTab() {
+		return this.tabList;
 	}
-	
+
 	/**
 	 * 
 	 * @param str
 	 * @return
 	 */
 	public char[][] tabToCharMatrix(List<String> list) {
-		
-		int row = this.tab.size();
-		int col = this.tab.get(0).length();		
+
+		int row = this.tabList.size();
+		int col = this.tabList.get(0).length();		
 		char[][] tabMatrix = new char[row][col];
-		
+
 		for (int i = 0; i < row; i++) {
 			tabMatrix[i] = list.get(i).toCharArray();
 		}
 		return tabMatrix;
 	}
-	
-	
-	
+
+	public void setTabCharMatrix(Parser p) {
+		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+	}
+
+	public char[][] getTabCharMatrix() {
+		return this.tabCharMatrix;
+	}
+
 	/**
 	 * 
 	 * @author Hashir Jamil, Abhirami Venugopal, Tommy Lam
@@ -89,23 +101,24 @@ public class Parser {
 	 * @return the ArrayList
 	 */
 	public List<String> tabToMatrix(String str) {
-		
+
 		String regexPattern = "^[A-Z|a-z][|]{1}[0-9[-][p|h|s|x|o|b|/]]+[|]$";
 		Pattern pattern = Pattern.compile(regexPattern);
 		Matcher matcher = pattern.matcher(str);
-		
+
 		List<String> line1Array = new ArrayList<String>();
-		
+
 		if (matcher.find()) {
-			
+
 			for (int i = 0; i < str.length(); i++) {
 				line1Array.add(Character.toString(str.charAt(i)));
 			}
 		}
-		
+
 		return line1Array;
-		
+
 	}
+
 	
 	public String getOctave(String str) {
 		
@@ -155,7 +168,7 @@ public class Parser {
 		
 		pw.printf("%s","<technical>");
 		
-		pw.printf("\t%s","<string>", Strings.valueOf(guitarString).toString(), "</string>");
+		//pw.printf("\t%s","<string>", Strings.valueOf(guitarString).toString(), "</string>");
 		
 		for (int i = 2; i < arr.size() - 2; i++) {
 			
@@ -189,4 +202,6 @@ public class Parser {
 		
 		
 	
+
+
 }
