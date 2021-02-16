@@ -8,7 +8,7 @@ public class Time {
 	 *  
 	 */
 	
-	
+	//REWRITE
 	int beats; //beat is the numerator (number of beats in a bar)
 	int beatType; //beatType is denominator (the note type, e.g. 4/4 is 4 beats, each beat a quarter note in length)
 	
@@ -16,32 +16,32 @@ public class Time {
 	char[] firstRow;
 	public Time(Parser p) {
 		this.firstRow = p.getTabCharMatrix()[1];
-		this.length = constructDivision(p);
+		//this.length = constructDivision(p);
 		this.beatType = timeSigBeatsType(p, length);
 		this.beats = timeSigBeats(p, length, this.beatType);
 		
 	}
 
-	private int constructDivision(Parser p) {
-		int division = 0; //counter variable
-		
-		
-		int index = 0;
-		
-		while(this.firstRow[index] != '|') {
-			index++;
-		}
-		
-		index += 1;
-		
-		while(this.firstRow[index] != '|') {
-			index++;
-			division++;
-		}
-		
-		return division - 1; //need to decrement by 1 for proper return
-		
-	}
+//	private int constructDivision(Parser p) {
+//		int division = 0; //counter variable
+//		
+//		
+//		int index = 0;
+//		
+//		while(this.firstRow[index] != '|') {
+//			index++;
+//		}
+//		
+//		index += 1;
+//		
+//		while(this.firstRow[index] != '|') {
+//			index++;
+//			division++;
+//		}
+//		
+//		return division - 1; //need to decrement by 1 for proper return
+//		
+//	}
 	
 	
 	
