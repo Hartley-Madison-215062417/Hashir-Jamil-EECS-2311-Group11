@@ -13,7 +13,7 @@ import java.io.*;
  */
 public class Parser {
 	private int tabCharMatrix;
-	private ArrayList<String> tab = new ArrayList<String>();
+	private ArrayList<String> tab;
 	private File inputFile;
 	private String outputFile;
 	//List<String> primitiveTabArr = new ArrayList<>();
