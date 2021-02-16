@@ -1,8 +1,8 @@
 package tab2mxl;
 
 public class Pitch {
-	int step;
-	int octave;
+	private int step;
+	private int octave;
 	
 	public Pitch(int step, int octave) {
 		this.step = step;

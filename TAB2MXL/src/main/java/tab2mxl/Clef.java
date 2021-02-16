@@ -1,8 +1,8 @@
 package tab2mxl;
 
 public class Clef {
-	char sign;
-	int line;
+	private char sign;
+	private int line;
 	
 	public Clef(char sign, int line) {
 		this.sign = sign;
