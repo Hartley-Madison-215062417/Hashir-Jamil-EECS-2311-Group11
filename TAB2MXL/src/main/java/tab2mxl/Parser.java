@@ -12,7 +12,7 @@ import java.io.*;
  *
  */
 public class Parser {
-	private int tabCharMatrix;
+	//private int tabCharMatrix;
 	private ArrayList<String> tab;
 	private File inputFile;
 	private String outputFile;
