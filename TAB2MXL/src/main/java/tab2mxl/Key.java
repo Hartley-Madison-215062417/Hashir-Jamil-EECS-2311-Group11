@@ -21,7 +21,7 @@ public class Key {
 				return checker;
 			}
 		}
-		return null;
+		return null; //If this is returned, in main method, include a throw or if statement to redirect into manually inputting key.
 	}
 	
 

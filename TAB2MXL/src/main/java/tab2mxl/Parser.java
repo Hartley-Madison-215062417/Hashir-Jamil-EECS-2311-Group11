@@ -147,7 +147,7 @@ public class Parser {
 	 */
 	
 	
-	public void setKey() {
+	public void setKey() { //Is needed here? Would work in attributes?
 		
 		
 	}

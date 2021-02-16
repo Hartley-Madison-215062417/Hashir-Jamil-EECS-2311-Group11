@@ -49,7 +49,7 @@ public class Time {
 	
 	private int timeSigBeats(Parser p, int barLength, int beatsType) {
 		
-		
+		//Once beatsType is found, beats is simple. Figure out how many of the beat type occurs within a measure.
 		
 		return -1;
 	}
@@ -59,7 +59,11 @@ public class Time {
 	
 	private int timeSigBeatsType(Parser p, int barlength) {
 		
-		
+		//Divide the bar into quarters, then check if notes line up properly
+		//If not, halves
+		//If not, thirds
+		//and so on
+		//The hard-coded way, a temporary measure.
 		
 		
 		return -1;
