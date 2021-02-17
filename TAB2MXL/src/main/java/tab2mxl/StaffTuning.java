@@ -1,9 +1,10 @@
 package tab2mxl;
 
 public class StaffTuning {
-	int tuningStep;
-	int tuningOctave;
+	private char tuningStep;
+	private int tuningOctave;
 	
+
 	public StaffTuning() {
 		
 	}
@@ -13,14 +14,17 @@ public class StaffTuning {
 	}
 	
 	
-	public StaffTuning(int tuningStep, int tuningOctave) {
+
+
+	public StaffTuning(char tuningStep, int tuningOctave) {
+
 		this.tuningStep = tuningStep;
 		this.tuningOctave = tuningOctave;
 	}
 	public int getTuningStep() {
 		return tuningStep;
 	}
-	public void setTuningStep(int tuningStep) {
+	public void setTuningStep(char tuningStep) {
 		this.tuningStep = tuningStep;
 	}
 	public int getTuningOctave() {

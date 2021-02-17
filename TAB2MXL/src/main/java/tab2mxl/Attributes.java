@@ -1,11 +1,16 @@
 package tab2mxl;
 
 public class Attributes {
+
 	Division division;
-	Key key;
-	Time time;
-	Clef clef;
-	StaffDetails staffdetails;
+
+
+	//private int division;
+	private Key key;
+	private Time time;
+	private Clef clef;
+	private StaffDetails staffdetails;
+
 	
 	public Attributes(Parser p) {
 		//this.division = this.constructDivision(p);
@@ -27,6 +32,9 @@ public class Attributes {
 	 * @return
 	 */
 
+	/*
+	 * Obsolete now? Divisions class made.
+	 */
 	private int constructDivision(Parser p) {
 		int division = 0; //counter variable
 		

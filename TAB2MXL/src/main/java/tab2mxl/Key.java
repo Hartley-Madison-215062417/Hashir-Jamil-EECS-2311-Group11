@@ -2,7 +2,7 @@ package tab2mxl;
 
 public class Key {
 	
-	String key;
+	private String key;
 	
 	
 	int fifths;

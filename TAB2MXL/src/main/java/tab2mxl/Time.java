@@ -7,8 +7,8 @@ public class Time {
 	 */
 	
 	
-	int beats; //beat is the numerator (number of beats in a bar)
-	int beatType; //beatType is denominator (the note type, e.g. 4/4 is 4 beats, each beat a quarter note in length)
+	 int beats; //beat is the numerator (number of beats in a bar)
+	 int beatType; //beatType is denominator (the note type, e.g. 4/4 is 4 beats, each beat a quarter note in length)
 	
 	int length; //length of a measure (in chars)
 	char[] firstRow;

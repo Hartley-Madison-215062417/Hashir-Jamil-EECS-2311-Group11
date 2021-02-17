@@ -1,8 +1,12 @@
 package tab2mxl;
 
 public class Clef {
+
 	String sign;
 	int line;
+
+	
+
 	
 	public Clef(String sign, int line) {
 		this.sign = sign;

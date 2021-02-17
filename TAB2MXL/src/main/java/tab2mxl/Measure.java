@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Measure {
 	
+
 	List<String> notesList = new ArrayList<String>(); 
 	Attributes attributes;
 	Barline barline;
@@ -50,5 +51,8 @@ public class Measure {
 	public Measure(Note note, int placeholder) {
 		//replace the placeholder with whatever value we will use to set this constructor aside as the final measure.
 	}
+
+
+
 	
 }
