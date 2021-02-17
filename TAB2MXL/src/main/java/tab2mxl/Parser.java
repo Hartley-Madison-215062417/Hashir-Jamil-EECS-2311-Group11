@@ -16,7 +16,7 @@ public class Parser {
 	//private int tabCharMatrix;
 	//private ArrayList<String> tab;
 
-	private List<String> tabList;
+	 List<String> tabList;
 
 	private File inputFile;
 	private char[][] tabCharMatrix;
@@ -40,6 +40,16 @@ public class Parser {
 		tabList = new ArrayList<String>();
 		this.readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+	}
+	
+	public Parser(File inputFile) {
+		//file.getPath();
+		
+		this.inputFile = inputFile;
+		tabList = new ArrayList<String>();
+		this.readFile();
+		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+		
 	}
 
 	/**

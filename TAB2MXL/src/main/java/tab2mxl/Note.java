@@ -1,11 +1,14 @@
 package tab2mxl;
 
 public class Note {
+
+
 	private Pitch pitch;
 	private int duration;
 	private int voice;
 	private String type;
 	private Notation notation;
+
 	public Pitch getPitch() {
 		return pitch;
 	}
@@ -31,12 +34,11 @@ public class Note {
 		this.type = type;
 	}
 	public Notation getNotation() {
-		return notations;
+		return notation;
 	}
 	public void setNotation(Notation notations) {
-		this.notations = notations;
+		this.notation = notations;
 	}
-	
 	
 	
 }
