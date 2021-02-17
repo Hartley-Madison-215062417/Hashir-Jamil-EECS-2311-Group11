@@ -1,6 +1,12 @@
 package tab2mxl;
 
 public class Note {
-	Pitch pitch;
-	
+
+
+	private Pitch pitch;
+	private int duration;
+	private int voice;
+	private String type;
+	private Notation notation;
+
 }

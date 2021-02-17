@@ -12,7 +12,12 @@ import java.io.*;
  *
  */
 public class Parser {
-	private List<String> tabList;
+
+	//private int tabCharMatrix;
+	//private ArrayList<String> tab;
+
+	 List<String> tabList;
+
 	private File inputFile;
 	private char[][] tabCharMatrix;
 	private String outputFile;
@@ -35,6 +40,16 @@ public class Parser {
 		tabList = new ArrayList<String>();
 		this.readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+	}
+	
+	public Parser(File inputFile) {
+		//file.getPath();
+		
+		this.inputFile = inputFile;
+		tabList = new ArrayList<String>();
+		this.readFile();
+		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+		
 	}
 
 	/**
@@ -113,5 +128,90 @@ public class Parser {
 		return line1Array;
 
 	}
+
+	
+	public String getOctave(String str) {
+		
+		
+		
+		return null;
+		
+	}
+	
+	/*
+	 * public int stringLetterToNumber(Strings str) {
+	 * 
+	 * switch (str) {
+	 * 
+	 * case e: return 1;
+	 * 
+	 * case B: return 2;
+	 * 
+	 * case G: return 3;
+	 * 
+	 * case D: return 4;
+	 * 
+	 * case A: return 5;
+	 * 
+	 * case E: return 6; } return 0; }
+	 */
+	
+	
+	public void setKey() { //Is needed here? Would work in attributes?
+		
+		
+	}
+	
+	
+	
+	public void primitiveToXML(List<String> arr) {
+		
+		
+		
+		String guitarString = arr.get(0); //lowercase e
+		
+		
+		try {
+			
+		FileWriter fw = new FileWriter(this.outputFile);
+		PrintWriter pw = new PrintWriter(fw);
+		
+		pw.printf("%s","<technical>");
+		
+		//pw.printf("\t%s","<string>", Strings.valueOf(guitarString).toString(), "</string>");
+		
+		for (int i = 2; i < arr.size() - 2; i++) {
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		pw.printf("%s","</technical>");
+		}
+		
+		catch (IOException e) {
+			e.printStackTrace();
+			System.exit(69420);
+		}
+		/*
+		 * must return something of the form
+		 * 
+		 * 	<technical>
+		 * 		<string>x</string>			where 1 <= x <= 6 
+		 * 		<fret>y</fret>				where 0 <= y <= 27
+		 * 	</technical>
+		 */
+		
+	}
+	
+	//public List<String> primitiveArrayToNoteArray(List<String> line1Array) {}
+		
+		
+	
+
 
 }
