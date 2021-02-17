@@ -209,7 +209,7 @@ public class Parser {
 	}
 	
 	//public List<String> primitiveArrayToNoteArray(List<String> line1Array) {}
-		
+	/*	
 	public getInfoFromArray(char[][] array) {
 		
 		Note n = new Note();
@@ -229,7 +229,7 @@ public class Parser {
 			}
 		
 	}
-	
+	*/
 
 
 }
