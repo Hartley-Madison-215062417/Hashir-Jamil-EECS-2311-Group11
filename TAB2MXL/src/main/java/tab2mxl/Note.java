@@ -6,7 +6,7 @@ public class Note {
 	private Pitch pitch;
 	private int duration;
 	private int voice;
-	private String type;
+	//private String type;
 	private Notation notation;
 
 	public Note() {
@@ -34,12 +34,13 @@ public class Note {
 	public void setVoice(int voice) {
 		this.voice = voice;
 	}
+	/*
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
+	}*/
 	public Notation getNotation() {
 		return notation;
 	}
