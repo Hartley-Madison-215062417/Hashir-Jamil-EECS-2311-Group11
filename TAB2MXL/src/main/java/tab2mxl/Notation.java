@@ -7,4 +7,10 @@ public class Notation {
 		this.technical = new Technical(string, fret);
 	}
 	
+	public Technical getTechnical() {
+		return this.technical;
+	}
+
+	
+	
 }	
