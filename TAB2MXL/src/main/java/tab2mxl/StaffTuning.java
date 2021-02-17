@@ -4,6 +4,15 @@ public class StaffTuning {
 	int tuningStep;
 	int tuningOctave;
 	
+	public StaffTuning() {
+		
+	}
+	
+	public StaffTuning(Parser p) {
+		
+	}
+	
+	
 	public StaffTuning(int tuningStep, int tuningOctave) {
 		this.tuningStep = tuningStep;
 		this.tuningOctave = tuningOctave;

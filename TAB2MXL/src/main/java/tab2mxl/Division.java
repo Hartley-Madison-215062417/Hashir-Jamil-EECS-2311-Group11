@@ -18,13 +18,9 @@ public class Division {
 	}
 
 	public Division(Parser p) {
-		this.firstRow = p.getTabCharMatrix()[1];
 		
-		
-		
-		
-		
-		
+		Time time = new Time(p);
+		this.divisions = time.length/time.beatType;
 		
 		
 	}
