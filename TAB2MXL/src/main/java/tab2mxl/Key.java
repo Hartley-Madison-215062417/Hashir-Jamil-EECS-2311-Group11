@@ -100,6 +100,22 @@ public class Key {
 		return 0;
 		
 	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	public int getFifths() {
+		return fifths;
+	}
+
+	public void setFifths(int fifths) {
+		this.fifths = fifths;
+	}
 	
 	
 

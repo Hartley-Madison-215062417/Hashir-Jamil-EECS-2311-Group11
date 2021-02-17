@@ -1,18 +1,24 @@
 package tab2mxl;
 
 public class Clef {
-	char sign;
+	String sign;
 	int line;
 	
-	public Clef(char sign, int line) {
+	public Clef(String sign, int line) {
 		this.sign = sign;
 		this.line = line;
 	}
 	
-	public char getSign() {
+	public Clef() {
+		this.sign = "TAB";
+		this.line = 5;
+		
+	}
+	
+	public String getSign() {
 		return sign;
 	}
-	public void setSign(char sign) {
+	public void setSign(String sign) {
 		this.sign = sign;
 	}
 	public int getLine() {

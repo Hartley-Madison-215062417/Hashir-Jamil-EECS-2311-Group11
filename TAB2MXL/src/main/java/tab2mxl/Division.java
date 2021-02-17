@@ -1,5 +1,69 @@
 package tab2mxl;
 
 public class Division {
+	
+	/*
+	 * @Author: Madison Hartley
+	 */
 
+	int divisions;
+	char firstRow[];
+	
+	public Division() {
+		this.divisions = 2;
+	}
+	
+	public Division(int divisions) {
+		this.divisions = divisions;
+	}
+
+	public Division(Parser p) {
+		this.firstRow = p.getTabCharMatrix()[1];
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+//	private int constructDivision(Parser p) {
+//	int counter = 0; //counter variable
+//	
+//	
+//	int index = 0;
+//	
+//	while(this.firstRow[index] != '|') {
+//		index++;
+//	}
+//	
+//	index += 1;
+//	
+//	while(this.firstRow[index] != '|') {
+//		index++;
+//		counter++;
+//	}
+//	
+//	return counter - 1; //need to decrement by 1 for proper return
+//	
+//}
+
+	
+	
+	
+	
+	
+	
+	public int getDivisions() {
+		return divisions;
+	}
+
+	public void setDivisions(int divisions) {
+		this.divisions = divisions;
+	}
+	
+	
 }
