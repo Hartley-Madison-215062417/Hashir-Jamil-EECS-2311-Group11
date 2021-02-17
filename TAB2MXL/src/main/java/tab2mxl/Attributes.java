@@ -1,22 +1,23 @@
 package tab2mxl;
 
 public class Attributes {
-	int division;
+	Division division;
 	Key key;
 	Time time;
 	Clef clef;
 	StaffDetails staffdetails;
 	
 	public Attributes(Parser p) {
-		this.division = this.constructDivision(p);
+		//this.division = this.constructDivision(p);
 	}
 	
-	public Attributes(Parser p, Key key, Time time, Clef clef, StaffDetails staffdetails) {
-		this.division = this.constructDivision(p);;
+	public Attributes(Parser p, Key key, Time time, Clef clef, StaffDetails staffdetails, Division division) {
+		//this.division = this.constructDivision(p);;
 		this.key = key;
 		this.time = time;
 		this.clef = clef;
 		this.staffdetails = staffdetails;
+		this.division = division;
 	}
 	
 	
@@ -25,6 +26,7 @@ public class Attributes {
 	 * @param p
 	 * @return
 	 */
+
 	private int constructDivision(Parser p) {
 		int division = 0; //counter variable
 		
@@ -47,11 +49,12 @@ public class Attributes {
 		return division - 1; //need to decrement by 1 for proper return
 		
 	}
+
 	
-	public int getDivision() {
+	public Division getDivision() {
 		return division;
 	}
-	public void setDivision(int division) {
+	public void setDivision(Division division) {
 		this.division = division;
 	}
 	public Key getKey() {
