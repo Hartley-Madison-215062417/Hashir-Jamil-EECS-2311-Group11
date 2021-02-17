@@ -1,6 +1,6 @@
 package tab2mxl;
 
-
+import jaxb.EmployeeJAXB;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
@@ -29,6 +29,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
+import jaxb.EmployeeJAXB;
 
 public class Main extends Application{
 	//comment
@@ -38,6 +39,9 @@ public class Main extends Application{
 
 	
 	public static void main(String[] args) {
+		EmployeeJAXB obj1 = new EmployeeJAXB();
+		obj1.marshall();
+		
 		launch(args);
 		
 		//try {			
@@ -49,6 +53,7 @@ public class Main extends Application{
 			// TODO Auto-generated catch block
 			//System.out.println(""+e.getMessage());
 		//}
+			
 		
 	}
 
