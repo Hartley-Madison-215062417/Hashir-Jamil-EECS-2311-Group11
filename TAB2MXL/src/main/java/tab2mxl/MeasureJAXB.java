@@ -4,7 +4,6 @@ import java.io.File;
 
 import javax.xml.bind.*;
 
-import jaxb.EmployeeJAXB;
 import tab2mxl.Clef;
 import tab2mxl.Division;
 import tab2mxl.Key;
