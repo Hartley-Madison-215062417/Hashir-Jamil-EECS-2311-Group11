@@ -6,8 +6,8 @@ public class Division {
 	 * @Author: Madison Hartley
 	 */
 
-	int divisions;
-	char firstRow[];
+	private int divisions;
+	private char firstRow[];
 	
 	public Division() {
 		this.divisions = 2;

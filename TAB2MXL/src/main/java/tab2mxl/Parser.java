@@ -187,9 +187,6 @@ public class Parser {
 		}
 		
 		
-		
-		
-		
 		pw.printf("%s","</technical>");
 		}
 		
@@ -207,6 +204,19 @@ public class Parser {
 		 */
 		
 	}
+	
+	public ArrayList<Note> updateDuration(ArrayList<Note> notesList, Division division) {
+		
+		for (int i = 0; i < notesList.size(); i++) {
+			notesList.get(i).setDuration((notesList.get(i).getDuration() - notesList.get(i + 1).getDuration())/(division.getDivisions()));
+			
+			if (notesList.get(i).getDuration() - notesList.get(i + 1).getDuration() == 0) {
+				//open a chord tag
+			}	
+		}
+		return notesList;
+	}
+	
 	
 	//public List<String> primitiveArrayToNoteArray(List<String> line1Array) {}
 	/*	
