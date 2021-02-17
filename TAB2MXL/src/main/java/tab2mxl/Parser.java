@@ -16,7 +16,7 @@ public class Parser {
 	//private int tabCharMatrix;
 	//private ArrayList<String> tab;
 
-	private List<String> tabList;
+	 List<String> tabList;
 
 	private File inputFile;
 	private char[][] tabCharMatrix;
@@ -40,6 +40,16 @@ public class Parser {
 		tabList = new ArrayList<String>();
 		this.readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+	}
+	
+	public Parser(File inputFile) {
+		//file.getPath();
+		
+		this.inputFile = inputFile;
+		tabList = new ArrayList<String>();
+		this.readFile();
+		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+		
 	}
 
 	/**
@@ -200,7 +210,25 @@ public class Parser {
 	
 	//public List<String> primitiveArrayToNoteArray(List<String> line1Array) {}
 		
+	public getInfoFromArray(char[][] array) {
 		
+		Note n = new Note();
+		
+		
+		for (int i = 6; i >= 0; i++)
+			for(char j = 0; i <= 20; i++) {
+				
+				int a = Character.getNumericValue(array[j][i]);
+				//if you encounter a note
+				if(0 <= a &&  a <= 9) {
+					n.getNotation().getTechnical().setFret(a);
+					
+				}
+				
+				
+			}
+		
+	}
 	
 
 

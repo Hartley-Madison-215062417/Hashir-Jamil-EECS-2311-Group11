@@ -3,6 +3,12 @@ package tab2mxl;
 public class StaffDetails {
 	StaffTuning staffTuning;
 	
+
+	public StaffDetails(Parser p) {
+		this.staffTuning = new StaffTuning(p);
+	}
+	
+
 	//@XMLElement(name = "staff-lines")
 	private int staffLines = 6;
 	
@@ -19,4 +25,5 @@ public class StaffDetails {
 		this.staffTuning = new StaffTuning('E',4);
 	}
 	
+
 }
