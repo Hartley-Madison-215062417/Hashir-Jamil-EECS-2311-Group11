@@ -209,9 +209,27 @@ public class Parser {
 	}
 	
 	//public List<String> primitiveArrayToNoteArray(List<String> line1Array) {}
+	/*	
+	public getInfoFromArray(char[][] array) {
+		
+		Note n = new Note();
 		
 		
-	
+		for (int i = 6; i >= 0; i++)
+			for(char j = 0; i <= 20; i++) {
+				
+				int a = Character.getNumericValue(array[j][i]);
+				//if you encounter a note
+				if(0 <= a &&  a <= 9) {
+					n.getNotation().getTechnical().setFret(a);
+					
+				}
+				
+				
+			}
+		
+	}
+	*/
 
 
 }
