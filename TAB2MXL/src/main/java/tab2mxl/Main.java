@@ -1,6 +1,7 @@
 package tab2mxl;
 
 import java.io.File;
+import java.util.Arrays;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -27,7 +28,7 @@ public class Main extends Application{
 	//comment
 	Stage window;
 	Scene scene1,scene2;
-	
+	Parser p;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -131,7 +132,18 @@ public class Main extends Application{
 		                    public void handle(final ActionEvent e) {
 		                       File file = fileChooser.showOpenDialog(primaryStage);
 		                        if (file != null) {
-		                        	System.out.print(file.getPath());
+		                        	System.out.print(file.getPath()); 
+		                        	p = new Parser(file);
+		                  
+//		                        	char[][] tmp = p.getTabCharMatrix();
+		                        	
+//		                        	{
+//		                        	for(char[] row:tmp ) System.out.println(Arrays.toString(row));
+//		                        	
+//		                        	}
+		                        	
+		                        	
+		                        	
 		                        }
 		                    }
 		                });
