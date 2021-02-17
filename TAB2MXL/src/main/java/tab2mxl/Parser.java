@@ -205,6 +205,12 @@ public class Parser {
 		
 	}
 	
+	/**
+	 * @author Hashir Jamil, Abhirami Venugopol
+	 * @param notesList
+	 * @param division
+	 * @return
+	 */
 	public ArrayList<Note> updateDuration(ArrayList<Note> notesList, Division division) {
 		
 		for (int i = 0; i < notesList.size(); i++) {
