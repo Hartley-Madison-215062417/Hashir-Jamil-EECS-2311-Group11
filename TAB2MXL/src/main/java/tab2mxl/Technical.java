@@ -5,10 +5,8 @@ public class Technical {
 	private int fret;
 	
 	public Technical(int stringNum, int fretNum) {
-		
 		this.string = stringNum;
 		this.fret = fretNum;
-	
 	}
 
 	public int getString() {

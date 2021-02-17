@@ -16,7 +16,10 @@ public class Measure {
 	StaffDetails staffDetails;
 	Division division;
 	Note note;
+	static int measureNumber; //static variable that increments for each instance of a 
 	
+	public Measure() {
+	}
 	
 	/*
 	 * @Author Madison Hartley
@@ -28,6 +31,7 @@ public class Measure {
 		this.staffDetails = new StaffDetails(p);
 		this.division = new Division(p);
 		//this.note = new Note(p); Uncomment when constructor is made
+		measureNumber++; 
 		
 	}
 	/*

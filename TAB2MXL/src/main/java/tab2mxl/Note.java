@@ -9,6 +9,13 @@ public class Note {
 	private String type;
 	private Notation notation;
 
+	public Note() {
+	}
+	
+	public Note(int stringNum, int fretNum) {
+		this.notation = new Notation(stringNum, fretNum);
+	}
+	
 	public Pitch getPitch() {
 		return pitch;
 	}
