@@ -40,15 +40,15 @@ public class Main extends Application{
 	public static void main(String[] args) {
 		launch(args);
 		
-		try {			
+		//try {			
 			
 			MeasureJAXB obj = new MeasureJAXB();
 			obj.marshall();
 			
-		} catch (JAXBException e) {
+		//} catch (JAXBException e) {
 			// TODO Auto-generated catch block
-			System.out.println(""+e.getMessage());
-		}
+			//System.out.println(""+e.getMessage());
+		//}
 		
 	}
 

@@ -16,8 +16,8 @@ import tab2mxl.Measure;
 public class MeasureJAXB {
 	public void marshall() {
 		try {
-			
-			Measure msr = new Measure(Parser p, Key key, Time time, Clef clef, StaffDetails staffDetails, Division division, Note note);
+			Note n = new Note();
+			Measure msr = new Measure(n);
 			JAXBContext jc = JAXBContext.newInstance(Measure.class);
 			Marshaller ma = jc.createMarshaller();
 			ma.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
