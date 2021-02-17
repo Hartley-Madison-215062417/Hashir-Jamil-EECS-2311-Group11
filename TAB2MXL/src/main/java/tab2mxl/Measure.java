@@ -17,6 +17,7 @@ public class Measure {
 	Division division;
 	Note note;
 	
+	
 	/*
 	 * @Author Madison Hartley
 	 */
@@ -50,6 +51,8 @@ public class Measure {
 	 */
 	public Measure(Note note, int placeholder) {
 		//replace the placeholder with whatever value we will use to set this constructor aside as the final measure.
+		barline = new Barline();
+		
 	}
 
 
