@@ -232,6 +232,14 @@ public class Parser {
 	}
 	*/
 	
+	/**
+	 * 
+	 * @author Abhirami Venugopal
+	 * The method sets the step and octave of a note based on fret and string
+	 * 
+	 * @param Note n, a note whose step and octave needs to be updated
+	 * @return Note, whose step and octave has been updated
+	 */
 	public Note getPitch(Note n) {
 		/*
 		String dStep;
