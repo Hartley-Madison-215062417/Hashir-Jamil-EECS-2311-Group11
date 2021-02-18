@@ -9,9 +9,7 @@ import java.util.List;
 
 public class Step {
 
-	
-	public static int counter = 0;
-	
+
 	public ArrayList<Note> getInfoFromArray(char[][] array) {
 
 
@@ -35,26 +33,41 @@ public class Step {
 			}
 		return (ArrayList<Note>) NoteList;
 	}
-	
+
 	public int duration(char [][] array) {
-		
-		
-		for(int i = 0; i<array[i].length; i++) {
-			for(int j =0; j < array[i].length; j++) {
-				
+
+		int counter = 0;
+		int r = 0;
+
+		for(int i = 0; i<array.length; i++) {
+			for(int j = 0; j < array[i].length; j++) {
+
 				int a = Character.getNumericValue(array[j][i]);
-				if(0 <= a && a <= 9) {
-					int b = Character.getNumericValue(array[j][i]);
-					if(b==-1) {
-						for(int j = 0; j)
+				if(0 <= a && a <=9) {
+					int d = j;
+					int inc = 1;
+					while(r == 0) {
+						int b = Character.getNumericValue(array[d][i + inc]);
+						if(b==-1) {
+							counter++;
+							inc++;
+							r = 0;
+						}else {
+							r = 1;
+						}
 					}
+
 				}
-				
+
 			}
+			
 		}
-		
 		return counter;
+
+
 	}
-	
+
+
+
 
 }
