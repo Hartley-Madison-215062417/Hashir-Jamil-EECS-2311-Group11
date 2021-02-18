@@ -35,28 +35,28 @@ public class Attributes {
 	/*
 	 * Obsolete now? Divisions class made.
 	 */
-	private int constructDivision(Parser p) {
-		int division = 0; //counter variable
-		
-		char[] firstRow = p.getTabCharMatrix()[1]; //Will we need to change if there are blank rows at the start of the text input?
-		//Or, will the parser deal with blanks and sort it into the matrix uniformly?
-		
-		int index = 0;
-		
-		while(firstRow[index] != '|') {
-			index++;
-		}
-		
-		index += 1;
-		
-		while(firstRow[index] != '|') {
-			index++;
-			division++;
-		}
-		
-		return division - 1; //need to decrement by 1 for proper return
-		
-	}
+//	private int constructDivision(Parser p) {
+//		int division = 0; //counter variable to be returned
+//		
+//		char[] firstRow = p.getTabCharMatrix()[1]; //Will we need to change if there are blank rows at the start of the text input?
+//		//Or, will the parser deal with blanks and sort it into the matrix uniformly?
+//		
+//		int index = 0;
+//		
+//		while(firstRow[index] != '|') {
+//			index++;
+//		}
+//		
+//		index += 1;
+//		
+//		while(firstRow[index] != '|') {
+//			index++;
+//			division++;
+//		}
+//		
+//		return division - 1; //need to decrement by 1 for proper return
+//		
+//	}
 
 	
 	public Division getDivision() {

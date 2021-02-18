@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Measure {
 	
-
+	
 	List<String> notesList = new ArrayList<String>(); 
 	Attributes attributes;
 	Barline barline;
@@ -19,6 +19,7 @@ public class Measure {
 	static int measureNumber; //static variable that increments for each instance of a 
 	
 	public Measure() {
+		
 	}
 	
 	/*
@@ -30,7 +31,7 @@ public class Measure {
 		this.clef = new Clef();
 		this.staffDetails = new StaffDetails(p);
 		this.division = new Division(p);
-		//this.note = new Note(p); Uncomment when constructor is made
+		this.note = new Note(p); 
 		measureNumber++; 
 		
 	}
