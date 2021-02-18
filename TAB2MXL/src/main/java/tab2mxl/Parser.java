@@ -230,6 +230,78 @@ public class Parser {
 		
 	}
 	*/
+	/**
+	 * 
+	 * @author Abhirami Venugopal
+	 * The method sets the step and octave of a note based on fret and string
+	 * 
+	 * @param Note n, a note whose step and octave needs to be updated
+	 * @return Note, whose step and octave has been updated
+	 */
+	public Note getPitch(Note n) {
+		/*
+		String dStep;
+		dStep = Character.toString(defaultStep);
+		//need to open alter tags whenever you encounter a sharp#
+		String [] originalData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+		String[] relevantData = new String[24]; //specifically 24 because a guitar can have a maximum for 24 frets
+		int index;
+		
+		for (int i =1 ; i <= 12; i++) {
+			if(originalData[i] == dStep) {
+				index = i;
+				break;
+			}
+		}
+		
+		for (int i = j; i <=12;)
+		*/// this part is supposed to generate the right list of step options 
+		//automatically, but for now I'm making a database
+		
+		char defaultStep = n.getPitch().getStep();
+		
+		String[] rData = new String[24];
+				
+		if (n.getPitch().getStep() == 'E') {
+			
+		String[] relevantData = {"F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"};
+		rData = relevantData;	
+		
+		}else if (n.getPitch().getStep() == 'B') {
+			
+		String[] relevantData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+		rData = relevantData;	
+		
+		}else if(n.getPitch().getStep() == 'G') {
+			
+		String[] relevantData = {"G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"};
+		rData = relevantData;	
+		
+		}else if(n.getPitch().getStep() == 'D') {
+			
+		String[] relevantData = {"D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"};
+		rData = relevantData;	
+		
+		}else if(n.getPitch().getStep() == 'A') {
+			
+		String[] relevantData = {"A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E","F", "F#", "G", "G#", "A"};
+		rData = relevantData;	
+		
+		}
+		
+		String actualStep = rData[n.getNotation().getTechnical().getFret()];
+		char[] aStep = actualStep.toCharArray();
+		if (aStep[1] == '#')
+			n.getPitch().setAlter(1);
+			
+		n.getPitch().setStep(aStep[0]); //actualStep is supposed to be char but we need to do something about the #
+		
+		if (defaultStep >= aStep[0])
+			n.getPitch().setOctave(n.getPitch().getOctave()+1);
+		
+		return n;
+		
+	}
 
 
 }

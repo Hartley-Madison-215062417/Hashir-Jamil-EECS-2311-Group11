@@ -8,13 +8,20 @@ public class Pitch {
 	public Pitch(char step, int octave) {
 		this.step = step;
 		this.octave = octave;
-	}
-
-	public int constructStep() {
-		return 0;
+		this.alter = 0;
 	}
 	
-	public int getStep() {
+	public Pitch(char step, int octave, int alter) {
+		this.step = step;
+		this.octave = octave;
+		this.alter = alter;
+	}
+
+	public char constructStep() {
+		return '0';
+	}
+	
+	public char getStep() {
 		return step;
 	}
 
