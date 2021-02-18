@@ -10,11 +10,11 @@ public class Pitch {
 		this.octave = octave;
 	}
 
-	public int constructStep() {
-		return 0;
+	public char constructStep() {
+		return '0';
 	}
 	
-	public int getStep() {
+	public char getStep() {
 		return step;
 	}
 
