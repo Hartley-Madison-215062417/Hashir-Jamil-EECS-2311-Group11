@@ -11,6 +11,11 @@ public class Pitch {
 		this.alter = 0;
 	}
 	
+	public Pitch(Parser p) {
+		
+	}
+	
+	
 	public Pitch(char step, int octave, int alter) {
 		this.step = step;
 		this.octave = octave;
