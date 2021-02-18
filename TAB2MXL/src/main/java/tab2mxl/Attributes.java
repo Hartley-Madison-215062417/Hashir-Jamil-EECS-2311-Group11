@@ -36,7 +36,7 @@ public class Attributes {
 	 * Obsolete now? Divisions class made.
 	 */
 	private int constructDivision(Parser p) {
-		int division = 0; //counter variable
+		int division = 0; //counter variable to be returned
 		
 		char[] firstRow = p.getTabCharMatrix()[1]; //Will we need to change if there are blank rows at the start of the text input?
 		//Or, will the parser deal with blanks and sort it into the matrix uniformly?
