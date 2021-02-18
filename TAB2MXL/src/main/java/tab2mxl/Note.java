@@ -9,6 +9,9 @@ public class Note {
 	//private String type;
 	private Notation notation;
 
+	public Note() {
+	}
+	
 	public Note(Parser p) {
 		pitch = new Pitch(p);
 	}
