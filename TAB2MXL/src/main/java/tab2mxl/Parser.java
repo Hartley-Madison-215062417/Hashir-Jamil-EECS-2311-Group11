@@ -1,35 +1,36 @@
 package tab2mxl;
 
-import java.util.regex.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
-import java.io.*;
+//
+//import tab2mxl.Division;
+//import tab2mxl.Note;
 
-/**
- * 
- * @author Hashir Jamil, Abhirami Venugopal, Tommy Lam
- *
- */
+//import tab2mxl.Note;
+
+//import tab2mxl.Division;
+//import tab2mxl.Note;
+//import tab2mxl.Parser;
+//
 public class Parser {
 
-	//private int tabCharMatrix;
-	//private ArrayList<String> tab;
-
-	 List<String> tabList;
-
+	List<String> tabList; // the list has all of the lines in it, every line of text input 
 	private File inputFile;
 	private char[][] tabCharMatrix;
-	private String outputFile;
+	private String outputFile; //not used at the moment
 
-	/**
-	 * 
-	 * Default constructor
-	 * 
+	/*
+	 * Defualt contructor 
 	 */
 	public Parser() {
 
 	}
+
 
 	/**
 	 * Input File Specified Constructor
@@ -41,16 +42,17 @@ public class Parser {
 		this.readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
 	}
-	
+
 	public Parser(File inputFile) {
 		//file.getPath();
-		
+
 		this.inputFile = inputFile;
 		tabList = new ArrayList<String>();
 		this.readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
-		
+
 	}
+
 
 	/**
 	 * 
@@ -70,11 +72,6 @@ public class Parser {
 		finally {
 			sc.close();
 		}
-	}
-
-
-	public List<String> getTab() {
-		return this.tabList;
 	}
 
 	/**
@@ -103,149 +100,234 @@ public class Parser {
 	}
 
 	/**
-	 * 
-	 * @author Hashir Jamil, Abhirami Venugopal, Tommy Lam
-	 * This method converts a line of tabs into an ArrayList
-	 * the ArrayList can then be used to check the measure (modulo) and be used to generate the notes
-	 * @param str, a string to be converted into an ArrayList
-	 * @return the ArrayList
+	 * @author Abhirami & Niharika
+	 * @param old
+	 * @return
 	 */
-	public List<String> tabToMatrix(String str) {
+	public char[][] getFirstLine(char[][] old) {
+		int col = this.tabList.get(0).length();	
+		char[][] current = new char[6][col];
 
-		String regexPattern = "^[A-Z|a-z][|]{1}[0-9[-][p|h|s|x|o|b|/]]+[|]$";
-		Pattern pattern = Pattern.compile(regexPattern);
-		Matcher matcher = pattern.matcher(str);
+		for(int i=0; i<6; i++) {
+			for(int j=0; j<this.tabList.get(0).length(); j++) {
+				current[i][j]=old[i][j];
 
-		List<String> line1Array = new ArrayList<String>();
 
-		if (matcher.find()) {
+			}}
 
-			for (int i = 0; i < str.length(); i++) {
-				line1Array.add(Character.toString(str.charAt(i)));
-			}
-		}
-
-		return line1Array;
+		return current;
 
 	}
 
-	
-	public String getOctave(String str) {
+	/**
+	 * Private helper method to compute number of measures in a line of measures
+	 * @param arr
+	 * @return
+	 */
+	private static int computeNumberOfMeasures(char[][] arr) {
 		
+		int n = -1; //negative 1 because total number of measures in a line is number of occurrences of '|' minus one
+		for (int i = 0; i < arr[0].length; i++) {
+			if (arr[0][i] == '|') {
+				n++;
+			}
+		}
+		return n;
+	}
+
+	/**
+	 * @author Abhirami & Niharika
+	 * This method is supposed to return all the measures that are found in one grouping (one horizontal stream)
+	 * @param old - a set of measures; 2d array that is guaranteed to have n rows, where n is the number of lines for the instrument
+	 * @return
+	 */
+	public HashMap<Integer, char[][]> getFirstMeasure(char[][] old) {
 		
+		//possible exception for more than n rows could be handled
 		
-		return null;
+		HashMap<Integer, char[][]> measures = new HashMap<Integer, char[][]>();
+		int totalmeasures = Parser.computeNumberOfMeasures(old);
 		
+		int col = this.tabList.get(0).length()/totalmeasures;
+		//int col = this.tabList.get(0).length();
+		char[][] current = new char[6][col];
+
+		for(int i=0; i<6; i++) {
+			for(int j=1; j< col; j++) {
+				current[i][j]=old[i][j];
+			}
+		}
+		return measures;
 	}
 	
 	/*
-	 * public int stringLetterToNumber(Strings str) {
-	 * 
-	 * switch (str) {
-	 * 
-	 * case e: return 1;
-	 * 
-	 * case B: return 2;
-	 * 
-	 * case G: return 3;
-	 * 
-	 * case D: return 4;
-	 * 
-	 * case A: return 5;
-	 * 
-	 * case E: return 6; } return 0; }
+	 * @author Abhirami & Niharika
+	 * this method gets a 2d char array of one measure
+	 * and creates note objects for each note in the 
+	 * measure, adds it to the measure object and returns 
+	 * the measure object
 	 */
-	
-	
-	public void setKey() { //Is needed here? Would work in attributes?
-		
-		
-	}
-	
-	
-	
-	public void primitiveToXML(List<String> arr) {
-		
-		
-		
-		String guitarString = arr.get(0); //lowercase e
-		
-		
-		try {
-			
-		FileWriter fw = new FileWriter(this.outputFile);
-		PrintWriter pw = new PrintWriter(fw);
-		
-		pw.printf("%s","<technical>");
-		
-		//pw.printf("\t%s","<string>", Strings.valueOf(guitarString).toString(), "</string>");
-		
-		for (int i = 2; i < arr.size() - 2; i++) {
-			
-			
-			
-		}
-		
-		
-		pw.printf("%s","</technical>");
-		}
-		
-		catch (IOException e) {
-			e.printStackTrace();
-			System.exit(69420);
-		}
-		/*
-		 * must return something of the form
-		 * 
-		 * 	<technical>
-		 * 		<string>x</string>			where 1 <= x <= 6 
-		 * 		<fret>y</fret>				where 0 <= y <= 27
-		 * 	</technical>
-		 */
-		
-	}
-	
-	/**
-	 * @author Hashir Jamil, Abhirami Venugopol
-	 * @param notesList
-	 * @param division
-	 * @return
-	 */
-	public ArrayList<Note> updateDuration(ArrayList<Note> notesList, Division division) {
-		
-		for (int i = 0; i < notesList.size(); i++) {
-			notesList.get(i).setDuration((notesList.get(i).getDuration() - notesList.get(i + 1).getDuration())/(division.getDivisions()));
-			
-			if (notesList.get(i).getDuration() - notesList.get(i + 1).getDuration() == 0) {
-				//open a chord tag
-			}	
-		}
-		return notesList;
-	}
-	
-	
-	//public List<String> primitiveArrayToNoteArray(List<String> line1Array) {}
-	/*	
-	public getInfoFromArray(char[][] array) {
-		
-		Note n = new Note();
-		
-		
-		for (int i = 6; i >= 0; i++)
-			for(char j = 0; i <= 20; i++) {
-				
-				int a = Character.getNumericValue(array[j][i]);
-				//if you encounter a note
-				if(0 <= a &&  a <= 9) {
-					n.getNotation().getTechnical().setFret(a);
-					
+	public Measure CreateMeasure(char[][] firstMeasure) {
+		//the first measure does not include the vertical bars
+		Measure m = new Measure();
+
+		for (int j = 0; j < firstMeasure[0].length; j++) 
+			for (int i = 0; i < firstMeasure.length; i++) {
+				Note n = new Note();
+
+				if(firstMeasure[i][j] >= '0' && firstMeasure[i][j] <= '9' ) {
+
+					if ((firstMeasure[i][j-1] >= '0' &&  firstMeasure[i][j-1] <= '9') == false) {
+						//setting fret
+						if(firstMeasure[i][j+1] >= '0' && firstMeasure[i][j+1] <= '9' ) {
+							StringBuilder num = new StringBuilder();
+							num.append(firstMeasure[i][j]);
+							num.append(firstMeasure[i][j+1]);
+							int fret = Integer.parseInt(num.toString());
+							n.getNotations().getTechnical().setFret(fret);							
+						}else {				
+							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
+						}
+						//setting string
+						n.getNotations().getTechnical().setString(i+1);
+
+						//setting wrong duration
+						//						int duration = 0;
+						//						for(int k = j; k < firstMeasure[0].length; k++) {
+						//							duration++;
+						//							n.setDuration(duration);
+						//						}
+						n.setDuration(firstMeasure[0].length - j);
+						System.out.println(firstMeasure[0].length);
+
+
+
+
+					}
+					m.getNotes().add(n);	
+
 				}
-				
-				
+
+
+
 			}
-		
+		//testing
+		for (Note n: m.getNotes()) {
+			System.out.print(n.getNotations().getTechnical().getFret());
+			System.out.print(" " +n.getNotations().getTechnical().getString());
+			System.out.println(" "+n.getDuration());
+		}
+
+		return m;
+
 	}
-	*/
+
+	/**
+	 * @author Abhirami & Niharika
+	 * @param m
+	 */
+	public void updateDuration(Measure m) {
+
+		for (int i = 0; i < m.notes.size(); i++) {
+			if(i != m.notes.size()-1) {
+				System.out.println((m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration()));
+				m.notes.get(i).setDuration((m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration())/(2));
+
+				if (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() == 0) {
+					List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
+					indexArray.add(i);
+				}	
+			}
+
+		}
+
+	}
+
+	//	public ArrayList<Integer> createChordArray(List<Note> notes){
+	//		ArrayList<Integer> chordArray = new ArrayList<>();
+	//		for(int i =0; i<notes.size();i++) {
+	//			Note n = notes.get(i);
+	//			int current =n.getDuration();
+	//			int next = notes.get(i+1).getDuration();
+	//			
+	//			if(current == next){
+	//				chordArray.add(i);
+	//				
+	//			}
+	//			
+	//			
+	//			
+	//		}
+	//		return chordArray;
+	//		
+	//	}
+
+	//	public Note getPitch(Note n) {
+	//		/*
+	//		String dStep;
+	//		dStep = Character.toString(defaultStep);
+	//		//need to open alter tags whenever you encounter a sharp#
+	//		String [] originalData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+	//		String[] relevantData = new String[24]; //specifically 24 because a guitar can have a maximum for 24 frets
+	//		int index;
+	//		
+	//		for (int i =1 ; i <= 12; i++) {
+	//			if(originalData[i] == dStep) {
+	//				index = i;
+	//				break;
+	//			}
+	//		}
+	//		
+	//		for (int i = j; i <=12;)
+	//		*/// this part is supposed to generate the right list of step options 
+	//		//automatically, but for now I'm making a database
+	//		
+	//		char defaultStep = n.getPitch().getStep();
+	//		
+	//		String[] rData = new String[24];
+	//				
+	//		if (n.getPitch().getStep() == 'E') {
+	//			
+	//		String[] relevantData = {"F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"};
+	//		rData = relevantData;	
+	//		
+	//		}else if (n.getPitch().getStep() == 'B') {
+	//			
+	//		String[] relevantData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+	//		rData = relevantData;	
+	//		
+	//		}else if(n.getPitch().getStep() == 'G') {
+	//			
+	//		String[] relevantData = {"G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"};
+	//		rData = relevantData;	
+	//		
+	//		}else if(n.getPitch().getStep() == 'D') {
+	//			
+	//		String[] relevantData = {"D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"};
+	//		rData = relevantData;	
+	//		
+	//		}else if(n.getPitch().getStep() == 'A') {
+	//			
+	//		String[] relevantData = {"A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E","F", "F#", "G", "G#", "A"};
+	//		rData = relevantData;	
+	//		
+	//		}
+	//		
+	//		String actualStep = rData[n.getNotation().getTechnical().getFret()];
+	//		char[] aStep = actualStep.toCharArray();
+	//		if (aStep[1] == '#')
+	//			n.getPitch().setAlter(1);
+	//			
+	//		n.getPitch().setStep(aStep[0]); //actualStep is supposed to be char but we need to do something about the #
+	//		
+	//		if (defaultStep >= aStep[0])
+	//			n.getPitch().setOctave(n.getPitch().getOctave()+1);
+	//		
+	//		return n;
+	//		
+	//	}
+	//
+	//		
 
 
 }
