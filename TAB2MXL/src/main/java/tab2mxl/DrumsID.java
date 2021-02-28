@@ -1,5 +1,9 @@
 package tab2mxl;
 
+/*
+ * @Author Tommy Lam
+ */
+
 public class DrumsID {
 
 	public String instrumentID(char [][] array) {
