@@ -13,7 +13,7 @@ public class Drums {
 		}else if(instrument == "HF") {
 			instrument = "Closed Hi-Hat";
 		}
-		
+		 
 
 		return inst;
 	}
