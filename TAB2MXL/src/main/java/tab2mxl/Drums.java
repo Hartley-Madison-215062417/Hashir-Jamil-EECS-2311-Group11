@@ -79,7 +79,7 @@ public class Drums {
 		
 	}
 	
-	public int duration(char [][] array) {
+	/**public int duration(char [][] array) {
 		int duration = 0;
 		for (int i = 0; i<array.length; i++)
 			for(int j = 0; j < 1; j++) {
@@ -99,7 +99,7 @@ public class Drums {
 			}
 		return duration;
 
-	}
+	}**/
 	
 	public String type(int duration) {
 		String t = " ";
