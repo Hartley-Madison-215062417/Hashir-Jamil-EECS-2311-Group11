@@ -6,31 +6,27 @@ package tab2mxl;
 
 public class Drums {
 
-	public String instrumentID(char [][] array) {
+	public static String instrumentID(char [][] array) {
 		String instID = " ";
 		
 		for (int i = 0; i<array.length; i++)
 			for(int j = 0; j < 1; j++) {
-				char d = array [i][j];
-				String c = Character.toString(d);
-				if (c == "C"){
+				char c = array [i][j];
+				if (c == 'C'){
 					instID = "P1-I50";
-				}else if(c == "R") {
+				}else if(c == 'R') {
 					instID = "P1-I52";
-				}else if(c == "H") {
-					char e = array [i][2];
-					String f = Character.toString(e);
-					if(f == "T") {
-						instID = "P1-I51";
+				}else if(c == 'H') {
+					char e = array [i][1];
+					if(e == 'T') {
+						instID = "P1-I48";
 					}else {
 					instID = "P1-I43";}
-				}else if(c == "S") {
+				}else if(c == 'S') {
 					instID = "P1-I39";
-				}else if(c == "M") {
-					instID = "P1-I49";
-				}else if (c == "T") {
-					instID = "P1-I48";
-				}else if (c == "B") {
+				}else if(c == 'M') {
+					instID = "P1-I46";
+				}else if (c == 'B') {
 					instID = "P1-I36";
 				}
 
@@ -48,7 +44,7 @@ public class Drums {
 		return stem;
 	}
 	
-	public String StepDrums(char [][] array) {
+	public static String StepDrums(char [][] array) {
 		String Steps = " ";
 		for (int i = 0; i<array.length; i++)
 			for(int j = 0; j < 1; j++) {
@@ -59,9 +55,9 @@ public class Drums {
 				}else if(i==2) {
 					Steps = "C";
 				}else if(i==3) {
-					Steps = "D";
-				}else if(i==4) {
 					Steps = "E";
+				}else if(i==4) {
+					Steps = "D";
 				}else if(i==5) {
 					Steps = "F";
 				}else {
@@ -83,6 +79,28 @@ public class Drums {
 		
 	}
 	
+	public int duration(char [][] array) {
+		int duration = 0;
+		for (int i = 0; i<array.length; i++)
+			for(int j = 0; j < 1; j++) {
+				char d = array [i][j];
+				String c = Character.toString(d);
+				int counter1 = 1;
+				int counter2 = 1;
+				while(c != "x || o || X") {
+					counter1++;
+				}
+				char e = array[i+1][j];
+				String f = Character.toString(e);
+				while(f != "x || o || X") {
+					counter2++;
+				}
+				duration = counter2 - counter1;
+			}
+		return duration;
+
+	}
+	
 	public String type(int duration) {
 		String t = " ";
 		if(duration == 1) {
@@ -96,6 +114,35 @@ public class Drums {
 		}
 		return t;
 	}
+	
+	public int octave(int voice) {
+		int oct = 0;
+		if(voice == 1) {
+			oct = 5;
+		}else if (voice == 2) {
+			oct = 4;
+		}
+		return oct;
+	}
+	
+	
+	
+	/**public static void main(String args[]) {
+		
+		char mat[][] = { {'H','H','X','X'},
+               };
+		
+		
+		
+		char [][] mat = {{"C","C","|",'x','-','-','-','-'},
+				{"C","C","|",'x','-','-','-','-'},
+			{"C","C","|",'x','-','-','-','-'}
+				}
+		}
+		
+		System.out.println("" + instrumentID(mat));
+	}**/
+	
 	
 	
 }
