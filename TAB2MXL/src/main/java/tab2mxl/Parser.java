@@ -33,6 +33,7 @@ public class Parser {
 
 
 	/**
+	 * @author Hashir
 	 * Input File Specified Constructor
 	 * @param inFile, a file path containing a tab in txt form
 	 */
@@ -43,6 +44,10 @@ public class Parser {
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
 	}
 
+	/**
+	 * @author Hashir
+	 * @param inputFile
+	 */
 	public Parser(File inputFile) {
 		//file.getPath();
 
@@ -55,7 +60,7 @@ public class Parser {
 
 
 	/**
-	 * 
+	 * @author Hashir
 	 */
 	private void readFile() {
 
@@ -75,7 +80,7 @@ public class Parser {
 	}
 
 	/**
-	 * 
+	 * @author Hashir
 	 * @param str
 	 * @return
 	 */
@@ -141,23 +146,37 @@ public class Parser {
 	 * @param old - a set of measures; 2d array that is guaranteed to have n rows, where n is the number of lines for the instrument
 	 * @return
 	 */
-	public HashMap<Integer, char[][]> getFirstMeasure(char[][] old) {
+	public ArrayList<char[][]> getFirstMeasure(char[][] old) {
 		
 		//possible exception for more than n rows could be handled
 		
-		HashMap<Integer, char[][]> measures = new HashMap<Integer, char[][]>();
-		int totalmeasures = Parser.computeNumberOfMeasures(old);
+		ArrayList<char[][]> measures = new ArrayList<char[][]>();
+		ArrayList<Integer> measureSeparatorIndices = new ArrayList<Integer>();
+		//int totalmeasures = Parser.computeNumberOfMeasures(old);
 		
-		int col = this.tabList.get(0).length()/totalmeasures;
-		//int col = this.tabList.get(0).length();
-		char[][] current = new char[6][col];
-
-		for(int i=0; i<6; i++) {
-			for(int j=1; j< col; j++) {
-				current[i][j]=old[i][j];
+		/*
+		 * fill up array list of integers with the indices of the measure separators 
+		 */
+		for (int i = 1; i < old[0].length; i++) {
+			if (old[0][i] == '|') {
+				measureSeparatorIndices.add(i);
 			}
 		}
-		return measures;
+		
+		for (int h = 1; h < measureSeparatorIndices.size(); h++) {
+			
+			int cols = measureSeparatorIndices.get(h) + 1;
+			int rows = old.length;
+			char[][] current = new char[rows][cols];
+			
+			for (int i = 0; i < rows; i++) {
+				for (int j = 1; j < measureSeparatorIndices.get(h); j++) {
+					current[i][j] = old[i][j];
+				}
+			}
+			measures.add(current);
+		}	
+		return measures; 
 	}
 	
 	/*
