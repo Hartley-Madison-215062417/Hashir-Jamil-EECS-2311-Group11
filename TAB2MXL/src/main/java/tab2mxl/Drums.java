@@ -83,6 +83,20 @@ public class Drums {
 		
 	}
 	
+	public String type(int duration) {
+		String t = " ";
+		if(duration == 1) {
+			t = "16th";
+		}else if(duration == 2) {
+			t = "eighth";
+		}else if(duration == 4) {
+			t = "quarter";
+		}else if(duration == 8) {
+			t = "half";
+		}
+		return t;
+	}
+	
 	
 }
 
