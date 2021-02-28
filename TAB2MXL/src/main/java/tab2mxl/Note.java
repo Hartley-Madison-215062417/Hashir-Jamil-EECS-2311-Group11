@@ -1,25 +1,45 @@
 package tab2mxl;
 
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name ="note")
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder= {"pitch","duration","voice","type","notations"})
+
 public class Note {
-
-
-	private Pitch pitch;
-	private int duration;
-	private int voice;
-	//private String type;
-	private Notation notation;
-
+	
+	@XmlElement
+	Pitch pitch = new Pitch();
+	
+	@XmlElement
+	int duration;
+	
+	@XmlElement
+	int voice;
+	
+	@XmlElement
+	String type;
+	
+	@XmlElement
+	Notations notations = new Notations();
+	
 	public Note() {
+		super();
 	}
 	
-	public Note(Parser p) {
-		pitch = new Pitch(p);
+	public Note(Pitch pitch, int duration, int voice, String type, Notations notations) {
+		super();
+		this.pitch = pitch;
+		this.duration = duration;
+		this.voice = voice;
+		this.type = type;
+		this.notations = notations;
 	}
-	
-	public Note(int stringNum, int fretNum) {
-		this.notation = new Notation(stringNum, fretNum);
-	}
-	
 	public Pitch getPitch() {
 		return pitch;
 	}
@@ -32,25 +52,27 @@ public class Note {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public int getVoice() {
-		return voice;
-	}
-	public void setVoice(int voice) {
-		this.voice = voice;
-	}
-	/*
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
-	}*/
-	public Notation getNotation() {
-		return notation;
 	}
-	public void setNotation(Notation notations) {
-		this.notation = notations;
+	public Notations getNotations() {
+		return notations;
+	}
+	public void setNotations(Notations notations) {
+		this.notations = notations;
+	}
+
+	public int getVoice() {
+		return voice;
+	}
+
+	public void setVoice(int voice) {
+		this.voice = voice;
 	}
 	
 	
+
 }

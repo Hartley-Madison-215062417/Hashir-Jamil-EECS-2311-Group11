@@ -1,53 +1,58 @@
 package tab2mxl;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "pitch")
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder= {"step","octave"})
 public class Pitch {
-	private char step;
-	private int octave;
-	private int alter;
 	
-	public Pitch(char step, int octave) {
+	@XmlElement
+	char step;
+	
+	@XmlElement
+	int octave;
+	
+	@XmlElement
+	int alter;
+	
+	public Pitch() {
+		super();
+	}
+	
+	public Pitch(char step, int octave,int alter) {
+		super();
 		this.step = step;
 		this.octave = octave;
 		this.alter = 0;
 	}
 	
-	public Pitch(Parser p) {
-		
-	}
-	
-	
-	public Pitch(char step, int octave, int alter) {
-		this.step = step;
-		this.octave = octave;
-		this.alter = alter;
-	}
-
-	public char constructStep() {
-		return '0';
-	}
-	
 	public char getStep() {
 		return step;
 	}
-
+	
 	public void setStep(char step) {
 		this.step = step;
 	}
-
-	public int getAlter() {
-		return alter;
-	}
-
-	public void setAlter(int alter) {
-		this.alter = alter;
-	}
-
+	
 	public int getOctave() {
 		return octave;
 	}
-
+	
 	public void setOctave(int octave) {
 		this.octave = octave;
+	}
+	
+	public void setAlter(int alter) {
+		this.alter =alter;
+	}
+	
+	public int getAlter() {
+		return alter;
 	}
 	
 }
