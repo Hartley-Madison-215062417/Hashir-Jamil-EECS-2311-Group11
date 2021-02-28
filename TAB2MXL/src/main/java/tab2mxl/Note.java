@@ -40,6 +40,10 @@ public class Note {
 		this.type = type;
 		this.notations = notations;
 	}
+	public Note(int s, int f) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Pitch getPitch() {
 		return pitch;
 	}

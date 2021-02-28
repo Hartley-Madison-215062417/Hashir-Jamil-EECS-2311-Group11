@@ -20,7 +20,7 @@ public class Division {
 	public Division(Parser p) {
 		
 		Time time = new Time(p);
-		this.divisions = time.length/time.beatType;
+		//this.divisions = time.length/time.beatType;
 		
 		
 	}

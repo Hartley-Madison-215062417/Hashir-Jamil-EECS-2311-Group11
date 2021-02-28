@@ -1,4 +1,4 @@
-//package tab2mxl;
+package tab2mxl;
 //
 //public class Time {
 //	
@@ -136,6 +136,10 @@ public class Time {
 		super();
 		this.beats = beats;
 		this.beatType = beatType;
+	}
+
+	public Time(Parser p) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getBeats() {

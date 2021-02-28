@@ -32,6 +32,14 @@ public class Measure {
 	
 	
 	
+	public Measure(Note n) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Measure() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setNotes(ArrayList<Note> notes) {
 		this.notes = notes;
 	}
