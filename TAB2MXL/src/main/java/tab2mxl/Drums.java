@@ -4,7 +4,7 @@ package tab2mxl;
  * @Author Tommy Lam
  */
 
-public class DrumsID {
+public class Drums {
 
 	public String instrumentID(char [][] array) {
 		String instID = " ";
@@ -38,9 +38,53 @@ public class DrumsID {
 		return instID;
 	}
 	
-
-
-
-
-
+	public String Stem(int voice) {
+		String stem;
+		if(voice == 1) {
+			stem = "up";
+		}else {
+			stem = "down";
+		}
+		return stem;
+	}
+	
+	public String StepDrums(char [][] array) {
+		String Steps = " ";
+		for (int i = 0; i<array.length; i++)
+			for(int j = 0; j < 1; j++) {
+				if(i==0) {
+					Steps = "A";
+				}else if(i==1) {
+					Steps = "G";
+				}else if(i==2) {
+					Steps = "C";
+				}else if(i==3) {
+					Steps = "D";
+				}else if(i==4) {
+					Steps = "E";
+				}else if(i==5) {
+					Steps = "F";
+				}else {
+					Steps = "?";
+				}
+			}
+		return Steps;
+	}
+	
+	
+	public int voice(String id) {
+		int x;
+		if(id == "P1-I36") {
+			x = 2;
+		}else {
+			x = 1;
+		}
+		return x;
+		
+	}
+	
+	
 }
+
+
+
