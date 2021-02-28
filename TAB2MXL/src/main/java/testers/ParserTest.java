@@ -42,6 +42,8 @@ public class ParserTest {
         System.out.println(jimi.getTabCharMatrix()[i]);
     }
 	
+	//System.out.println(p.getFirstLine(p.getTabCharMatrix()));
+	
 	
 	 }
 	
