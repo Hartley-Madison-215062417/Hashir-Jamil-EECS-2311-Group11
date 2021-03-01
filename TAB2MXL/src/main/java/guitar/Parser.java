@@ -436,6 +436,25 @@ public class Parser {
 		}
 	
 	
+	public char[][]separateMeasure(char[][] old) {
+		char[][] single;
+		
+		for(int i = 0; i<old[0].length; i++) {
+			if(old[0][i] == '|') {
+				
+			}
+		}
+		
+		return old;
+	}
+	
+	public char[][] measureSeperatorIndices(char[][] old) {
+		
+		return old;
+	}
+	
+	
+	
 	public char[][] getFirstMeasure(char[][] old) {
 		int totalmeasures = 2;						// hard coded for now. this method would work great if we knew 
 													// total number of measures
