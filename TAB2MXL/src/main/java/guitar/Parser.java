@@ -495,6 +495,7 @@ public class Parser {
 						//System.out.println(firstMeasure[0].length);
 						
 						n.setDefaultStep(n);
+						n.updatePitch(n);
 						
 						
 					}
@@ -505,6 +506,7 @@ public class Parser {
 			
 				
 			}
+		m.updateDuration(m);
 		//testing
 		for (Note n: m.getNotes()) {
 		System.out.print(n.getNotations().getTechnical().getFret());
@@ -517,94 +519,7 @@ public class Parser {
 		}
 	
 	
-	/*
-	 * A method to update the duration set for each note in the createMeasure class
-	 */
-	public void updateDuration(Measure m) {
-				
-		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
-		List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
-		//duration of 1 chord, it has to be rewritten for each chord
-		int chordDuration = 0; 
-		
-		//System.out.println(m.notes.size());
-		
-		//looping through a list of all notes inside 1 measure
-		for (int i = 0; i <= m.notes.size()-1; i++) {
-			
-			//System.out.println("test0");
-			
-			//if the note is the last note
-			if(i == m.notes.size()-1) {
-				chordDuration = m.getNotes().get(i).getDuration();
-				
-			
-				if (i!=0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
-					for (int index: indexArray) {
-						System.out.println("test1a");
-						chordDuration = m.getNotes().get(i).getDuration()/2;
-						m.notes.get(index).setDuration(chordDuration);						
-					}
-					System.out.println("niaa");
-					m.notes.get(i).setDuration(chordDuration);	
-					indexArray.removeAll(indexArray);
-				}
-				
-				
-				
-			}
-			
-			//if the note is not the last note
-			else {
-								
-				//if it is the last note of a chord
-				if (i!=0 && m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() != 0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
-					if(i!= m.notes.size()-1) {
-					chordDuration = (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration())/2;
-					m.notes.get(i).setDuration(chordDuration);
-					}
-					
-					
-					for (int index: indexArray) {
-						System.out.println("test1");
-						m.notes.get(index).setDuration(chordDuration);						
-					}
-					System.out.println("nia");
-					indexArray.removeAll(indexArray);
-					
-				}
-				
-				
-				
-				//if it is a note in the chord, but not last note in chord
-				else if (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() == 0) {
-				//	System.out.println("polo");
-					indexArray.add(i);
-					System.out.println(i + " " + m.notes.get(i).getNotations().getTechnical().getFret());
-					
-				}	
-				
-				
-				//if not part of a chord
-				else{
-					//System.out.println("test3");
-					m.notes.get(i).setDuration((m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration())/2);
-				}
-				
-				System.out.println(m.notes.size() + "hi");
-				if(i == m.notes.size()-1) {
-					System.out.println("idkkkkkkk");
-					m.notes.get(i).setDuration(m.notes.get(i).getDuration()/2);
-					
-				}
-				
-				
-				
-			}
-			
-		}
-		
-	}
+	
 	
 //	public ArrayList<Integer> createChordArray(List<Note> notes){
 //		ArrayList<Integer> chordArray = new ArrayList<>();
@@ -626,99 +541,6 @@ public class Parser {
 //	}
 	
 	
-	//this method updates step and octave in pitch 
-	public Note updatePitch(Note n) {
-		int octave;
-		int fret = n.getNotations().getTechnical().getFret();
-		/*
-		String dStep;
-		dStep = Character.toString(defaultStep);
-		//need to open alter tags whenever you encounter a sharp#
-		String [] originalData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-		String[] relevantData = new String[24]; //specifically 24 because a guitar can have a maximum for 24 frets
-		int index;
-		
-		for (int i =1 ; i <= 12; i++) {
-			if(originalData[i] == dStep) {
-				index = i;
-				break;
-			}
-		}
-		
-		for (int i = j; i <=12;)
-		*/// this part is supposed to generate the right list of step options 
-		//automatically, but for now I'm making a database
-		
-		char defaultStep = n.getPitch().getStep();
-		
-		String[] rData = new String[24];
-				
-		if (n.getPitch().getStep() == 'E') {
-			
-		String[] relevantData = {"F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"};
-		rData = relevantData;
-		
-//		if (fret <= 1 && fret >= 7) {
-//			octave = 4;
-//			n.getPitch().setOctave(octave);
-//		}
-//		
-//		else if (fret<= 8 && fret >= 19) {
-//			octave = 5;
-//			n.getPitch().setOctave(octave);
-//		}
-//		else if(fret<= 20 && fret >= 24) {
-//			octave = 6;
-//			n.getPitch().setOctave(octave);
-//		}
-		
-		}else if (n.getPitch().getStep() == 'B') {
-			
-		String[] relevantData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-		rData = relevantData;	
-		
-		}else if(n.getPitch().getStep() == 'G') {
-			
-		String[] relevantData = {"G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"};
-		rData = relevantData;	
-		
-		}else if(n.getPitch().getStep() == 'D') {
-			
-		String[] relevantData = {"D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"};
-		rData = relevantData;	
-		
-		}else if(n.getPitch().getStep() == 'A') {
-			
-		String[] relevantData = {"A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E","F", "F#", "G", "G#", "A"};
-		rData = relevantData;	
-		
-		}
-		
-		String actualStep = rData[fret-1];
-		char[] aStep = actualStep.toCharArray();
-		
-		if (aStep.length == 0){
-			n.getPitch().setStep(aStep[0]);
-		}
-		else {
-			n.getPitch().setAlter(1);
-			n.getPitch().setStep(aStep[0]);
-			
-		}
-		
-		int octaveCounter = n.getPitch().getOctave();
-		for(int i = 0; i < rData.length; i++) {
-			if (rData[i] == "C") octaveCounter++;
-			if (rData[i].charAt(0) == n.getPitch().getStep() &&  fret == i+1)
-				n.getPitch().setOctave(octaveCounter);
-		}
-		
-//		if (defaultStep > aStep[0])
-//			n.getPitch().setOctave(n.getPitch().getOctave()+1);
-		
-		return n;
-		
-	}
 	
 	public Part createMusicalPart(ArrayList<char[][]> measures) {
 		

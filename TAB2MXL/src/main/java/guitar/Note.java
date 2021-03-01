@@ -110,5 +110,100 @@ public class Note {
 		
 	}
 	
+	//this method updates step and octave in pitch 
+		public Note updatePitch(Note n) {
+			int octave;
+			int fret = n.getNotations().getTechnical().getFret();
+			/*
+			String dStep;
+			dStep = Character.toString(defaultStep);
+			//need to open alter tags whenever you encounter a sharp#
+			String [] originalData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+			String[] relevantData = new String[24]; //specifically 24 because a guitar can have a maximum for 24 frets
+			int index;
+			
+			for (int i =1 ; i <= 12; i++) {
+				if(originalData[i] == dStep) {
+					index = i;
+					break;
+				}
+			}
+			
+			for (int i = j; i <=12;)
+			*/// this part is supposed to generate the right list of step options 
+			//automatically, but for now I'm making a database
+			
+			char defaultStep = n.getPitch().getStep();
+			
+			String[] rData = new String[24];
+					
+			if (n.getPitch().getStep() == 'E') {
+				
+			String[] relevantData = {"F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"};
+			rData = relevantData;
+			
+//			if (fret <= 1 && fret >= 7) {
+//				octave = 4;
+//				n.getPitch().setOctave(octave);
+//			}
+//			
+//			else if (fret<= 8 && fret >= 19) {
+//				octave = 5;
+//				n.getPitch().setOctave(octave);
+//			}
+//			else if(fret<= 20 && fret >= 24) {
+//				octave = 6;
+//				n.getPitch().setOctave(octave);
+//			}
+			
+			}else if (n.getPitch().getStep() == 'B') {
+				
+			String[] relevantData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+			rData = relevantData;	
+			
+			}else if(n.getPitch().getStep() == 'G') {
+				
+			String[] relevantData = {"G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"};
+			rData = relevantData;	
+			
+			}else if(n.getPitch().getStep() == 'D') {
+				
+			String[] relevantData = {"D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"};
+			rData = relevantData;	
+			
+			}else if(n.getPitch().getStep() == 'A') {
+				
+			String[] relevantData = {"A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E","F", "F#", "G", "G#", "A"};
+			rData = relevantData;	
+			
+			}
+			
+			String actualStep = rData[fret-1];
+			char[] aStep = actualStep.toCharArray();
+			
+			if (aStep.length == 0){
+				n.getPitch().setStep(aStep[0]);
+			}
+			else {
+				n.getPitch().setAlter(1);
+				n.getPitch().setStep(aStep[0]);
+				
+			}
+			
+			int octaveCounter = n.getPitch().getOctave();
+			for(int i = 0; i < rData.length; i++) {
+				if (rData[i] == "C") octaveCounter++;
+				if (rData[i].charAt(0) == n.getPitch().getStep() &&  fret == i+1)
+					n.getPitch().setOctave(octaveCounter);
+			}
+			
+//			if (defaultStep > aStep[0])
+//				n.getPitch().setOctave(n.getPitch().getOctave()+1);
+			
+			return n;
+			
+		}
+		
+	
 
 }
