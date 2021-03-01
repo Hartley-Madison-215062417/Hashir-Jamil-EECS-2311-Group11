@@ -1,4 +1,4 @@
-package testers;
+package tab2mxl;
 
 import tab2mxl.Parser;
 import org.junit.jupiter.api.Assertions.*;
