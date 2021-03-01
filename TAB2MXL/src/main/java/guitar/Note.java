@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name ="note")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"pitch","duration","voice","type","notations"})
+@XmlType(propOrder= {"pitch","duration","voice","type","notations","chord"})
 
 public class Note {
 	
