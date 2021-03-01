@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<note>
+    <pitch>
+        <step>69</step>
+        <octave>2</octave>
+        <alter>0</alter>
+    </pitch>
+    <duration>1</duration>
+    <voice>1</voice>
+    <type>eighth</type>
+    <notations>
+        <technical>
+            <string>6</string>
+            <fret>0</fret>
+        </technical>
+    </notations>
+</note>
