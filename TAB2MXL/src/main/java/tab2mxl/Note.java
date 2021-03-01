@@ -1,4 +1,4 @@
-package guitar;
+package tab2mxl;
 
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import guitar.Notations;
+import guitar.Pitch;
 
 @XmlRootElement(name ="note")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -77,38 +80,6 @@ public class Note {
 		this.voice = voice;
 	}
 	
-	public void setDefaultStep(Note n) {
-		
-		
-		int string = n.getNotations().getTechnical().getString();		
-		
-		if(string == 1) {
-			n.getPitch().setStep('E');
-			n.getPitch().setOctave(4);
-		}
-		else if(string == 2) {
-			n.getPitch().setStep('B');
-			n.getPitch().setOctave(3);
-		}
-		else if(string == 3) {
-			n.getPitch().setStep('G');
-			n.getPitch().setOctave(3);
-		}
-		else if(string == 4) {
-			n.getPitch().setStep('D');
-			n.getPitch().setOctave(3);
-		}
-		else if(string == 5) {
-			n.getPitch().setStep('A');
-			n.getPitch().setOctave(2);
-			
-		}
-		else if(string == 6) {
-			n.getPitch().setStep('E');
-			n.getPitch().setOctave(2);
-		}
-		
-	}
 	
 
 }
