@@ -11,6 +11,7 @@ import tab2mxl.Parser;
  * 
  */
 
+@SuppressWarnings("unused")
 public class ParserTest {
 	
 	

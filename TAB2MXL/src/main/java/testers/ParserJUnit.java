@@ -1,7 +1,10 @@
 package testers;
 
 import tab2mxl.Parser;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.Assert.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 
@@ -14,6 +17,7 @@ import org.junit.jupiter.api.Test;
  */
 
 
+@SuppressWarnings("unused")
 class ParserJUnit {
 	
 	
