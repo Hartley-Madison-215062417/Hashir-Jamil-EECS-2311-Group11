@@ -1,6 +1,6 @@
 package tab2mxl;
 
-import jaxb.EmployeeJAXB;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
@@ -9,6 +9,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import guitar.Parser;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,10 +27,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
-import jaxb.EmployeeJAXB;
+
 
 public class Main extends Application{
 	//comment
@@ -39,22 +41,9 @@ public class Main extends Application{
 
 	
 	public static void main(String[] args) {
-		EmployeeJAXB obj1 = new EmployeeJAXB();
-		obj1.marshall();
 		
 		launch(args);
-		
-		//try {			
-			
-			MeasureJAXB obj = new MeasureJAXB();
-			obj.marshall();
-			
-		//} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			//System.out.println(""+e.getMessage());
-		//}
-			
-		
+						
 	}
 
 	@Override
@@ -171,7 +160,7 @@ public class Main extends Application{
 		                    }
 		                });
 		        
-		        TextField textbox = new TextField("input tab here"); 
+		        TextArea textbox = new TextArea("input tab here"); 
 		        textbox.setLayoutX(150);
 		        textbox.setLayoutY(250);
 		        textbox.setMinSize(700, 200);
@@ -186,7 +175,7 @@ public class Main extends Application{
 		            } 
 		        }; 
 		        
-		        textbox.setOnAction(event); 
+		        //textbox.setOnAction(event); 
 		     
 		  
 		        Pane layout2 = new Pane();
@@ -205,12 +194,6 @@ public class Main extends Application{
 		window.setScene(scene1);
 		window.setTitle("Tablature to MusicXML Converter");
 		window.show();
-		
-		
-		
-		
-		
-		
 		
 	}
 
