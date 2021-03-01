@@ -15,7 +15,7 @@ import javax.swing.JFrame;
  * Author: Madison
  * A lot of this code is based off code directly copied off of:
  * https://examples.javacodegeeks.com/desktop-java/swing/jfilechooser/create-file-chooser-dialog/
- * And so, needs to be rewritten to a degree for originality and then give credit for being based off of the code found at the URL.
+ * And so, needs to be rewritten.
  */
 
 public class ChooseFile {
