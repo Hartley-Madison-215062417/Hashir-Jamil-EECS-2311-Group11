@@ -28,6 +28,9 @@ public class Note {
 	@XmlElement
 	Notations notations = new Notations();
 	
+	@XmlElement
+	Chord chord;
+	
 	public Note() {
 		super();
 	}

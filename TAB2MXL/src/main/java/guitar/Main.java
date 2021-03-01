@@ -33,6 +33,7 @@ class Main{
 		
 		Parser parser = new Parser("prototypeGuitarTab.txt");
 		Part part = parser.createMusicalPart(testArrayList3);
+		
 		JAXBContext jc = JAXBContext.newInstance(Part.class);
 		Marshaller ms = jc.createMarshaller();
 		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);

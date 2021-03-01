@@ -31,7 +31,6 @@ public class Measure {
 	static int measureNumber;
 	
 	
-	
 	public void setNotes(ArrayList<Note> notes) {
 		this.notes = notes;
 	}
@@ -102,7 +101,9 @@ public class Measure {
 								
 				//if it is the last note of a chord
 				if (i!=0 && m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() != 0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
+					
 					Chord c = new Chord();
+					
 					if(i!= m.notes.size()-1) {
 					
 					chordDuration = (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration())/2;
@@ -123,7 +124,7 @@ public class Measure {
 				
 				//if it is a note in the chord, but not last note in chord
 				else if (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() == 0) {
-				//	System.out.println("polo");
+				
 					indexArray.add(i);
 					System.out.println(i + " " + m.notes.get(i).getNotations().getTechnical().getFret());
 					
@@ -132,13 +133,13 @@ public class Measure {
 				
 				//if not part of a chord
 				else{
-					//System.out.println("test3");
+					
 					m.notes.get(i).setDuration((m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration())/2);
 				}
 				
-				System.out.println(m.notes.size() + "hi");
+				
 				if(i == m.notes.size()-1) {
-					//System.out.println("idkkkkkkk");
+					
 					m.notes.get(i).setDuration(m.notes.get(i).getDuration()/2);
 					
 				}
