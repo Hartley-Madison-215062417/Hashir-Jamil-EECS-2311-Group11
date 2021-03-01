@@ -117,6 +117,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import guitar.Parser;
+
 @XmlRootElement(name = "time")
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder= {"beats","beatType"})

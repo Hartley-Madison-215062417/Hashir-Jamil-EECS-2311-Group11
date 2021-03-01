@@ -1,4 +1,4 @@
-package tab2mxl;
+package drums;
 
 /*
  * @Author Tommy Lam

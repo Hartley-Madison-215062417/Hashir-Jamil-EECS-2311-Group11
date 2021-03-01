@@ -1,10 +1,10 @@
 package tab2mxl;
 
-import tab2mxl.Parser;
+import guitar.Parser;
 import org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.assertNotSame;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 

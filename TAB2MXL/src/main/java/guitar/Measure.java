@@ -1,4 +1,4 @@
-package tab2mxl;
+package guitar;
 
 
 import java.util.ArrayList;
@@ -10,9 +10,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-
-import guitar.Attributes;
-import guitar.Barline;
 
 @XmlRootElement(name = "measure")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -35,14 +32,6 @@ public class Measure {
 	
 	
 	
-	public Measure(Note n) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Measure() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public void setNotes(ArrayList<Note> notes) {
 		this.notes = notes;
 	}

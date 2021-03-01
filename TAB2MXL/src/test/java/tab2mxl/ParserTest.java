@@ -1,7 +1,7 @@
 package tab2mxl;
 
 import java.io.File;
-import tab2mxl.Parser;
+import guitar.Parser;
 
 /*
  * @Author: Madison Hartley
