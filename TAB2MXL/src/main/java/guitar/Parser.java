@@ -494,7 +494,7 @@ public class Parser {
 						n.setDuration(firstMeasure[0].length - j);
 						//System.out.println(firstMeasure[0].length);
 						
-						n.set
+						n.setDefaultStep(n);
 						
 						
 					}
