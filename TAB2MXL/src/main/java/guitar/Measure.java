@@ -84,11 +84,11 @@ public class Measure {
 			
 				if (i!=0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
 					for (int index: indexArray) {
-						System.out.println("test1a");
+						//System.out.println("test1a");
 						chordDuration = m.getNotes().get(i).getDuration()/2;
 						m.notes.get(index).setDuration(chordDuration);						
 					}
-					System.out.println("niaa");
+					//System.out.println("niaa");
 					m.notes.get(i).setDuration(chordDuration);	
 					indexArray.removeAll(indexArray);
 				}
@@ -102,7 +102,9 @@ public class Measure {
 								
 				//if it is the last note of a chord
 				if (i!=0 && m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() != 0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
+					Chord c = new Chord();
 					if(i!= m.notes.size()-1) {
+					
 					chordDuration = (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration())/2;
 					m.notes.get(i).setDuration(chordDuration);
 					}
@@ -136,7 +138,7 @@ public class Measure {
 				
 				System.out.println(m.notes.size() + "hi");
 				if(i == m.notes.size()-1) {
-					System.out.println("idkkkkkkk");
+					//System.out.println("idkkkkkkk");
 					m.notes.get(i).setDuration(m.notes.get(i).getDuration()/2);
 					
 				}

@@ -344,7 +344,7 @@ public class Parser {
 	private File inputFile;
 	private char[][] tabCharMatrix;
 	private String outputFile; //not used at the moment
-	private Part part;
+	private Part part = new Part();
 	
 	/*
 	 * Defualt contructor 
@@ -495,7 +495,10 @@ public class Parser {
 						//System.out.println(firstMeasure[0].length);
 						
 						n.setDefaultStep(n);
+						
+						if(n.getNotations().getTechnical().getFret()!=0) {
 						n.updatePitch(n);
+						}
 						
 						
 					}

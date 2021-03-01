@@ -20,7 +20,7 @@ public class Note {
 	int duration;
 	
 	@XmlElement
-	int voice;
+	final int voice = 1;
 	
 	@XmlElement
 	String type;
@@ -36,7 +36,7 @@ public class Note {
 		super();
 		this.pitch = pitch;
 		this.duration = duration;
-		this.voice = voice;
+		//this.voice = voice;
 		this.type = type;
 		this.notations = notations;
 	}
@@ -73,10 +73,10 @@ public class Note {
 		return voice;
 	}
 
-	public void setVoice(int voice) {
-		this.voice = voice;
-	}
-	
+//	public void setVoice(int voice) {
+//		this.voice = voice;
+//	}
+//	
 	public void setDefaultStep(Note n) {
 		
 		
@@ -178,7 +178,9 @@ public class Note {
 			
 			}
 			
+						
 			String actualStep = rData[fret-1];
+			
 			char[] aStep = actualStep.toCharArray();
 			
 			if (aStep.length == 0){
