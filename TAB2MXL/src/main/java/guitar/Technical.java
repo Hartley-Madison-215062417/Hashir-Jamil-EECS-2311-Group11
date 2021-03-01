@@ -1,4 +1,4 @@
-package tab2mxl;
+package guitar;
 
 //public class Technical {
 //	private int string;

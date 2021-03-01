@@ -3,6 +3,8 @@ package tab2mxl;
 import java.util.ArrayList;
 import java.util.List;
 
+import guitar.Note;
+
 /*
  * @Author Tommy Lam, Hashir Jamil
  */

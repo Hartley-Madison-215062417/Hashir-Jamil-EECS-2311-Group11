@@ -1,4 +1,4 @@
-package tab2mxl;
+package guitar;
 
 
 import javax.xml.bind.annotation.XmlAccessType;
