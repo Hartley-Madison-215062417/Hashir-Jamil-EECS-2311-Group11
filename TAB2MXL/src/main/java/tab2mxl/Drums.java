@@ -34,7 +34,7 @@ public class Drums {
 		return instID;
 	}
 	
-	public String Stem(int voice) {
+	public String stem(int voice) {
 		String stem;
 		if(voice == 1) {
 			stem = "up";
@@ -44,7 +44,7 @@ public class Drums {
 		return stem;
 	}
 	
-	public static String StepDrums(char [][] array) {
+	public static String stepDrums(char [][] array) {
 		String Steps = " ";
 		for (int i = 0; i<array.length; i++)
 			for(int j = 0; j < 1; j++) {
@@ -100,6 +100,10 @@ public class Drums {
 		return duration;
 
 	}**/
+	
+	public int duration() {
+		return 2;
+	}
 	
 	public String type(int duration) {
 		String t = " ";
