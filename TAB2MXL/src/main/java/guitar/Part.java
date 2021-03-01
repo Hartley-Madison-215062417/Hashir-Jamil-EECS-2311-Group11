@@ -16,24 +16,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Part {
 	
 	@XmlElement(name = "measure",type = Measure.class)
-	private List<Measure> part = new ArrayList<Measure>();
+	private List<Measure> measuresList = new ArrayList<Measure>();
 	
 
 	public Part() {
 		super();
 	}
 
-	public Part(List<Measure> part) {
+	public Part(List<Measure> measuresList) {
 		super();
-		this.part = part;
+		this.measuresList = measuresList;
 	}
 
 	public List<Measure> getPart() {
-		return part;
+		return measuresList;
 	}
 
-	public void setMeasures(List<Measure> part) {
-		this.part = part;
+	public void setPart(List<Measure> part) {
+		this.measuresList = part;
 	}
 	
 	
