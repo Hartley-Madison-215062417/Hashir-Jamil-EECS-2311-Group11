@@ -81,33 +81,32 @@ public class Note {
 //	}
 //	
 	public void setDefaultStep(Note n) {
-		
-		
+
 		int string = n.getNotations().getTechnical().getString();		
 		
 		if(string == 1) {
-			n.getPitch().setStep('E');
+			n.getPitch().setStep("E");
 			n.getPitch().setOctave(4);
 		}
 		else if(string == 2) {
-			n.getPitch().setStep('B');
+			n.getPitch().setStep("B");
 			n.getPitch().setOctave(3);
 		}
 		else if(string == 3) {
-			n.getPitch().setStep('G');
+			n.getPitch().setStep("G");
 			n.getPitch().setOctave(3);
 		}
 		else if(string == 4) {
-			n.getPitch().setStep('D');
+			n.getPitch().setStep("D");
 			n.getPitch().setOctave(3);
 		}
 		else if(string == 5) {
-			n.getPitch().setStep('A');
+			n.getPitch().setStep("A");
 			n.getPitch().setOctave(2);
 			
 		}
 		else if(string == 6) {
-			n.getPitch().setStep('E');
+			n.getPitch().setStep("E");
 			n.getPitch().setOctave(2);
 		}
 		
@@ -136,11 +135,11 @@ public class Note {
 			*/// this part is supposed to generate the right list of step options 
 			//automatically, but for now I'm making a database
 			
-			char defaultStep = n.getPitch().getStep();
+			String defaultStep = n.getPitch().getStep();
 			
 			String[] rData = new String[24];
 					
-			if (n.getPitch().getStep() == 'E') {
+			if (n.getPitch().getStep() == "E") {
 				
 			String[] relevantData = {"F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"};
 			rData = relevantData;
@@ -159,22 +158,22 @@ public class Note {
 //				n.getPitch().setOctave(octave);
 //			}
 			
-			}else if (n.getPitch().getStep() == 'B') {
+			}else if (n.getPitch().getStep() == "B") {
 				
 			String[] relevantData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
 			rData = relevantData;	
 			
-			}else if(n.getPitch().getStep() == 'G') {
+			}else if(n.getPitch().getStep() == "G") {
 				
 			String[] relevantData = {"G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"};
 			rData = relevantData;	
 			
-			}else if(n.getPitch().getStep() == 'D') {
+			}else if(n.getPitch().getStep() == "D") {
 				
 			String[] relevantData = {"D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"};
 			rData = relevantData;	
 			
-			}else if(n.getPitch().getStep() == 'A') {
+			}else if(n.getPitch().getStep() == "A") {
 				
 			String[] relevantData = {"A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E","F", "F#", "G", "G#", "A"};
 			rData = relevantData;	
@@ -184,21 +183,28 @@ public class Note {
 						
 			String actualStep = rData[fret-1];
 			
-			char[] aStep = actualStep.toCharArray();
+			String bStep = actualStep;
 			
-			if (aStep.length == 0){
-				n.getPitch().setStep(aStep[0]);
+			char cStep = bStep.charAt(0);
+			
+			String aStep = String.valueOf(cStep);
+			
+			
+			if (aStep.length() == 0){
+				n.getPitch().setStep(aStep);
 			}
 			else {
 				n.getPitch().setAlter(1);
-				n.getPitch().setStep(aStep[0]);
+				n.getPitch().setStep(aStep);
 				
 			}
 			
 			int octaveCounter = n.getPitch().getOctave();
 			for(int i = 0; i < rData.length; i++) {
 				if (rData[i] == "C") octaveCounter++;
-				if (rData[i].charAt(0) == n.getPitch().getStep() &&  fret == i+1)
+				char c = rData[i].charAt(0);
+				String d = String.valueOf(c);
+				if (d == n.getPitch().getStep() &&  fret == i+1)
 					n.getPitch().setOctave(octaveCounter);
 			}
 			

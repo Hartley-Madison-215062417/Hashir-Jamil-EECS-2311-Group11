@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Pitch {
 	
 	@XmlElement
-	char step;
+	String step;
 	
 	@XmlElement
 	int octave;
@@ -24,25 +24,25 @@ public class Pitch {
 		super();
 	}
 	
-	public Pitch(char step, int octave) {
+	public Pitch(String step, int octave) {
 		super();
 		this.step = step;
 		this.octave = octave;
 	}	
 	
-	public Pitch(char step, int octave,int alter) {
+	public Pitch(String step, int octave,int alter) {
 		super();
 		this.step = step;
 		this.octave = octave;
 		
 	}
 	
-	public char getStep() {
+	public String getStep() {
 		return step;
 	}
 	
-	public void setStep(char step) {
-		this.step = step;
+	public void setStep(String aStep) {
+		this.step = aStep;
 	}
 	
 	public int getOctave() {
@@ -60,5 +60,7 @@ public class Pitch {
 	public int getAlter() {
 		return alter;
 	}
+
+
 	
 }

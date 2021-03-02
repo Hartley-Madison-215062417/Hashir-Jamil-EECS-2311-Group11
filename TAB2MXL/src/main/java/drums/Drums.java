@@ -129,6 +129,18 @@ public class Drums {
 		return oct;
 	}
 	
+	public String notehead(String id) {
+		String x = " ";
+		if (id == "P1-I43") {
+			x = "x";
+		}else if(id == "P1-150"){
+			x = "x";
+		}else {
+			x = null;
+		}
+		return x;
+	}
+	
 	
 	
 	/**public static void main(String args[]) {
