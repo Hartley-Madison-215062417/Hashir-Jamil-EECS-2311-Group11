@@ -112,7 +112,7 @@
                 <octave>3</octave>
                 <alter>1</alter>
             </pitch>
-            <duration>2</duration>
+            <duration>3</duration>
             <voice>1</voice>
             <notations>
                 <technical>
@@ -127,85 +127,10 @@
         <note>
             <pitch>
                 <step>69</step>
-                <octave>2</octave>
-                <alter>0</alter>
-            </pitch>
-            <duration>1</duration>
-            <voice>1</voice>
-            <notations>
-                <technical>
-                    <string>6</string>
-                    <fret>0</fret>
-                </technical>
-            </notations>
-        </note>
-        <note>
-            <pitch>
-                <step>66</step>
-                <octave>2</octave>
-                <alter>1</alter>
-            </pitch>
-            <duration>1</duration>
-            <voice>1</voice>
-            <notations>
-                <technical>
-                    <string>5</string>
-                    <fret>2</fret>
-                </technical>
-            </notations>
-        </note>
-        <note>
-            <pitch>
-                <step>69</step>
-                <octave>3</octave>
-                <alter>1</alter>
-            </pitch>
-            <duration>1</duration>
-            <voice>1</voice>
-            <notations>
-                <technical>
-                    <string>4</string>
-                    <fret>2</fret>
-                </technical>
-            </notations>
-        </note>
-        <note>
-            <pitch>
-                <step>71</step>
-                <octave>3</octave>
-                <alter>1</alter>
-            </pitch>
-            <duration>1</duration>
-            <voice>1</voice>
-            <notations>
-                <technical>
-                    <string>3</string>
-                    <fret>1</fret>
-                </technical>
-            </notations>
-        </note>
-        <note>
-            <pitch>
-                <step>66</step>
-                <octave>3</octave>
-                <alter>0</alter>
-            </pitch>
-            <duration>1</duration>
-            <voice>1</voice>
-            <notations>
-                <technical>
-                    <string>2</string>
-                    <fret>0</fret>
-                </technical>
-            </notations>
-        </note>
-        <note>
-            <pitch>
-                <step>69</step>
                 <octave>4</octave>
                 <alter>0</alter>
             </pitch>
-            <duration>1</duration>
+            <duration>17</duration>
             <voice>1</voice>
             <notations>
                 <technical>
@@ -220,7 +145,7 @@
                 <octave>3</octave>
                 <alter>0</alter>
             </pitch>
-            <duration>1</duration>
+            <duration>17</duration>
             <voice>1</voice>
             <notations>
                 <technical>
@@ -235,12 +160,57 @@
                 <octave>3</octave>
                 <alter>1</alter>
             </pitch>
-            <duration>2</duration>
+            <duration>17</duration>
             <voice>1</voice>
             <notations>
                 <technical>
                     <string>3</string>
                     <fret>1</fret>
+                </technical>
+            </notations>
+        </note>
+        <note>
+            <pitch>
+                <step>69</step>
+                <octave>3</octave>
+                <alter>1</alter>
+            </pitch>
+            <duration>17</duration>
+            <voice>1</voice>
+            <notations>
+                <technical>
+                    <string>4</string>
+                    <fret>2</fret>
+                </technical>
+            </notations>
+        </note>
+        <note>
+            <pitch>
+                <step>66</step>
+                <octave>2</octave>
+                <alter>1</alter>
+            </pitch>
+            <duration>17</duration>
+            <voice>1</voice>
+            <notations>
+                <technical>
+                    <string>5</string>
+                    <fret>2</fret>
+                </technical>
+            </notations>
+        </note>
+        <note>
+            <pitch>
+                <step>69</step>
+                <octave>2</octave>
+                <alter>0</alter>
+            </pitch>
+            <duration>17</duration>
+            <voice>1</voice>
+            <notations>
+                <technical>
+                    <string>6</string>
+                    <fret>0</fret>
                 </technical>
             </notations>
         </note>

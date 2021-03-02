@@ -214,8 +214,8 @@ public class Main extends Application{
 		                                 * Change the .add below. (remove them)
 		                                 * The return will be the ArrayList.
 		                                 */
-//		                                testArrayList3.add(parsed);
-//		                                testArrayList3.add(parsed);
+		                     //           testArrayList3.add(parsed);
+		                      //          testArrayList3.add(parsed);
 		                                
 		                                char[][] tmp = testArrayList3.get(0);
 		                                
@@ -234,7 +234,7 @@ public class Main extends Application{
 		                        		Marshaller ms = jc.createMarshaller();
 		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		                        		ms.marshal(part,new File("src//main//java//output//Output.xml"));
-		  
+		      
 		                        		try {
 		                        	        Scanner s = new Scanner(new File("src//main//java//output//Output.xml"));
 		                        	        while (s.hasNext()) {
