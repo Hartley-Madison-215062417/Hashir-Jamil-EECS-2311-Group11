@@ -5,13 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.Arrays;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import java.util.Scanner; 
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
+import java.util.Scanner; 
 import guitar.Parser;
 import guitar.Part;
 import javafx.application.Application;
@@ -165,6 +171,7 @@ public class Main extends Application{
 				        textbox2.setLayoutX(250);
 				        textbox2.setLayoutY(150);
 				        textbox2.setMinSize(100,500);
+                		textbox2.appendText("Error: currently not supported");
 				        
 				        
 				        final Button button2 = new Button();
@@ -193,16 +200,92 @@ public class Main extends Application{
 
 		        openButton.setOnAction(
 		                new EventHandler<ActionEvent>() {
+		                	
 		                    @Override
 		                    public void handle(final ActionEvent e) {
 
 		                       File file = fileChooser.showOpenDialog(primaryStage);
 		                        if (file != null) {
 		                        	window.setScene(scene3);
-
+	
 		                        	try {
 		                        		
 		                        		Parser p = new Parser(file);
+		                        		//change??
+		                                char[][] parsed = p.getTabCharMatrix();
+		                                ArrayList<char[][]> testArrayList3 = p.measureSplitter(parsed);
+		                                /*
+		                                 * Here, we need to add a call to a parser method.
+		                                 * It will separate the measures into individual char arrays,
+		                                 * then, it will put them into an ArrayList in order.
+		                                 * Change the .add below. (remove them)
+		                                 * The return will be the ArrayList.
+		                                 */
+		                                testArrayList3.add(parsed);
+		                                testArrayList3.add(parsed);
+		                                char[][] tmp = testArrayList3.get(0);
+		                                
+		                                for (int i = 0; i < tmp.length ; i++) {
+		                                    //System.out.println(p.getTabCharMatrix()[i]);
+		                                }
+		                                
+		                                char[][] tmp2 = testArrayList3.get(1);
+		                                for (int i = 0; i < tmp2.length ; i++) {
+		                                    //System.out.println(p.getTabCharMatrix()[i]);
+		                                }
+
+
+		                        		Part part = p.createMusicalPart(testArrayList3);
+		                        		JAXBContext jc = JAXBContext.newInstance(Part.class);
+		                        		Marshaller ms = jc.createMarshaller();
+		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		                        		File output = new File("src//main//java//output//Output.xml");
+		                        		ms.marshal(part,output);
+		             
+		  
+		                        		try {
+		                        	        Scanner s = new Scanner(output);
+		                        	        textbox2.clear();
+		                        	        while (s.hasNext()) {
+		                        	          textbox2.appendText(s.nextLine()+"\n");
+		                        	        }
+		                        	    } catch (FileNotFoundException ex) {
+		                        	        System.err.println(ex);
+		                        	    }
+		                        	
+		                        	
+		                        	}catch (JAXBException ex) {
+		                        		// TODO Auto-generated catch block
+		                        		System.out.println(""+ex.getMessage());
+		                        	}
+		                        	}
+
+		                        }
+		                    
+		                });
+		        
+		        TextArea textbox = new TextArea("input tab here"); 
+		        textbox.setLayoutX(150);
+		        textbox.setLayoutY(250);
+		        textbox.setMinSize(700, 200);
+		        
+		        textbox.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+					@Override
+					public void handle(KeyEvent keyEvent) {
+						// TODO Auto-generated method stub
+						if(keyEvent.getCode() == KeyCode.ENTER)
+				        {
+							window.setScene(scene3);
+	                		File input = new File("src//main//java//input//Input.txt");
+	                		 FileWriter myWriter;
+							try {
+								myWriter = new FileWriter(input);
+		                	      myWriter.write(textbox.getText());
+		                	      myWriter.close();
+		                	      try {
+		                        		
+		                        		Parser p = new Parser(input);
 		                        		//change??
 		                                char[][] parsed = p.getTabCharMatrix();
 		                                
@@ -233,13 +316,23 @@ public class Main extends Application{
 		                        		JAXBContext jc = JAXBContext.newInstance(Part.class);
 		                        		Marshaller ms = jc.createMarshaller();
 		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
 		                        		ms.marshal(part,new File("src//main//java//output//Output.xml"));
 		      
+
+		                        		File output = new File("src//main//java//output//Output.xml");
+		                        		ms.marshal(part,output);
+		  
+
 		                        		try {
-		                        	        Scanner s = new Scanner(new File("src//main//java//output//Output.xml"));
+		                        	        Scanner s = new Scanner(output);
+		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
 		                        	        }
+		                        	        
+		                        	     
+		                        	        
 		                        	    } catch (FileNotFoundException ex) {
 		                        	        System.err.println(ex);
 		                        	    }
@@ -250,30 +343,34 @@ public class Main extends Application{
 		                        		System.out.println(""+ex.getMessage());
 		                        	}
 		                        	}
-		                  
-		                        	
-		                        	
-		                        	
-		                        }
-		                    
-		                });
+		                	      
+							 catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+			                textbox.clear();
+				        }
+						
+					}});
 		        
-		        TextArea textbox = new TextArea("input tab here"); 
-		        textbox.setLayoutX(150);
-		        textbox.setLayoutY(250);
-		        textbox.setMinSize(700, 200);
-		        
-		        
-		        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() { 
-		            public void handle(ActionEvent e) 
-		            { 
-		                System.out.print(textbox.getText());   
-		                textbox.clear();
-		                
-		            } 
-		        }; 
-		        
-		        //textbox.setOnAction(event); 
+		        button2.setOnAction(
+		                new EventHandler<ActionEvent>() {
+		                    @Override
+		                    public void handle(final ActionEvent e) {
+
+		                    File dest = fileChooser.showSaveDialog(window);
+		                    if (dest != null) {
+		                    	try {
+	                        		File output = new File("src//main//java//output//Output.xml");
+		                    		Files.copy(output.toPath(), dest.toPath());
+		                    	} catch (IOException ex) {
+		                    		 System.err.println(ex);
+		                    	}
+            	        // handle exception...
+		                    		
+		                    	}
+		                    }});
+		      
 		     
 		  
 		        Pane layout2 = new Pane();
@@ -304,6 +401,17 @@ public class Main extends Application{
 		window.setScene(scene1);
 		window.setTitle("Tablature to MusicXML Converter");
 		window.show();
+		
+		PrintWriter writer = new PrintWriter("src//main//java//output//Output.xml");
+		writer.print("");
+		// other operations
+		writer.close();
+		
+		PrintWriter writer2 = new PrintWriter("src//main//java//input//Input.xml");
+		writer2.print("");
+		// other operations
+		writer2.close();
+		
 		
 	}
 
