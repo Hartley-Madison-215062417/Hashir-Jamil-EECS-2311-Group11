@@ -338,6 +338,7 @@ import java.util.Scanner;
 //import tab2mxl.Note;
 //import tab2mxl.Parser;
 //
+
 public class Parser {
 	
 	List<String> tabList; // the list has all of the lines in it, every line of text input 
@@ -466,11 +467,10 @@ public class Parser {
 						char[][] newMeasure = new char[6][newColEnd];
 						int tmpCol = 0;
 						while(newCol < newColEnd) {
-							
 							for(newRow = 0; newRow < 6; newRow++) {
 								newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
-								
 							}
+							
 							tmpCol++;
 							newCol++;
 						}
@@ -479,15 +479,9 @@ public class Parser {
 						
 					}
 				}
-				
-				
-				
+
 			}
 
-
-		
-		
-		
 		return tmpArray;
 	}
 	
