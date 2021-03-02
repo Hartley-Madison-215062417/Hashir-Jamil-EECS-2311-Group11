@@ -4,12 +4,16 @@ package tab2mxl;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import java.util.Scanner; 
+
 import guitar.Parser;
+import guitar.Part;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -36,7 +40,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 public class Main extends Application{
 	//comment
 	Stage window;
-	Scene scene1,scene2;
+	Scene scene1,scene2,scene3;
 	Parser p;
 
 	
@@ -56,6 +60,8 @@ public class Main extends Application{
 	     ImageView mv = new ImageView(background_image);
 	     mv.setFitHeight(1000);
 	     mv.setFitWidth(1000);
+	     mv.fitWidthProperty().bind(window.widthProperty());
+	     mv.fitHeightProperty().bind(window.heightProperty());
 	     mv.setOpacity(1);
 	     
 	     TextFlow textFlow = new TextFlow();
@@ -73,11 +79,8 @@ public class Main extends Application{
 	        start.setFont(start_font);
 	        textFlow3.getChildren().add(start);
 	        textFlow3.setLayoutX(470);
-	        textFlow3.setLayoutY(350);
-	        
-	      
-	        
-	        
+	        textFlow3.setLayoutY(570);
+
 	        final Button button = new Button();
 	        button.setShape(new Circle(1));
 	        button.setMaxSize(3,3);
@@ -110,6 +113,8 @@ public class Main extends Application{
 		     ImageView mv2 = new ImageView(background_image);
 		     mv2.setFitHeight(1000);
 		     mv2.setFitWidth(1000);
+		     mv.fitWidthProperty().bind(window.widthProperty());
+		     mv.fitHeightProperty().bind(window.heightProperty());
 		     mv2.setOpacity(1);
 		     
 		     TextFlow textFlow2 = new TextFlow();
@@ -138,26 +143,112 @@ public class Main extends Application{
 		        openButton.setLayoutX(400);
 		        openButton.setLayoutY(500);
 		        openButton.setMinSize(200, 100);
+		        
+		        
+		        //3rd page 
+		        Image background_image3 = new Image("file:soundwave.jpg");
+			     ImageView mv3 = new ImageView(background_image);
+			     mv3.fitWidthProperty().bind(window.widthProperty());
+			     mv3.fitHeightProperty().bind(window.heightProperty());
+			     mv3.setOpacity(1);
+			     
+
+					TextFlow textFlow5 = new TextFlow();
+					 Text title5 = new Text("Zebra11 Converter \n");
+					 title5.setFill(Color.WHITE);
+					  title5.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
+				        textFlow5.getChildren().add(title5);
+				        textFlow5.setLayoutX(250);
+				        textFlow5.setLayoutY(50);
+				        
+				        TextArea textbox2 = new TextArea(); 
+				        textbox2.setLayoutX(250);
+				        textbox2.setLayoutY(150);
+				        textbox2.setMinSize(100,500);
+				        
+				        
+				        final Button button2 = new Button();
+				        button2.setShape(new Circle(1));
+				        button2.setMaxSize(3,3);
+
+				        ImageView dicon = new ImageView("file:download_icon.png");
+				        dicon.setFitHeight(100);
+				        dicon.setFitWidth(100);
+				        button2.setGraphic(dicon);
+				        button2.setLayoutX(800);
+				        button2.setLayoutY(250);
+				        
+				        
+				        TextFlow textFlow6 = new TextFlow();
+				        Font download_font = new Font("Tahoma", 20);
+				        Text download = new Text("Download");
+				        download.setFill(Color.WHITE);
+				        download.setFont(download_font);
+				        textFlow6.getChildren().add(download);
+				        textFlow6.setLayoutX(815);
+				        textFlow6.setLayoutY(200);
+		        
+		        
+		       // openButton.setOnAction(e -> window.setScene(scene3));
+
 		        openButton.setOnAction(
 		                new EventHandler<ActionEvent>() {
 		                    @Override
 		                    public void handle(final ActionEvent e) {
+
 		                       File file = fileChooser.showOpenDialog(primaryStage);
 		                        if (file != null) {
-		                        	System.out.print(file.getPath()); 
-		                        	p = new Parser(file);
-		                  
-//		                        	char[][] tmp = p.getTabCharMatrix();
+		                        	window.setScene(scene3);
+
+		                        	try {
+		                        		
+		                        		Parser p = new Parser(file);
+		                        		//change??
+		                                char[][] parsed = p.getTabCharMatrix();
+		                                
+		                                ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
+		                                testArrayList3.add(parsed);
+		                                testArrayList3.add(parsed);
+		                                
+		                                char[][] tmp = testArrayList3.get(0);
+		                                
+		                                for (int i = 0; i < tmp.length ; i++) {
+		                                    //System.out.println(p.getTabCharMatrix()[i]);
+		                                }
+		                                
+		                                char[][] tmp2 = testArrayList3.get(1);
+		                                for (int i = 0; i < tmp2.length ; i++) {
+		                                   // System.out.println(p.getTabCharMatrix()[i]);
+		                                }
 		                        	
-//		                        	{
-//		                        	for(char[] row:tmp ) System.out.println(Arrays.toString(row));
-//		                        	
-//		                        	}
+		                        		Part part = p.createMusicalPart(testArrayList3);
+		                        		
+		                        		JAXBContext jc = JAXBContext.newInstance(Part.class);
+		                        		Marshaller ms = jc.createMarshaller();
+		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		                        		ms.marshal(part,new File("src//main//java//output//Output.xml"));
+		  
+		                        		try {
+		                        	        Scanner s = new Scanner(new File("src//main//java//output//Output.xml"));
+		                        	        while (s.hasNext()) {
+		                        	          textbox2.appendText(s.nextLine()+"\n");
+		                        	        }
+		                        	    } catch (FileNotFoundException ex) {
+		                        	        System.err.println(ex);
+		                        	    }
+		                        	
+		                        	
+		                        	}catch (JAXBException ex) {
+		                        		// TODO Auto-generated catch block
+		                        		System.out.println(""+ex.getMessage());
+		                        	}
+		                        	}
+		                  
 		                        	
 		                        	
 		                        	
 		                        }
-		                    }
+		                    
 		                });
 		        
 		        TextArea textbox = new TextArea("input tab here"); 
@@ -186,10 +277,22 @@ public class Main extends Application{
 		        layout2.getChildren().add(openButton);
 		        layout2.getChildren().add(textbox);
 		        
+		        Pane layout3 = new Pane();
+		        layout3.setPrefSize(1000,1000);
+		        layout3.getChildren().add(mv3);
+		        layout3.getChildren().add(textFlow5);
+		        layout3.getChildren().add(textbox2);
+		        layout3.getChildren().add(button2);
+		        layout3.getChildren().add(dicon);
+		        layout3.getChildren().add(textFlow6);
+		        
+		        
+
 		        
 	
 		     
 		scene2 = new Scene(layout2, 1000, 1000,Color.BLACK);
+		scene3 = new Scene(layout3, 1000,1000,Color.BLACK);
 		
 		window.setScene(scene1);
 		window.setTitle("Tablature to MusicXML Converter");
