@@ -343,7 +343,7 @@ public class Parser {
 	List<String> tabList; // the list has all of the lines in it, every line of text input 
 	private File inputFile;
 	private char[][] tabCharMatrix;
-	private String outputFile; //not used at the moment
+	//private String outputFile; //not used at the moment
 	private Part part = new Part();
 	
 	/*
@@ -436,24 +436,64 @@ public class Parser {
 		
 		}
 	
+	/*
+	 * @Author: Madison Hartley
+	 * DM me for questions about method below.
+	 */
 	
-	public char[][]separateMeasure(char[][] old) {
-		char[][] single;
+	 public ArrayList<char[][]> measureSplitter (char[][] parsed) {
 		
-		for(int i = 0; i<old[0].length; i++) {
-			if(old[0][i] == '|') {
+			ArrayList<char[][]> tmpArray = new ArrayList<char[][]>();
+			int newRow = 0;
+			int newCol = 0;
+			int counter = 0;
+			int newColEnd = 0;
+			int width = parsed[0].length;
+			
+			for(int i = 0; i < width; i++) {
+				if(parsed[0][i] != '|') {
+				}
+				else {
+					counter++;
+					if(counter == 1) {
+						newCol = i+1;
+					}
+					if(counter > 1) {
+						if(counter > 2) {
+							newCol ++;
+						}
+						newColEnd = i;
+						char[][] newMeasure = new char[6][newColEnd];
+						int tmpCol = 0;
+						while(newCol < newColEnd) {
+							
+							for(newRow = 0; newRow < 6; newRow++) {
+								newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+								
+							}
+							tmpCol++;
+							newCol++;
+						}
+						
+						tmpArray.add(newMeasure);
+						
+					}
+				}
+				
+				
 				
 			}
-		}
+
+
 		
-		return old;
+		
+		
+		return tmpArray;
 	}
 	
-	public char[][] measureSeperatorIndices(char[][] old) {
-		
-		return old;
-	}
-	
+	 
+
+
 	
 	
 	public char[][] getFirstMeasure(char[][] old) {

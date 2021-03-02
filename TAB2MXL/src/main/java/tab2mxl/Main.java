@@ -206,9 +206,16 @@ public class Main extends Application{
 		                        		//change??
 		                                char[][] parsed = p.getTabCharMatrix();
 		                                
-		                                ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
-		                                testArrayList3.add(parsed);
-		                                testArrayList3.add(parsed);
+		                                ArrayList<char[][]> testArrayList3 = p.measureSplitter(parsed);
+		                                /*
+		                                 * Here, we need to add a call to a parser method.
+		                                 * It will separate the measures into individual char arrays,
+		                                 * then, it will put them into an ArrayList in order.
+		                                 * Change the .add below. (remove them)
+		                                 * The return will be the ArrayList.
+		                                 */
+//		                                testArrayList3.add(parsed);
+//		                                testArrayList3.add(parsed);
 		                                
 		                                char[][] tmp = testArrayList3.get(0);
 		                                
@@ -218,7 +225,7 @@ public class Main extends Application{
 		                                
 		                                char[][] tmp2 = testArrayList3.get(1);
 		                                for (int i = 0; i < tmp2.length ; i++) {
-		                                   // System.out.println(p.getTabCharMatrix()[i]);
+		                                    //System.out.println(p.getTabCharMatrix()[i]);
 		                                }
 		                        	
 		                        		Part part = p.createMusicalPart(testArrayList3);
