@@ -102,7 +102,6 @@ public class Measure {
 				//if it is the last note of a chord
 				if (i!=0 && m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() != 0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
 					
-					Chord c = new Chord();
 					
 					if(i!= m.notes.size()-1) {
 					
@@ -113,7 +112,9 @@ public class Measure {
 					
 					for (int index: indexArray) {
 						System.out.println("test1");
-						m.notes.get(index).setDuration(chordDuration);						
+						m.notes.get(index).setDuration(chordDuration);	
+						m.notes.get(index).chord = new Chord();
+						
 					}
 					System.out.println("nia");
 					indexArray.removeAll(indexArray);

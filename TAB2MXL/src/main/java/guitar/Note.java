@@ -25,6 +25,7 @@ public class Note {
 	@XmlElement
 	String type;
 	
+
 	@XmlElement
 	Notations notations = new Notations();
 	
