@@ -133,7 +133,7 @@ public class Main extends Application{
 
 		        TextFlow textFlow4 = new TextFlow();
 		        Font instructions_font = new Font("Tahoma", 20);
-		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file \n or simply input the tabs in the text box below and click enter.");
+		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file in .txt format \n or simply input the tabs in the text box below and click enter. \n");
 		        instuctions.setFill(Color.WHITE);
 		        instuctions.setFont(instructions_font);
 		        textFlow4.getChildren().add(instuctions);
@@ -244,7 +244,7 @@ public class Main extends Application{
 		             
 		  
 		                        		try {
-		                        	        Scanner s = new Scanner(output);
+		                        	        Scanner s = new Scanner(output); //what's this doing?
 		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
