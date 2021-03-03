@@ -3,7 +3,11 @@ package testing;
 public class RunTests {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		/*
+		 * THis method is made to run the JUnit test classes.
+		 * TEMPORARILY DELETED/UNIMPLEMENTED: until testing src is fixed, JUnit tests CANNOT run,
+		 * or gradle will not function properly.
+		 */
 
 	}
 
