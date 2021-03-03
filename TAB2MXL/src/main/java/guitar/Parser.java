@@ -517,6 +517,24 @@ public class Parser {
 	public Measure createMeasure(char[][] firstMeasure) {
 		//the first measure does not include the vertical bars
 		Measure m = new Measure();
+		m.setNumber(Measure.measureNumber);
+		
+		if (m.number == 1) {
+			Key k = new Key(0);
+			Time t = new Time(4, 4);
+			Clef c = new Clef("TAB", 5);
+			StaffDetails sd = new StaffDetails();
+			m.attributes = new Attributes();
+			m.attributes.setKey(k);
+			m.attributes.setTime(t);
+			m.attributes.setClef(c);
+			m.attributes.setSd(sd);
+									
+		}
+		
+		Measure.measureNumber++;
+		
+		
 		
 		for (int j = 0; j < firstMeasure[0].length; j++) 
 			for (int i = 0; i < firstMeasure.length; i++) {

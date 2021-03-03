@@ -104,7 +104,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Attributes {
 	
 	@XmlElement
-	final int divisions = 2;
+	int divisions;
 	
 	@XmlElement
 	Key key;
@@ -126,6 +126,7 @@ public class Attributes {
 
 	public Attributes(Key key, Time time, Clef clef, StaffDetails sd) {
 		super();
+		divisions = 2;
 		this.key = key;
 		this.time = time;
 		this.clef = clef;
