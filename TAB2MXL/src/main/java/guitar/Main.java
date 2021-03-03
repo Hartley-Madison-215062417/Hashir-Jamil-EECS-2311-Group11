@@ -10,25 +10,9 @@ import javax.xml.bind.Marshaller;
 class Main{
 	
 	public static void main(String[] args) {
-//<<<<<<< HEAD
-//		
-//		try {
-//		Parser parser = new Parser("src/main/java/tab2mxl/testing/prototypeGuitarTab.txt");
-//		Part part = parser.getCreatedPart();
-//		JAXBContext jc = JAXBContext.newInstance(Part.class);
-//		Marshaller ms = jc.createMarshaller();
-//		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-//		ms.marshal(part, System.out);
-//		ms.marshal(part,new File("src//output//Output.xml"));
-//		}catch (JAXBException e) {
-//		// TODO Auto-generated catch block
-//		System.out.println(""+e.getMessage());
-//		}
-//
-//=======
 	try {
 		
-		Parser p = new Parser("ShortTester.txt");
+		Parser p = new Parser("prototypeGuitarTab.txt");
         char[][] parsed = p.getTabCharMatrix();
         
         ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();

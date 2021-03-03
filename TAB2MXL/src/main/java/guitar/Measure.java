@@ -28,7 +28,7 @@ public class Measure {
 	Barline barline = new Barline();
 	
 	@XmlTransient
-	static int measureNumber;
+	static int measureNumber = 1;
 	
 	
 	public void setNotes(ArrayList<Note> notes) {
