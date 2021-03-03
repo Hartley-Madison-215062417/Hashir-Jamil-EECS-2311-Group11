@@ -15,7 +15,7 @@ class Main{
 
 	try {
 		
-		Parser p = new Parser("prototypeGuitarTab.txt");
+		Parser p = new Parser("prototype22.txt");
         char[][] parsed = p.getTabCharMatrix();
         
         ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
@@ -33,7 +33,7 @@ class Main{
             System.out.println(p.getTabCharMatrix()[i]);
         }
 		
-		Parser parser = new Parser("prototypeGuitarTab.txt");
+		Parser parser = new Parser("prototype22.txt");
 		Part part = parser.createMusicalPart(testArrayList3);
         JAXBContext jc = JAXBContext.newInstance(Part.class);
 		Marshaller ms = jc.createMarshaller();

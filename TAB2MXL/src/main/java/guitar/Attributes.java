@@ -104,7 +104,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Attributes {
 	
 	@XmlElement
-	int divisions;
+	final int divisions = 2;
 	
 	@XmlElement
 	Key key;
