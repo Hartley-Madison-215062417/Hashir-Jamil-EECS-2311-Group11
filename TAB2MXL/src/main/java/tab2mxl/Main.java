@@ -244,7 +244,7 @@ public class Main extends Application{
 		             
 		  
 		                        		try {
-		                        	        Scanner s = new Scanner(output);
+		                        	        Scanner s = new Scanner(output); //what's this doing?
 		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
