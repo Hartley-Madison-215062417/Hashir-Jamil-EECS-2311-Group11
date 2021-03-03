@@ -1,23 +1,21 @@
 package testing;
 
-import guitar.Parser;
-import org.junit.jupiter.api.Assertions.*;
-
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import guitar.Parser;
 
 /*
  * @Author: Madison Hartley
  */
 
 
-@SuppressWarnings("unused")
+
 class ParserJUnit {
 	
 	

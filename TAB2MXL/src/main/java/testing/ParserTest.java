@@ -1,6 +1,5 @@
 package testing;
 
-import java.io.File;
 import guitar.Parser;
 
 /*
@@ -11,7 +10,7 @@ import guitar.Parser;
  * 
  */
 
-@SuppressWarnings("unused")
+
 public class ParserTest {
 	
 	

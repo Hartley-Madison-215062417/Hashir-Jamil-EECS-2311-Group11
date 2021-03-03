@@ -1,4 +1,4 @@
-package tab2mxl;
+package test;
 
 public class RunTests {
 

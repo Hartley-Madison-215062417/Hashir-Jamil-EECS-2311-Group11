@@ -1,4 +1,4 @@
-package tab2mxl;
+package test;
 
 import guitar.Parser;
 import org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package tab2mxl;
+package test;
 
 import java.io.File;
 import guitar.Parser;
