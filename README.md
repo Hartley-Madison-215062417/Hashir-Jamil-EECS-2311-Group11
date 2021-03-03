@@ -27,6 +27,8 @@ Quick Setup:
 
 [Zebra11 Converter User Manual.pdf](https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11/files/6073459/Zebra11.Converter.User.Manual.pdf)
 
+[Zebra11 Testing Document.pdf](https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11/files/6073659/Zebra11.Testing.Document.pdf)
+
 [prototypeGuitarTab.txt](https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11/files/6073463/prototypeGuitarTab.txt)
 
 
