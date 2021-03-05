@@ -2,8 +2,13 @@ package test;
 
 public class RunTests {
 
-	/*
-	 * Main goes here
-	 */
-	
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		
+        
+	}
 }

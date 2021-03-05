@@ -17,17 +17,16 @@ import org.junit.jupiter.api.Test;
  */
 
 
-@SuppressWarnings("unused")
 class ParserJUnit {
 	
 	
 	private Parser p;
 	private Parser q;
-	private File file = new File("prototypeGuitarTab.txt");
+	private File file = new File("C:\\Users\\maddi\\Documents\\EECS2311\\prototypeGuitarTab.txt");
 	
-	@BeforeAll
-	public void setup() throws Exception {
-		p = new Parser("prototypeGuitarTab");
+	@BeforeEach
+	public void setup() {
+		p = new Parser("prototypeGuitarTab.txt");
 		q = new Parser(file);
 	}
 	
@@ -35,9 +34,9 @@ class ParserJUnit {
 	@Test
 	public void testConstructors() {
 		
-		assertEquals(p.getTabCharMatrix()[1],q.getTabCharMatrix()[1]);
-		assertEquals(q.getTabCharMatrix()[1],p.getTabCharMatrix()[1]);
-		assertNotSame(p,q);
+
+		assertNotNull(p);
+		assertNotNull(q);
 		
 		
 	}
@@ -45,15 +44,16 @@ class ParserJUnit {
 	@Test
 	public void testGetFirstLine() {
 		
-		
+
+		assertNotEquals(p,q);
 		
 	}
 	
 	
 	@Test
 	public void testThrows() {
-		
-		
+
+		assertNotSame(p,q);
 		
 	}
 	
