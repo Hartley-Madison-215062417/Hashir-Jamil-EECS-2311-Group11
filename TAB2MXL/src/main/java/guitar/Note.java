@@ -33,6 +33,7 @@ public class Note {
 	
 	public Note() {
 		super();
+		this.type = "eighth";
 	}
 	
 	public Note(Pitch pitch, int duration, int voice, String type, Notations notations) {
@@ -183,18 +184,16 @@ public class Note {
 						
 			String actualStep = rData[fret-1];
 			
-			String bStep = actualStep;
-			
-			char cStep = bStep.charAt(0);
+			char cStep = actualStep.charAt(0);
 			
 			String aStep = String.valueOf(cStep);
 			
 			
-			if (aStep.length() == 0){
+			if (actualStep.length() == 1){
 				n.getPitch().setStep(aStep);
 			}
 			else {
-				n.getPitch().setAlter(1);
+				n.getPitch().setAlter("1");
 				n.getPitch().setStep(aStep);
 				
 			}

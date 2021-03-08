@@ -8,17 +8,18 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "pitch")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"step","octave","alter"})
+@XmlType(propOrder= {"step","alter","octave"})
 public class Pitch {
 	
 	@XmlElement
 	String step;
 	
-	@XmlElement
-	int octave;
 	
 	@XmlElement
-	int alter;
+	String alter;
+	
+	@XmlElement
+	int octave;
 	
 	public Pitch() {
 		super();
@@ -30,7 +31,7 @@ public class Pitch {
 		this.octave = octave;
 	}	
 	
-	public Pitch(String step, int octave,int alter) {
+	public Pitch(String step, int octave,String alter) {
 		super();
 		this.step = step;
 		this.octave = octave;
@@ -53,11 +54,11 @@ public class Pitch {
 		this.octave = octave;
 	}
 	
-	public void setAlter(int alter) {
+	public void setAlter(String alter) {
 		this.alter =alter;
 	}
 	
-	public int getAlter() {
+	public String getAlter() {
 		return alter;
 	}
 
