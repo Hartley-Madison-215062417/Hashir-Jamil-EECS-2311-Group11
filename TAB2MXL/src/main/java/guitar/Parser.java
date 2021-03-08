@@ -346,6 +346,8 @@ public class Parser {
 	private char[][] tabCharMatrix;
 	//private String outputFile; //not used at the moment
 	private Part part = new Part();
+	private scorePartwise scorepartwise = new scorePartwise();
+	
 	
 	/*
 	 * Defualt contructor 
@@ -582,12 +584,12 @@ public class Parser {
 			}
 		m.updateDuration(m);
 		//testing
-		for (Note n: m.getNotes()) {
-		System.out.print(n.getNotations().getTechnical().getFret());
-		System.out.print(" " +n.getNotations().getTechnical().getString());
-		System.out.println(" "+n.getDuration());
-		}
-		System.out.println("end");
+//		for (Note n: m.getNotes()) {
+//		System.out.print(n.getNotations().getTechnical().getFret());
+//		System.out.print(" " +n.getNotations().getTechnical().getString());
+//		System.out.println(" "+n.getDuration());
+//		}
+		//System.out.println("end");
 		return m;
 		
 		}
@@ -623,6 +625,12 @@ public class Parser {
 			part.getPart().add(m);
 		}
 		return part;
+		
+	}
+	
+	public scorePartwise createScore(Part p) {
+		scorepartwise.getParts().add(p);
+		return scorepartwise;
 	}
 	
 	

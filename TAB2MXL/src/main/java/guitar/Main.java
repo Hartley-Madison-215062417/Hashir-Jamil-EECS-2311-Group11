@@ -2,6 +2,7 @@ package guitar;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -22,22 +23,27 @@ class Main{
         char[][] tmp = testArrayList3.get(0);
         
         for (int i = 0; i < tmp.length ; i++) {
-            System.out.println(p.getTabCharMatrix()[i]);
+           // System.out.println(p.getTabCharMatrix()[i]);
         }
         
         char[][] tmp2 = testArrayList3.get(1);
         for (int i = 0; i < tmp2.length ; i++) {
-            System.out.println(p.getTabCharMatrix()[i]);
+           // System.out.println(p.getTabCharMatrix()[i]);
         }
 		
 		Parser parser = new Parser("prototypeGuitarTab.txt");
 		Part part = parser.createMusicalPart(testArrayList3);
+		scorePartwise sp = new scorePartwise();
+		sp.getParts().add(part);
 		
-		JAXBContext jc = JAXBContext.newInstance(Part.class);
+		
+		
+		
+		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
 		Marshaller ms = jc.createMarshaller();
 		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		ms.marshal(part, System.out);
-		ms.marshal(part,new File("src//output//Output.xml"));
+		ms.marshal(sp, System.out);
+		ms.marshal(sp,new File("src//output//Output.xml"));
         
         
 

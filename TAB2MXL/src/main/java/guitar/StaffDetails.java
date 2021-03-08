@@ -36,12 +36,12 @@ public class StaffDetails{
 	public StaffDetails() {
 		
 		staffLines = 6;
-		s1 = new StaffTuning(1, 'E', 2);
-		s2 = new StaffTuning(2, 'A', 2);
-		s3 = new StaffTuning(3, 'D', 3);
-		s4 = new StaffTuning(4, 'G', 3);
-		s5 = new StaffTuning(5, 'B', 3);
-		s6 = new StaffTuning(6, 'E', 4);
+		s1 = new StaffTuning(1, "E", 2);
+		s2 = new StaffTuning(2, "A", 2);
+		s3 = new StaffTuning(3, "D", 3);
+		s4 = new StaffTuning(4, "G", 3);
+		s5 = new StaffTuning(5, "B", 3);
+		s6 = new StaffTuning(6, "E", 4);
 		
 		
 		

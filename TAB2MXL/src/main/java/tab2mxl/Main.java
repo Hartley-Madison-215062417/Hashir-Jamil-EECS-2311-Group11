@@ -16,6 +16,7 @@ import javax.xml.bind.Marshaller;
 
 import guitar.Parser;
 import guitar.Part;
+import guitar.scorePartwise;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -230,12 +231,21 @@ public class Main extends Application{
 		                                }
 
 
+
 		                        		Part part = p.createMusicalPart(testArrayList3);
-		                        		JAXBContext jc = JAXBContext.newInstance(Part.class);
+		                        		scorePartwise sp = new scorePartwise();
+		                        		sp.getParts().add(part);
+		                        		
+		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
 		                        		Marshaller ms = jc.createMarshaller();
 		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
+		      
+
 		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		ms.marshal(part,output);
+		                        		ms.marshal(sp,output);
+		  
 		             
 		  
 		                        		try {
@@ -306,17 +316,20 @@ public class Main extends Application{
 		                                    //System.out.println(p.getTabCharMatrix()[i]);
 		                                }
 		                        	
+		                     
 		                        		Part part = p.createMusicalPart(testArrayList3);
+		                        		scorePartwise sp = new scorePartwise();
+		                        		sp.getParts().add(part);
 		                        		
-		                        		JAXBContext jc = JAXBContext.newInstance(Part.class);
+		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
 		                        		Marshaller ms = jc.createMarshaller();
 		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-		                        		ms.marshal(part,new File("src//main//java//output//Output.xml"));
+		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
 		      
 
 		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		ms.marshal(part,output);
+		                        		ms.marshal(sp,output);
 		  
 
 		                        		try {

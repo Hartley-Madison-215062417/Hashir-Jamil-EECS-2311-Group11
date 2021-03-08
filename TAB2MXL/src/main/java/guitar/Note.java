@@ -23,7 +23,7 @@ public class Note {
 	final int voice = 1;
 	
 	@XmlElement
-	String type;
+	String type = "eighth";
 	
 	@XmlElement
 	Notations notations = new Notations();
@@ -183,18 +183,16 @@ public class Note {
 						
 			String actualStep = rData[fret-1];
 			
-			String bStep = actualStep;
-			
-			char cStep = bStep.charAt(0);
+			char cStep = actualStep.charAt(0);
 			
 			String aStep = String.valueOf(cStep);
 			
 			
-			if (aStep.length() == 0){
+			if (actualStep.length() == 1){
 				n.getPitch().setStep(aStep);
 			}
 			else {
-				n.getPitch().setAlter(1);
+				n.getPitch().setAlter("1");
 				n.getPitch().setStep(aStep);
 				
 			}
