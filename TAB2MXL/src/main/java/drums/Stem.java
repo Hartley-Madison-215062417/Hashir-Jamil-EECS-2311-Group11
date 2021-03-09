@@ -1,0 +1,41 @@
+package drums;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+public class Stem {
+
+	
+	String stem;
+	
+	
+	public Stem() {
+		super();
+	}
+	
+	
+	public Stem(int voice) {
+		if(voice == 1) {
+		stem = "up";
+	}
+		else {
+		stem = "down";
+		}
+	}
+
+
+	public String getStem() {
+		return stem;
+	}
+
+
+	public void setStem(String stem) {
+		this.stem = stem;
+	}
+	
+
+	
+}
