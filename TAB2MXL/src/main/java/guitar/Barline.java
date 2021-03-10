@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "barline")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"location", "barStyle"})
+@XmlType(propOrder= {"location", "barStyle","repeat"})
 public class Barline {
 	
 	@XmlAttribute
@@ -17,6 +17,9 @@ public class Barline {
 	@XmlElement(name = "bar-style")
 	String barStyle;
 	
+	@XmlElement
+	Repeat repeat;
+
 	public Barline() {
 //		location = "right";
 //		barStyle = "light-heavy";
@@ -40,6 +43,13 @@ public class Barline {
 		this.barStyle = barStyle;
 	}
 	
+	
+	public Repeat getRepeat() {
+		return repeat;
+	}
+	public void setRepeat(Repeat repeat) {
+		this.repeat = repeat;
+	}
 	
 
 }

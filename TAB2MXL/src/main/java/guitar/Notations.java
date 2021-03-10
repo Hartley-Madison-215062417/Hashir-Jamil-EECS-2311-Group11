@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "notations")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"technical","slur"})
+@XmlType(propOrder= {"technical","slur","slide"})
 public class Notations {
 	
 	@XmlElement
@@ -32,7 +32,9 @@ public class Notations {
 	@XmlElement
 	Slur slur;
 	
-
+	@XmlElement
+	Slide slide;
+	
 
 	public Notations() {
 		super();
@@ -57,6 +59,16 @@ public class Notations {
 	public void setSlur(Slur slur) {
 		this.slur = slur;
 	}
+	
+
+	public Slide getSlide() {
+		return slide;
+	}
+
+	public void setSlide(Slide slide) {
+		this.slide = slide;
+	}
+
 	
 	
 	
