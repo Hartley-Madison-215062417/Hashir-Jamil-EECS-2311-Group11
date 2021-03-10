@@ -347,6 +347,7 @@ public class Parser {
 	//private String outputFile; //not used at the moment
 	private Part part = new Part();
 	private scorePartwise scorepartwise = new scorePartwise();
+	int hnum =1;
 	
 	
 	/*
@@ -544,7 +545,9 @@ public class Parser {
 				
 				if(firstMeasure[i][j] >= '0' && firstMeasure[i][j] <= '9' ) {
 					
-					if ((firstMeasure[i][j-1] >= '0' &&  firstMeasure[i][j-1] <= '9') == false) {
+					
+					
+				if ((firstMeasure[i][j-1] >= '0' &&  firstMeasure[i][j-1] <= '9') == false) { //if double digit
 						//setting fret
 						if(firstMeasure[i][j+1] >= '0' && firstMeasure[i][j+1] <= '9' ) {
 							StringBuilder num = new StringBuilder();
@@ -552,8 +555,111 @@ public class Parser {
 							num.append(firstMeasure[i][j+1]);
 							int fret = Integer.parseInt(num.toString());
 							n.getNotations().getTechnical().setFret(fret);							
-						}else {				
+						}
+
+						
+						else {				
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
+
+							if(firstMeasure[i][j+1] == 'h' && firstMeasure[i][j-1] != 'h') {
+						
+								//calculateHnum(firstMeasure,j+1);
+								hammerOns hnew = new hammerOns();
+								n.getNotations().getTechnical().setH(hnew);
+								
+								n.getNotations().getTechnical().getH().setNumber(hnum);
+								n.getNotations().getTechnical().getH().setType("start");
+								
+								Slur slur = new Slur();
+								n.getNotations().setSlur(slur);
+								n.getNotations().getSlur().setNumber(hnum);
+								n.getNotations().getSlur().setType("start");
+								}
+							else if(firstMeasure[i][j+1] == 'p' && firstMeasure[i][j-1] != 'p') {
+								pullOff pnew = new pullOff();
+								n.getNotations().getTechnical().setP(pnew);
+								
+								n.getNotations().getTechnical().getP().setNumber(hnum);
+								n.getNotations().getTechnical().getP().setType("start");
+								
+								Slur slur = new Slur();
+								n.getNotations().setSlur(slur);
+								n.getNotations().getSlur().setNumber(hnum);
+								n.getNotations().getSlur().setType("start");
+								}
+								
+							
+							else if(firstMeasure[i][j-1] == 'h' &&  firstMeasure[i][j+1] == 'h' ) {
+								hammerOns hnew = new hammerOns();
+								n.getNotations().getTechnical().setHnew(hnew);
+								
+								n.getNotations().getTechnical().getHnew().setNumber(hnum);
+								n.getNotations().getTechnical().getHnew().setType("stop");
+								
+								hammerOns h = new hammerOns();
+								n.getNotations().getTechnical().setH(h);
+								
+								n.getNotations().getTechnical().getH().setNumber(hnum);
+								n.getNotations().getTechnical().getH().setType("start");
+							}
+							
+							
+							else if(firstMeasure[i][j-1] == 'p' &&  firstMeasure[i][j+1] == 'p' ) {
+								pullOff pnew = new pullOff();
+								n.getNotations().getTechnical().setPnew(pnew);
+								
+								n.getNotations().getTechnical().getPnew().setNumber(hnum);
+								n.getNotations().getTechnical().getPnew().setType("stop");
+								
+								pullOff p = new pullOff();
+								n.getNotations().getTechnical().setP(p);
+								
+								n.getNotations().getTechnical().getP().setNumber(hnum);
+								n.getNotations().getTechnical().getP().setType("start");
+								
+
+							}
+							
+							
+							else if(firstMeasure[i][j-1] == 'h' && firstMeasure[i][j+1] != 'h'  ) {
+								hammerOns hnew = new hammerOns();
+								n.getNotations().getTechnical().setH(hnew);
+								
+								n.getNotations().getTechnical().getH().setNumber(hnum);
+								n.getNotations().getTechnical().getH().setType("stop");
+								
+								Slur slur = new Slur();
+								n.getNotations().setSlur(slur);
+								n.getNotations().getSlur().setNumber(hnum);
+								n.getNotations().getSlur().setType("stop");
+								n.getNotations().getSlur().setPlacement(null);
+								
+								
+							}
+
+							else if(firstMeasure[i][j-1] == 'p' && firstMeasure[i][j+1] != 'p'  ) {
+								pullOff pnew = new pullOff();
+								n.getNotations().getTechnical().setP(pnew);
+								
+								n.getNotations().getTechnical().getP().setNumber(hnum);
+								n.getNotations().getTechnical().getP().setType("stop");
+								
+								Slur slur = new Slur();
+								n.getNotations().setSlur(slur);
+								n.getNotations().getSlur().setNumber(hnum);
+								n.getNotations().getSlur().setType("stop");
+								n.getNotations().getSlur().setPlacement(null);
+								}
+								
+								
+							
+						
+						
+						
+						
+						
+						
+						
 						}
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
@@ -597,6 +703,19 @@ public class Parser {
 	
 	
 	
+private void calculateHnum(char[][] firstMeasure, int j) {
+	for (int i=0;i<6;i++){
+	if (firstMeasure[i][j] == 'h') {
+		
+		//cannot finish this without chords
+		
+	}
+	}
+	
+		
+	}
+
+
 //	public ArrayList<Integer> createChordArray(List<Note> notes){
 //		ArrayList<Integer> chordArray = new ArrayList<>();
 //		for(int i =0; i<notes.size();i++) {
@@ -632,6 +751,7 @@ public class Parser {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
 	}
+	
 	
 	
 	

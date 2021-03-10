@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "technical")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"string","fret"})
+@XmlType(propOrder= {"hnew","h","pnew","p","string","fret"})
 public class Technical {
 	
 	@XmlElement
@@ -46,7 +46,20 @@ public class Technical {
 	
 	@XmlElement
 	int fret;
-		
+	
+	@XmlElement(name = "hammer-on")
+	hammerOns h;
+	
+	@XmlElement(name = "hammer-on")
+	hammerOns hnew;
+	
+	@XmlElement(name = "pull-off")
+	pullOff p;
+	
+	@XmlElement(name = "pull-off")
+	pullOff pnew;
+	
+
 	public Technical() {
 		super();
 	}
@@ -69,7 +82,37 @@ public class Technical {
 	public void setFret(int fret) {
 		this.fret = fret;
 	}
+
+	public hammerOns getH() {
+		return h;
+	}
+
+	public void setH(hammerOns h) {
+		this.h = h;
+	}
 	
-	
+	public pullOff getP() {
+		return p;
+	}
+
+	public void setP(pullOff p) {
+		this.p = p;
+	}
+
+	public hammerOns getHnew() {
+		return hnew;
+	}
+
+	public void setHnew(hammerOns hnew) {
+		this.hnew = hnew;
+	}
+
+	public pullOff getPnew() {
+		return pnew;
+	}
+
+	public void setPnew(pullOff pnew) {
+		this.pnew = pnew;
+	}
 }
 

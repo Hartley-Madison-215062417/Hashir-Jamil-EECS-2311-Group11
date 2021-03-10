@@ -23,12 +23,17 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "notations")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"technical"})
+@XmlType(propOrder= {"technical","slur"})
 public class Notations {
 	
 	@XmlElement
 	Technical technical = new Technical();
 	
+	@XmlElement
+	Slur slur;
+	
+
+
 	public Notations() {
 		super();
 	}
@@ -44,6 +49,13 @@ public class Notations {
 
 	public void setTechnical(Technical technical) {
 		this.technical = technical;
+	}
+	public Slur getSlur() {
+		return slur;
+	}
+
+	public void setSlur(Slur slur) {
+		this.slur = slur;
 	}
 	
 	
