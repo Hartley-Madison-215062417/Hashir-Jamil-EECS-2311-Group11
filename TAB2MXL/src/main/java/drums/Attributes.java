@@ -6,15 +6,12 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import guitar.Clef;
-import guitar.Key;
-import guitar.StaffDetails;
-import guitar.Time;
+
 
 @XmlRootElement(name = "attributes")
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = {"divisions", "key", "time", "clef", "sd"})
-public class Attributes extends StaffDetails {
+public class Attributes {
 
 	@XmlElement
 	int divisions;
@@ -28,21 +25,18 @@ public class Attributes extends StaffDetails {
 	@XmlElement
 	Clef clef;
 	
-	@XmlElement (name = "staff-details")
-	StaffDetails sd;
 	
 	
 	public Attributes() {
 		super();
 	}
 	
-	public Attributes(Key key, Time time, Clef clef, StaffDetails sd) {
+	public Attributes(Key key, Time time, Clef clef) {
 		super();
 		divisions = 2;
 		this.key = key;
 		this.time = time;
 		this.clef = clef;
-		this.sd = sd;
 	}
 
 	public Key getKey() {
@@ -67,14 +61,6 @@ public class Attributes extends StaffDetails {
 
 	public void setClef(Clef clef) {
 		this.clef = clef;
-	}
-
-	public StaffDetails getSd() {
-		return sd;
-	}
-
-	public void setSd(StaffDetails sd) {
-		this.sd = sd;
 	}
 
 	public int getDivisions() {

@@ -133,7 +133,7 @@ public class Parser {
 			 Key k = new Key(0);
 			 Time t = new Time(4,4); 
 			 Clef c = new Clef();
-			 StaffDetails sd = new StaffDetails();
+			
 			 
 			 
 		 }

@@ -6,9 +6,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+
+@XmlRootElement(name = "stem")
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = {"stem"})
 public class Stem {
 
-	
+	@XmlElement
 	String stem;
 	
 	
@@ -18,6 +22,7 @@ public class Stem {
 	
 	
 	public Stem(int voice) {
+		super();
 		if(voice == 1) {
 		stem = "up";
 	}
