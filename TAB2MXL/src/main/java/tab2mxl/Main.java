@@ -329,7 +329,7 @@ public class Main extends Application{
 		                                char[][] tmp = testArrayList3.get(0);
 		                                
 		                                for (int i = 0; i < tmp.length ; i++) {
-		                                    System.out.println(p.getTabCharMatrix()[i]);
+		                                   // System.out.println(p.getTabCharMatrix()[i]);
 		                                }
 		                                
 		                                char[][] tmp2 = testArrayList3.get(1);
