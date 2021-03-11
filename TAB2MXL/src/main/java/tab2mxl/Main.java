@@ -316,6 +316,7 @@ public class Main extends Application{
 		                                char[][] parsed = p.getTabCharMatrix();
 		                                
 		                                ArrayList<char[][]> testArrayList3 = p.measureSplitter(parsed);
+		                            
 		                                /*
 		                                 * Here, we need to add a call to a parser method.
 		                                 * It will separate the measures into individual char arrays,
@@ -326,15 +327,18 @@ public class Main extends Application{
 		                     //           testArrayList3.add(parsed);
 		                      //          testArrayList3.add(parsed);
 		                                
+		                                testArrayList3.add(parsed);
+		                                testArrayList3.add(parsed);
+		                                
 		                                char[][] tmp = testArrayList3.get(0);
 		                                
-		                                for (int i = 0; i < tmp.length ; i++) {
-		                                   // System.out.println(p.getTabCharMatrix()[i]);
-		                                }
+//		                                for (int i = 0; i < testArrayList3.size() ; i++) {
+//		                                	System.out.print(testArrayList3.get(i));
+//		                                }
 		                                
 		                                char[][] tmp2 = testArrayList3.get(1);
 		                                for (int i = 0; i < tmp2.length ; i++) {
-		                                    //System.out.println(p.getTabCharMatrix()[i]);
+		                                    System.out.println(p.getTabCharMatrix()[i]);
 		                                }
 		                        	
 		                     
