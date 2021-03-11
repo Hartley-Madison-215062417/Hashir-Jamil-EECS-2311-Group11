@@ -182,6 +182,27 @@ public class Main extends Application{
 				        button2.setLayoutY(250);
 				        
 				        
+				        final Button button3 = new Button();
+				        button3.setShape(new Circle(1));
+				        button3.setMaxSize(3,3);
+
+				        ImageView ricon = new ImageView("file:restart.png");
+				        ricon.setFitHeight(100);
+				        ricon.setFitWidth(100);
+				        button3.setGraphic(ricon);
+				        button3.setLayoutX(800);
+				        button3.setLayoutY(450);
+				        
+				        TextFlow textFlow7 = new TextFlow();
+				        Font restart_font = new Font("Tahoma", 20);
+				        Text restart = new Text("Restart");
+				        restart.setFill(Color.WHITE);
+				        restart.setFont(restart_font);
+				        textFlow7.getChildren().add(restart);
+				        textFlow7.setLayoutX(830);
+				        textFlow7.setLayoutY(415);
+				        
+				        
 				        TextFlow textFlow6 = new TextFlow();
 				        Font download_font = new Font("Tahoma", 20);
 				        Text download = new Text("Download");
@@ -308,7 +329,7 @@ public class Main extends Application{
 		                                char[][] tmp = testArrayList3.get(0);
 		                                
 		                                for (int i = 0; i < tmp.length ; i++) {
-		                                    //System.out.println(p.getTabCharMatrix()[i]);
+		                                    System.out.println(p.getTabCharMatrix()[i]);
 		                                }
 		                                
 		                                char[][] tmp2 = testArrayList3.get(1);
@@ -365,8 +386,10 @@ public class Main extends Application{
 		                new EventHandler<ActionEvent>() {
 		                    @Override
 		                    public void handle(final ActionEvent e) {
+		                    	fileChooser.getExtensionFilters().add(new ExtensionFilter("Xml", "*.xml"));
 
 		                    File dest = fileChooser.showSaveDialog(window);
+		              
 		                    if (dest != null) {
 		                    	try {
 	                        		File output = new File("src//main//java//output//Output.xml");
@@ -378,8 +401,8 @@ public class Main extends Application{
 		                    		
 		                    	}
 		                    }});
-		      
-		     
+		        
+		        button3.setOnAction(e -> window.setScene(scene2));
 		  
 		        Pane layout2 = new Pane();
 		        layout2.setPrefSize(1000,1000);
@@ -397,7 +420,9 @@ public class Main extends Application{
 		        layout3.getChildren().add(button2);
 		        layout3.getChildren().add(dicon);
 		        layout3.getChildren().add(textFlow6);
-		        
+		        layout3.getChildren().add(ricon);
+		        layout3.getChildren().add(button3);
+		        layout3.getChildren().add(textFlow7);
 		        
 
 		        

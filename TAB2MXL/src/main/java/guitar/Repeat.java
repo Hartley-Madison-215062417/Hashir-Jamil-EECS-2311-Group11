@@ -16,7 +16,7 @@ public class Repeat {
 	String direction;
 
 	
-	public Repeat(String direction) {
+	public Repeat() {
 		super();
 	}
 
