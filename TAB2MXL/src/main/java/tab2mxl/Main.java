@@ -1,46 +1,42 @@
 package tab2mxl;
 
 
-import java.util.ArrayList;
-import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-
-import java.util.Scanner; 
 import guitar.Parser;
 import guitar.Part;
+import guitar.scorePartwise;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
 
 
 public class Main extends Application{
@@ -133,7 +129,7 @@ public class Main extends Application{
 
 		        TextFlow textFlow4 = new TextFlow();
 		        Font instructions_font = new Font("Tahoma", 20);
-		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file \n or simply input the tabs in the text box below and click enter.");
+		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file in .txt format \n or simply input the tabs in the text box below and click enter. \n");
 		        instuctions.setFill(Color.WHITE);
 		        instuctions.setFont(instructions_font);
 		        textFlow4.getChildren().add(instuctions);
@@ -186,6 +182,27 @@ public class Main extends Application{
 				        button2.setLayoutY(250);
 				        
 				        
+				        final Button button3 = new Button();
+				        button3.setShape(new Circle(1));
+				        button3.setMaxSize(3,3);
+
+				        ImageView ricon = new ImageView("file:restart.png");
+				        ricon.setFitHeight(100);
+				        ricon.setFitWidth(100);
+				        button3.setGraphic(ricon);
+				        button3.setLayoutX(800);
+				        button3.setLayoutY(450);
+				        
+				        TextFlow textFlow7 = new TextFlow();
+				        Font restart_font = new Font("Tahoma", 20);
+				        Text restart = new Text("Restart");
+				        restart.setFill(Color.WHITE);
+				        restart.setFont(restart_font);
+				        textFlow7.getChildren().add(restart);
+				        textFlow7.setLayoutX(830);
+				        textFlow7.setLayoutY(415);
+				        
+				        
 				        TextFlow textFlow6 = new TextFlow();
 				        Font download_font = new Font("Tahoma", 20);
 				        Text download = new Text("Download");
@@ -235,16 +252,25 @@ public class Main extends Application{
 		                                }
 
 
+
 		                        		Part part = p.createMusicalPart(testArrayList3);
-		                        		JAXBContext jc = JAXBContext.newInstance(Part.class);
+		                        		scorePartwise sp = new scorePartwise();
+		                        		sp.getParts().add(part);
+		                        		
+		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
 		                        		Marshaller ms = jc.createMarshaller();
 		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
+		      
+
 		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		ms.marshal(part,output);
+		                        		ms.marshal(sp,output);
+		  
 		             
 		  
 		                        		try {
-		                        	        Scanner s = new Scanner(output);
+		                        	        Scanner s = new Scanner(output); //what's this doing?
 		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
@@ -290,6 +316,7 @@ public class Main extends Application{
 		                                char[][] parsed = p.getTabCharMatrix();
 		                                
 		                                ArrayList<char[][]> testArrayList3 = p.measureSplitter(parsed);
+		                            
 		                                /*
 		                                 * Here, we need to add a call to a parser method.
 		                                 * It will separate the measures into individual char arrays,
@@ -300,28 +327,34 @@ public class Main extends Application{
 		                     //           testArrayList3.add(parsed);
 		                      //          testArrayList3.add(parsed);
 		                                
+		                                testArrayList3.add(parsed);
+		                                testArrayList3.add(parsed);
+		                                
 		                                char[][] tmp = testArrayList3.get(0);
 		                                
-		                                for (int i = 0; i < tmp.length ; i++) {
-		                                    //System.out.println(p.getTabCharMatrix()[i]);
-		                                }
+//		                                for (int i = 0; i < testArrayList3.size() ; i++) {
+//		                                	System.out.print(testArrayList3.get(i));
+//		                                }
 		                                
 		                                char[][] tmp2 = testArrayList3.get(1);
 		                                for (int i = 0; i < tmp2.length ; i++) {
-		                                    //System.out.println(p.getTabCharMatrix()[i]);
+		                                    System.out.println(p.getTabCharMatrix()[i]);
 		                                }
 		                        	
+		                     
 		                        		Part part = p.createMusicalPart(testArrayList3);
+		                        		scorePartwise sp = new scorePartwise();
+		                        		sp.getParts().add(part);
 		                        		
-		                        		JAXBContext jc = JAXBContext.newInstance(Part.class);
+		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
 		                        		Marshaller ms = jc.createMarshaller();
 		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-		                        		ms.marshal(part,new File("src//main//java//output//Output.xml"));
+		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
 		      
 
 		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		ms.marshal(part,output);
+		                        		ms.marshal(sp,output);
 		  
 
 		                        		try {
@@ -357,8 +390,10 @@ public class Main extends Application{
 		                new EventHandler<ActionEvent>() {
 		                    @Override
 		                    public void handle(final ActionEvent e) {
+		                    	fileChooser.getExtensionFilters().add(new ExtensionFilter("Xml", "*.xml"));
 
 		                    File dest = fileChooser.showSaveDialog(window);
+		              
 		                    if (dest != null) {
 		                    	try {
 	                        		File output = new File("src//main//java//output//Output.xml");
@@ -370,8 +405,8 @@ public class Main extends Application{
 		                    		
 		                    	}
 		                    }});
-		      
-		     
+		        
+		        button3.setOnAction(e -> window.setScene(scene2));
 		  
 		        Pane layout2 = new Pane();
 		        layout2.setPrefSize(1000,1000);
@@ -389,7 +424,9 @@ public class Main extends Application{
 		        layout3.getChildren().add(button2);
 		        layout3.getChildren().add(dicon);
 		        layout3.getChildren().add(textFlow6);
-		        
+		        layout3.getChildren().add(ricon);
+		        layout3.getChildren().add(button3);
+		        layout3.getChildren().add(textFlow7);
 		        
 
 		        

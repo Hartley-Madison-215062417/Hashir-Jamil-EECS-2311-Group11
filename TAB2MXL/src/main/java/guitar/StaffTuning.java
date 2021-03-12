@@ -5,7 +5,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement
@@ -13,12 +12,12 @@ public class StaffTuning{
 	
 	@XmlAttribute
 	int line;
-	@XmlElement //(type = "char")
-	public char tuningStep;
-	@XmlElement
+	@XmlElement(name="tuning-step") //(type = "char")
+	public String tuningStep;
+	@XmlElement(name="tuning-octave")
 	int tuningOctave;
 	
-	public StaffTuning(int line, char tuningStep, int tuningOctave) {
+	public StaffTuning(int line, String tuningStep, int tuningOctave) {
 		super();
 		this.line = line;
 		this.tuningStep = tuningStep;
@@ -29,11 +28,11 @@ public class StaffTuning{
 		
 	}
 
-	public char getTuningStep() {
+	public String getTuningStep() {
 		return tuningStep;
 	}
 
-	public void setTuningStep(char tuningStep) {
+	public void setTuningStep(String tuningStep) {
 		this.tuningStep = tuningStep;
 	}
 

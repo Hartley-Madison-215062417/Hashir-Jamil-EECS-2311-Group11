@@ -1,4 +1,4 @@
-package guitar;
+package drums;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -6,10 +6,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "pitch")
+@XmlRootElement(name = "unpitched")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"step","alter","octave"})
-public class Pitch {
+@XmlType(propOrder = {"display-step","display-octave"})
+
+public class Unpitched {
 	
 	@XmlElement
 	String step;
@@ -17,32 +18,22 @@ public class Pitch {
 	@XmlElement
 	int octave;
 	
-	@XmlElement
-	String alter;
-	
-	public Pitch() {
+	public Unpitched() {
 		super();
 	}
 	
-	public Pitch(String step, int octave) {
+	public Unpitched(String step, int octave) {
 		super();
 		this.step = step;
 		this.octave = octave;
-	}	
-	
-	public Pitch(String step, int octave,int alter) {
-		super();
-		this.step = step;
-		this.octave = octave;
-		
 	}
 	
 	public String getStep() {
 		return step;
 	}
 	
-	public void setStep(String aStep) {
-		this.step = aStep;
+	public void setStep(String step) {
+		this.step = step;
 	}
 	
 	public int getOctave() {
@@ -53,14 +44,5 @@ public class Pitch {
 		this.octave = octave;
 	}
 	
-	public void setAlter(String alter) {
-		this.alter =alter;
-	}
-	
-	public String getAlter() {
-		return alter;
-	}
 
-
-	
 }

@@ -1,37 +1,7 @@
 package guitar;
 
-//public class StaffDetails {
-//	StaffTuning staffTuning;
-//	
-//
-//	public StaffDetails(Parser p) {
-//		this.staffTuning = new StaffTuning(p);
-//	}
-//	
-//
-//	//@XMLElement(name = "staff-lines")
-//	private int staffLines = 6;
-//	
-//
-//	/**
-//	 * This constructor only supports standard tuning at this time
-//	 */
-//	public StaffDetails() {
-//		this.staffTuning = new StaffTuning('E',2);
-//		this.staffTuning = new StaffTuning('A',2);
-//		this.staffTuning = new StaffTuning('D',3);
-//		this.staffTuning = new StaffTuning('G',3);
-//		this.staffTuning = new StaffTuning('B',3);
-//		this.staffTuning = new StaffTuning('E',4);
-//	}
-//	
-//
-//}
-
-import javax.xml.bind.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -66,12 +36,12 @@ public class StaffDetails{
 	public StaffDetails() {
 		
 		staffLines = 6;
-		s1 = new StaffTuning(1, 'E', 2);
-		s2 = new StaffTuning(2, 'A', 2);
-		s3 = new StaffTuning(3, 'D', 3);
-		s4 = new StaffTuning(4, 'G', 3);
-		s5 = new StaffTuning(5, 'B', 3);
-		s6 = new StaffTuning(6, 'E', 4);
+		s1 = new StaffTuning(1, "E", 2);
+		s2 = new StaffTuning(2, "A", 2);
+		s3 = new StaffTuning(3, "D", 3);
+		s4 = new StaffTuning(4, "G", 3);
+		s5 = new StaffTuning(5, "B", 3);
+		s6 = new StaffTuning(6, "E", 4);
 		
 		
 		

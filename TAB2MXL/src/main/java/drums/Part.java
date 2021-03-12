@@ -1,5 +1,4 @@
-package guitar;
-
+package drums;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +16,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder= {"id","measuresList"})
 public class Part {
+
 	@XmlAttribute
 	final String id = "P1";
-	
 	
 	@XmlElement(name = "measure",type = Measure.class)
 	private List<Measure> measuresList = new ArrayList<Measure>();
 	
-
 	public Part() {
 		super();
 	}
@@ -41,6 +39,5 @@ public class Part {
 	public void setPart(List<Measure> part) {
 		this.measuresList = part;
 	}
-	
 	
 }
