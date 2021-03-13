@@ -70,15 +70,15 @@ public class EditPopup {
 	    change.setLayoutY(150);
 	    change.setMaxSize(200,50);
 	    
-	    change.setOnKeyPressed(new EventHandler<KeyEvent>() {
-
-			@Override
-			public void handle(KeyEvent keyEvent) {
-				// TODO Auto-generated method stub
-				if(keyEvent.getCode() == KeyCode.ENTER)
-		        {
-					
-		        }}});
+//	    change.setOnKeyPressed(new EventHandler<KeyEvent>() {
+//
+//			@Override
+//			public void handle(KeyEvent keyEvent) {
+//				// TODO Auto-generated method stub
+//				if(keyEvent.getCode() == KeyCode.ENTER)
+//		        {
+//					
+//		        }}});
 	    
 
 	   Pane pane = new Pane();
