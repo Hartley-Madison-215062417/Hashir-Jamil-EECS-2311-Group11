@@ -18,16 +18,19 @@ import guitar.Parser;
 import guitar.Part;
 import guitar.scorePartwise;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -37,6 +40,9 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.stage.Popup;
+import javafx.scene.control.Label; 
+
 
 
 public class Main extends Application{
@@ -60,8 +66,8 @@ public class Main extends Application{
 		
 		 Image background_image = new Image("file:soundwave.jpg");
 	     ImageView mv = new ImageView(background_image);
-	     mv.setFitHeight(1000);
-	     mv.setFitWidth(1000);
+	     mv.setFitHeight(2000);
+	     mv.setFitWidth(2000);
 	     mv.fitWidthProperty().bind(window.widthProperty());
 	     mv.fitHeightProperty().bind(window.heightProperty());
 	     mv.setOpacity(1);
@@ -71,7 +77,7 @@ public class Main extends Application{
 		 title.setFill(Color.WHITE);
 		  title.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
 	        textFlow.getChildren().add(title);
-	        textFlow.setLayoutX(250);
+	        textFlow.setLayoutX(400);
 	        textFlow.setLayoutY(50);
 	        
 	        TextFlow textFlow3 = new TextFlow();
@@ -80,7 +86,7 @@ public class Main extends Application{
 	        start.setFill(Color.WHITE);
 	        start.setFont(start_font);
 	        textFlow3.getChildren().add(start);
-	        textFlow3.setLayoutX(470);
+	        textFlow3.setLayoutX(600);
 	        textFlow3.setLayoutY(570);
 
 	        final Button button = new Button();
@@ -93,47 +99,49 @@ public class Main extends Application{
 	        button.setGraphic(icon);
 	        
 
-	        button.setLayoutX(420);
+	        button.setLayoutX(550);
 	        button.setLayoutY(400);
 	        button.setOnAction(e -> window.setScene(scene2));
 	
 	        
 	        Pane layout1 = new Pane();
-	        layout1.setPrefSize(1000,1000);
+	        layout1.setPrefSize(2000,2000);
 	        layout1.getChildren().add(mv);
 	        layout1.getChildren().add(textFlow);
 	        layout1.getChildren().add(button);
 	        layout1.getChildren().add(textFlow3);
 	      
 	        
-	        Scene scene1 = new Scene(layout1, 1000, 1000, Color.BLACK);
+	        Scene scene1 = new Scene(layout1, 2000, 2000, Color.BLACK);
 
 	     
 	     //2nd page
 	        
 	        Image background_image2 = new Image("file:soundwave.jpg");
-		     ImageView mv2 = new ImageView(background_image);
-		     mv2.setFitHeight(1000);
-		     mv2.setFitWidth(1000);
-		     mv.fitWidthProperty().bind(window.widthProperty());
-		     mv.fitHeightProperty().bind(window.heightProperty());
+		     ImageView mv2 = new ImageView(background_image2);
+		     mv2.setFitHeight(2000);
+		     mv2.setFitWidth(2000);
+		     mv2.fitWidthProperty().bind(window.widthProperty());
+		     mv2.fitHeightProperty().bind(window.heightProperty());
 		     mv2.setOpacity(1);
+		     
+		     
 		     
 		     TextFlow textFlow2 = new TextFlow();
 			 Text title2 = new Text("Zebra11 Converter \n");
 			 title2.setFill(Color.WHITE);
 			  title2.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
 		        textFlow2.getChildren().add(title2);
-		        textFlow2.setLayoutX(250);
+		        textFlow2.setLayoutX(400);
 		        textFlow2.setLayoutY(50);
 
 		        TextFlow textFlow4 = new TextFlow();
 		        Font instructions_font = new Font("Tahoma", 20);
-		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file in .txt format \n or simply input the tabs in the text box below and click enter. \n");
+		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file in .txt format \n or simply input the tabs in the text box below and click enter. Click more info for tablature formatting information.\n");
 		        instuctions.setFill(Color.WHITE);
 		        instuctions.setFont(instructions_font);
 		        textFlow4.getChildren().add(instuctions);
-		        textFlow4.setLayoutX(100);
+		        textFlow4.setLayoutX(150);
 		        textFlow4.setLayoutY(150);
 		        
 		        
@@ -145,8 +153,34 @@ public class Main extends Application{
 		        openButton.setLayoutX(400);
 		        openButton.setLayoutY(500);
 		        openButton.setMinSize(200, 100);
+
+		        final Button info_button = new Button();
+		        info_button.setShape(new Circle(1));
+		        info_button.setMaxSize(1,1);
 		        
 		        
+		        ImageView info = new ImageView("file:info.png");
+		        info.setFitHeight(90);
+		        info.setFitWidth(90);
+		        info_button.setGraphic(info);
+		        
+
+		        info_button.setLayoutX(990);
+		        info_button.setLayoutY(300);
+		        //pop up page 
+		        
+		        info_button.setOnAction(e -> PopupGUI.display());
+		        
+		        TextFlow textinfo = new TextFlow();
+		        Font info_font = new Font("Tahoma", 20);
+		        Text infot = new Text("More Info");
+		        infot.setFill(Color.WHITE);
+		        infot.setFont(info_font);
+		        textinfo.getChildren().add(infot);
+		        textinfo.setLayoutX(1000);
+		        textinfo.setLayoutY(400);
+		        
+ 
 		        //3rd page 
 		        Image background_image3 = new Image("file:soundwave.jpg");
 			     ImageView mv3 = new ImageView(background_image);
@@ -160,38 +194,44 @@ public class Main extends Application{
 					 title5.setFill(Color.WHITE);
 					  title5.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
 				        textFlow5.getChildren().add(title5);
-				        textFlow5.setLayoutX(250);
+				        textFlow5.setLayoutX(400);
 				        textFlow5.setLayoutY(50);
 				        
 				        TextArea textbox2 = new TextArea(); 
-				        textbox2.setLayoutX(250);
-				        textbox2.setLayoutY(150);
-				        textbox2.setMinSize(100,500);
+				        textbox2.setLayoutX(700);//250,750
+				        textbox2.setLayoutY(150);//100,150
+				        textbox2.setMinSize(300,500);
                 		textbox2.appendText("Error: currently not supported");
+                		
+                		TextArea inputbox = new TextArea(); 
+				        inputbox.setLayoutX(70);
+				        inputbox.setLayoutY(150);
+				        inputbox.setMinSize(300,500);
+                		inputbox.appendText("Error: currently not supported");
 				        
 				        
 				        final Button button2 = new Button();
 				        button2.setShape(new Circle(1));
-				        button2.setMaxSize(3,3);
+				        button2.setMaxSize(1,1);
 
 				        ImageView dicon = new ImageView("file:download_icon.png");
-				        dicon.setFitHeight(100);
-				        dicon.setFitWidth(100);
+				        dicon.setFitHeight(70);
+				        dicon.setFitWidth(70);
 				        button2.setGraphic(dicon);
-				        button2.setLayoutX(800);
-				        button2.setLayoutY(250);
+				        button2.setLayoutX(1000);
+				        button2.setLayoutY(20);
 				        
 				        
 				        final Button button3 = new Button();
 				        button3.setShape(new Circle(1));
-				        button3.setMaxSize(3,3);
+				        button3.setMaxSize(1,1);
 
 				        ImageView ricon = new ImageView("file:restart.png");
-				        ricon.setFitHeight(100);
-				        ricon.setFitWidth(100);
+				        ricon.setFitHeight(70);
+				        ricon.setFitWidth(70);
 				        button3.setGraphic(ricon);
-				        button3.setLayoutX(800);
-				        button3.setLayoutY(450);
+				        button3.setLayoutX(70);
+				        button3.setLayoutY(30);
 				        
 				        TextFlow textFlow7 = new TextFlow();
 				        Font restart_font = new Font("Tahoma", 20);
@@ -199,18 +239,43 @@ public class Main extends Application{
 				        restart.setFill(Color.WHITE);
 				        restart.setFont(restart_font);
 				        textFlow7.getChildren().add(restart);
-				        textFlow7.setLayoutX(830);
-				        textFlow7.setLayoutY(415);
+				        textFlow7.setLayoutX(85);
+				        textFlow7.setLayoutY(110);
 				        
-				        
+				       
 				        TextFlow textFlow6 = new TextFlow();
 				        Font download_font = new Font("Tahoma", 20);
 				        Text download = new Text("Download");
 				        download.setFill(Color.WHITE);
 				        download.setFont(download_font);
 				        textFlow6.getChildren().add(download);
-				        textFlow6.setLayoutX(815);
-				        textFlow6.setLayoutY(200);
+				        textFlow6.setLayoutX(1005);
+				        textFlow6.setLayoutY(100);
+				        
+				        final Button edit_button = new Button();
+				        edit_button.setShape(new Circle(1));
+				        edit_button.setMaxSize(1,1);
+				        
+				        
+				        ImageView edit = new ImageView("file:edit.png");
+				        edit.setFitHeight(70);
+				        edit.setFitWidth(70);
+				        edit_button.setGraphic(edit);
+				        
+
+				        edit_button.setLayoutX(1135);
+				        edit_button.setLayoutY(20);
+				        
+				        edit_button.setOnAction(e -> EditPopup.display());
+				        
+				        TextFlow edit_text = new TextFlow();
+				        Font edit_font = new Font("Tahoma", 20);
+				        Text edittext = new Text("Edit");
+				        edittext.setFill(Color.WHITE);
+				        edittext.setFont(edit_font);
+				        edit_text.getChildren().add(edittext);
+				        edit_text.setLayoutX(1160);
+				        edit_text.setLayoutY(100);
 		        
 		        
 		       // openButton.setOnAction(e -> window.setScene(scene3));
@@ -274,7 +339,16 @@ public class Main extends Application{
 		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
+		                        	          
 		                        	        }
+		                        	        
+		                        	        Scanner scan = new Scanner(file);
+		                        	        inputbox.clear();
+		                        	        while(scan.hasNext()) {
+		                        	        	inputbox.appendText(scan.nextLine() + "\n");
+		                        	        }
+		                        	        
+		                        	        
 		                        	    } catch (FileNotFoundException ex) {
 		                        	        System.err.println(ex);
 		                        	    }
@@ -315,7 +389,7 @@ public class Main extends Application{
 		                        		//change??
 		                                char[][] parsed = p.getTabCharMatrix();
 		                                
-		                                ArrayList<char[][]> testArrayList3 = p.measureSplitter(parsed);
+		                                ArrayList<char[][]> testArrayList4 = p.measureSplitter(parsed);
 		                            
 		                                /*
 		                                 * Here, we need to add a call to a parser method.
@@ -324,25 +398,23 @@ public class Main extends Application{
 		                                 * Change the .add below. (remove them)
 		                                 * The return will be the ArrayList.
 		                                 */
-		                     //           testArrayList3.add(parsed);
-		                      //          testArrayList3.add(parsed);
+		                                testArrayList4.add(parsed);
+		                                testArrayList4.add(parsed);
 		                                
-		                                testArrayList3.add(parsed);
-		                                testArrayList3.add(parsed);
 		                                
-		                                char[][] tmp = testArrayList3.get(0);
+		                                char[][] tmp = testArrayList4.get(0);
 		                                
 //		                                for (int i = 0; i < testArrayList3.size() ; i++) {
 //		                                	System.out.print(testArrayList3.get(i));
 //		                                }
 		                                
-		                                char[][] tmp2 = testArrayList3.get(1);
+		                                char[][] tmp2 = testArrayList4.get(1);
 		                                for (int i = 0; i < tmp2.length ; i++) {
 		                                    System.out.println(p.getTabCharMatrix()[i]);
 		                                }
 		                        	
 		                     
-		                        		Part part = p.createMusicalPart(testArrayList3);
+		                        		Part part = p.createMusicalPart(testArrayList4);
 		                        		scorePartwise sp = new scorePartwise();
 		                        		sp.getParts().add(part);
 		                        		
@@ -362,6 +434,12 @@ public class Main extends Application{
 		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
+		                        	        }
+		                        	        
+		                        	        Scanner scan = new Scanner(input);
+		                        	        inputbox.clear();
+		                        	        while(scan.hasNext()) {
+		                        	        	inputbox.appendText(scan.nextLine() + "\n");
 		                        	        }
 		                        	        
 		                        	     
@@ -409,31 +487,40 @@ public class Main extends Application{
 		        button3.setOnAction(e -> window.setScene(scene2));
 		  
 		        Pane layout2 = new Pane();
-		        layout2.setPrefSize(1000,1000);
+		        layout2.setPrefSize(2000,2000);
 		        layout2.getChildren().add(mv2);
 		        layout2.getChildren().add(textFlow2);
 		        layout2.getChildren().add(textFlow4);
 		        layout2.getChildren().add(openButton);
 		        layout2.getChildren().add(textbox);
+		        layout2.getChildren().add(info);
+		        layout2.getChildren().add(info_button);
+		        layout2.getChildren().add(textinfo);
+
+		        
 		        
 		        Pane layout3 = new Pane();
-		        layout3.setPrefSize(1000,1000);
+		        layout3.setPrefSize(2000,2000);
 		        layout3.getChildren().add(mv3);
 		        layout3.getChildren().add(textFlow5);
 		        layout3.getChildren().add(textbox2);
+		        layout3.getChildren().add(inputbox);
 		        layout3.getChildren().add(button2);
 		        layout3.getChildren().add(dicon);
 		        layout3.getChildren().add(textFlow6);
 		        layout3.getChildren().add(ricon);
 		        layout3.getChildren().add(button3);
 		        layout3.getChildren().add(textFlow7);
+		        layout3.getChildren().add(edit);
+		        layout3.getChildren().add(edit_button);
+		        layout3.getChildren().add(edit_text);
 		        
 
 		        
 	
 		     
-		scene2 = new Scene(layout2, 1000, 1000,Color.BLACK);
-		scene3 = new Scene(layout3, 1000,1000,Color.BLACK);
+		scene2 = new Scene(layout2, 2000, 2000,Color.BLACK);
+		scene3 = new Scene(layout3, 2000,2000,Color.BLACK);
 		
 		window.setScene(scene1);
 		window.setTitle("Tablature to MusicXML Converter");
