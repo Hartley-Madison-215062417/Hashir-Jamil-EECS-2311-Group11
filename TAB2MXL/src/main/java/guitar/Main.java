@@ -45,8 +45,8 @@ class Main{
 //		ms.marshal(sp, System.out);
 //		ms.marshal(sp,new File("src//output//Output.xml"));
 		
-		HammerOn h = new HammerOn();
-		JAXBContext jc = JAXBContext.newInstance(HammerOn.class);
+		hammerOns h = new hammerOns();
+		JAXBContext jc = JAXBContext.newInstance(hammerOns.class);
 		Marshaller ms = jc.createMarshaller();
 		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		ms.marshal(h, System.out);    
