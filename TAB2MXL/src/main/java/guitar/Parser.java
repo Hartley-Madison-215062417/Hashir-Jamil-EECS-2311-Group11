@@ -454,6 +454,12 @@ public class Parser {
 			int newColEnd = 0;
 			int width = parsed[0].length;
 			
+			/*
+			 * implement a CHECK for repeats
+			 */
+			
+			
+			
 			for(int i = 0; i < width; i++) {
 				if(parsed[0][i] != '|') {
 				}

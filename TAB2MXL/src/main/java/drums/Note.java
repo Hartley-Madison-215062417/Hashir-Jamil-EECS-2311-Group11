@@ -36,6 +36,7 @@ public class Note{
 	@XmlElement
 	String beamnumber;
 
+
 	public Note() {
 		super();
 	}

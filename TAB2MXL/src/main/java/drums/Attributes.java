@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "attributes")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"divisions", "key", "time", "clef", "sd"})
+@XmlType(propOrder = {"divisions", "key", "time", "clef"})
 public class Attributes {
 
 	@XmlElement
