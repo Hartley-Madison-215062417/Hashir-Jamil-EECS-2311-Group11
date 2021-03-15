@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="note")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead","beamnumber"})
+@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead"})
 
 public class Note{
 
@@ -33,8 +33,6 @@ public class Note{
 	@XmlElement
 	String notehead;
 
-	@XmlElement
-	String beamnumber;
 
 
 	public Note() {
@@ -50,7 +48,7 @@ public class Note{
 		this.type = type;
 		this.stem = stem;
 		this.notehead = notehead;
-		this.beamnumber = beamnumber;
+		
 
 
 	}
@@ -111,14 +109,7 @@ public class Note{
 		this.notehead = notehead;
 	}
 
-	public String getBeamnumber() {
-		return beamnumber;
-	}
-
-	public void setBeamnumber(String beamnumber) {
-		this.beamnumber = beamnumber;
-	}
-
+	
 	public void setOctave(Note n) {
 		int voice = n.getVoice();
 
