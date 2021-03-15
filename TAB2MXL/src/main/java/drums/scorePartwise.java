@@ -22,6 +22,8 @@ public class scorePartwise {
 	
 	@XmlElement(name ="part",type = Part.class)
 	ArrayList<Part> parts = new ArrayList<Part>();
+
+	
 	
 	
 	public scorePartwise() {
