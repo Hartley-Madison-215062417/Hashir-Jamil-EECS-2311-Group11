@@ -46,7 +46,8 @@ import javafx.scene.control.Label;
 
 
 public class Main extends Application{
-	//comment
+	//comments
+	
 	Stage window;
 	Scene scene1,scene2,scene3;
 	Parser p;

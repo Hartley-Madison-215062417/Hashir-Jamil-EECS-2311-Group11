@@ -2,7 +2,17 @@ package tab2mxl;
 
 import java.awt.TextField;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
@@ -70,15 +80,63 @@ public class EditPopup {
 	    change.setLayoutY(150);
 	    change.setMaxSize(200,50);
 	    
-//	    change.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//
-//			@Override
-//			public void handle(KeyEvent keyEvent) {
-//				// TODO Auto-generated method stub
-//				if(keyEvent.getCode() == KeyCode.ENTER)
-//		        {
-//					
-//		        }}});
+	    change.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+			@Override
+			public void handle(KeyEvent keyEvent) {
+				// TODO Auto-generated method stub
+				if(keyEvent.getCode() == KeyCode.ENTER)
+		        {
+					
+					String input_text = change.getText();
+					char numerator = input_text.charAt(0);
+					char denom = input_text.charAt(2);
+					 
+						try {
+							File xml = new File("src//main//java//output//Output.xml");
+						    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+						    DocumentBuilder dBuilder;
+							dBuilder = dbFactory.newDocumentBuilder();
+
+						    
+						    Document doc = dBuilder.parse(xml);
+						    doc.getDocumentElement().normalize();
+
+						    System.out.println(doc.getDocumentElement().getNodeName());
+						    NodeList nodes = doc.getElementsByTagName("time");
+
+						    for (int i = 0; i < nodes.getLength(); i++) {
+						      Node node = nodes.item(i);
+						      if (node.getNodeType() == Node.ELEMENT_NODE) {
+						        Element element = (Element) node;
+					
+						        setValue("beats",element,Integer.parseInt(String.valueOf(numerator)));
+						        setValue("beat-type",element,Integer.parseInt(String.valueOf(denom)));
+	
+			
+						      }
+						    }
+						} catch (ParserConfigurationException | SAXException | IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+
+					  }
+		        }
+
+			private void setValue(String tag, Element element,int value) {
+				 NodeList nodes = element.getElementsByTagName(tag).item(0).getChildNodes();
+			        Node node = (Node) nodes.item(0);
+			        node.setTextContent(String.valueOf(value));
+			}
+
+			private String getValue(String tag, Element element) {
+				 NodeList nodes = element.getElementsByTagName(tag).item(0).getChildNodes();
+			        Node node = (Node) nodes.item(0);
+			        return node.getNodeValue();
+			
+			}});
 	    
 
 	   Pane pane = new Pane();
