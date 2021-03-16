@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Attributes {
 
 	@XmlElement
-	int divisions;
+	int divisions = 2;
 	
 	@XmlElement
 	Key key;
@@ -67,7 +67,9 @@ public class Attributes {
 		return divisions;
 	}
 	
-	
+	public int setDivisions(int divisions) {
+		return divisions;
+	}
 	
 	
 }

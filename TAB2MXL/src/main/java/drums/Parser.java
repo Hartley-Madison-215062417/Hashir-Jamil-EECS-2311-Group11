@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import guitar.Note;
+import drums.Note;
 
 public class Parser {
 	
@@ -148,19 +148,19 @@ public class Parser {
 					 StringBuilder num = new StringBuilder();
 					 num.append(firstMeasure[i][j]);
 					 num.append(firstMeasure[i][j+1]);
-					 int fret = Integer.parseInt(num.toString());
-					 n.getNotations().getTechnical().setFret(fret);
+				//	 int fret = Integer.parseInt(num.toString());
+					// n.getNotations().getTechnical().setFret(fret);
 				 }
 				 else {
-					 n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
+				//	 n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
 				 }
 				 
-				 n.getNotations().getTechnical().setString(i+1);
+				// n.getNotations().getTechnical().setString(i+1);
 				 n.setDuration(firstMeasure[0].length - j);
 				 n.setDefaultStep(n);
-				 if(n.getNotations().getTechnical().getFret()!=0) {
-						n.updatePitch(n);
-						}
+//				 if(n.getNotations().getTechnical().getFret()!=0) {
+//						n.updatePitch(n);
+//						}
 				 }
 			// m.getNotes().add(n);
 			 }

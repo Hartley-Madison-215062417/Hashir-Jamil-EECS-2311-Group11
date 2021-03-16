@@ -12,10 +12,10 @@ import javax.xml.bind.annotation.XmlType;
 public class Clef {
 
 	@XmlElement
-	String sign;
+	String sign = "percussion";
 	
 	@XmlElement
-	int line;
+	int line = 2;
 	
 	public Clef() {
 		super();

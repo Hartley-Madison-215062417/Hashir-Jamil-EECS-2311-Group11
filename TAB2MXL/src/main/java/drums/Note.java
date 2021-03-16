@@ -121,5 +121,16 @@ public class Note{
 			n.getUnpitched().setOctave(0);
 		}
 	}
+
+
+	public void setDefaultStep(Note n) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updatePitch(Note n) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
