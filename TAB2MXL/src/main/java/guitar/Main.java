@@ -2,9 +2,6 @@ package guitar;
 
 import java.util.ArrayList;
 
-/*
- * @Author: Madison Hartley
- */
 public class Main {
 
 public static void main(String[] args) {

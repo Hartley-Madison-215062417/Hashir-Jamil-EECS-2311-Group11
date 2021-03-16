@@ -2,6 +2,7 @@ package drums;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -12,11 +13,12 @@ import javax.xml.bind.annotation.XmlType;
 
 public class Unpitched {
 	
-	@XmlElement
+	@XmlElement(name="display-step")
 	String step;
 	
-	@XmlElement
+	@XmlElement(name="display-octave")
 	int octave;
+	
 	
 	public Unpitched() {
 		super();

@@ -20,6 +20,8 @@ public class Time {
 	
 	public Time() {
 		super();
+		this.beats = 4;
+		this.beatType = 4;
 	}
 
 	public Time(int beats, int beatType) {

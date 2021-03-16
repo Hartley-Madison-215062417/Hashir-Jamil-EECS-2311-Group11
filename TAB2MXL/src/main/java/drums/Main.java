@@ -26,46 +26,53 @@ public class Main {
 
 
       
-//      ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
-//
+      ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
+
 //		
 //		Parser par = new Parser("prototypeGuitarTab.txt");
 //		Part part = par.createMusicalPart(testArrayList3);
-//		
-//		
 //		scorePartwise sp = new scorePartwise();
 //		sp.getParts().add(part);
 		
 		
-		JAXBContext jc;
+	//	JAXBContext jc;
 		try {
 			
-//			scorePartwise
+			
+			
 //			jc = JAXBContext.newInstance(scorePartwise.class);
 //			Marshaller letsdothis = jc.createMarshaller();
 //			letsdothis.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 //			letsdothis.marshal(sp, System.out);
 //			letsdothis.marshal(sp, new File("src//output//Output.xml"));
-			Note n = new Note();
-			n.getUnpitched().setStep("G");
-			n.getUnpitched().setOctave(5);
-			n.setDuration(2);
-			n.getInstrumentID("P1-I43");
-			n.setVoice(1);
-			n.setType("eighth");
-			n.setStem("up");
-			n.setNotehead("x");
 			
+//			Key key = new Key(0);
+//			Time time = new Time(4,4);
+//			Clef clef = new Clef();
+//			
+//			
+//			Attributes a = new Attributes(key, time, clef);
+//			a.getClef().setSign("Percussion");
+//			a.setDivisions(2);
+//			a.getKey().setFifths(0);
+//			a.getTime().setBeats(4);
+//			a.getTime().setBeatType(4);
+//
+//			jc = JAXBContext.newInstance(Attributes.class);
+//			Marshaller letsdothis = jc.createMarshaller();
+//			letsdothis.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//			letsdothis.marshal(a, System.out);
+//			letsdothis.marshal(a, new File("src//output//Output.xml"));
+//			
 			
-			
-			//Part
-			jc = JAXBContext.newInstance(Note.class);
-			Marshaller letsdothis = jc.createMarshaller();
-			letsdothis.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			letsdothis.marshal(n, System.out);
-			letsdothis.marshal(n, new File("src//output//Output.xml"));
-			
-			
+			Part part = new Part();
+	        JAXBContext jc = JAXBContext.newInstance(Part.class);
+	        Marshaller ms = jc.createMarshaller();
+	        ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	        ms.marshal(part, System.out);
+	     //   ms.marshal(part,new File("src//output//Output.xml"));
+	
+
 			
 			
 		} catch (JAXBException e) {
@@ -73,6 +80,9 @@ public class Main {
 			e.printStackTrace();
 			System.out.println(""+e.getMessage());
 		}
+		
+		
+		
 
 		
 		
