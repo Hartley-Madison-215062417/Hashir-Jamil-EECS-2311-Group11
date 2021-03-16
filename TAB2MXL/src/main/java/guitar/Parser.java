@@ -529,8 +529,40 @@ public class Parser {
 		m.setNumber(Measure.measureNumber);
 		
 		if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') {
-			m.getBarline().getRepeat().setDirection("forward");
+			m.getBarline1().setRepeat(new Repeat());
+			m.getBarline1().getRepeat().setDirection("forward");
 		}
+/*	
+		if(Measure.measureNumber == 3) {
+		System.out.println("TESTING");
+		
+		for(int i = 0; i < firstMeasure.length; i++) {
+			for(int j =0; j < firstMeasure[0].length; j++) {
+				if(firstMeasure[i][j] == ' ') {
+					System.out.print('a');
+				}
+				
+				System.out.print(firstMeasure[i][j]+ " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println(firstMeasure[2][18]);
+		System.out.println("TESTING");
+		}
+	*/
+		
+		
+		for(int i = 0; i < firstMeasure.length; i++) {
+			for(int j =0; j < firstMeasure[0].length; j++) {
+				if (i == 0 && firstMeasure[i+1][j] == '|') {
+					m.getBarline2().setRepeat(new Repeat());
+					m.getBarline2().getRepeat().setDirection("backward");
+				}
+			}
+		}
+		
+		
 		
 		
 		if (m.number == 1) {

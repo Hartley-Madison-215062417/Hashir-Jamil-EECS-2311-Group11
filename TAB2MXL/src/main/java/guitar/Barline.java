@@ -21,8 +21,8 @@ public class Barline {
 	Repeat repeat;
 
 	public Barline() {
-//		location = "right";
-//		barStyle = "light-heavy";
+		location = "right";
+		barStyle = "light-heavy";
 		//commented because we don't need barline for every measure only last measure
 	}
 	public Barline(String location, String barStyle) {

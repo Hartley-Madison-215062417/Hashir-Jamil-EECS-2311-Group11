@@ -10,9 +10,11 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "measure")
 @XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder= {"barline1","number", "attributes","notes","barline2"})
 public class Measure {
 	
 	@XmlAttribute
@@ -24,28 +26,39 @@ public class Measure {
 	@XmlElement(name = "note",type = Note.class)
 	List<Note> notes = new ArrayList<Note>();
 	
-	public Barline getBarline() {
-		return barline;
+
+	@XmlElement (name = "barline")
+	Barline barline1 = new Barline();
+	
+	@XmlElement (name = "barline")
+	Barline barline2 = new Barline();
+	
+	public Barline getBarline1() {
+		return barline1;
 	}
 
-	public void setBarline(Barline barline) {
-		this.barline = barline;
+	public void setBarline1(Barline barline1) {
+		this.barline1 = barline1;
 	}
 
+	public Barline getBarline2() {
+		return barline2;
+	}
+
+	public void setBarline2(Barline barline2) {
+		this.barline2 = barline2;
+	}
+
+	@XmlTransient
+	static int measureNumber = 1;
+	
 	public static int getMeasureNumber() {
 		return measureNumber;
 	}
 
 	public static void setMeasureNumber(int measureNumber) {
 		Measure.measureNumber = measureNumber;
-	}
-
-	@XmlElement (name = "barline")
-	Barline barline = new Barline();
-	
-	@XmlTransient
-	static int measureNumber = 1;
-	
+	}	
 	
 	public void setNotes(ArrayList<Note> notes) {
 		this.notes = notes;
@@ -128,10 +141,10 @@ public class Measure {
 					
 					
 					for (int index: indexArray) {
-						System.out.println("test1");
+						
 						m.notes.get(index).setDuration(chordDuration);						
 					}
-					System.out.println("nia");
+					
 					indexArray.removeAll(indexArray);
 					
 				}
@@ -142,7 +155,7 @@ public class Measure {
 				else if (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() == 0) {
 				
 					indexArray.add(i);
-					System.out.println(i + " " + m.notes.get(i).getNotations().getTechnical().getFret());
+					
 					
 				}	
 				
