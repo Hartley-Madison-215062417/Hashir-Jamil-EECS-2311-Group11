@@ -269,7 +269,7 @@ public class Main extends Application{
 				        edit_button.setLayoutX(850);
 				        edit_button.setLayoutY(300);
 				        
-	//			        edit_button.setOnAction(e -> EditPopup.display());
+				      //  edit_button.setOnAction(e -> EditPopup.display());
 				        
 				        TextFlow edit_text = new TextFlow();
 				        Font edit_font = new Font("Tahoma", 20);
