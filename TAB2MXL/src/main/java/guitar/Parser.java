@@ -501,6 +501,8 @@ public class Parser {
 	 * the measure object
 	 */
 	public Measure createMeasure(char[][] firstMeasure) {
+		
+		
 		//the first measure does not include the vertical bars
 		Measure m = new Measure();
 		m.setNumber(Measure.measureNumber);
@@ -509,6 +511,8 @@ public class Parser {
 			m.getBarline1().setRepeat(new Repeat());
 			m.getBarline1().getRepeat().setDirection("forward");
 		}
+		
+		
 /*	
 		if(Measure.measureNumber == 3) {
 		System.out.println("TESTING");
@@ -529,10 +533,11 @@ public class Parser {
 		}
 	*/
 		
-		
+		System.out.println("here?");
 		for(int i = 0; i < firstMeasure.length; i++) {
 			for(int j =0; j < firstMeasure[0].length; j++) {
 				if (i == 0 && firstMeasure[i+1][j] == '|') {
+					System.out.println("Hello");
 					m.getBarline2().setRepeat(new Repeat());
 					m.getBarline2().getRepeat().setDirection("backward");
 				}
