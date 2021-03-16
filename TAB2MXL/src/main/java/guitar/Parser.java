@@ -494,29 +494,6 @@ public class Parser {
 		return tmpArray;
 	}
 	
-	 
-
-
-	
-	
-	public char[][] getFirstMeasure(char[][] old) {
-		int totalmeasures = 2;						// hard coded for now. this method would work great if we knew 
-													// total number of measures
-	
-		int col = this.tabList.get(0).length()/totalmeasures;
-		//int col = this.tabList.get(0).length();
-		char[][] current = new char[6][col];
-		
-		for(int i=0; i<6; i++) {
-			  for(int j=1; j< col; j++) {
-					  current[i][j]=old[i][j];
-				  
-				  
-			  }}
-		
-		return current;
-		
-		}
 	/*
 	 * this method gets a 2d char array of one measure
 	 * and creates note objects for each note in the 
@@ -660,6 +637,7 @@ public class Parser {
 				
 			}
 		m.updateDuration(m);
+		
 		//testing
 //		for (Note n: m.getNotes()) {
 //		System.out.print(n.getNotations().getTechnical().getFret());
@@ -671,7 +649,7 @@ public class Parser {
 		
 		}
 	
-	
+
 	
 	
 private void createSlides(char[][] firstMeasure, int i, int j, Note n) {
