@@ -24,6 +24,22 @@ public class Measure {
 	@XmlElement(name = "note",type = Note.class)
 	List<Note> notes = new ArrayList<Note>();
 	
+	public Barline getBarline() {
+		return barline;
+	}
+
+	public void setBarline(Barline barline) {
+		this.barline = barline;
+	}
+
+	public static int getMeasureNumber() {
+		return measureNumber;
+	}
+
+	public static void setMeasureNumber(int measureNumber) {
+		Measure.measureNumber = measureNumber;
+	}
+
 	@XmlElement (name = "barline")
 	Barline barline = new Barline();
 	

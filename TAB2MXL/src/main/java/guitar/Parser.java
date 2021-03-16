@@ -528,6 +528,11 @@ public class Parser {
 		Measure m = new Measure();
 		m.setNumber(Measure.measureNumber);
 		
+		if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') {
+			m.getBarline().getRepeat().setDirection("forward");
+		}
+		
+		
 		if (m.number == 1) {
 			Key k = new Key(0);
 			Time t = new Time(4, 4);
@@ -840,7 +845,6 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 		return scorepartwise;
 	}
 	
-	
-	
+		
 	
 }

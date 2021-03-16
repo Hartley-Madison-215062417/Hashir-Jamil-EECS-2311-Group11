@@ -67,8 +67,8 @@ public class Main extends Application{
 		
 		 Image background_image = new Image("file:soundwave.jpg");
 	     ImageView mv = new ImageView(background_image);
-	     mv.setFitHeight(2000);
-	     mv.setFitWidth(2000);
+	     mv.setFitHeight(1000);
+	     mv.setFitWidth(1000);
 	     mv.fitWidthProperty().bind(window.widthProperty());
 	     mv.fitHeightProperty().bind(window.heightProperty());
 	     mv.setOpacity(1);
@@ -78,7 +78,7 @@ public class Main extends Application{
 		 title.setFill(Color.WHITE);
 		  title.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
 	        textFlow.getChildren().add(title);
-	        textFlow.setLayoutX(400);
+	        textFlow.setLayoutX(250);
 	        textFlow.setLayoutY(50);
 	        
 	        TextFlow textFlow3 = new TextFlow();
@@ -87,7 +87,7 @@ public class Main extends Application{
 	        start.setFill(Color.WHITE);
 	        start.setFont(start_font);
 	        textFlow3.getChildren().add(start);
-	        textFlow3.setLayoutX(600);
+	        textFlow3.setLayoutX(470);
 	        textFlow3.setLayoutY(570);
 
 	        final Button button = new Button();
@@ -100,28 +100,28 @@ public class Main extends Application{
 	        button.setGraphic(icon);
 	        
 
-	        button.setLayoutX(550);
+	        button.setLayoutX(420);
 	        button.setLayoutY(400);
 	        button.setOnAction(e -> window.setScene(scene2));
 	
 	        
 	        Pane layout1 = new Pane();
-	        layout1.setPrefSize(2000,2000);
+	        layout1.setPrefSize(1000,1000);
 	        layout1.getChildren().add(mv);
 	        layout1.getChildren().add(textFlow);
 	        layout1.getChildren().add(button);
 	        layout1.getChildren().add(textFlow3);
 	      
 	        
-	        Scene scene1 = new Scene(layout1, 2000, 2000, Color.BLACK);
+	        Scene scene1 = new Scene(layout1, 1000, 1000, Color.BLACK);
 
 	     
 	     //2nd page
 	        
 	        Image background_image2 = new Image("file:soundwave.jpg");
 		     ImageView mv2 = new ImageView(background_image2);
-		     mv2.setFitHeight(2000);
-		     mv2.setFitWidth(2000);
+		     mv2.setFitHeight(1000);
+		     mv2.setFitWidth(1000);
 		     mv2.fitWidthProperty().bind(window.widthProperty());
 		     mv2.fitHeightProperty().bind(window.heightProperty());
 		     mv2.setOpacity(1);
@@ -133,16 +133,16 @@ public class Main extends Application{
 			 title2.setFill(Color.WHITE);
 			  title2.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
 		        textFlow2.getChildren().add(title2);
-		        textFlow2.setLayoutX(400);
+		        textFlow2.setLayoutX(250);
 		        textFlow2.setLayoutY(50);
 
 		        TextFlow textFlow4 = new TextFlow();
 		        Font instructions_font = new Font("Tahoma", 20);
-		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file in .txt format \n or simply input the tabs in the text box below and click enter. Click more info for tablature formatting information.\n");
+		        Text instuctions = new Text("Welcome to Zebra11 tablature to MusicXML converter! You can choose to convert a Tablature file in .txt \nformat or simply input the tabs in the text box below and click enter. Click more info for tablature \nformatting information.\n");
 		        instuctions.setFill(Color.WHITE);
 		        instuctions.setFont(instructions_font);
 		        textFlow4.getChildren().add(instuctions);
-		        textFlow4.setLayoutX(150);
+		        textFlow4.setLayoutX(50);
 		        textFlow4.setLayoutY(150);
 		        
 		        
@@ -151,9 +151,9 @@ public class Main extends Application{
 		        fileChooser.getExtensionFilters().add(new ExtensionFilter("Text Files", "*.txt"));
 		        final Button openButton = new Button("Choose a Tablature File");
 		   
-		        openButton.setLayoutX(400);
+		        openButton.setLayoutX(225);
 		        openButton.setLayoutY(500);
-		        openButton.setMinSize(200, 100);
+		        openButton.setMinSize(150, 100);
 
 		        final Button info_button = new Button();
 		        info_button.setShape(new Circle(1));
@@ -166,7 +166,7 @@ public class Main extends Application{
 		        info_button.setGraphic(info);
 		        
 
-		        info_button.setLayoutX(990);
+		        info_button.setLayoutX(690);
 		        info_button.setLayoutY(300);
 		        //pop up page 
 		        
@@ -178,7 +178,7 @@ public class Main extends Application{
 		        infot.setFill(Color.WHITE);
 		        infot.setFont(info_font);
 		        textinfo.getChildren().add(infot);
-		        textinfo.setLayoutX(1000);
+		        textinfo.setLayoutX(700);
 		        textinfo.setLayoutY(400);
 		        
  
@@ -195,19 +195,21 @@ public class Main extends Application{
 					 title5.setFill(Color.WHITE);
 					  title5.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
 				        textFlow5.getChildren().add(title5);
-				        textFlow5.setLayoutX(400);
+				        textFlow5.setLayoutX(250);
 				        textFlow5.setLayoutY(50);
 				        
 				        TextArea textbox2 = new TextArea(); 
-				        textbox2.setLayoutX(700);//250,750
+				        textbox2.setLayoutX(440);//250,750
 				        textbox2.setLayoutY(150);//100,150
-				        textbox2.setMinSize(300,500);
+				        textbox2.setMaxSize(350,800);
+				        textbox2.setPrefHeight(500);
                 		textbox2.appendText("Error: currently not supported");
                 		
                 		TextArea inputbox = new TextArea(); 
 				        inputbox.setLayoutX(70);
 				        inputbox.setLayoutY(150);
-				        inputbox.setMinSize(300,500);
+				        inputbox.setMaxSize(350,700);
+				        inputbox.setPrefHeight(500);
                 		inputbox.appendText("Error: currently not supported");
 				        
 				        
@@ -219,8 +221,8 @@ public class Main extends Application{
 				        dicon.setFitHeight(70);
 				        dicon.setFitWidth(70);
 				        button2.setGraphic(dicon);
-				        button2.setLayoutX(1000);
-				        button2.setLayoutY(20);
+				        button2.setLayoutX(850);
+				        button2.setLayoutY(30);
 				        
 				        
 				        final Button button3 = new Button();
@@ -250,8 +252,8 @@ public class Main extends Application{
 				        download.setFill(Color.WHITE);
 				        download.setFont(download_font);
 				        textFlow6.getChildren().add(download);
-				        textFlow6.setLayoutX(1005);
-				        textFlow6.setLayoutY(100);
+				        textFlow6.setLayoutX(850);
+				        textFlow6.setLayoutY(110);
 				        
 				        final Button edit_button = new Button();
 				        edit_button.setShape(new Circle(1));
@@ -264,10 +266,10 @@ public class Main extends Application{
 				        edit_button.setGraphic(edit);
 				        
 
-				        edit_button.setLayoutX(1135);
-				        edit_button.setLayoutY(20);
+				        edit_button.setLayoutX(850);
+				        edit_button.setLayoutY(300);
 				        
-				        edit_button.setOnAction(e -> EditPopup.display());
+	//			        edit_button.setOnAction(e -> EditPopup.display());
 				        
 				        TextFlow edit_text = new TextFlow();
 				        Font edit_font = new Font("Tahoma", 20);
@@ -275,8 +277,8 @@ public class Main extends Application{
 				        edittext.setFill(Color.WHITE);
 				        edittext.setFont(edit_font);
 				        edit_text.getChildren().add(edittext);
-				        edit_text.setLayoutX(1160);
-				        edit_text.setLayoutY(100);
+				        edit_text.setLayoutX(875);
+				        edit_text.setLayoutY(390);
 		        
 		        
 		       // openButton.setOnAction(e -> window.setScene(scene3));
@@ -366,9 +368,9 @@ public class Main extends Application{
 		                });
 		        
 		        TextArea textbox = new TextArea("input tab here"); 
-		        textbox.setLayoutX(150);
+		        textbox.setLayoutX(50);
 		        textbox.setLayoutY(250);
-		        textbox.setMinSize(700, 200);
+		        textbox.setMinSize(400, 200);
 		        
 		        textbox.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
@@ -488,7 +490,7 @@ public class Main extends Application{
 		        button3.setOnAction(e -> window.setScene(scene2));
 		  
 		        Pane layout2 = new Pane();
-		        layout2.setPrefSize(2000,2000);
+		        layout2.setPrefSize(1000,1000);
 		        layout2.getChildren().add(mv2);
 		        layout2.getChildren().add(textFlow2);
 		        layout2.getChildren().add(textFlow4);
@@ -501,7 +503,7 @@ public class Main extends Application{
 		        
 		        
 		        Pane layout3 = new Pane();
-		        layout3.setPrefSize(2000,2000);
+		        layout3.setPrefSize(1000,1000);
 		        layout3.getChildren().add(mv3);
 		        layout3.getChildren().add(textFlow5);
 		        layout3.getChildren().add(textbox2);
@@ -520,8 +522,8 @@ public class Main extends Application{
 		        
 	
 		     
-		scene2 = new Scene(layout2, 2000, 2000,Color.BLACK);
-		scene3 = new Scene(layout3, 2000,2000,Color.BLACK);
+		scene2 = new Scene(layout2, 1000, 1000,Color.BLACK);
+		scene3 = new Scene(layout3, 1000,1000,Color.BLACK);
 		
 		window.setScene(scene1);
 		window.setTitle("Tablature to MusicXML Converter");
