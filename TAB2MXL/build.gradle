@@ -13,6 +13,7 @@ plugins {
 }
 
 repositories {
+	jcenter()
     mavenCentral()
 }
 
@@ -23,7 +24,7 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.3.0'
 	implementation 'javax.activation:activation:1.1'
 	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.0'
-	testImplementation 'junit: junit: 4.12'
+	
 }
 
 
@@ -56,5 +57,10 @@ run {
         systemProperty "java.library.path", "C:\tmp"
     }
 }
+
+jacocoTestReport {
+	dependsOn test
+}
+
 
 mainClassName = 'tab2mxl.Main'

@@ -1,5 +1,7 @@
 package testing;
 
+import org.junit.jupiter.api.Test;
+
 import guitar.Parser;
 
 /*
@@ -13,7 +15,7 @@ import guitar.Parser;
 
 public class ParserTest {
 	
-	
+	@Test
 	 public static void main(String[] args) {
 	
 	Parser p = new Parser("prototypeGuitarTab.txt");
