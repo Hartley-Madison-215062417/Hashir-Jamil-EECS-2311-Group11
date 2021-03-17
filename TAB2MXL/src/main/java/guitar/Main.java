@@ -10,9 +10,9 @@ import javax.xml.bind.Marshaller;
 class Main{
 	
 	public static void main(String[] args) {
-	try {
-		
-		Parser p = new Parser("src/main/java/prototypeGuitarTab.txt");
+//	try {
+//		
+//		Parser p = new Parser("src/main/java/prototypeGuitarTab.txt");
 //        char[][] parsed = p.getTabCharMatrix();
 //        
 //        ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
@@ -40,13 +40,13 @@ class Main{
 //		ms.marshal(part,new File("src//output//Output.xml"));
 //        
 //        
-
-		
-	}catch (JAXBException e) {
-		// TODO Auto-generated catch block
-		System.out.println(""+e.getMessage());
-	}
-
+//
+//		
+//	}catch (JAXBException e) {
+//		// TODO Auto-generated catch block
+//		System.out.println(""+e.getMessage());
+//	}
+//
 	}
 }
 
