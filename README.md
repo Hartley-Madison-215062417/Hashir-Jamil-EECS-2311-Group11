@@ -2,6 +2,8 @@
 
 Zebra11 Converter README
 
+**Please pull from master**
+
 If there is any issue with documentation in the project, please reach out to us at maddi15@my.yorku.ca, or, visit the links below:
 
 User Manual: https://docs.google.com/document/d/1y1ydTtJPCh_L4wSMDy40HqTNibqBOR8mg33w2D7AVhg/edit?usp=sharing
