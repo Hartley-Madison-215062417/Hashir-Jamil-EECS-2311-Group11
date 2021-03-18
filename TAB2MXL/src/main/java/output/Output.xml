@@ -7,6 +7,9 @@
     </part-list>
     <part id="P1">
         <measure number="1">
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+            </barline>
             <attributes>
                 <divisions>2</divisions>
                 <key>
@@ -91,11 +94,12 @@
                         <string>4</string>
                         <fret>2</fret>
                     </technical>
+                    <slide line-type="solid" number="1" type="start"/>
                 </notations>
             </note>
             <note>
                 <pitch>
-                    <step>G</step>
+                    <step>F</step>
                     <alter>1</alter>
                     <octave>3</octave>
                 </pitch>
@@ -104,9 +108,10 @@
                 <type>eighth</type>
                 <notations>
                     <technical>
-                        <string>3</string>
-                        <fret>1</fret>
+                        <string>4</string>
+                        <fret>4</fret>
                     </technical>
+                    <slide line-type="solid" number="1" type="stop"/>
                 </notations>
             </note>
             <note>
@@ -170,15 +175,98 @@
                     </technical>
                 </notations>
             </note>
-            <barline/>
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+            </barline>
         </measure>
         <measure number="2">
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+            </barline>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <octave>2</octave>
+                </pitch>
+                <duration>1</duration>
+                <voice>1</voice>
+                <type>eighth</type>
+                <notations>
+                    <technical>
+                        <string>6</string>
+                        <fret>0</fret>
+                    </technical>
+                </notations>
+            </note>
+            <note>
+                <pitch>
+                    <step>B</step>
+                    <octave>2</octave>
+                </pitch>
+                <duration>1</duration>
+                <voice>1</voice>
+                <type>eighth</type>
+                <notations>
+                    <technical>
+                        <string>5</string>
+                        <fret>2</fret>
+                    </technical>
+                </notations>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <octave>3</octave>
+                </pitch>
+                <duration>1</duration>
+                <voice>1</voice>
+                <type>eighth</type>
+                <notations>
+                    <technical>
+                        <string>4</string>
+                        <fret>2</fret>
+                    </technical>
+                    <slide line-type="solid" number="1" type="start"/>
+                </notations>
+            </note>
+            <note>
+                <pitch>
+                    <step>F</step>
+                    <alter>1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>1</duration>
+                <voice>1</voice>
+                <type>eighth</type>
+                <notations>
+                    <technical>
+                        <string>4</string>
+                        <fret>4</fret>
+                    </technical>
+                    <slide line-type="solid" number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <pitch>
+                    <step>B</step>
+                    <octave>3</octave>
+                </pitch>
+                <duration>1</duration>
+                <voice>1</voice>
+                <type>eighth</type>
+                <notations>
+                    <technical>
+                        <string>2</string>
+                        <fret>0</fret>
+                    </technical>
+                </notations>
+            </note>
             <note>
                 <pitch>
                     <step>E</step>
                     <octave>4</octave>
                 </pitch>
-                <duration>17</duration>
+                <duration>1</duration>
                 <voice>1</voice>
                 <type>eighth</type>
                 <notations>
@@ -193,7 +281,7 @@
                     <step>B</step>
                     <octave>3</octave>
                 </pitch>
-                <duration>17</duration>
+                <duration>1</duration>
                 <voice>1</voice>
                 <type>eighth</type>
                 <notations>
@@ -209,7 +297,7 @@
                     <alter>1</alter>
                     <octave>3</octave>
                 </pitch>
-                <duration>17</duration>
+                <duration>3</duration>
                 <voice>1</voice>
                 <type>eighth</type>
                 <notations>
@@ -219,54 +307,15 @@
                     </technical>
                 </notations>
             </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>17</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>4</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>17</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>5</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>17</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>6</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <barline/>
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+                <repeat direction="backward"/>
+            </barline>
         </measure>
         <measure number="3">
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+            </barline>
             <note>
                 <pitch>
                     <step>E</step>
@@ -310,11 +359,12 @@
                         <string>4</string>
                         <fret>2</fret>
                     </technical>
+                    <slide line-type="solid" number="1" type="start"/>
                 </notations>
             </note>
             <note>
                 <pitch>
-                    <step>G</step>
+                    <step>F</step>
                     <alter>1</alter>
                     <octave>3</octave>
                 </pitch>
@@ -323,9 +373,10 @@
                 <type>eighth</type>
                 <notations>
                     <technical>
-                        <string>3</string>
-                        <fret>1</fret>
+                        <string>4</string>
+                        <fret>4</fret>
                     </technical>
+                    <slide line-type="solid" number="1" type="stop"/>
                 </notations>
             </note>
             <note>
@@ -379,7 +430,7 @@
                     <alter>1</alter>
                     <octave>3</octave>
                 </pitch>
-                <duration>2</duration>
+                <duration>3</duration>
                 <voice>1</voice>
                 <type>eighth</type>
                 <notations>
@@ -389,314 +440,10 @@
                     </technical>
                 </notations>
             </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>4</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>1</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>2</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>G</step>
-                    <alter>1</alter>
-                    <octave>3</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>3</string>
-                        <fret>1</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>4</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>5</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>6</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <barline/>
-        </measure>
-        <measure number="4">
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>1</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>6</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>1</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>5</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>4</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>G</step>
-                    <alter>1</alter>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>3</string>
-                        <fret>1</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>2</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>4</octave>
-                </pitch>
-                <duration>1</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>1</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>2</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>G</step>
-                    <alter>1</alter>
-                    <octave>3</octave>
-                </pitch>
-                <duration>2</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>3</string>
-                        <fret>1</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>4</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>1</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>2</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>G</step>
-                    <alter>1</alter>
-                    <octave>3</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>3</string>
-                        <fret>1</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>4</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>5</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
-            </note>
-            <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>8</duration>
-                <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>6</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
-            </note>
-            <barline/>
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+                <repeat direction="backward"/>
+            </barline>
         </measure>
     </part>
 </score-partwise>

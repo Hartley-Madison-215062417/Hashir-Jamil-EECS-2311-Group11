@@ -18,6 +18,7 @@ import guitar.Parser;
 import guitar.Part;
 import guitar.scorePartwise;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,6 +30,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
@@ -269,7 +271,74 @@ public class Main extends Application{
 				        edit_button.setLayoutX(850);
 				        edit_button.setLayoutY(300);
 				        
-				      //  edit_button.setOnAction(e -> EditPopup.display());
+				        
+				        //e -> EditPopup.display()
+				        edit_button.setOnAction(
+				        new EventHandler<ActionEvent>() {
+		                	
+		                    @Override
+		                    public void handle(final ActionEvent e) {
+		                    	
+		                    	EditPopup.display();
+		                    	File f = new File("updated.xml");
+		                 
+		                    	if(f.exists() ==true) {
+		               
+		                    		try {
+										Scanner s = new Scanner(f);
+										textbox2.clear();
+	                    	        	textbox2.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
+			                    	    textbox2.setEditable(false);
+										
+		                    	        while (s.hasNext()) {
+				                    	        
+				                    	        
+		                    	        	String line = s.nextLine();
+		                    	        textbox2.appendText(line+"\n");
+		                    	        
+		                    	        }
+		                    	        
+		                    	        int i = findindex();
+		                    	        System.out.print(i);
+		                    	      
+		                    	        textbox2.selectRange(i, i+112);
+		                    	        textbox2.addEventFilter(MouseEvent.ANY, new EventHandler<MouseEvent>() {
+		                    	          @Override public void handle(MouseEvent t) { t.consume(); }
+		                    	        });
+		                    	        
+
+		                    	      
+		                    	          
+									} catch (FileNotFoundException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+	                    	       
+		                    		f.delete();
+		                    	}
+				        
+		                    }
+
+							private int findindex() {
+                    	        String check = "<time>";
+                    	        String h = textbox2.getText();
+                    	        int j = 0;
+                    	        for(int i =0;i<h.length()-6;i++) {
+                    	        	String sub = h.substring(i, i+6);
+                    	        	if(sub.equals(check)) {
+                    	        		System.out.print(i);
+                    	        		j =i;
+                    	        		break;
+                    	        	}
+                    	        	}
+                    	        return j;
+                    	        }
+
+								
+                    	        
+							});
+				        
+				        
 				        
 				        TextFlow edit_text = new TextFlow();
 				        Font edit_font = new Font("Tahoma", 20);
@@ -338,13 +407,14 @@ public class Main extends Application{
 		             
 		  
 		                        		try {
+		                        			
+		                
 		                        	        Scanner s = new Scanner(output); //what's this doing?
 		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
-		                        	          
 		                        	        }
-		                        	        
+	
 		                        	        Scanner scan = new Scanner(file);
 		                        	        inputbox.clear();
 		                        	        while(scan.hasNext()) {
