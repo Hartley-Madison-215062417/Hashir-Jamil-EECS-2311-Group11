@@ -2,7 +2,7 @@
 
 Zebra11 Converter README
 
-**Please pull from master**
+**Please use master branch**
 
 If there is any issue with documentation in the project, please reach out to us at maddi15@my.yorku.ca, or, visit the links below:
 
