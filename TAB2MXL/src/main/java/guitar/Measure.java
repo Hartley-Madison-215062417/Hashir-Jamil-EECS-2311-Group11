@@ -50,7 +50,8 @@ public class Measure {
 	}
 
 	@XmlTransient
-	static int measureNumber = 1;
+	public static
+	int measureNumber = 1;
 	
 	public static int getMeasureNumber() {
 		return measureNumber;

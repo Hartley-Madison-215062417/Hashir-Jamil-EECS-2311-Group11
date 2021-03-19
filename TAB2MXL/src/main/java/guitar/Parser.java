@@ -859,7 +859,9 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
 	}
-	
+
+
+
 		
 	
 }

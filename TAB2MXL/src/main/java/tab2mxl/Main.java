@@ -8,15 +8,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import guitar.Measure;
 import guitar.Parser;
 import guitar.Part;
 import guitar.scorePartwise;
+
+//import drums.Measure;
+//import drums.Parser;
+//import drums.Part;
+//import drums.scorePartwise;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -363,7 +371,6 @@ public class Main extends Application{
 		                        	window.setScene(scene3);
 	
 		                        	try {
-		                        		
 		                        		Parser p = new Parser(file);
 		                        		//change??
 		                                char[][] parsed = p.getTabCharMatrix();
@@ -403,29 +410,31 @@ public class Main extends Application{
 
 		                        		File output = new File("src//main//java//output//Output.xml");
 		                        		ms.marshal(sp,output);
-		  
-		             
+
 		  
 		                        		try {
-		                        			
-		                
-		                        	        Scanner s = new Scanner(output); //what's this doing?
+		                        	        Scanner s = new Scanner(output);
 		                        	        textbox2.clear();
 		                        	        while (s.hasNext()) {
 		                        	          textbox2.appendText(s.nextLine()+"\n");
 		                        	        }
-	
+		                        	        
 		                        	        Scanner scan = new Scanner(file);
 		                        	        inputbox.clear();
+		                        	       
 		                        	        while(scan.hasNext()) {
-		                        	        	inputbox.appendText(scan.nextLine() + "\n");
+		                        	        	String str = scan.nextLine();
+		                        	        	inputbox.appendText(str + "\n");
 		                        	        }
-		                        	        
+		                        	        boolean check = findErrors();
+		                        	        if (check == true){
+		                        	        	ErrorPopup.display();
+		                        	        }
+		                        
 		                        	        
 		                        	    } catch (FileNotFoundException ex) {
 		                        	        System.err.println(ex);
 		                        	    }
-		                        	
 		                        	
 		                        	}catch (JAXBException ex) {
 		                        		// TODO Auto-generated catch block
@@ -434,8 +443,25 @@ public class Main extends Application{
 		                        	}
 
 		                        }
+
+							private boolean findErrors() {
+						
+									
+									String str = inputbox.getText();
+									String[] a = str.split("\\r?\\n");
+									for(int i = 0; i < a.length; i++) {
+										if(a[i].isEmpty() == false) {
+									if(a[i].charAt(0) !='|' && a[i].charAt(a[i].length()-1) !='|'  && a[i].isEmpty() == false) {
+						
+									return true;
+									}
+									}
+									}
+									return false;
+								}
+							}
 		                    
-		                });
+		                );
 		        
 		        TextArea textbox = new TextArea("input tab here"); 
 		        textbox.setLayoutX(50);
@@ -511,11 +537,16 @@ public class Main extends Application{
 		                        	        
 		                        	        Scanner scan = new Scanner(input);
 		                        	        inputbox.clear();
+		                        	       
 		                        	        while(scan.hasNext()) {
-		                        	        	inputbox.appendText(scan.nextLine() + "\n");
+		                        	        	String str = scan.nextLine();
+		                        	        	inputbox.appendText(str + "\n");
 		                        	        }
-		                        	        
-		                        	     
+		                        	        boolean check = findErrors();
+		                        	        if (check == true){
+		                        	        	ErrorPopup.display();
+		                        	        }
+		                        
 		                        	        
 		                        	    } catch (FileNotFoundException ex) {
 		                        	        System.err.println(ex);
@@ -533,8 +564,22 @@ public class Main extends Application{
 								e1.printStackTrace();
 							}
 			                textbox.clear();
-				        }
+				        }			
+					}
+
+					private boolean findErrors() {
 						
+						String str = inputbox.getText();
+						String[] a = str.split("\\r?\\n");
+						for(int i = 0; i < a.length; i++) {
+							if(a[i].isEmpty() == false) {
+						if(a[i].charAt(0) !='|' && a[i].charAt(a[i].length()-1) !='|'  && a[i].isEmpty() == false) {
+			
+						return true;
+						}
+						}
+						}
+						return false;
 					}});
 		        
 		        button2.setOnAction(
@@ -557,7 +602,31 @@ public class Main extends Application{
 		                    	}
 		                    }});
 		        
-		        button3.setOnAction(e -> window.setScene(scene2));
+		        button3.setOnAction(
+		                new EventHandler<ActionEvent>() {
+		                    @Override
+		                    public void handle(final ActionEvent e) {
+		                    	p = null;
+		                    	
+		                    	PrintWriter writer;
+								try {
+									writer = new PrintWriter("src//main//java//input//Input.txt");
+			                		writer.print("");
+			                		// other operations
+			                		writer.close();
+			                    	
+								} catch (FileNotFoundException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+		                    	
+		                    	
+		                    	Measure.measureNumber =1;
+		                    	window.setScene(scene2);
+		                    	
+		        		
+		                    }});
+		        		
 		  
 		        Pane layout2 = new Pane();
 		        layout2.setPrefSize(1000,1000);
