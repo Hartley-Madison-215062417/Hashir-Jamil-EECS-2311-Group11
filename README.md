@@ -15,7 +15,7 @@ Testing Document: https://docs.google.com/document/d/1ZVb7k4VUYleGTj-IFbwS8Edt0h
 
 Quick Setup:
 
-1. Import project from GitHub using URL: https://github.com/Hashir-Jamil/Hashir-Jamil-EECS-2311-Group11 
+1. Import project from GitHub
 2. (Optional): Install JavaFX via Marketplace in Eclipse
 3. Execute the project using Gradle by running Gradle Task
 4. The program will execute. Press the music note button to access the input page
