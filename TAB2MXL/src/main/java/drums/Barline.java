@@ -1,4 +1,5 @@
-package guitar;
+package drums;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -8,8 +9,10 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "barline")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"location", "barStyle","repeat"})
+@XmlType(propOrder= {"location", "barStyle"})
 public class Barline {
+	
+	
 	
 	@XmlAttribute
 	String location;
@@ -17,14 +20,10 @@ public class Barline {
 	@XmlElement(name = "bar-style")
 	String barStyle;
 	
-	@XmlElement
-	Repeat repeat;
-
 	public Barline() {
-		location = "right";
-		barStyle = "light-heavy";
-		//commented because we don't need barline for every measure only last measure
+		super();
 	}
+	
 	public Barline(String location, String barStyle) {
 		super();
 		this.location = location;
@@ -41,14 +40,6 @@ public class Barline {
 	}
 	public void setBarStyle(String barStyle) {
 		this.barStyle = barStyle;
-	}
-	
-	
-	public Repeat getRepeat() {
-		return repeat;
-	}
-	public void setRepeat(Repeat repeat) {
-		this.repeat = repeat;
 	}
 	
 

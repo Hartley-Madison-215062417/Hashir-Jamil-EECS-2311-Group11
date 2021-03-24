@@ -1,5 +1,4 @@
-package guitar;
-
+package drums;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +9,17 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+
+import guitar.Attributes;
+import guitar.Note;
+
+
+
 
 @XmlRootElement(name = "measure")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"barline1","number", "attributes","notes","barline2"})
 public class Measure {
-	
+
 	@XmlAttribute
 	int number;
 	
@@ -26,44 +29,18 @@ public class Measure {
 	@XmlElement(name = "note",type = Note.class)
 	List<Note> notes = new ArrayList<Note>();
 	
-
 	@XmlElement (name = "barline")
-	Barline barline1 = new Barline();
+	Barline barline = new Barline();
 	
-	@XmlElement (name = "barline")
-	Barline barline2 = new Barline();
 	
-	public Barline getBarline1() {
-		return barline1;
+	public Measure() {
+		
 	}
-
-	public void setBarline1(Barline barline1) {
-		this.barline1 = barline1;
-	}
-
-	public Barline getBarline2() {
-		return barline2;
-	}
-
-	public void setBarline2(Barline barline2) {
-		this.barline2 = barline2;
-	}
-
+	
 	@XmlTransient
-	public static
-	int measureNumber = 1;
+	static int measureNumber = 1;
 	
-	public static int getMeasureNumber() {
-		return measureNumber;
-	}
 
-	public static void setMeasureNumber(int measureNumber) {
-		Measure.measureNumber = measureNumber;
-	}	
-	
-	public void setNotes(ArrayList<Note> notes) {
-		this.notes = notes;
-	}
 
 	public int getNumber() {
 		return number;
@@ -73,27 +50,33 @@ public class Measure {
 		this.number = number;
 	}
 
-	public Attributes getAttributes() {
-		return attributes;
-	}
-
-	public void setAttributes(Attributes attributes) {
-		this.attributes = attributes;
-	}
 
 	public List<Note> getNotes() {
 		return notes;
+	}
+	
+	public void setNotes(ArrayList<Note> notes) {
+		this.notes = notes;
+	}
+	
+	public Attributes getAttributes() {
+		return attributes;
+	}
+	
+	public void setAttributes(Attributes attributes) {
+		this.attributes = attributes;
 	}
 
 	public void setNotes(List<Note> notes) {
 		this.notes = notes;
 	}
 	
+	
 	/*
-	 * A method to update the duration set for each note in the createMeasure class
+	 * Need to update this for drums, for now stays like this.
 	 */
 	public void updateDuration(Measure m) {
-				
+		
 		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
 		List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
 		//duration of 1 chord, it has to be rewritten for each chord
@@ -132,7 +115,7 @@ public class Measure {
 				//if it is the last note of a chord
 				if (i!=0 && m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() != 0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
 					
-					Chord c = new Chord();
+
 					
 					if(i!= m.notes.size()-1) {
 					
@@ -142,10 +125,10 @@ public class Measure {
 					
 					
 					for (int index: indexArray) {
-						
+						System.out.println("test1");
 						m.notes.get(index).setDuration(chordDuration);						
 					}
-					
+					System.out.println("nia");
 					indexArray.removeAll(indexArray);
 					
 				}
@@ -156,7 +139,7 @@ public class Measure {
 				else if (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() == 0) {
 				
 					indexArray.add(i);
-					
+					System.out.println(i + " " + m.notes.get(i).getNotations().getTechnical().getFret());
 					
 				}	
 				
@@ -181,6 +164,11 @@ public class Measure {
 		}
 		
 	}
+	
+	
+	
+	
+	
 	
 	
 	

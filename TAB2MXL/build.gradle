@@ -5,13 +5,15 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * User Manual available at https://docs.gradle.org/6.3/userguide/java_library_plugin.html
  */
-
+//test
 plugins {
   id 'application'
   id 'org.openjfx.javafxplugin' version '0.0.8'
+  id 'jacoco'
 }
 
 repositories {
+	jcenter()
     mavenCentral()
 }
 
@@ -22,13 +24,26 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.3.0'
 	implementation 'javax.activation:activation:1.1'
 	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.0'
+	
 }
+
 
 test {
   useJUnitPlatform()
   testLogging {
     events 'passed', 'skipped', 'failed'
   }
+  
+  finalizedBy jacocoTestReport
+}
+
+jacoco{
+	toolVersion = "0.8.6"
+	reportsDirectory = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport{
+	dependsOn test
 }
 
 javafx {
@@ -42,5 +57,10 @@ run {
         systemProperty "java.library.path", "C:\tmp"
     }
 }
+
+jacocoTestReport {
+	dependsOn test
+}
+
 
 mainClassName = 'tab2mxl.Main'

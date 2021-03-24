@@ -105,6 +105,7 @@ public class Attributes {
 	
 	@XmlElement
 	final int divisions =2;
+
 	
 	@XmlElement
 	Key key;

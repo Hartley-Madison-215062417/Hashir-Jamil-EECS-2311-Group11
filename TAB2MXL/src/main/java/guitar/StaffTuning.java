@@ -12,9 +12,11 @@ public class StaffTuning{
 	
 	@XmlAttribute
 	int line;
+
 	@XmlElement(name = "tuning-step") 
 	public String tuningStep;
 	@XmlElement(name = "tuning-octave")
+
 	int tuningOctave;
 	
 	public StaffTuning(int line, String tuningStep, int tuningOctave) {
