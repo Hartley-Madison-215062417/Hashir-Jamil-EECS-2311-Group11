@@ -1,5 +1,7 @@
 package testing;
 
+import drums.Measure;
+
 public class PartsClassTest {
 
 	/*
@@ -17,5 +19,8 @@ public class PartsClassTest {
 	 * -Technical
 	 * 
 	 */
+	
+	
+	Measure m = new Measure();
 	
 }
