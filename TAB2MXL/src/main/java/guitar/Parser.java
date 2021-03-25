@@ -490,38 +490,22 @@ public class Parser {
 		
 		
 		//the first measure does not include the vertical bars
-		Measure m = new Measure();
-		m.setNumber(Measure.measureNumber);
+		Measure m = new Measure(); //creating a new measure object, this will now be filled in
+		m.setNumber(Measure.measureNumber); //setting the measure number using the static counter
+		Measure.measureNumber++; //meausreNumber is updated after setting the current measure's number 
 		
-		if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') {
+		//checking for repeats
+		
+		//checking for beginning of repeat
+		if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') { //if the '*' symbol is encountered in the 2nd or 3rd line of first column
 			m.getBarline1().setRepeat(new Repeat());
 			m.getBarline1().getRepeat().setDirection("forward");
 		}
 		
-		
-		/*	TESTING FOR A SPECIFIC CASE
-		if(Measure.measureNumber == 3) {
-		System.out.println("TESTING");
-		
+		//checking for end of repeat
 		for(int i = 0; i < firstMeasure.length; i++) {
 			for(int j =0; j < firstMeasure[0].length; j++) {
-				if(firstMeasure[i][j] == ' ') {
-					System.out.print('a');
-				}
-				
-				System.out.print(firstMeasure[i][j]+ " ");
-			}
-			System.out.println();
-		}
-		
-		System.out.println(firstMeasure[2][18]);
-		System.out.println("TESTING");
-		}
-		 */
-		
-		for(int i = 0; i < firstMeasure.length; i++) {
-			for(int j =0; j < firstMeasure[0].length; j++) {
-				if (i == 0 && firstMeasure[i+1][j] == '|') {
+				if (i == 0 && firstMeasure[i+1][j] == '|') { //if the there is '|' in the 2nd column of first row 
 					
 					m.getBarline2().setRepeat(new Repeat());
 					m.getBarline2().getRepeat().setDirection("backward");
@@ -530,9 +514,7 @@ public class Parser {
 			}
 		}
 		
-		
-		
-		
+		//creating an attribute only for the first measure 
 		if (m.number == 1) {
 			Key k = new Key(0);
 			Time t = new Time(4, 4);
@@ -546,26 +528,23 @@ public class Parser {
 									
 		}
 		
-		Measure.measureNumber++;
-		
-		
-		
+		//moving through the 2D char array that stores the measure we are focusing on, moving downwards staring with the first column
 		for (int j = 0; j < firstMeasure[0].length; j++) 
 			for (int i = 0; i < firstMeasure.length; i++) {
-				Note n = new Note();
+				Note n = new Note(); //creating an empty Note object that will be filled in
 				
-				if(firstMeasure[i][j] >= '0' && firstMeasure[i][j] <= '9' ) {
+				if(firstMeasure[i][j] >= '0' && firstMeasure[i][j] <= '9' ) { //if the char is a number between 0 and 9 (the number indicates the fret)
 					
-					
-					
-				if ((firstMeasure[i][j-1] >= '0' &&  firstMeasure[i][j-1] <= '9') == false) { //if double digit
-						//setting fret
+				if ((firstMeasure[i][j-1] >= '0' &&  firstMeasure[i][j-1] <= '9') == false) { //to handle double digit fret numbers
+						
 						if(firstMeasure[i][j+1] >= '0' && firstMeasure[i][j+1] <= '9' ) {
+							
 							StringBuilder num = new StringBuilder();
-							num.append(firstMeasure[i][j]);
-							num.append(firstMeasure[i][j+1]);
+							num.append(firstMeasure[i][j]);//adding the first digit
+							num.append(firstMeasure[i][j+1]);//adding the second digit
 							int fret = Integer.parseInt(num.toString());
-							n.getNotations().getTechnical().setFret(fret);							
+							n.getNotations().getTechnical().setFret(fret);//setting the fret of the note		
+							
 						}
 
 						
