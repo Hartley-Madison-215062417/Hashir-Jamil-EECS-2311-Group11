@@ -326,35 +326,33 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-//
-//import tab2mxl.Division;
-//import tab2mxl.Note;
 
-
-
-//import tab2mxl.Note;
-
-//import tab2mxl.Division;
-//import tab2mxl.Note;
-//import tab2mxl.Parser;
-//
-
+/*
+ * This class is used to parse through the input file and return objects for marshalling
+ */
 public class Parser {
 	
-	List<String> tabList; // the list has all of the lines in it, every line of text input 
-	private File inputFile;
-	private char[][] tabCharMatrix;
+	private List<String> tabList; // a list of strings, each string is a line of the test guitar tab, the order of lines from top to bottom
+	private File inputFile; // the input file that the user uploads into the application
+	private char[][] tabCharMatrix; // a 2D char matrix that contains everything in the test file as is
 	//private String outputFile; //not used at the moment
-	private Part part = new Part();
-	private scorePartwise scorepartwise = new scorePartwise();
-	int hnum =1;
+	private Part part = new Part(); // an Part object that contains all measures
+	private scorePartwise scorepartwise = new scorePartwise(); // an object that contains the Part created, one per musicXML file
+	private int hnum =1; 
 	
 	
 	/*
-	 * Defualt contructor 
+	 * Default constructor that sets all the instance variables to null or default values
 	 */
 	public Parser() {
-
+		
+		tabList = null;
+		inputFile = null;
+		tabCharMatrix = null;
+		part = null;
+		scorepartwise = null;
+		hnum = 1;
+		
 	}
 	
 
@@ -363,14 +361,15 @@ public class Parser {
 	 * @param inFile, a file path containing a tab in txt form
 	 */
 	public Parser(String inFile) {
+		
 		inputFile = new File(inFile);		
 		tabList = new ArrayList<String>();
 		this.readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
+		
 	}
 	
 	public Parser(File inputFile) {
-		//file.getPath();
 		
 		this.inputFile = inputFile;
 		tabList = new ArrayList<String>();
@@ -381,7 +380,7 @@ public class Parser {
 	
 	
 	/**
-	 * 
+	 * Reads the input file given to the application and adds it line by line into tabList
 	 */
 	private void readFile() {
 
@@ -401,9 +400,10 @@ public class Parser {
 	}
 	
 	/**
-	 * 
+	 * Converts a list of strings, each string representing a line of the tab file into 
+	 * a 2D char array 
 	 * @param str
-	 * @return
+	 * @return a 2D char array with all the measures in it
 	 */
 	public char[][] tabToCharMatrix(List<String> list) {
 
@@ -416,7 +416,10 @@ public class Parser {
 		}
 		return tabMatrix;
 	}
-	
+	/**
+	 * returns the 2D char array with all measures in it
+	 * @param p an object of parser class 
+	 */
 	public void setTabCharMatrix(Parser p) {
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
 	}
@@ -425,26 +428,12 @@ public class Parser {
 		return this.tabCharMatrix;
 	}
 	
-	public char[][] getFirstLine(char[][] old) {
-		int col = this.tabList.get(0).length();	
-		char[][] current = new char[6][col];
-		
-		for(int i=0; i<6; i++) {
-			  for(int j=0; j<this.tabList.get(0).length(); j++) {
-					  current[i][j]=old[i][j];
-					  
-				 
-			  }}
-		
-		return current;
-		
-		}
-	
 	/*
-	 * @Author: Madison Hartley
-	 * DM me for questions about method below.
+	 * Returns an array list of measures that compose the entire tab music
+	 * Later it will be iterated through to get information from each measure
+	 * @param parsed
+	 * @return an array list of 2D char array with each 2D arrays containing a single measure
 	 */
-	
 	 public ArrayList<char[][]> measureSplitter (char[][] parsed) {
 		
 			ArrayList<char[][]> tmpArray = new ArrayList<char[][]>();
@@ -454,11 +443,7 @@ public class Parser {
 			int newColEnd = 0;
 			int width = parsed[0].length;
 			
-			/*
-			 * implement a CHECK for repeats
-			 */
-			
-			
+			//@Madison needs to implement a check for repeats
 			
 			for(int i = 0; i < width; i++) {
 				if(parsed[0][i] != '|') {
@@ -493,12 +478,13 @@ public class Parser {
 
 		return tmpArray;
 	}
+	 
 	
 	/*
-	 * this method gets a 2d char array of one measure
-	 * and creates note objects for each note in the 
-	 * measure, adds it to the measure object and returns 
-	 * the measure object
+	 * this method gets a 2d char array of one measure and creates note objects for each note in the 
+	 * measure, adds it to the measure object and returns the measure object
+	 * @param firstMeasure
+	 * @return an object of Measure that contains the appropriate notes
 	 */
 	public Measure createMeasure(char[][] firstMeasure) {
 		
@@ -513,7 +499,7 @@ public class Parser {
 		}
 		
 		
-/*	
+		/*	TESTING FOR A SPECIFIC CASE
 		if(Measure.measureNumber == 3) {
 		System.out.println("TESTING");
 		
@@ -531,15 +517,15 @@ public class Parser {
 		System.out.println(firstMeasure[2][18]);
 		System.out.println("TESTING");
 		}
-	*/
+		 */
 		
-		System.out.println("here?");
 		for(int i = 0; i < firstMeasure.length; i++) {
 			for(int j =0; j < firstMeasure[0].length; j++) {
 				if (i == 0 && firstMeasure[i+1][j] == '|') {
-					System.out.println("Hello");
+					
 					m.getBarline2().setRepeat(new Repeat());
 					m.getBarline2().getRepeat().setDirection("backward");
+					
 				}
 			}
 		}
@@ -624,7 +610,6 @@ public class Parser {
 //							n.setDuration(duration);
 //						}
 						n.setDuration(firstMeasure[0].length - j);
-						//System.out.println(firstMeasure[0].length);
 						
 						n.setDefaultStep(n);
 						
@@ -656,7 +641,14 @@ public class Parser {
 	
 
 	
-	
+/**
+ * Creates slide objects if it detects an 's' in the measure while parsing 
+ * through it	
+ * @param firstMeasure the measure that is currently being created and updated
+ * @param i
+ * @param j
+ * @param n 
+ */
 private void createSlides(char[][] firstMeasure, int i, int j, Note n) {
 	
 	if(firstMeasure[i][j+1] == '/' && firstMeasure[i][j-1] != '/') {
@@ -668,9 +660,6 @@ private void createSlides(char[][] firstMeasure, int i, int j, Note n) {
 		
 		}
 		
-	
-
-	
 //	
 //	else if(firstMeasure[i][j-1] == '/' &&  firstMeasure[i][j+1] == '/' ) {
 //		pullOff pnew = new pullOff();
@@ -687,8 +676,6 @@ private void createSlides(char[][] firstMeasure, int i, int j, Note n) {
 //
 //	}
 //	
-	
-
 
 	else if(firstMeasure[i][j-1] == '/' && firstMeasure[i][j+1] != '/'  ) {
 		Slide slide = new Slide();
@@ -822,27 +809,6 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 	
 		
 	}
-
-
-//	public ArrayList<Integer> createChordArray(List<Note> notes){
-//		ArrayList<Integer> chordArray = new ArrayList<>();
-//		for(int i =0; i<notes.size();i++) {
-//			Note n = notes.get(i);
-//			int current =n.getDuration();
-//			int next = notes.get(i+1).getDuration();
-//			
-//			if(current == next){
-//				chordArray.add(i);
-//				
-//			}
-//			
-//			
-//			
-//		}
-//		return chordArray;
-//		
-//	}
-	
 	
 	
 	public Part createMusicalPart(ArrayList<char[][]> measures) {
