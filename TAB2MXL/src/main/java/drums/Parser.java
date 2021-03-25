@@ -74,7 +74,7 @@ public class Parser {
 		//@Madison needs to implement a check for repeats
 		
 		for(int i = 0; i < width; i++) {
-			if(parsed[0][i] != '|') {
+			if(parsed[0][i] != '|') { 
 			}
 			else {
 				counter++;

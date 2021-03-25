@@ -19,7 +19,7 @@ public class Unpitched {
 	@XmlElement
 	int octave;
 	
-	
+	 
 	public Unpitched() {
 		super();
 	}

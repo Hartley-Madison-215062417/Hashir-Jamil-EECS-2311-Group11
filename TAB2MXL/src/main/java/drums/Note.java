@@ -137,7 +137,7 @@ public class Note{
 		}
 	}
 	
-	//sets the display-step
+	//sets the display-step 
 	public void setStep(char[][] firstMeasure) {
 		Note n = new Note();
 		for(int i = 0; i<firstMeasure.length; i++) {
