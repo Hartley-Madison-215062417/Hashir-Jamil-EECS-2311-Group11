@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 public class Unpitched {
 	
-	@XmlElement(name="display-step")
+	@XmlElement
 	String step;
 	
-	@XmlElement(name="display-octave")
+	@XmlElement
 	int octave;
 	
 	

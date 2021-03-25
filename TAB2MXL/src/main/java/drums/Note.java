@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="note")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead"})
+@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead","beamNumber"})
 
 public class Note{
 
@@ -29,9 +29,15 @@ public class Note{
 
 	@XmlElement
 	String stem;
-
+	
 	@XmlElement
 	String notehead;
+	
+	@XmlElement
+	String beamNumber;
+
+
+	
 
 
 
@@ -39,7 +45,7 @@ public class Note{
 		super();
 	}
 
-	public Note(Unpitched unpitched, int duration, String instrumentID, int voice, String type, String stem, String notehead, String beamnumber) {
+	public Note(Unpitched unpitched, int duration, String instrumentID, int voice, String type, String stem, String notehead, String beamNumber) {
 		super();
 		this.unpitched = unpitched;
 		this.duration = duration;
@@ -48,6 +54,7 @@ public class Note{
 		this.type = type;
 		this.stem = stem;
 		this.notehead = notehead;
+		this.beamNumber = beamNumber;
 		
 
 
@@ -108,8 +115,16 @@ public class Note{
 	public void setNotehead(String notehead) {
 		this.notehead = notehead;
 	}
-
 	
+	public String getBeamNumber() {
+		return beamNumber;
+	}
+	
+	public void setBeamNumber(String beamNumber) {
+		this.beamNumber = beamNumber;
+	}
+
+	//sets the display-octave
 	public void setOctave(Note n) {
 		int voice = n.getVoice();
 
@@ -121,16 +136,34 @@ public class Note{
 			n.getUnpitched().setOctave(0);
 		}
 	}
-
-
-	public void setDefaultStep(Note n) {
-		// TODO Auto-generated method stub
-		
+	
+	//sets the display-step
+	public void setStep(char[][] firstMeasure) {
+		Note n = new Note();
+		for(int i = 0; i<firstMeasure.length; i++) {
+			for(int j = 0; j<1; j++) {
+				if(i==0) {
+					n.getUnpitched().setStep("A");
+				}else if(i==1) {
+					n.getUnpitched().setStep("G");
+				}else if(i==2) {
+					n.getUnpitched().setStep("C");
+				}else if(i==3) {
+					n.getUnpitched().setStep("E");
+				}else if(i==4) {
+					n.getUnpitched().setStep("D");
+				}else if(i==5) {
+					n.getUnpitched().setStep("F");
+				}else {
+					n.getUnpitched().setStep("?");
+				}
+			}
+		}
 	}
+	
 
-	public void updatePitch(Note n) {
-		// TODO Auto-generated method stub
-		
-	}
+
+
+
 }
 
