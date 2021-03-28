@@ -548,10 +548,10 @@ public class Parser {
 						}
 
 						
-						else {				
-							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
+						else { // to handle single digit fret numbers 		
+							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j])); // getting the fret number 
 							
-							if(firstMeasure[i][j+1] =='h' || firstMeasure[i][j-1] =='h') {
+							if(firstMeasure[i][j+1] =='h' || firstMeasure[i][j-1] =='h') { 
 								if(firstMeasure[i][j-1] =='g') {
 									Grace g = new Grace();
 									n.setGrace(g);
@@ -789,7 +789,10 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 		
 	}
 	
-	
+	/*
+	 * Adds all the measures to a part 
+	 * @param measures an arraylist of all the measures in the part
+	 */
 	public Part createMusicalPart(ArrayList<char[][]> measures) {
 		
 		for (char[][] measure : measures) {
@@ -799,7 +802,9 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 		return part;
 		
 	}
-	
+	/*
+	 * Adds the part to scorePartwise object, only done once per music tab
+	 */
 	public scorePartwise createScore(Part p) {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
