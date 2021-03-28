@@ -126,6 +126,11 @@ public class Parser {
 			//@Madison needs to implement a check for repeats
 			
 			for(int i = 0; i < width; i++) { // going through the entire 2D array of all measures, then i = 0 we are in the first column 
+				
+				if(i != width - 1)
+				
+				if(!(parsed[0][i] == '|' && parsed[0][i+1] == '|' )) {
+				
 				if(parsed[0][i] != '|') { //in the first row if any element is '|'
 				}
 				else { // for all other elements in 2D char array of all measures 
@@ -158,7 +163,7 @@ public class Parser {
 						tmpArray.add(newMeasure);
 					}
 				}
-			}
+			}}
 
 		return tmpArray;
 	}
@@ -173,7 +178,7 @@ public class Parser {
 	public Measure createMeasure(char[][] firstMeasure) {
 		
 		
-		//System.out.println("a measure is created");
+		System.out.println("a measure is created");
 		
 		boolean chordExist = false;
 		//the first measure does not include the vertical bars
