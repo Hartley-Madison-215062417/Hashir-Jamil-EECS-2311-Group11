@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "measure")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"barline1","number", "attributes","notes","barline2"})
+@XmlType(propOrder= {"barline1","number", "attributes","notes","barline2", "direction"})
 public class Measure {
 	
 	@XmlAttribute
@@ -22,7 +22,7 @@ public class Measure {
 	
 	@XmlElement
 	Attributes attributes; 
-	
+
 	@XmlElement(name = "note",type = Note.class)
 	List<Note> notes = new ArrayList<Note>();
 	
@@ -32,6 +32,17 @@ public class Measure {
 	
 	@XmlElement (name = "barline")
 	Barline barline2 = new Barline();
+	
+	@XmlElement
+	Direction direction;
+	
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
 	
 	public Barline getBarline1() {
 		return barline1;

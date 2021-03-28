@@ -121,7 +121,6 @@ public class Parser {
 			int newColEnd = 0;
 			int prevColEnd = 0;
 			int width = parsed[0].length; // width of the entire 2D array with all measures 
-			int previ = 0;
 			
 			//@Madison needs to implement a check for repeats
 			
@@ -149,7 +148,8 @@ public class Parser {
 						prevColEnd = newColEnd;
 						newColEnd = i; // new column end is the current column number 
 						
-						char[][] newMeasure = new char[6][newColEnd - prevColEnd -1]; //create a new measure with 6 rows and _____ columns 
+						char[][] newMeasure = new char[6][newColEnd - prevColEnd-1
+						                                  ]; //create a new measure with 6 rows and _____ columns 
 						int tmpCol = 0; // counter
 						while(newCol < newColEnd) {
 							for(newRow = 0; newRow < 6; newRow++) {
@@ -187,6 +187,7 @@ public class Parser {
 		Measure.measureNumber++; //meausreNumber is updated after setting the current measure's number 
 		
 		//checking for repeats
+		int timesRepeat = 0;
 		
 		//checking for beginning of repeat
 		if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') { //if the '*' symbol is encountered in the 2nd or 3rd line of first column
@@ -201,6 +202,7 @@ public class Parser {
 					
 					m.getBarline2().setRepeat(new Repeat());
 					m.getBarline2().getRepeat().setDirection("backward");
+					m.setDirection(new Direction());
 					
 				}
 			}
