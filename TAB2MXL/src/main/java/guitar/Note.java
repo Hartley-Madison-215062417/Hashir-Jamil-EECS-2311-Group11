@@ -124,92 +124,74 @@ public class Note {
 		
 	}
 	
-	//this method updates step and octave in pitch 
+		/*
+		 * Updated the pitch of a given note based on fret number
+		 * @para n note whose pitch needs to be updated
+		 * @return note whose pitch has been updated 
+		 * @pre only called if fret number is 0
+		 */
 		public Note updatePitch(Note n) {
-			int octave;
-			int fret = n.getNotations().getTechnical().getFret();
-			/*
-			String dStep;
-			dStep = Character.toString(defaultStep);
-			//need to open alter tags whenever you encounter a sharp#
-			String [] originalData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-			String[] relevantData = new String[24]; //specifically 24 because a guitar can have a maximum for 24 frets
-			int index;
+			int octave; //an integer number 
 			
-			for (int i =1 ; i <= 12; i++) {
-				if(originalData[i] == dStep) {
-					index = i;
-					break;
-				}
-			}
+			int fret = n.getNotations().getTechnical().getFret(); // fret has already been stored while parsing the 2D char array
 			
-			for (int i = j; i <=12;)
-			*/// this part is supposed to generate the right list of step options 
-			//automatically, but for now I'm making a database
 			
-			String defaultStep = n.getPitch().getStep();
+			String defaultStep = n.getPitch().getStep(); // the step was set to what it would be if fret is 0 
 			
-			String[] rData = new String[24];
-					
-			if (n.getPitch().getStep() == "E") {
+			String[] rData = new String[24]; // to store the sequence of steps
+			
+			/*finding the relevantData*/
+			
+			if (defaultStep == "E") { // if the default step is E, then this is the array that contains the right order 
 				
 			String[] relevantData = {"F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"};
 			rData = relevantData;
 			
-//			if (fret <= 1 && fret >= 7) {
-//				octave = 4;
-//				n.getPitch().setOctave(octave);
-//			}
-//			
-//			else if (fret<= 8 && fret >= 19) {
-//				octave = 5;
-//				n.getPitch().setOctave(octave);
-//			}
-//			else if(fret<= 20 && fret >= 24) {
-//				octave = 6;
-//				n.getPitch().setOctave(octave);
-//			}
 			
-			}else if (n.getPitch().getStep() == "B") {
+			}else if (defaultStep == "B") {
 				
 			String[] relevantData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
 			rData = relevantData;	
 			
-			}else if(n.getPitch().getStep() == "G") {
+			}else if(defaultStep == "G") {
 				
 			String[] relevantData = {"G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"};
 			rData = relevantData;	
 			
-			}else if(n.getPitch().getStep() == "D") {
+			}else if(defaultStep == "D") {
 				
 			String[] relevantData = {"D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"};
 			rData = relevantData;	
 			
-			}else if(n.getPitch().getStep() == "A") {
+			}else if(defaultStep == "A") {
 				
 			String[] relevantData = {"A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E","F", "F#", "G", "G#", "A"};
 			rData = relevantData;	
 			
 			}
 			
+			/*Setting the Step*/
 						
-			String actualStep = rData[fret-1];
+			String actualStep = rData[fret-1]; // the actual step should be within the array 
 			
-			char cStep = actualStep.charAt(0);
+			char cStep = actualStep.charAt(0); // steps can contain 2 chars, for example C#, here the step will be C
 			
-			String aStep = String.valueOf(cStep);
+			String aStep = String.valueOf(cStep); // converting from char to string
 			
 			
-			if (actualStep.length() == 1){
+			if (actualStep.length() == 1) // if the actual step is not a #
 				n.getPitch().setStep(aStep);
+			
+			
+			else { // if the actual step is a #
+				n.getPitch().setAlter("1"); // sharps have alter of positive 1
+				n.getPitch().setStep(aStep); // step will just be the char 
 			}
-			else {
-				n.getPitch().setAlter("1");
-				n.getPitch().setStep(aStep);
-				
-			}
+			
+			/*Setting the Octave*/
 			
 			int octaveCounter = n.getPitch().getOctave();
+			
 			for(int i = 0; i < rData.length; i++) {
 				if (rData[i] == "C") octaveCounter++;
 				char c = rData[i].charAt(0);
@@ -218,8 +200,6 @@ public class Note {
 					n.getPitch().setOctave(octaveCounter);
 			}
 			
-//			if (defaultStep > aStep[0])
-//				n.getPitch().setOctave(n.getPitch().getOctave()+1);
 			
 			return n;
 			
