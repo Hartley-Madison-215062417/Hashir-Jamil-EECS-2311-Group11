@@ -119,6 +119,7 @@ public class Parser {
 			int newCol = 0; // no of columns 
 			int counter = 0; 
 			int newColEnd = 0;
+			int prevColEnd = 0;
 			int width = parsed[0].length; // width of the entire 2D array with all measures 
 			int previ = 0;
 			
@@ -129,18 +130,22 @@ public class Parser {
 				}
 				else { // for all other elements in 2D char array of all measures 
 					counter++; 
-					if(counter == 1) { //if its the first count 
-						newCol = i+1; 
+					if(counter == 1) { //if counter is 1
+						newCol = i+1; // new column = column number + 1
 					}
-					if(counter > 1) {
-						if(counter > 2) {
-							newCol ++;
+					if(counter > 1) { // if counter is more than 1
+						if(counter > 2) { // if counter is more than 2
+							newCol ++; // new column = column number + 1
 						}
-
-						newColEnd = i;
 						
-						char[][] newMeasure = new char[6][newColEnd]; //create a new measure with 6 rows and _____ columns 
-						int tmpCol = 0;
+						//System.out.println("prevColEnd: " + prevColEnd);
+						//System.out.println("newColEnd " + newColEnd);
+						
+						prevColEnd = newColEnd;
+						newColEnd = i; // new column end is the current column number 
+						
+						char[][] newMeasure = new char[6][newColEnd - prevColEnd -1]; //create a new measure with 6 rows and _____ columns 
+						int tmpCol = 0; // counter
 						while(newCol < newColEnd) {
 							for(newRow = 0; newRow < 6; newRow++) {
 								newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
@@ -301,10 +306,10 @@ public class Parser {
 			
 				
 			}
-		if(chordExist) {
+		//if(chordExist) {
 			m.updateDuration(m);
-			chordExist = false;
-		}
+		//	chordExist = false;
+		//}
 		
 		//testing
 //		for (Note n: m.getNotes()) {
