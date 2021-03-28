@@ -1,6 +1,8 @@
 package tab2mxl;
 
 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -30,6 +32,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -51,6 +54,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.stage.Popup;
+import javafx.stage.Screen;
 import javafx.scene.control.Label; 
 
 
@@ -71,14 +75,19 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
+		
+		 Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+		 double height = primScreenBounds.getHeight();
+		 double width =primScreenBounds.getWidth()/1.2;
+		 primaryStage.setHeight(height);
+		 primaryStage.setWidth(width);
 		
 		window = primaryStage;
 		
 		 Image background_image = new Image("file:soundwave.jpg");
 	     ImageView mv = new ImageView(background_image);
-	     mv.setFitHeight(1000);
-	     mv.setFitWidth(1000);
+	     mv.setFitHeight(width);
+	     mv.setFitWidth(height);
 	     mv.fitWidthProperty().bind(window.widthProperty());
 	     mv.fitHeightProperty().bind(window.heightProperty());
 	     mv.setOpacity(1);
@@ -116,22 +125,22 @@ public class Main extends Application{
 	
 	        
 	        Pane layout1 = new Pane();
-	        layout1.setPrefSize(1000,1000);
+	        layout1.setPrefSize(width,height);
 	        layout1.getChildren().add(mv);
 	        layout1.getChildren().add(textFlow);
 	        layout1.getChildren().add(button);
 	        layout1.getChildren().add(textFlow3);
 	      
 	        
-	        Scene scene1 = new Scene(layout1, 1000, 1000, Color.BLACK);
+	        Scene scene1 = new Scene(layout1, width, height, Color.BLACK);
 
 	     
 	     //2nd page
 	        
 	        Image background_image2 = new Image("file:soundwave.jpg");
 		     ImageView mv2 = new ImageView(background_image2);
-		     mv2.setFitHeight(1000);
-		     mv2.setFitWidth(1000);
+		     mv2.setFitHeight(height);
+		     mv2.setFitWidth(width);
 		     mv2.fitWidthProperty().bind(window.widthProperty());
 		     mv2.fitHeightProperty().bind(window.heightProperty());
 		     mv2.setOpacity(1);
@@ -158,7 +167,7 @@ public class Main extends Application{
 		        
 		        FileChooser fileChooser = new FileChooser();
 		        fileChooser.setTitle("Open Resource File");
-		        fileChooser.getExtensionFilters().add(new ExtensionFilter("Text Files", "*.txt"));
+		       // fileChooser.getExtensionFilters().add(new ExtensionFilter("MusicXML", "*.musicxml"));
 		        final Button openButton = new Button("Choose a Tablature File");
 		   
 		        openButton.setLayoutX(225);
@@ -170,6 +179,20 @@ public class Main extends Application{
 		        info_button.setMaxSize(1,1);
 		        
 		        
+		        final Button convert_button = new Button();
+		        convert_button.setShape(new Circle(1));
+		        convert_button.setMaxSize(1,1);
+		        
+		        ImageView convert = new ImageView("file:convert.png");
+		        convert.setFitHeight(90);
+		        convert.setFitWidth(90);
+		        convert_button.setGraphic(convert);
+		        
+
+		        convert_button.setLayoutX(690);
+		        convert_button.setLayoutY(300);
+		        
+		        
 		        ImageView info = new ImageView("file:info.png");
 		        info.setFitHeight(90);
 		        info.setFitWidth(90);
@@ -177,7 +200,7 @@ public class Main extends Application{
 		        
 
 		        info_button.setLayoutX(690);
-		        info_button.setLayoutY(300);
+		        info_button.setLayoutY(500);
 		        //pop up page 
 		        
 		        info_button.setOnAction(e -> PopupGUI.display());
@@ -189,7 +212,17 @@ public class Main extends Application{
 		        infot.setFont(info_font);
 		        textinfo.getChildren().add(infot);
 		        textinfo.setLayoutX(700);
-		        textinfo.setLayoutY(400);
+		        textinfo.setLayoutY(600);
+		        
+		        TextFlow textconvert = new TextFlow();
+		        Font convert_font = new Font("Tahoma", 20);
+		        Text convertt = new Text("Convert!");
+		        convertt.setFill(Color.WHITE);
+		        convertt.setFont(info_font);
+		        textconvert.getChildren().add(convertt);
+		        textconvert.setLayoutX(710);
+		        textconvert.setLayoutY(400);
+		        
 		        
  
 		        //3rd page 
@@ -289,8 +322,10 @@ public class Main extends Application{
 		                    	
 		                    	EditPopup.display();
 		                    	File f = new File("updated.xml");
+		                    	String choice = EditPopup.getChoice();
+		                    
 		                 
-		                    	if(f.exists() ==true) {
+		                    	if(f.exists() ==true && choice == "Time Signature") {
 		               
 		                    		try {
 										Scanner s = new Scanner(f);
@@ -324,8 +359,60 @@ public class Main extends Application{
 	                    	       
 		                    		f.delete();
 		                    	}
+		                    	
+		                    	else if (f.exists() ==true && choice == "Song Title") {
+		                    		try {
+										Scanner s = new Scanner(f);
+										textbox2.clear();
+	                    	        	textbox2.setStyle("-fx-highlight-fill: lightgray; -fx-highlight-text-fill: firebrick;");
+			                    	    textbox2.setEditable(false);
+										
+		                    	        while (s.hasNext()) {
+				                    	        
+				                    	        
+		                    	        	String line = s.nextLine();
+		                    	        textbox2.appendText(line+"\n");
+		                    	        
+		                    	        }
+		                    	        
+		                    	        int i = findindex2();
+		                    	        System.out.print(i);
+		                    	      
+		                    	        textbox2.selectRange(i, i+55);
+		                    	        textbox2.addEventFilter(MouseEvent.ANY, new EventHandler<MouseEvent>() {
+		                    	          @Override public void handle(MouseEvent t) { t.consume(); }
+		                    	        });
+		                    	        
+
+		                    	      
+		                    	          
+									} catch (FileNotFoundException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+	                    	       
+		                    		f.delete();
+		                    		
+		                    	}
 				        
 		                    }
+
+							private int findindex2() {
+								String check = "<work>";
+                    	        String h = textbox2.getText();
+                    	        int j = 0;
+                    	        for(int i =0;i<h.length()-6;i++) {
+                    	        	String sub = h.substring(i, i+6);
+                    	        	if(sub.equals(check)) {
+                    	        		System.out.print(i);
+                    	        		j =i;
+                    	        		break;
+                    	        	}
+                    	        	}
+                    	        return j;
+                    	        }
+
+							
 
 							private int findindex() {
                     	        String check = "<time>";
@@ -468,13 +555,14 @@ public class Main extends Application{
 		        textbox.setLayoutY(250);
 		        textbox.setMinSize(400, 200);
 		        
-		        textbox.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		        convert_button.setOnAction(
+		                new EventHandler<ActionEvent>() {
+		                	
 
 					@Override
-					public void handle(KeyEvent keyEvent) {
+					  public void handle(final ActionEvent e) {
 						// TODO Auto-generated method stub
-						if(keyEvent.getCode() == KeyCode.ENTER)
-				        {
+					
 							window.setScene(scene3);
 	                		File input = new File("src//main//java//input//Input.txt");
 	                		 FileWriter myWriter;
@@ -564,7 +652,7 @@ public class Main extends Application{
 								e1.printStackTrace();
 							}
 			                textbox.clear();
-				        }			
+				        			
 					}
 
 					private boolean findErrors() {
@@ -580,7 +668,9 @@ public class Main extends Application{
 						}
 						}
 						return false;
-					}});
+					}
+					
+		        });
 		        
 		        button2.setOnAction(
 		                new EventHandler<ActionEvent>() {
@@ -629,7 +719,7 @@ public class Main extends Application{
 		        		
 		  
 		        Pane layout2 = new Pane();
-		        layout2.setPrefSize(1000,1000);
+		        layout2.setPrefSize(width,height);
 		        layout2.getChildren().add(mv2);
 		        layout2.getChildren().add(textFlow2);
 		        layout2.getChildren().add(textFlow4);
@@ -638,11 +728,14 @@ public class Main extends Application{
 		        layout2.getChildren().add(info);
 		        layout2.getChildren().add(info_button);
 		        layout2.getChildren().add(textinfo);
+		        layout2.getChildren().add(convert);
+		        layout2.getChildren().add(convert_button);
+		        layout2.getChildren().add(textconvert);
 
 		        
 		        
 		        Pane layout3 = new Pane();
-		        layout3.setPrefSize(1000,1000);
+		        layout3.setPrefSize(width,height);
 		        layout3.getChildren().add(mv3);
 		        layout3.getChildren().add(textFlow5);
 		        layout3.getChildren().add(textbox2);
@@ -661,8 +754,8 @@ public class Main extends Application{
 		        
 	
 		     
-		scene2 = new Scene(layout2, 1000, 1000,Color.BLACK);
-		scene3 = new Scene(layout3, 1000,1000,Color.BLACK);
+		scene2 = new Scene(layout2, width, height,Color.BLACK);
+		scene3 = new Scene(layout3, width,height,Color.BLACK);
 		
 		window.setScene(scene1);
 		window.setTitle("Tablature to MusicXML Converter");

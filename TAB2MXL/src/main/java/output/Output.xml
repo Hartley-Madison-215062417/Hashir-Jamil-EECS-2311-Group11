@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <score-partwise version="3.1">
+    <work>
+        <work-title>Untitled</work-title>
+    </work>
     <part-list>
         <score-part id="P1">
             <part-name>Classical Guitar</part-name>
