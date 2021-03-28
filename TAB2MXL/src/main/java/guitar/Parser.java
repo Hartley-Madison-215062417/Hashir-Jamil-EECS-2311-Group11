@@ -114,29 +114,32 @@ public class Parser {
 	 */
 	 public ArrayList<char[][]> measureSplitter (char[][] parsed) {
 		
-			ArrayList<char[][]> tmpArray = new ArrayList<char[][]>();
-			int newRow = 0;
-			int newCol = 0;
-			int counter = 0;
+			ArrayList<char[][]> tmpArray = new ArrayList<char[][]>(); //an array list of all the measures to be returned later
+			int newRow = 0; // no of rows 
+			int newCol = 0; // no of columns 
+			int counter = 0; 
 			int newColEnd = 0;
-			int width = parsed[0].length;
+			int width = parsed[0].length; // width of the entire 2D array with all measures 
+			int previ = 0;
 			
 			//@Madison needs to implement a check for repeats
 			
-			for(int i = 0; i < width; i++) {
-				if(parsed[0][i] != '|') {
+			for(int i = 0; i < width; i++) { // going through the entire 2D array of all measures, then i = 0 we are in the first column 
+				if(parsed[0][i] != '|') { //in the first row if any element is '|'
 				}
-				else {
-					counter++;
-					if(counter == 1) {
-						newCol = i+1;
+				else { // for all other elements in 2D char array of all measures 
+					counter++; 
+					if(counter == 1) { //if its the first count 
+						newCol = i+1; 
 					}
 					if(counter > 1) {
 						if(counter > 2) {
 							newCol ++;
 						}
+
 						newColEnd = i;
-						char[][] newMeasure = new char[6][newColEnd];
+						
+						char[][] newMeasure = new char[6][newColEnd]; //create a new measure with 6 rows and _____ columns 
 						int tmpCol = 0;
 						while(newCol < newColEnd) {
 							for(newRow = 0; newRow < 6; newRow++) {
@@ -148,10 +151,8 @@ public class Parser {
 						}
 						
 						tmpArray.add(newMeasure);
-						
 					}
 				}
-
 			}
 
 		return tmpArray;
@@ -167,6 +168,9 @@ public class Parser {
 	public Measure createMeasure(char[][] firstMeasure) {
 		
 		
+		//System.out.println("a measure is created");
+		
+		boolean chordExist = false;
 		//the first measure does not include the vertical bars
 		Measure m = new Measure(); //creating a new measure object, this will now be filled in
 		m.setNumber(Measure.measureNumber); //setting the measure number using the static counter
@@ -229,11 +233,13 @@ public class Parser {
 						else { // to handle single digit fret numbers 		
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j])); // getting the fret number 
 							
-							if(((i - 1) > -1) && (i + 1) < 7)
+							if(((i - 1) > -1) && (i + 1) < 6)
 								if(Character.isDigit(firstMeasure[i-1][j]) || Character.isDigit(firstMeasure[i+1][j])) {
 									n.setChord(new Chord());
+									chordExist = true;
 								}else if((i - 1) == -1 && Character.isDigit(firstMeasure[i+1][j])) {
 									n.setChord(new Chord());
+									chordExist = true;
 								}
 							
 							
@@ -267,7 +273,7 @@ public class Parser {
 						}
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
-						System.out.println("The value of i is:" + i);
+						
 						
 						//setting wrong duration
 //						int duration = 0;
@@ -275,7 +281,10 @@ public class Parser {
 //							duration++;
 //							n.setDuration(duration);
 //						}
-						n.setDuration(firstMeasure[0].length - j);
+						
+						//System.out.println("length of measure: " + firstMeasure[i].length + "j: " + j);
+						
+						n.setDuration(firstMeasure[i].length - j);
 						
 						n.setDefaultStep(n);
 						
@@ -292,7 +301,10 @@ public class Parser {
 			
 				
 			}
-		m.updateDuration(m);
+		if(chordExist) {
+			m.updateDuration(m);
+			chordExist = false;
+		}
 		
 		//testing
 //		for (Note n: m.getNotes()) {
@@ -483,6 +495,7 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 	public Part createMusicalPart(ArrayList<char[][]> measures) {
 		
 		for (char[][] measure : measures) {
+			//System.out.println("Length of the measure " + measure[0].length);
 			Measure m = createMeasure(measure);
 			part.getPart().add(m);
 		}

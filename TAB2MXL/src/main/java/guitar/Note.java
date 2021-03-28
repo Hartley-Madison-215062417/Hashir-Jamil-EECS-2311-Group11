@@ -126,7 +126,6 @@ public class Note {
 			
 		}
 		else if(string == 6) {
-			System.out.println("string 6");
 			n.getPitch().setStep("E");
 			n.getPitch().setOctave(2);
 		}
