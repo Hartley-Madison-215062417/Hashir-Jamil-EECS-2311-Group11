@@ -177,6 +177,7 @@ public class Parser {
 		Measure.measureNumber++; //meausreNumber is updated after setting the current measure's number 
 		
 		//checking for repeats
+		int timesRepeated = 0;
 		
 		//checking for beginning of repeat
 		if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') { //if the '*' symbol is encountered in the 2nd or 3rd line of first column
@@ -187,10 +188,14 @@ public class Parser {
 		//checking for end of repeat
 		for(int i = 0; i < firstMeasure.length; i++) {
 			for(int j =0; j < firstMeasure[0].length; j++) {
-				if (i == 0 && firstMeasure[i+1][j] == '|') { //if the there is '|' in the 2nd column of first row 
+				if (i == 0 && firstMeasure[i+1][j] == '|') { //if the there is '|' in the 2nd row of first column
 					
 					m.getBarline2().setRepeat(new Repeat());
 					m.getBarline2().getRepeat().setDirection("backward");
+					
+				if(Character.isDigit(firstMeasure[0][firstMeasure[0].length] - 1)) {
+					timesRepeated = firstMeasure[0][firstMeasure[0].length];
+				}
 					
 				}
 			}
