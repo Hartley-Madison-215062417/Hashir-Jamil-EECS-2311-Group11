@@ -127,9 +127,9 @@ public class Parser {
 			
 			for(int i = 0; i < width; i++) { // going through the entire 2D array of all measures, then i = 0 we are in the first column 
 				
-				if(i != width - 1)
+				//if(i != width - 1)
 				
-				if(!(parsed[0][i] == '|' && parsed[0][i+1] == '|' )) {
+				//if(!(parsed[0][i] == '|' && parsed[0][i+1] == '|' )) {
 				
 				if(parsed[0][i] != '|') { //in the first row if any element is '|'
 				}
@@ -163,7 +163,7 @@ public class Parser {
 						tmpArray.add(newMeasure);
 					}
 				}
-			}}
+			}
 
 		return tmpArray;
 	}
