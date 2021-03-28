@@ -11,7 +11,7 @@ public class SplitMeasureTest {
 
 	public static void main(String[] args) {
 		
-		Parser p = new Parser("creep.txt");
+		Parser p = new Parser("prototypeGuitarTab.txt");
 		char[][] parsed = p.getTabCharMatrix();
 		
 		int width = parsed[0].length; //gets the length of the entire first row
