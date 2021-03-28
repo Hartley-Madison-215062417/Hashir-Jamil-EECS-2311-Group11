@@ -232,6 +232,8 @@ public class Parser {
 							if(((i - 1) > -1) && (i + 1) < 7)
 								if(Character.isDigit(firstMeasure[i-1][j]) || Character.isDigit(firstMeasure[i+1][j])) {
 									n.setChord(new Chord());
+								}else if((i - 1) == -1 && Character.isDigit(firstMeasure[i+1][j])) {
+									n.setChord(new Chord());
 								}
 							
 							
