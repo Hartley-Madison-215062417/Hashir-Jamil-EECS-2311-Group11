@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-import guitar.Attributes;
-import guitar.Note;
+import drums.Attributes;
+import drums.Note;
 
 
 
