@@ -239,6 +239,31 @@ public class Parser {
 							int fret = Integer.parseInt(num.toString());
 							n.getNotations().getTechnical().setFret(fret);//setting the fret of the note		
 							
+							if(firstMeasure[i][j+2] =='h' || firstMeasure[i][j-1] =='h') { 
+								if(firstMeasure[i][j-1] =='g') {
+									Grace g = new Grace();
+									n.setGrace(g);
+								}
+								createHammerOns(firstMeasure,i,j,n);
+			
+							}
+							
+							else if(firstMeasure[i][j+2] =='p' || firstMeasure[i][j-1] =='p') {
+								if(firstMeasure[i][j-1] =='g') {
+									Grace g = new Grace();
+									n.setGrace(g);
+								}
+								createPullOffs(firstMeasure, i,j,n);
+							}
+							
+							else if (firstMeasure[i][j+2] =='/' || firstMeasure[i][j-1] =='/') {
+								if(firstMeasure[i][j-1] =='g') {
+									Grace g = new Grace();
+									n.setGrace(g);
+								}
+								createSlides(firstMeasure,i,j,n);
+							}
+							
 						}
 
 						
@@ -350,6 +375,18 @@ private void createSlides(char[][] firstMeasure, int i, int j, Note n) {
 		
 		}
 		
+
+	else if(firstMeasure[i][j-1] == '/' && firstMeasure[i][j+1] != '/'  ) {
+	
+		Slide slide = new Slide();
+		n.getNotations().setSlide(slide);
+		
+		n.getNotations().getSlide().setNumber(hnum);
+		n.getNotations().getSlide().setType("stop");
+		}
+	
+
+	
 //	
 //	else if(firstMeasure[i][j-1] == '/' &&  firstMeasure[i][j+1] == '/' ) {
 //		pullOff pnew = new pullOff();
@@ -366,17 +403,29 @@ private void createSlides(char[][] firstMeasure, int i, int j, Note n) {
 //
 //	}
 //	
+	
+	//for 2 digit numbers...
+		
+	else if(firstMeasure[i][j+2] == '/' && firstMeasure[i][j-1] != '/') {
+		Slide slide = new Slide();
+		n.getNotations().setSlide(slide);
+		
+		n.getNotations().getSlide().setNumber(hnum);
+		n.getNotations().getSlide().setType("start");
+		
+		}
+		
 
-	else if(firstMeasure[i][j-1] == '/' && firstMeasure[i][j+1] != '/'  ) {
+	else if(firstMeasure[i][j-1] == '/' && firstMeasure[i][j+2] != '/'  ) {
+
 		Slide slide = new Slide();
 		n.getNotations().setSlide(slide);
 		
 		n.getNotations().getSlide().setNumber(hnum);
 		n.getNotations().getSlide().setType("stop");
 		}
-		
-		
-		
+	
+	
 	}
 
 
@@ -415,9 +464,6 @@ private void createPullOffs(char[][] firstMeasure, int i, int j, Note n) {
 
 	}
 	
-	
-
-
 	else if(firstMeasure[i][j-1] == 'p' && firstMeasure[i][j+1] != 'p'  ) {
 		pullOff pnew = new pullOff();
 		n.getNotations().getTechnical().setP(pnew);
@@ -431,6 +477,55 @@ private void createPullOffs(char[][] firstMeasure, int i, int j, Note n) {
 		n.getNotations().getSlur().setType("stop");
 		n.getNotations().getSlur().setPlacement(null);
 		}
+	//for 2 digit numbers...
+
+	else if(firstMeasure[i][j+2] == 'p' && firstMeasure[i][j-1] != 'p') {
+		pullOff pnew = new pullOff();
+		n.getNotations().getTechnical().setP(pnew);
+		
+		n.getNotations().getTechnical().getP().setNumber(hnum);
+		n.getNotations().getTechnical().getP().setType("start");
+		
+		Slur slur = new Slur();
+		n.getNotations().setSlur(slur);
+		n.getNotations().getSlur().setNumber(hnum);
+		n.getNotations().getSlur().setType("start");
+		}
+		
+	
+
+	
+	
+	else if(firstMeasure[i][j-1] == 'p' &&  firstMeasure[i][j+2] == 'p' ) {
+		pullOff pnew = new pullOff();
+		n.getNotations().getTechnical().setPnew(pnew);
+		
+		n.getNotations().getTechnical().getPnew().setNumber(hnum);
+		n.getNotations().getTechnical().getPnew().setType("stop");
+		
+		pullOff p = new pullOff();
+		n.getNotations().getTechnical().setP(p);
+		
+		n.getNotations().getTechnical().getP().setNumber(hnum);
+		n.getNotations().getTechnical().getP().setType("start");
+		
+
+	}
+	
+	else if(firstMeasure[i][j-1] == 'p' && firstMeasure[i][j+2] != 'p'  ) {
+		pullOff pnew = new pullOff();
+		n.getNotations().getTechnical().setP(pnew);
+		
+		n.getNotations().getTechnical().getP().setNumber(hnum);
+		n.getNotations().getTechnical().getP().setType("stop");
+		
+		Slur slur = new Slur();
+		n.getNotations().setSlur(slur);
+		n.getNotations().getSlur().setNumber(hnum);
+		n.getNotations().getSlur().setType("stop");
+		n.getNotations().getSlur().setPlacement(null);
+		}
+	
 		
 	}
 
@@ -468,6 +563,53 @@ private void createHammerOns(char[][] firstMeasure, int i, int j,Note n) {
 	}
 	
 	else if(firstMeasure[i][j-1] == 'h' && firstMeasure[i][j+1] != 'h'  ) {
+		hammerOns hnew = new hammerOns();
+		n.getNotations().getTechnical().setH(hnew);
+		
+		n.getNotations().getTechnical().getH().setNumber(hnum);
+		n.getNotations().getTechnical().getH().setType("stop");
+		
+		Slur slur = new Slur();
+		n.getNotations().setSlur(slur);
+		n.getNotations().getSlur().setNumber(hnum);
+		n.getNotations().getSlur().setType("stop");
+		n.getNotations().getSlur().setPlacement(null);
+		
+		
+	}
+	// for 2 digit numbers..
+	else if(firstMeasure[i][j+2] == 'h' && firstMeasure[i][j-1] != 'h') {
+		
+		//calculateHnum(firstMeasure,j+1);
+		hammerOns hnew = new hammerOns();
+		n.getNotations().getTechnical().setH(hnew);
+		
+		n.getNotations().getTechnical().getH().setNumber(hnum);
+		n.getNotations().getTechnical().getH().setType("start");
+		
+		Slur slur = new Slur();
+		n.getNotations().setSlur(slur);
+		n.getNotations().getSlur().setNumber(hnum);
+		n.getNotations().getSlur().setType("start");
+	
+		
+		}
+	
+	else if(firstMeasure[i][j-1] == 'h' &&  firstMeasure[i][j+2] == 'h' ) {
+		hammerOns hnew = new hammerOns();
+		n.getNotations().getTechnical().setHnew(hnew);
+		
+		n.getNotations().getTechnical().getHnew().setNumber(hnum);
+		n.getNotations().getTechnical().getHnew().setType("stop");
+		
+		hammerOns h = new hammerOns();
+		n.getNotations().getTechnical().setH(h);
+		
+		n.getNotations().getTechnical().getH().setNumber(hnum);
+		n.getNotations().getTechnical().getH().setType("start");
+	}
+	
+	else if(firstMeasure[i][j-1] == 'h' && firstMeasure[i][j+2] != 'h'  ) {
 		hammerOns hnew = new hammerOns();
 		n.getNotations().getTechnical().setH(hnew);
 		
