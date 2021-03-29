@@ -76,11 +76,11 @@ public class Note{
 		this.duration = duration;
 	}
 
-	public String setInstrumentID() {
+	public String getInstrumentID() {
 		return instrumentID;
 	}
 
-	public void getInstrumentID(String instrumentID) {
+	public void setInstrumentID(String instrumentID) {
 		this.instrumentID = instrumentID;
 	}
 
