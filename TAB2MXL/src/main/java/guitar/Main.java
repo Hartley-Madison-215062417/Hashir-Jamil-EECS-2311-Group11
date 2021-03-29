@@ -37,6 +37,7 @@ public static void main(String[] args) {
 //			System.out.println(" ");
 //		}
 		 
+	//	tmpArray1.add(parsed);
 		Part part = p.createMusicalPart(tmpArray1);
 		
 		JAXBContext jc = JAXBContext.newInstance(Part.class);
