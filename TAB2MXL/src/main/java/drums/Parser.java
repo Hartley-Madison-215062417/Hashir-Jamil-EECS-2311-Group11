@@ -162,7 +162,7 @@ public class Parser {
 				}else if (c == 'B') {
 					n.setInstrumentID("P1-I36");
 					n.setVoice(2);
-					n.setStem("down");
+					n.setStem("down"); 
 				}
 			}
 		}

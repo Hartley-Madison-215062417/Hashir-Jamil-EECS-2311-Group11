@@ -142,7 +142,7 @@ public class Measure {
 					System.out.println(i + " " + m.notes.get(i).getNotations().getTechnical().getFret());
 					
 				}	
-				
+				 
 				
 				//if not part of a chord
 				else{
