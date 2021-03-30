@@ -139,7 +139,7 @@ public class Measure {
 				else if (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() == 0) {
 				
 					indexArray.add(i);
-					System.out.println(i + " " + m.notes.get(i).getNotations().getTechnical().getFret());
+					//System.out.println(i + " " + m.notes.get(i).getNotations().getTechnical().getFret());
 					
 				}	
 				 
