@@ -30,6 +30,12 @@ public class Time {
 		this.beatType = beatType;
 	}
 	
+	public Time(Time t1) {
+		super();
+		t1.beats = beats;
+		t1.beatType = beatType;
+	}
+
 	public int getBeats() {
 		return beats;
 	}
