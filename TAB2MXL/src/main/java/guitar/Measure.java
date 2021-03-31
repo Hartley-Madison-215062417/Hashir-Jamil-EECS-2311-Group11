@@ -14,15 +14,15 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "measure")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"barline1","number", "attributes","notes","barline2"})
+@XmlType(propOrder= {"barline1","number", "attributes","notes","barline2", "direction"})
 public class Measure {
 	
 	@XmlAttribute
-	int number;
+	public int number;
 	
 	@XmlElement
 	Attributes attributes; 
-	
+
 	@XmlElement(name = "note",type = Note.class)
 	List<Note> notes = new ArrayList<Note>();
 	
@@ -32,6 +32,17 @@ public class Measure {
 	
 	@XmlElement (name = "barline")
 	Barline barline2 = new Barline();
+	
+	@XmlElement
+	Direction direction;
+	
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
 	
 	public Barline getBarline1() {
 		return barline1;
@@ -90,12 +101,15 @@ public class Measure {
 	}
 	
 	/*
-	 * A method to update the duration set for each note in the createMeasure class
+	 * Updates the duration of each note within the measure.
+	 * @param m the measure whose notes' durations needs to be updated
+	 * @pre the measure contains a chord
 	 */
 	public void updateDuration(Measure m) {
 				
 		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
 		List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
+		
 		//duration of 1 chord, it has to be rewritten for each chord
 		int chordDuration = 0; 
 		
@@ -106,18 +120,27 @@ public class Measure {
 			
 			//System.out.println("test0");
 			
-			//if the note is the last note
+			//if last note in measure 
 			if(i == m.notes.size()-1) {
-				chordDuration = m.getNotes().get(i).getDuration();
+				/* TO CHECK HOW MANY TIMES THIS FUNCTION IS CALLED - don't need to call if measure doesn't contain a chord
+				System.out.println("The value of i: " + i);
+				System.out.println("The size of the notes: " + notes.size());
+				System.out.println("First note's step: " + notes.get(1).getPitch().getStep() + " octave " + notes.get(1).getPitch().getOctave());
+				System.out.println("This note is the last note of the chord");
+				*/
 				
-			
+				//System.out.println("This note is the last note of the chord");
+				chordDuration = m.getNotes().get(i).getDuration();
+				//System.out.println("The duration of this chord is: " + chordDuration);
+				
+				//if not first note in measure 
 				if (i!=0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
+					chordDuration = m.getNotes().get(i).getDuration()/2; 
+					
 					for (int index: indexArray) {
-						//System.out.println("test1a");
-						chordDuration = m.getNotes().get(i).getDuration()/2;
 						m.notes.get(index).setDuration(chordDuration);						
 					}
-					//System.out.println("niaa");
+					
 					m.notes.get(i).setDuration(chordDuration);	
 					indexArray.removeAll(indexArray);
 				}
@@ -132,7 +155,6 @@ public class Measure {
 				//if it is the last note of a chord
 				if (i!=0 && m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() != 0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
 					
-					Chord c = new Chord();
 					
 					if(i!= m.notes.size()-1) {
 					

@@ -9,9 +9,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import guitar.Work;
+
+
+
 @XmlRootElement(name ="score-partwise")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"version","partlist","parts"})
+@XmlType(propOrder= {"version","partlist","parts", "work"})
 public class scorePartwise {
 
 	@XmlAttribute
@@ -19,6 +23,9 @@ public class scorePartwise {
 	
 	@XmlElement(name = "part-list")
 	PartList partlist = new PartList();
+	
+	@XmlElement(name = "work")
+	Work work = new Work();
 	
 	@XmlElement(name ="part",type = Part.class)
 	ArrayList<Part> parts = new ArrayList<Part>();
@@ -49,5 +56,15 @@ public class scorePartwise {
 	public double getVersion() {
 		return version;
 	}
+	
+	
+	public void setWork(Work work) {
+		this.work = work;
+	}
+
+	public Work getWork() {
+		return work;
+	}
+	
 
 }

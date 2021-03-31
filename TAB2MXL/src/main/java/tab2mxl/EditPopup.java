@@ -40,6 +40,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class EditPopup {
+	static String choice="";
 	public static void display()
 	{
 		Stage popupwindow=new Stage();
@@ -81,18 +82,22 @@ public class EditPopup {
 	    combo.setLayoutX(170);
 	    combo.setLayoutY(100);
 	    
+	    
 	    final TextArea change = new TextArea("");
 	    change.setLayoutX(170);
 	    change.setLayoutY(150);
 	    change.setMaxSize(200,50);
 	    
 	    change.setOnKeyPressed(new EventHandler<KeyEvent>() {
-
+	    
+	    
 			@Override
 			public void handle(KeyEvent keyEvent) {
-				// TODO Auto-generated method stub
+				
 				if(keyEvent.getCode() == KeyCode.ENTER)
 		        {
+					if(combo.getValue() == "Time Signature") {
+						choice = "Time Signiture";
 					
 					String input_text = change.getText();
 					char numerator = input_text.charAt(0);
@@ -137,18 +142,51 @@ public class EditPopup {
 			        }
 			        
 			        
-			  
-
-
-		
-		        
-
-			
-		   
 
 			}
+				else if(combo.getValue() == "Song Title") {
+					choice = "Song Title";
+					System.out.print("hi");
+					String input_text = change.getText();
+					File xml = new File("src//main//java//output//Output.xml");
+						
+					DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			        DocumentBuilder dBuilder;
+			        try {
+			            dBuilder = dbFactory.newDocumentBuilder();
+			            Document doc = dBuilder.parse(xml);
+			            doc.getDocumentElement().normalize();
 
-}});
+
+				        NodeList nodes = doc.getElementsByTagName("work");
+				     
+				        Node node = nodes.item(0);
+				        if (node.getNodeType() == Node.ELEMENT_NODE) {
+					        Element element = (Element) node;
+					        Node beat = element.getElementsByTagName("work-title").item(0).getFirstChild();
+					        beat.setNodeValue(String.valueOf(input_text));
+					   
+				        }
+				        
+			            doc.getDocumentElement().normalize();
+			            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			            Transformer trans = transformerFactory.newTransformer();
+			            DOMSource dom = new DOMSource(doc);
+			            StreamResult newfile = new StreamResult(new File("updated.xml"));
+			           // transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			            trans.transform(dom, newfile);
+			            
+			            popupwindow.close();
+			            
+			            
+			        } catch (SAXException | ParserConfigurationException | IOException | TransformerException e1) {
+			            e1.printStackTrace();
+			        }
+				
+				}
+}}
+			}
+	    );
 	    
 
 	   Pane pane = new Pane();
@@ -170,5 +208,12 @@ public class EditPopup {
 		       
 	       
 	}
+	
+	public static String getChoice() {
+		return choice;
+	}
+
+
+
 
 }

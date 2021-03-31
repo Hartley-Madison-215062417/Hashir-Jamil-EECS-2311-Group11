@@ -25,5 +25,15 @@ public class Voice {
 		}
 	
 	}
+
+	public int getVoice() {
+		return voice;
+	}
+
+	public void setVoice(int voice) {
+		this.voice = voice;
+	}
+	
+	
 	
 }

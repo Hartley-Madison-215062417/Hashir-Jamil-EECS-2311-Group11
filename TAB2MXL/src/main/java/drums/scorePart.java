@@ -8,16 +8,17 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "score-part")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"part-name","score-instrument id"})
+@XmlType(propOrder = {"partName","scoreInstrumentID id"})
 
 
 public class scorePart {
 	
-	@XmlAttribute
+	//@XmlAttribute
+	@javax.xml.bind.annotation.XmlElement(name = "part-name")
 	final String partName = "Drumset";
 	
 	@XmlAttribute
-	String scoreInstrumentID;
+	String scoreInstrumentID = "P1";
 	
 	public String getPartName() {
 		return partName;

@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Attributes {
 
 	@XmlElement
-	int divisions = 2;
+	int divisions = 4;
 	
 	@XmlElement
 	Key key;
@@ -33,7 +33,7 @@ public class Attributes {
 	
 	public Attributes(Key key, Time time, Clef clef) {
 		super();
-		divisions = 2;
+		divisions = 4;
 		this.key = key;
 		this.time = time;
 		this.clef = clef;

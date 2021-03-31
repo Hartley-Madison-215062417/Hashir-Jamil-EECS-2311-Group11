@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "unpitched")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"display-step","display-octave"})
+@XmlType(propOrder = {"step","octave"})
 
 public class Unpitched {
 	
@@ -19,7 +19,7 @@ public class Unpitched {
 	@XmlElement(name="display-octave")
 	int octave;
 	
-	
+	 
 	public Unpitched() {
 		super();
 	}
