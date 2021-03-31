@@ -22,7 +22,7 @@ public class Note{
 	String instrumentID;
 
 	@XmlElement
-	int voice;
+	int voice = 1;
 
 	@XmlElement
 	String type;

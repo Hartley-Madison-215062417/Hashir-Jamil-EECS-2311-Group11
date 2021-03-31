@@ -288,7 +288,7 @@ public class Parser {
 				}
 				else if(firstMeasure[i][j] == 'o' ) {
 					n.setInstrumentID(asID[i]);
-					
+					n.setVoice(1);
 					int tmp = firstMeasure.length;
 					if((tmp/2) >= i) {
 						n.setStem("up");
