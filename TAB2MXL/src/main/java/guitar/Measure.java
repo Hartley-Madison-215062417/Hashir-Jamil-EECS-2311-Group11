@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Measure {
 	
 	@XmlAttribute
-	int number;
+	public int number;
 	
 	@XmlElement
 	Attributes attributes; 

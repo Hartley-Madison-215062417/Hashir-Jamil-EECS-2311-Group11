@@ -16,7 +16,7 @@ public class Note{
 	Unpitched unpitched = new Unpitched();
 
 	@XmlElement
-	int duration;
+	int duration = 2;
 
 	@XmlElement
 	String instrumentID;
@@ -48,7 +48,7 @@ public class Note{
 	public Note(Unpitched unpitched, int duration, String instrumentID, int voice, String type, String stem, String notehead, String beamNumber) {
 		super();
 		this.unpitched = unpitched;
-		this.duration = duration;
+		this.duration = 2;
 		this.instrumentID = instrumentID;
 		this.voice = voice;
 		this.type = type;

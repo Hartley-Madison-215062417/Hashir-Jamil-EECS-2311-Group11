@@ -12,6 +12,43 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		
+		try {
+			
+			Parser p = new Parser("drumTestTab.txt");
+			char[][] parsed = p.getTabCharMatrix();
+			
+			int width = parsed[0].length;
+			ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);
+			
+			Part part = p.createMusicalPart(tmpArray1);
+			
+			JAXBContext jc = JAXBContext.newInstance(Part.class);
+			Marshaller ms = jc.createMarshaller();
+			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			ms.marshal(part,System.out);
+			
+		}catch (JAXBException ex) {
+			System.out.println(""+ex.getMessage());
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 /*
  * //		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
 //		Marshaller ms = jc.createMarshaller();
@@ -26,7 +63,7 @@ public class Main {
 
 
       
-      ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
+      //ArrayList<char[][]> testArrayList3 = new ArrayList<char[][]>();
 
 //		
 //		Parser par = new Parser("prototypeGuitarTab.txt");
@@ -36,7 +73,7 @@ public class Main {
 		
 		
 	//	JAXBContext jc;
-		try {
+		//try {
 			
 			
 			
@@ -65,21 +102,21 @@ public class Main {
 //			letsdothis.marshal(a, new File("src//output//Output.xml"));
 //			
 			
-			Part part = new Part();
-	        JAXBContext jc = JAXBContext.newInstance(Part.class);
-	        Marshaller ms = jc.createMarshaller();
-	        ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-	        ms.marshal(part, System.out);
+			//Part part = new Part();
+	        //JAXBContext jc = JAXBContext.newInstance(Part.class);
+	       // Marshaller ms = jc.createMarshaller();
+	       // ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	       // ms.marshal(part, System.out);
 	     //   ms.marshal(part,new File("src//output//Output.xml"));
 	
 
 			
 			
-		} catch (JAXBException e) {
+		//} catch (JAXBException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(""+e.getMessage());
-		}
+			//e.printStackTrace();
+			//System.out.println(""+e.getMessage());
+		//}
 		
 		
 		
