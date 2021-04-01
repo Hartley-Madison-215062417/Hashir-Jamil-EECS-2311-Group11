@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import drums.Measure;
 import drums.Note;
 import drums.Parser;
-import drums.Part;
+import drums.part;
 import drums.Time;
 
 public class LabJUnit {
@@ -36,8 +36,8 @@ public class LabJUnit {
 		private Time t1;
 		private Time t2;
 		
-		private Part part;
-		private Part fakePart;
+		private part part;
+		private part fakePart;
 		
 		private List<Measure> measureList = new ArrayList<Measure>();
 		private List<Note> notes = new ArrayList<Note>();
@@ -85,7 +85,7 @@ public class LabJUnit {
 			t1 = new Time();
 			t2 = new Time(t1);
 			
-			part = new Part();
+			part = new part();
 			
 //			m.setNotes(notes);
 //			measureList.add(m);

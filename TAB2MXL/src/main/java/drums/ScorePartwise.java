@@ -16,7 +16,7 @@ import guitar.Work;
 @XmlRootElement(name ="score-partwise")
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder= {"version","partlist","parts", "work"})
-public class scorePartwise {
+public class ScorePartwise {
 
 	@XmlAttribute
 	final double version = 3.1;
@@ -27,21 +27,21 @@ public class scorePartwise {
 	@XmlElement(name = "work")
 	Work work = new Work();
 	
-	@XmlElement(name ="part",type = Part.class)
-	ArrayList<Part> parts = new ArrayList<Part>();
+	@XmlElement(name ="part",type = part.class)
+	ArrayList<part> parts = new ArrayList<part>();
 
 	
 	
 	
-	public scorePartwise() {
+	public ScorePartwise() {
 		super();
 	}
 
-	public ArrayList<Part> getParts() {
+	public ArrayList<part> getParts() {
 		return parts;
 	}
 
-	public void setParts(ArrayList<Part> parts) {
+	public void setParts(ArrayList<part> parts) {
 		this.parts = parts;
 	}
 

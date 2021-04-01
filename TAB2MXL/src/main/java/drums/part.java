@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "part")
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder= {"id","measuresList"})
-public class Part {
+public class part {
 
 	@XmlAttribute
 	final String id = "P1";
@@ -23,11 +23,11 @@ public class Part {
 	@XmlElement(name = "measure",type = Measure.class)
 	private List<Measure> measuresList = new ArrayList<Measure>();
 	
-	public Part() {
+	public part() {
 		super();
 	}
 
-	public Part(List<Measure> measuresList) {
+	public part(List<Measure> measuresList) {
 		super();
 		this.measuresList = measuresList;
 	}

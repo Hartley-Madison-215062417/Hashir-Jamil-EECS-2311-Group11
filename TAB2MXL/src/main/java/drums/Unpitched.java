@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Unpitched {
 	
 	@XmlElement(name="display-step")
-	String step;
+	String step = "A";
 	
 	@XmlElement(name="display-octave")
 	int octave;

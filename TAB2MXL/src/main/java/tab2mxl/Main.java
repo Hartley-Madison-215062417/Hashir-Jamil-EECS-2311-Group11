@@ -24,8 +24,8 @@ import guitar.scorePartwise;
 
 //import drums.Measure;
 //import drums.Parser;
-//import drums.Part;
-//import drums.scorePartwise;
+import drums.part;
+import drums.ScorePartwise;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -458,10 +458,11 @@ public class Main extends Application{
 		                        	window.setScene(scene3);
 	
 		                        	try {
-		                        		Parser p = new Parser(file);
-		                        		//change??
-		                                char[][] parsed = p.getTabCharMatrix();
-		                                ArrayList<char[][]> testArrayList3 = p.measureSplitter(parsed);
+		                        		//
+//		                        		Parser p = new Parser(file);
+//		                        		//change??
+//		                                char[][] parsed = p.getTabCharMatrix();
+//		                                ArrayList<char[][]> testArrayList3 = p.measureSplitter(parsed);
 		                                /*
 		                                 * Here, we need to add a call to a parser method.
 		                                 * It will separate the measures into individual char arrays,
@@ -469,34 +470,69 @@ public class Main extends Application{
 		                                 * Change the .add below. (remove them)
 		                                 * The return will be the ArrayList.
 		                                 */
-		                                testArrayList3.add(parsed);
-		                                testArrayList3.add(parsed);
-		                                char[][] tmp = testArrayList3.get(0);
+//		                                testArrayList3.add(parsed);
+//		                                testArrayList3.add(parsed);
+		                              //  char[][] tmp = testArrayList3.get(0);
 		                                
-		                                for (int i = 0; i < tmp.length ; i++) {
-		                                    //System.out.println(p.getTabCharMatrix()[i]);
-		                                }
-		                                
-		                                char[][] tmp2 = testArrayList3.get(1);
-		                                for (int i = 0; i < tmp2.length ; i++) {
-		                                    //System.out.println(p.getTabCharMatrix()[i]);
-		                                }
+//		                                for (int i = 0; i < tmp.length ; i++) {
+//		                                    //System.out.println(p.getTabCharMatrix()[i]);
+//		                                }
+//		                                
+//		                                char[][] tmp2 = testArrayList3.get(1);
+//		                                for (int i = 0; i < tmp2.length ; i++) {
+//		                                    //System.out.println(p.getTabCharMatrix()[i]);
+//		                                }
 
 
 
-		                        		Part part = p.createMusicalPart(testArrayList3);
-		                        		scorePartwise sp = new scorePartwise();
-		                        		sp.getParts().add(part);
+//		                        		Part part = p.createMusicalPart(testArrayList3);
+//		                        		scorePartwise sp = new scorePartwise();
+//		                        		sp.getParts().add(part);
 		                        		
-		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
-		                        		Marshaller ms = jc.createMarshaller();
-		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
-		      
-
+		                        		DetermineInstrument det = new DetermineInstrument(file);
+		                        		ScorePartwise sp1 = new ScorePartwise();
+		                        		scorePartwise sp2 =  new scorePartwise();
 		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		ms.marshal(sp,output);
+		                        		if(det.inst.equals("drums")) {
+		                        			
+		                        			part part = det.partd;
+		                        			sp1.getParts().add(part);
+		                        			
+			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+			                        		Marshaller ms = jc.createMarshaller();
+			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			                        		ms.marshal(sp1,new File("src//main//java//output//Output.xml"));
+			      
+
+			                        		output = new File("src//main//java//output//Output.xml");
+			                        		ms.marshal(sp1,output);
+		                        		}
+		                        		else {
+		                        			
+		                        			Part part = det.partg;
+		                        			sp2.getParts().add(part);
+		                        			
+			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+			                        		Marshaller ms = jc.createMarshaller();
+			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			                        		ms.marshal(sp2,new File("src//main//java//output//Output.xml"));
+			      
+
+			                        		output = new File("src//main//java//output//Output.xml");
+			                        		ms.marshal(sp2,output);
+		                        		}
+		                        		
+//		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+//		                        		Marshaller ms = jc.createMarshaller();
+//		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//
+//		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
+//		      
+//
+//		                        		File output = new File("src//main//java//output//Output.xml");
+//		                        		ms.marshal(sp,output);
 
 		  
 		                        		try {
@@ -572,11 +608,11 @@ public class Main extends Application{
 		                	      myWriter.close();
 		                	      try {
 		                        		
-		                        		Parser p = new Parser(input);
-		                        		//change??
-		                                char[][] parsed = p.getTabCharMatrix();
-		                                
-		                                ArrayList<char[][]> testArrayList4 = p.measureSplitter(parsed);
+//		                        		Parser p = new Parser(input);
+//		                        		//change??
+//		                                char[][] parsed = p.getTabCharMatrix();
+//		                                
+//		                                ArrayList<char[][]> testArrayList4 = p.measureSplitter(parsed);
 		                            
 		                                /*
 		                                 * Here, we need to add a call to a parser method.
@@ -585,35 +621,70 @@ public class Main extends Application{
 		                                 * Change the .add below. (remove them)
 		                                 * The return will be the ArrayList.
 		                                 */
-		                                testArrayList4.add(parsed);
-		                                testArrayList4.add(parsed);
+//		                                testArrayList4.add(parsed);
+//		                                testArrayList4.add(parsed);
 		                                
 		                                
-		                                char[][] tmp = testArrayList4.get(0);
+		                               // char[][] tmp = testArrayList4.get(0);
 		                                
 //		                                for (int i = 0; i < testArrayList3.size() ; i++) {
 //		                                	System.out.print(testArrayList3.get(i));
 //		                                }
 		                                
-		                                char[][] tmp2 = testArrayList4.get(1);
-		                                for (int i = 0; i < tmp2.length ; i++) {
-		                                    System.out.println(p.getTabCharMatrix()[i]);
-		                                }
-		                        	
+		                                //char[][] tmp2 = testArrayList4.get(1);
+//		                                for (int i = 0; i < tmp2.length ; i++) {
+//		                                    System.out.println(p.getTabCharMatrix()[i]);
+//		                                }
+//		                        	
 		                     
-		                        		Part part = p.createMusicalPart(testArrayList4);
-		                        		scorePartwise sp = new scorePartwise();
-		                        		sp.getParts().add(part);
-		                        		
-		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
-		                        		Marshaller ms = jc.createMarshaller();
-		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
-		      
-
+//		                        		Part part = p.createMusicalPart(testArrayList4);
+//		                        		scorePartwise sp = new scorePartwise();
+//		                        		sp.getParts().add(part);
+//		                        		
+//		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+//		                        		Marshaller ms = jc.createMarshaller();
+//		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//
+//		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
+//		      
+//
+//		                        		File output = new File("src//main//java//output//Output.xml");
+//		                        		ms.marshal(sp,output);
+		                	    	  
+		                        		DetermineInstrument det = new DetermineInstrument(input);
+		                        		ScorePartwise sp1 = new ScorePartwise();
+		                        		scorePartwise sp2 =  new scorePartwise();
 		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		ms.marshal(sp,output);
+		                        		if(det.inst.equals("drums")) {
+		                        			
+		                        			part part = det.partd;
+		                        			sp1.getParts().add(part);
+		                        			
+			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+			                        		Marshaller ms = jc.createMarshaller();
+			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			                        		ms.marshal(sp1,new File("src//main//java//output//Output.xml"));
+			      
+
+			                        		output = new File("src//main//java//output//Output.xml");
+			                        		ms.marshal(sp1,output);
+		                        		}
+		                        		else {
+		                        			
+		                        			Part part = det.partg;
+		                        			sp2.getParts().add(part);
+		                        			
+			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+			                        		Marshaller ms = jc.createMarshaller();
+			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			                        		ms.marshal(sp2,new File("src//main//java//output//Output.xml"));
+			      
+
+			                        		output = new File("src//main//java//output//Output.xml");
+			                        		ms.marshal(sp2,output);
+		                        		}
 		  
 
 		                        		try {

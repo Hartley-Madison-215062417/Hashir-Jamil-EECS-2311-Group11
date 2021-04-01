@@ -13,8 +13,8 @@ public class Parser {
 	private List<String> tabList;
 	private File inputFile;
 	private char[][] tabCharMatrix;
-	private Part part = new Part();
-	private scorePartwise scorepartwise = new scorePartwise();
+	private part part = new part();
+	private ScorePartwise scorepartwise = new ScorePartwise();
 	private int hnum = 1;
 	
 	public Parser() {
@@ -227,10 +227,14 @@ public class Parser {
 					n.setStem("up");
 					n.setNotehead("x");
 					asID[i] = "P1-I50";
+					n.getUnpitched().setStep("A");
+					System.out.println("Step is " + n.getUnpitched().getStep());
+					
 					
 				}else if(c == 'R') {
 					n.setInstrumentID("P1-I52");
 					asID[i] = "P1-I52";
+					System.out.println("Step is " + n.getUnpitched().getStep());
 					
 				}else if(c == 'H') {
 					char e = firstMeasure [i][j];
@@ -238,7 +242,10 @@ public class Parser {
 						n.setInstrumentID("P1-I48");
 						n.setVoice(1);
 						n.setStem("up");
+					
 						asID[i] = "P1-I48";
+						n.getUnpitched().setStep("E");
+						System.out.println("Step is " + n.getUnpitched().getStep());
 						
 					}else if(e == 'H'){
 						n.setInstrumentID("P1-I43");
@@ -246,32 +253,41 @@ public class Parser {
 						n.setStem("up");
 						n.setNotehead("x");
 						asID[i] = "P1-I43";
+						n.getUnpitched().setStep("G");
+						System.out.println("Step is " + n.getUnpitched().getStep());
 					
 					}
 					else if(e == 'F') {
 						n.setInstrumentID("P1-I45");
 						asID[i] = "P1-I45";
+						System.out.println("Step is " + n.getUnpitched().getStep());
 					}
 					else {
-						
+						System.out.println("Step is not good " + n.getUnpitched().getStep());
 					}
 				}else if(c == 'S') {
 					n.setInstrumentID("P1-I39");
 					n.setVoice(1);
 					n.setStem("up");
 					asID[i] = "P1-I39";
+					n.getUnpitched().setStep("C");
+					System.out.println("Step is " + n.getUnpitched().getStep());
 					
 				}else if(c == 'M') {
 					n.setInstrumentID("P1-I46");
 					n.setVoice(1);
 					n.setStem("up");
 					asID[i] = "P1-I46";
+					n.getUnpitched().setStep("D");
+					System.out.println("Step is " + n.getUnpitched().getStep());
 					
 				}else if (c == 'B') {
 					n.setInstrumentID("P1-I36");
 					n.setVoice(2);
 					n.setStem("down"); 
 					asID[i] = "P1-I36";
+					n.getUnpitched().setStep("F");
+					System.out.println("Step is " + n.getUnpitched().getStep());
 					
 				}
 				
@@ -363,7 +379,7 @@ public class Parser {
 	 * @param measures an arraylist of all the measures in the part
 	 */
 	
-	public Part createMusicalPart(ArrayList<char[][]> measures) {
+	public part createMusicalPart(ArrayList<char[][]> measures) {
 		
 		for (char[][] measure : measures) {
 			//System.out.println("Length of the measure " + measure[0].length);
@@ -377,7 +393,7 @@ public class Parser {
 	/*
 	 * Adds the part to scorePartwise object, only done once per music tab
 	 */
-	public scorePartwise createScore(Part p) {
+	public ScorePartwise createScore(part p) {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
 	}

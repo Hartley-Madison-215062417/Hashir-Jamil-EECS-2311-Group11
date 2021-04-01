@@ -21,9 +21,9 @@ public class Main {
 			int width = parsed[0].length;
 			ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);
 			
-			Part part = p.createMusicalPart(tmpArray1);
+			part part = p.createMusicalPart(tmpArray1);
 			
-			JAXBContext jc = JAXBContext.newInstance(Part.class);
+			JAXBContext jc = JAXBContext.newInstance(part.class);
 			Marshaller ms = jc.createMarshaller();
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			ms.marshal(part,System.out);
