@@ -254,7 +254,7 @@ public class Main extends Application{
 				        inputbox.setMaxSize(350,700);
 				        inputbox.setPrefHeight(500);
                 		inputbox.appendText("Error: currently not supported");
-				        
+                		
 				        
 				        final Button button2 = new Button();
 				        button2.setShape(new Circle(1));
@@ -489,6 +489,15 @@ public class Main extends Application{
 //		                        		scorePartwise sp = new scorePartwise();
 //		                        		sp.getParts().add(part);
 		                        		
+		                        		if (file.length() == 0) {
+		                        			inputbox.clear();
+		                        			inputbox.appendText("no input was entered");
+		                        			textbox2.clear();
+		                        			textbox2.appendText("no input was entered");
+		                        			
+		                        		}
+		                        		else {
+		                        		
 		                        		DetermineInstrument det = new DetermineInstrument(file);
 		                        		ScorePartwise sp1 = new ScorePartwise();
 		                        		scorePartwise sp2 =  new scorePartwise();
@@ -558,7 +567,7 @@ public class Main extends Application{
 		                        	    } catch (FileNotFoundException ex) {
 		                        	        System.err.println(ex);
 		                        	    }
-		                        	
+		                        	}
 		                        	}catch (JAXBException ex) {
 		                        		// TODO Auto-generated catch block
 		                        		System.out.println(""+ex.getMessage());
@@ -586,11 +595,11 @@ public class Main extends Application{
 		                    
 		                );
 		        
-		        TextArea textbox = new TextArea("input tab here"); 
+		        TextArea textbox = new TextArea(); 
+		        textbox.setPromptText("input tab here");
 		        textbox.setLayoutX(50);
 		        textbox.setLayoutY(250);
 		        textbox.setMinSize(400, 200);
-		        
 		        convert_button.setOnAction(
 		                new EventHandler<ActionEvent>() {
 		                	
@@ -607,12 +616,18 @@ public class Main extends Application{
 		                	      myWriter.write(textbox.getText());
 		                	      myWriter.close();
 		                	      try {
-		                        		
-//		                        		Parser p = new Parser(input);
-//		                        		//change??
-//		                                char[][] parsed = p.getTabCharMatrix();
-//		                                
-//		                                ArrayList<char[][]> testArrayList4 = p.measureSplitter(parsed);
+		                	    	  if(textbox.getText() =="") {
+		                	    		  inputbox.clear();
+		                	    		  inputbox.appendText("no input was entered");
+		                	    		  textbox2.clear();
+		                	    		  textbox2.appendText("no input was entered");
+		                	    	  }
+		                	    	  else {
+		                        		Parser p = new Parser(input);
+		                        		//change??
+		                                char[][] parsed = p.getTabCharMatrix();
+		                                
+		                                ArrayList<char[][]> testArrayList4 = p.measureSplitter(parsed);
 		                            
 		                                /*
 		                                 * Here, we need to add a call to a parser method.
@@ -621,70 +636,35 @@ public class Main extends Application{
 		                                 * Change the .add below. (remove them)
 		                                 * The return will be the ArrayList.
 		                                 */
-//		                                testArrayList4.add(parsed);
-//		                                testArrayList4.add(parsed);
+		                                testArrayList4.add(parsed);
+		                                testArrayList4.add(parsed);
 		                                
 		                                
-		                               // char[][] tmp = testArrayList4.get(0);
+		                                char[][] tmp = testArrayList4.get(0);
 		                                
 //		                                for (int i = 0; i < testArrayList3.size() ; i++) {
 //		                                	System.out.print(testArrayList3.get(i));
 //		                                }
 		                                
-		                                //char[][] tmp2 = testArrayList4.get(1);
-//		                                for (int i = 0; i < tmp2.length ; i++) {
-//		                                    System.out.println(p.getTabCharMatrix()[i]);
-//		                                }
-//		                        	
+		                                char[][] tmp2 = testArrayList4.get(1);
+		                                for (int i = 0; i < tmp2.length ; i++) {
+		                                    System.out.println(p.getTabCharMatrix()[i]);
+		                                }
+		                        	
 		                     
-//		                        		Part part = p.createMusicalPart(testArrayList4);
-//		                        		scorePartwise sp = new scorePartwise();
-//		                        		sp.getParts().add(part);
-//		                        		
-//		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
-//		                        		Marshaller ms = jc.createMarshaller();
-//		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-//
-//		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
-//		      
-//
-//		                        		File output = new File("src//main//java//output//Output.xml");
-//		                        		ms.marshal(sp,output);
-		                	    	  
-		                        		DetermineInstrument det = new DetermineInstrument(input);
-		                        		ScorePartwise sp1 = new ScorePartwise();
-		                        		scorePartwise sp2 =  new scorePartwise();
+		                        		Part part = p.createMusicalPart(testArrayList4);
+		                        		scorePartwise sp = new scorePartwise();
+		                        		sp.getParts().add(part);
+		                        		
+		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+		                        		Marshaller ms = jc.createMarshaller();
+		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
+		      
+
 		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		if(det.inst.equals("drums")) {
-		                        			
-		                        			part part = det.partd;
-		                        			sp1.getParts().add(part);
-		                        			
-			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
-			                        		Marshaller ms = jc.createMarshaller();
-			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-			                        		ms.marshal(sp1,new File("src//main//java//output//Output.xml"));
-			      
-
-			                        		output = new File("src//main//java//output//Output.xml");
-			                        		ms.marshal(sp1,output);
-		                        		}
-		                        		else {
-		                        			
-		                        			Part part = det.partg;
-		                        			sp2.getParts().add(part);
-		                        			
-			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
-			                        		Marshaller ms = jc.createMarshaller();
-			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-			                        		ms.marshal(sp2,new File("src//main//java//output//Output.xml"));
-			      
-
-			                        		output = new File("src//main//java//output//Output.xml");
-			                        		ms.marshal(sp2,output);
-		                        		}
+		                        		ms.marshal(sp,output);
 		  
 
 		                        		try {
@@ -711,8 +691,10 @@ public class Main extends Application{
 		                        	        System.err.println(ex);
 		                        	    }
 		                        	
-		                        	
-		                        	}catch (JAXBException ex) {
+		                	    	  }
+		                        	}
+		                	      
+		                	      catch (JAXBException ex) {
 		                        		// TODO Auto-generated catch block
 		                        		System.out.println(""+ex.getMessage());
 		                        	}
@@ -743,25 +725,6 @@ public class Main extends Application{
 					
 		        });
 		        
-		        button2.setOnAction(
-		                new EventHandler<ActionEvent>() {
-		                    @Override
-		                    public void handle(final ActionEvent e) {
-		                    	fileChooser.getExtensionFilters().add(new ExtensionFilter("Xml", "*.xml"));
-
-		                    File dest = fileChooser.showSaveDialog(window);
-		              
-		                    if (dest != null) {
-		                    	try {
-	                        		File output = new File("src//main//java//output//Output.xml");
-		                    		Files.copy(output.toPath(), dest.toPath());
-		                    	} catch (IOException ex) {
-		                    		 System.err.println(ex);
-		                    	}
-            	        // handle exception...
-		                    		
-		                    	}
-		                    }});
 		        
 		        button3.setOnAction(
 		                new EventHandler<ActionEvent>() {
