@@ -656,8 +656,10 @@ public class Main extends Application{
 		                        		scorePartwise sp2 =  new scorePartwise();
 		                        		File output = new File("src//main//java//output//Output.xml");
 		                        		if(det.inst.equals("drums")) {
-		                        			
+		                        			System.out.println("got past det.inst.equals");
+		                        			ArrayList<char[][]> temp = det.GetParsed("drums");
 		                        			part part = det.partd;
+		                        			System.out.println(part);
 		                        			sp1.getParts().add(part);
 		                        			
 			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
@@ -672,6 +674,7 @@ public class Main extends Application{
 		                        		}
 		                        		else {
 		                        			
+		                        			ArrayList<char[][]> temp = det.GetParsed("guitar");
 		                        			Part part = det.partg;
 		                        			sp2.getParts().add(part);
 		                        			

@@ -28,7 +28,7 @@ public class DetermineInstrument {
 	public DetermineInstrument(File file) {
 		this.inputFile = file;
 		this.tabList = new ArrayList<String>();
-		this.readFile();
+		readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
 		this.inst = determineInstrument(tabCharMatrix);
 		this.measureList = GetParsed(this.inst);
@@ -37,7 +37,7 @@ public class DetermineInstrument {
 	public DetermineInstrument(String file) {
 		this.inputFile = new File(file);
 		this.tabList = new ArrayList<String>();
-		this.readFile();
+		readFile();
 		this.tabCharMatrix = this.tabToCharMatrix(this.tabList);
 		this.inst = determineInstrument(tabCharMatrix);
 		this.measureList = GetParsed(this.inst);
@@ -79,6 +79,7 @@ public class DetermineInstrument {
 		
 		if(tabMatrix[0].length < 3) {
 			inst = "drums";
+			System.out.println("drums was chosen");
 			return "drums";
 		}
 		
@@ -89,10 +90,12 @@ public class DetermineInstrument {
 
 				if(check == 'R' || check == 'S' || check == 'H' || check == 'M') {
 					inst = "drums";
+					System.out.println("drums was chosen");
 					return "drums";
 				}
 				else if((check == 'C' && check2 == 'C') || (check == 'B' && check2 == 'D')) {
 					inst = "drums";
+					System.out.println("drums was chosen");
 					return "drums";
 				}
 				
@@ -101,10 +104,12 @@ public class DetermineInstrument {
 		
 		if(tabMatrix[0].length < 6) {
 			inst = "base";
+			System.out.println("bass was chosen");
 			return "base";
 		}
 		
 		inst = "guitar";
+		System.out.println("guitar was chosen");
 		return "guitar";
 	}
 	

@@ -15,6 +15,8 @@ public class ParseDrums {
 	part part;
 	ScorePartwise sp;
 	
+	//part part = p.createMusicalPart(tmpArray1);
+	
 	public ParseDrums(File file) {
 		this.p = new Parser(file);
 		this.parsed = p.getTabCharMatrix();
@@ -22,7 +24,9 @@ public class ParseDrums {
 		this.tmp.add(parsed);
 		this.part = p.createMusicalPart(tmp);
 		this.sp = new ScorePartwise();
-		this.sp.getParts().add(part);
+		this.part = this.p.createMusicalPart(tmp);
+		//this.sp.getParts().add(part);
+		
 	}
 
 	public ArrayList<char[][]> getTmp() {
