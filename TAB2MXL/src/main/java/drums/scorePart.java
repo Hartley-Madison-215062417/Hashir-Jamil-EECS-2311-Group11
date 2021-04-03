@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "score-part")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"partName","scoreInstrumentID id"})
+@XmlType(propOrder = {"partName","scoreInstrumentID"})
 
 
 public class scorePart {

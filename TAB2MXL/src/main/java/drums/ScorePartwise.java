@@ -15,7 +15,7 @@ import guitar.Work;
 
 @XmlRootElement(name ="score-partwise")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"version","partlist","parts", "work"})
+@XmlType(propOrder= {"version","partlist","work", "parts"})
 public class ScorePartwise {
 
 	@XmlAttribute
