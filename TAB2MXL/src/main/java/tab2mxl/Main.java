@@ -502,8 +502,9 @@ public class Main extends Application{
 		                        		ScorePartwise sp1 = new ScorePartwise();
 		                        		scorePartwise sp2 =  new scorePartwise();
 		                        		File output = new File("src//main//java//output//Output.xml");
+		                        		System.out.println("before if st: " + det.inst);
 		                        		if(det.inst.equals("drums")) {
-		                        			
+		                        			System.out.println("in if st: " + det.inst);
 		                        			part part = det.partd;
 		                        			sp1.getParts().add(part);
 		                        			
@@ -518,7 +519,7 @@ public class Main extends Application{
 			                        		ms.marshal(sp1,output);
 		                        		}
 		                        		else {
-		                        			
+		                        			System.out.println("in if st: " + det.inst);
 		                        			Part part = det.partg;
 		                        			sp2.getParts().add(part);
 		                        			
@@ -670,7 +671,9 @@ public class Main extends Application{
 		                        		scorePartwise sp2 =  new scorePartwise();
 		                        		File output = new File("src//main//java//output//Output.xml");
 		                                
+		                        		System.out.println("before if st: " + det.inst);
 		                        		if(det.inst.equals("drums")) {
+		                        			System.out.println("in if st: " + det.inst);
 		                        			System.out.println("got past det.inst.equals");
 		                        			ArrayList<char[][]> temp = det.GetParsed("drums");
 		                        			part part = det.partd;

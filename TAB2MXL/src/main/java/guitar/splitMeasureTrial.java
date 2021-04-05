@@ -21,6 +21,7 @@ public static void main(String[] args) {
 		/*
 		 * This will print the first measure in the array list.
 		 */
+		if(tmpArray1.size() > 0) {
 		char[][] tmpPrint1 = tmpArray1.get(0);
 		for(int j = 0; j < tmpPrint1.length; j++) {
 			System.out.println(" ");
@@ -30,6 +31,10 @@ public static void main(String[] args) {
 			if(j+1 == tmpPrint1.length) {
 				System.out.println(" ");
 			}
+		}
+		}
+		else {
+			System.out.println("First measure does not exist");
 		}
 		
 		System.out.println();

@@ -26,6 +26,7 @@ public class DetermineInstrument {
 	}
 	
 	public DetermineInstrument(File file) {
+		System.out.println("Code has reached DetInst constructor. ");
 		this.inputFile = file;
 		this.tabList = new ArrayList<String>();
 		readFile();
@@ -35,6 +36,7 @@ public class DetermineInstrument {
 	}
 	
 	public DetermineInstrument(String file) {
+		System.out.println("Code has reached DetInst constructor. ");
 		this.inputFile = new File(file);
 		this.tabList = new ArrayList<String>();
 		readFile();
