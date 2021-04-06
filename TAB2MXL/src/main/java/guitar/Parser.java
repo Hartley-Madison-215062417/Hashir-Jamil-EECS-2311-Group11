@@ -489,57 +489,54 @@ public class Parser {
 					bounds = true;
 				}
 				
-			
-			if(bounds == true) {
-				
-				newCol = k+1;
-				newRow = i;
-				
-		
-				int r = 0;
-				int c = 0;
-				int checker =0;
+				if(bounds == true) {
 					
-
-					while(r<6) {
+					newCol = k+1;
+					newRow = i;
+					
+					newMeasure = new char[6][parsed[i].length];
+					
+					int r = 0;
+					int c = 0;
 						
-						while(newCol<parsed[i].length) {
-
-							if(parsed[i][newCol] == '|' ) {
-								newCol++;
-							
-							}
-							else {
-								
-							newMeasure[r][c]=parsed[r][newCol];
-							newCol++; //has to stay here
-							c++;
-							}
-							
-						}
+					while(parsed.length > newRow) {
+					while(parsed[i][newCol] != '|') {
+						//newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+						newMeasure[r][c]=parsed[newRow][newCol];
+						System.out.print(parsed[i][newCol]);
+						newCol++;
 						
-				newCol =0;
-				c = 0;
-				r++;
-				newRow++;
-					};
-				r =0;
-
-				tmpArray.add(newMeasure);
+						c++;
+					}
+					r++;
+					
+					
+					//System.out.println(" ");
+					newRow++;
+					c = 0;
+					}
+					
+					tmpArray.add(newMeasure);
 				
-			}
-			
-			
-			
-			
-			
-			}
+
+				}
+				
 			
 
-	//return tmpArray;
-		}
-			
-		
+//				
+			}
+//			
+//			
+//			
+//			
+//			
+			}
+//			
+//
+//	//return tmpArray;
+//		}
+//			
+//		
 		return tmpArray;
 		
 } //end of the method
