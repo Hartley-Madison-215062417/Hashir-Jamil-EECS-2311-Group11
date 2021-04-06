@@ -446,8 +446,8 @@ public class Parser {
 	 */
 	
 	
-	public ArrayList<char[][]> measureSplitter (char[][] parsed) {
-		char[][] newMeasure = new char[6][parsed[0].length];
+	public ArrayList<char[][]> measureSplitter (char[][] input) {
+		char[][] newMeasure = new char[6][input[0].length];
 		
 		ArrayList<char[][]> tmpArray = new ArrayList<char[][]>(); //an array list of all the measures to be returned later
 		int newRow = 0; // no of rows 
@@ -456,25 +456,25 @@ public class Parser {
 		int newColEnd = 0;
 		int prevColEnd = 0;
 	//	int width = parsed[0].length; // width of the entire 2D array with all measures 
-		int k = 0;
-		int i = 0;
-		int ttlRow = parsed.length;
+		int inputCol = 0;
+		int inputRow = 0;
+		int ttlRow = input.length;
 		boolean bounds = false;
 		
 		//@Madison needs to implement a check for repeats
 		
 		
-		System.out.println("initial length of char matrix: " + parsed[0].length);
-		if(parsed[0].length == 0) {
-			i++;
-			while(parsed[i].length == 0) {
-				i++;
+		System.out.println("initial length of char matrix: " + input[0].length);
+		if(input[0].length == 0) {
+			inputRow++;
+			while(input[inputRow].length == 0) {
+				inputRow++;
 			}
 		}
 		
-		for(; i < ttlRow; i++) {
+		for(; inputRow < ttlRow; inputRow++) {
 		
-			boolean bnd = (parsed[i].length == 0);
+			boolean bnd = (input[inputRow].length == 0);
 			
 			// going through the entire 2D array of all measures, then i = 0 we are in the first column 
 			if(bnd == false) {
@@ -485,35 +485,37 @@ public class Parser {
 			//if(!(parsed[0][i] == '|' && parsed[0][i+1] == '|' )) {
 
 			
-				if(parsed[i][k] == '|') {
+				if(input[inputRow][inputCol] == '|') {
 					bounds = true;
 				}
 				
 				if(bounds == true) {
 					
-					newCol = k+1;
-					newRow = i;
+					newCol = inputCol+1;
+					newRow = inputRow;
 					
-					newMeasure = new char[6][parsed[i].length];
+					newMeasure = new char[6][input[inputRow].length];
 					
 					int r = 0;
 					int c = 0;
 						
-					while(parsed.length > newRow) {
-					while(parsed[i][newCol] != '|') {
-						//newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
-						newMeasure[r][c]=parsed[newRow][newCol];
-						System.out.print(parsed[i][newCol]);
-						newCol++;
+					while(input.length > newRow) {
 						
-						c++;
-					}
-					r++;
+						while(input[inputRow][newCol] != '|') {
+						//newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+							newMeasure[r][c]=input[newRow][newCol];
+							//System.out.print(parsed[i][newCol]);
+							newCol++;
+						
+							c++;
+						}
+						r++;
 					
 					
 					//System.out.println(" ");
-					newRow++;
-					c = 0;
+						newRow++;
+						newCol = inputCol+1; //fix this
+						c = 0;
 					}
 					
 					tmpArray.add(newMeasure);

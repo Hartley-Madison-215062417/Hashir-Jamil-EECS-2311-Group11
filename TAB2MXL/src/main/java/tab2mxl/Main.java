@@ -509,7 +509,7 @@ public class Main extends Application{
 		                        			part part = det.partd;
 		                        			sp1.getParts().add(part);
 		                        			
-			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+			                        		JAXBContext jc = JAXBContext.newInstance(ScorePartwise.class);
 			                        		Marshaller ms = jc.createMarshaller();
 			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
@@ -681,11 +681,11 @@ public class Main extends Application{
 		                        			System.out.println(part);
 		                        			sp1.getParts().add(part);
 		                        			
-			                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+			                        		JAXBContext jc = JAXBContext.newInstance(ScorePartwise.class); //this is where the red exception is being thrown 
 			                        		Marshaller ms = jc.createMarshaller();
 			                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-			                        		ms.marshal(sp1,new File("src//main//java//output//Output.xml"));
+			                        		ms.marshal(sp1,new File("src//main//java//output//Output.xml")); //This is where the superclass exception is thrown
 			      
 
 			                        		output = new File("src//main//java//output//Output.xml");
