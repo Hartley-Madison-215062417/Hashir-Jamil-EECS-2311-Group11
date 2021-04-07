@@ -460,6 +460,9 @@ public class Parser {
 		int inputRow = 0;
 		int ttlRow = input.length;
 		boolean bounds = false;
+		int mesDur = 0;
+		boolean chk = false;
+		int repeatCounter = 0;
 		
 		//@Madison needs to implement a check for repeats
 		
@@ -473,20 +476,78 @@ public class Parser {
 		}
 		
 		for(; inputRow < ttlRow; inputRow++) {
-		
+				//lol++;
 			boolean bnd = (input[inputRow].length == 0);
 			
 			// going through the entire 2D array of all measures, then i = 0 we are in the first column 
 			if(bnd == false) {
-			//for(int k = 0; k < parsed[i].length; k++) {
-			//System.out.println(" On row " + i + ", the length is " + parsed[i].length + " and k is " + k);
-			//if(i != width - 1) 
 			
-			//if(!(parsed[0][i] == '|' && parsed[0][i+1] == '|' )) {
+			//System.out.println(" On row " + i + ", the length is " + parsed[i].length + " and k is " + k);
+
 
 			
 				if(input[inputRow][inputCol] == '|') {
-					bounds = true;
+					chk = ((inputCol+1) <= input.length);
+					if(chk == true) {
+						for(int j = 0; j < input[inputRow].length; j++) {
+							if(input[inputRow][j] == 'r' || input[inputRow][j] == 'R') {
+								if(input[inputRow][j+1] == 'e' || input[inputRow][j+1] == 'E') {
+									if(input[inputRow][j+2] == 'p' || input[inputRow][j+2] == 'P') {
+										repeatCounter = 1;
+										for(int h = 0; h < input[inputRow].length; h++) {
+											if(input[inputRow][h] == '0' ) {
+												
+											}
+											else if(input[inputRow][h] == '1' ) {
+												repeatCounter = 1;
+											}
+											else if(input[inputRow][h] == '2'  ) {
+												repeatCounter = 2;
+											}
+											else if(input[inputRow][h] == '3' ) {
+												repeatCounter = 3;
+											}
+											else if(input[inputRow][h] == '4' ) {
+												repeatCounter = 4;
+											}
+											else if(input[inputRow][h] == '5' ) {
+												repeatCounter = 5;
+											}
+											else if(input[inputRow][h] == '6' ) {
+												repeatCounter = 6;
+											}
+											else if(input[inputRow][h] == '7' ) {
+												repeatCounter = 7;
+											}
+											else if(input[inputRow][h] == '8' ) {
+												repeatCounter = 8;
+											}
+											else if(input[inputRow][h] == '9' ) {
+												repeatCounter = 9;
+											}
+											
+											
+										}
+									}
+								}
+							}
+						}//end of repeat check
+						
+						counter ++;
+						bounds = true;
+						
+					}
+
+					
+					if(chk == true) {
+					for(int g = 1;input[inputRow][inputCol+g] != '|';g++) {
+						mesDur++;
+					}
+					
+					}
+					if(counter >= 2) {
+						newMeasure = new char[6][mesDur];
+					}
 				}
 				
 				if(bounds == true) {
@@ -494,12 +555,12 @@ public class Parser {
 					newCol = inputCol+1;
 					newRow = inputRow;
 					
-					newMeasure = new char[6][input[inputRow].length];
+					newMeasure = new char[6][mesDur];
 					
 					int r = 0;
 					int c = 0;
 						
-					while(input.length > newRow) {
+					while(6 >= newRow) {
 						
 						while(input[inputRow][newCol] != '|') {
 						//newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
@@ -509,41 +570,41 @@ public class Parser {
 						
 							c++;
 						}
+						
+						chk = ((inputCol+1) <= input.length);
+						if(chk == true) {
+							if(input[inputRow][inputCol+1] == '|') {
+								tmpArray.add(newMeasure);
+								while(input[inputRow][inputCol+1] != '|') {
+									mesDur++;
+								}
+								newMeasure = new char[6][mesDur];
+							}
+						}
+						
 						r++;
 					
 					
 					//System.out.println(" ");
 						newRow++;
-						newCol = inputCol+1; //fix this
+						newCol=inputCol+1; //fix this
 						c = 0;
 					}
 					
 					tmpArray.add(newMeasure);
-				
+					inputRow = inputRow + 5;
 
 				}
 				
+				}
 			
-
-//				
 			}
-//			
-//			
-//			
-//			
-//			
-			}
-//			
-//
-//	//return tmpArray;
-//		}
-//			
-//		
+	
 		return tmpArray;
 		
-} //end of the method
+	} //end of the method
 	
-
+	
 	 
 
 	
