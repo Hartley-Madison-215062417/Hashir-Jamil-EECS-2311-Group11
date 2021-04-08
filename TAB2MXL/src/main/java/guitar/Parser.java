@@ -463,6 +463,10 @@ public class Parser {
 		int mesDur = 0;
 		boolean chk = false;
 		int repeatCounter = 0;
+		boolean multiMes = false;
+		int rowCount = 6;
+		int contLoop = 0;
+		int theresTooManyVars = 0;
 		
 		//@Madison needs to implement a check for repeats
 		
@@ -476,6 +480,13 @@ public class Parser {
 		}
 		
 		for(; inputRow < ttlRow; inputRow++) {
+			if(multiMes == true) {
+				theresTooManyVars = 1;
+			}
+			else {
+				theresTooManyVars = 1;
+			}
+			mesDur = 0;
 				//lol++;
 			boolean bnd = (input[inputRow].length == 0);
 			
@@ -552,15 +563,31 @@ public class Parser {
 				
 				if(bounds == true) {
 					
-					newCol = inputCol+1;
-					newRow = inputRow;
+					//for(int measurePerRow = 0 ; measurePerRow < input.length ; measurePerRow ++) { 
+						
+						int colCount = inputCol+1;
+						newCol = colCount;
+						contLoop = 0;
+						while(contLoop == 0) {
+							contLoop = 0;
+							
 					
-					newMeasure = new char[6][mesDur];
+						/*
+						 * this loop is created to make a new measure when more than one measure is paired
+						 * together of a horizontal line, since the method stops at the second '|' at the 
+						 * moment.
+						 */
+						
+					
+					
+						newRow = inputRow;
+				
+					newMeasure = new char[rowCount][mesDur];
 					
 					int r = 0;
 					int c = 0;
 						
-					while(6 >= newRow) {
+					while(rowCount > r) {
 						
 						while(input[inputRow][newCol] != '|') {
 						//newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
@@ -570,13 +597,22 @@ public class Parser {
 						
 							c++;
 						}
-						
-						chk = ((inputCol+1) <= input.length);
+						colCount = newCol;
+						chk = ((colCount+1) < input[inputRow].length);
 						if(chk == true) {
-							if(input[inputRow][inputCol+1] == '|') {
+							if(input[inputRow][colCount+1] == '|') {
 								tmpArray.add(newMeasure);
-								while(input[inputRow][inputCol+1] != '|') {
-									mesDur++;
+								chk = ((inputCol+2) <= input[inputRow].length);
+								if(chk ==  true) {
+									if(input[inputRow][colCount+2] != '|') {
+										mesDur = mesDur + 1;
+										for(int t = 2;input[inputRow][colCount+t] != '|'; t++) {
+											mesDur++;
+										}
+									}
+								}
+								else if(chk == false) {
+									contLoop = -1;
 								}
 								newMeasure = new char[6][mesDur];
 							}
@@ -587,13 +623,56 @@ public class Parser {
 					
 					//System.out.println(" ");
 						newRow++;
-						newCol=inputCol+1; //fix this
+						if(multiMes == true) {
+							newCol = theresTooManyVars;
+						}
+						else if(multiMes == false){
+							newCol=inputCol+1; 
+							
+						}
+
+						//fix this
 						c = 0;
 					}
 					
 					tmpArray.add(newMeasure);
+					int teeeemp = input[inputRow].length;
+					
+					chk = ((colCount+1) < input[inputRow].length);
+					if(chk == true) {
+						theresTooManyVars = colCount + 1;
+						newCol = colCount + 1;
+						//colCount = newCol;
+						multiMes = true;
+						String whore = "Kai";
+					}
+					else if((colCount+1) < input[inputRow].length){
+						contLoop = -1;
+					}
+					else {
+						contLoop = -1;
+					}
+					
+					
+//					chk = ((inputCol+1) <= input[inputRow].length);
+//					if(chk == true) {
+//						for(int nextCol = newCol+1; nextCol < input[inputRow].length; nextCol++) {
+//							if(input[newRow][nextCol] != '|') {
+//								newCol = nextCol;
+//							}
+//						}
+//					}
+//					else if(chk == false) {
+//						contLoop = -1;
+//					}
+					
+					
+					
+					//contLoop = -1;
+					
+				} //contLoop checkpoint
 					inputRow = inputRow + 5;
-
+					
 				}
 				
 				}
