@@ -18,6 +18,7 @@ public class ParseDrums {
 	//part part = p.createMusicalPart(tmpArray1);
 	
 	public ParseDrums(File file) {
+		System.out.println("Code has reached ParsedDrums constructor. ");
 		this.p = new Parser(file);
 		this.parsed = p.getTabCharMatrix();
 		this.tmp = p.measureSplitter(parsed);

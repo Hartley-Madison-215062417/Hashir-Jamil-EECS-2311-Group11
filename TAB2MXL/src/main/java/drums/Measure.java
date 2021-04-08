@@ -37,7 +37,7 @@ public class Measure {
 	
 	
 	public Measure() {
-		
+		super();
 	}
 	
 	@XmlTransient
