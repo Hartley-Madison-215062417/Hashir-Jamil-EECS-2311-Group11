@@ -133,6 +133,42 @@ public class Note {
 		
 	}
 	
+	
+	public void updatePitchnew(Note n) {
+		// define an array of string with relevant data 
+		String[] allStep = {"C","C#","D","D#","E","F","F#","G","G#","A","A#","B"};
+		
+		// get the fret 
+		int fret = n.getNotations().getTechnical().getFret();
+		
+		
+		// get default step
+		String defaultStep = n.getPitch().getStep();
+		int location = 0;
+		
+		for(int i = 0; i < allStep.length; i++) {
+			if(allStep[i].equals(defaultStep)) {
+				location = i + 1;
+				break;
+			}
+		}
+		
+		String[] relevantData= {};
+		int k = 0;
+		
+		for (int i = location; i < allStep.length; i++) {
+			relevantData[k] = allStep[i];
+			if(location == allStep.length) {
+				i = 0;
+			}
+			k++;
+		}
+		
+		
+		
+		
+		
+	}
 		/*
 		 * Updated the pitch of a given note based on fret number
 		 * @para n note whose pitch needs to be updated
@@ -147,41 +183,55 @@ public class Note {
 			
 			String defaultStep = n.getPitch().getStep(); // the step was set to what it would be if fret is 0 
 			
-			String[] rData = new String[24]; // to store the sequence of steps
+			//String[] rData = new String[24]; // to store the sequence of steps
 			
 			/*finding the relevantData*/
 			
-			if (defaultStep == "E") { // if the default step is E, then this is the array that contains the right order 
+			// define an array of string with relevant data 
+			String[] allStep = {"C","C#","D","D#","E","F","F#","G","G#","A","A#","B"};
+			
+			int location = 0;
+			
+			for(int i = 0; i < allStep.length; i++) {
+				if(allStep[i].equals(defaultStep)) {
+					location = i + 1;
+					break;
+				}
+			}
+			
+			String[] relevantData = new String[24];
+			int k = 0;
+			
+			System.out.println("length of allStep" + allStep.length);
+			
+			
+			for (int i = location; i <= allStep.length; i++) {
 				
-			String[] relevantData = {"F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"};
-			rData = relevantData;
-			
-			
-			}else if (defaultStep == "B") {
 				
-			String[] relevantData = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-			rData = relevantData;	
-			
-			}else if(defaultStep == "G") {
+				System.out.println("The value of i is:" + i);
 				
-			String[] relevantData = {"G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"};
-			rData = relevantData;	
-			
-			}else if(defaultStep == "D") {
+				if(i == allStep.length) {
+					System.out.println("again");
+					i = 0;
+					relevantData[k] = allStep[0];
+					k++;
+				}else {
+					System.out.println("The value of i now: " + i);
+					System.out.println("The value of k now: " + k);
+					System.out.println("Copying and pasting: " + allStep[i]);
+					relevantData[k] = allStep[i];
+					if(k == 23)
+						break;
+					else 
+						k++;
+				}
 				
-			String[] relevantData = {"D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"};
-			rData = relevantData;	
-			
-			}else if(defaultStep == "A") {
 				
-			String[] relevantData = {"A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E","F", "F#", "G", "G#", "A"};
-			rData = relevantData;	
-			
 			}
 			
 			/*Setting the Step*/
 						
-			String actualStep = rData[fret-1]; // the actual step should be within the array 
+			String actualStep = relevantData[fret-1]; // the actual step should be within the array 
 			
 			char cStep = actualStep.charAt(0); // steps can contain 2 chars, for example C#, here the step will be C
 			
@@ -199,13 +249,13 @@ public class Note {
 			
 			/*Setting the Octave*/
 			
-			int octaveCounter = n.getPitch().getOctave();
+			int octaveCounter = n.getPitch().getOctave(); //getting the default pitch that we set 
 			
-			for(int i = 0; i < rData.length; i++) {
-				if (rData[i] == "C") octaveCounter++;
-				char c = rData[i].charAt(0);
+			for(int i = 0; i < relevantData.length; i++) { // going through the relevant data
+				if (relevantData[i] == "C") octaveCounter++; // if we reach a C, the octave increases 
+				char c = relevantData[i].charAt(0);// getting the pitch step 
 				String d = String.valueOf(c);
-				if (d == n.getPitch().getStep() &&  fret == i+1)
+				if (d == n.getPitch().getStep() &&  fret == i+1) 
 					n.getPitch().setOctave(octaveCounter);
 			}
 			

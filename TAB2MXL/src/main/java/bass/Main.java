@@ -1,4 +1,4 @@
-package guitar;
+package bass;
 
 import java.io.File;
 import java.util.ArrayList;

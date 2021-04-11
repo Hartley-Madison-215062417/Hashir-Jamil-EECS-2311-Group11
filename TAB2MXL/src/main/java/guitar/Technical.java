@@ -1,35 +1,5 @@
 package guitar;
 
-//public class Technical {
-//	private int string;
-//	private int fret;
-//	
-//	public Technical(int stringNum, int fretNum) {
-//		this.string = stringNum;
-//		this.fret = fretNum;
-//	}
-//
-//	public int getString() {
-//		return string;
-//	}
-//
-//	public void setString(int string) {
-//		this.string = string;
-//	}
-//
-//	public int getFret() {
-//		return fret;
-//	}
-//
-//	public void setFret(int fret) {
-//		this.fret = fret;
-//	}
-//	
-//	
-//
-//}
-
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;

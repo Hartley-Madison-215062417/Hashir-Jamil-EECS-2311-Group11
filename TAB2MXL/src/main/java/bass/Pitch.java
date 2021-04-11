@@ -14,11 +14,14 @@ public class Pitch {
 	@XmlElement
 	String step;
 	
-	@XmlElement
-	int octave;
 	
 	@XmlElement
 	String alter;
+
+	
+	@XmlElement
+	int octave;
+
 	
 	public Pitch() {
 		super();
@@ -30,7 +33,7 @@ public class Pitch {
 		this.octave = octave;
 	}	
 	
-	public Pitch(String step, int octave,int alter) {
+	public Pitch(String step, int octave,String alter) {
 		super();
 		this.step = step;
 		this.octave = octave;

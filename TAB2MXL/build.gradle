@@ -24,9 +24,6 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.3.0'
 	implementation 'javax.activation:activation:1.1'
 	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.0'
-	testCompile "org.testfx:testfx-core:4.0.16-alpha"
-    testCompile "org.testfx:testfx-junit5:4.0.16-alpha"
-    testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
 	
 }
 
@@ -50,7 +47,7 @@ jacocoTestReport{
 }
 
 javafx {
-    version = "12"
+    version = "15"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
@@ -60,12 +57,10 @@ run {
         systemProperty "java.library.path", "C:\tmp"
     }
 }
-mainClassName = 'tab2mxl.Main'
 
 jacocoTestReport {
 	dependsOn test
 }
-
 
 task debug {
     group = "application"
@@ -76,4 +71,8 @@ task debug {
 		}
 	}
 }
+
 debug.finalizedBy run
+
+
+mainClassName = 'tab2mxl.Main'
