@@ -1,0 +1,105 @@
+//	public ArrayList<char[][]> measureSplitter (char[][] parsed) {
+//		
+//		ArrayList<char[][]> tmpArray = new ArrayList<char[][]>();
+//		int newRow = 0;
+//		int newCol = 0;
+//		int counter = 0;
+//		int newColEnd = 0;
+//		int width = parsed[0].length;
+//		
+//		//@Madison needs to implement a check for repeats
+//		
+//		for(int i = 0; i < width; i++) {
+//			if(parsed[0][i] != '|') { 
+//			}
+//			else {
+//				counter++;
+//				if(counter == 1) {
+//					newCol = i+1;
+//				}
+//				if(counter > 1) {
+//					if(counter > 2) {
+//						newCol ++;
+//					}
+//					newColEnd = i;
+//					char[][] newMeasure = new char[6][newColEnd];
+//					int tmpCol = 0;
+//					while(newCol < newColEnd) {
+//						for(newRow = 0; newRow < 6; newRow++) {
+//							newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+//						}
+//						
+//						tmpCol++;
+//						newCol++;
+//					}
+//					
+//					tmpArray.add(newMeasure);
+//					
+//				}
+//			}
+//
+//		}
+//
+//	return tmpArray;
+//}
+	
+	
+	
+	
+	
+	
+//	 public ArrayList<char[][]> measureSplitter (char[][] parsed) {
+//			System.out.println("measureSplitter accessed");
+//			ArrayList<char[][]> tmpArray = new ArrayList<char[][]>(); //an array list of all the measures to be returned later
+//			int newRow = 0; // no of rows 
+//			int newCol = 0; // no of columns 
+//			int counter = 0; 
+//			int newColEnd = 0;
+//			int prevColEnd = 0;
+//			int width = parsed[0].length; // width of the entire 2D array with all measures 
+//			
+//			//@Madison needs to implement a check for repeats
+//			
+//			for(int i = 0; i < width; i++) { // going through the entire 2D array of all measures, then i = 0 we are in the first column 
+//				
+//				//if(i != width - 1)
+//				
+//				//if(!(parsed[0][i] == '|' && parsed[0][i+1] == '|' )) {
+//				
+//				if(parsed[0][i] != '|') { //in the first row if any element is '|'
+//				}
+//				else { // for all other elements in 2D char array of all measures 
+//					counter++; 
+//					if(counter == 1) { //if counter is 1
+//						newCol = i+1; // new column = column number + 1
+//					}
+//					if(counter > 1) { // if counter is more than 1
+//						if(counter > 2) { // if counter is more than 2
+//							newCol ++; // new column = column number + 1
+//						}
+//						
+//						//System.out.println("prevColEnd: " + prevColEnd);
+//						//System.out.println("newColEnd " + newColEnd);
+//						
+//						prevColEnd = newColEnd;
+//						newColEnd = i; // new column end is the current column number 
+//						
+//						char[][] newMeasure = new char[6][newColEnd - prevColEnd-1
+//						                                  ]; //create a new measure with 6 rows and _____ columns 
+//						int tmpCol = 0; // counter
+//						while(newCol < newColEnd) {
+//							for(newRow = 0; newRow < 6; newRow++) {
+//								newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+//							}
+//							
+//							tmpCol++;
+//							newCol++;
+//						}
+//						
+//						tmpArray.add(newMeasure);
+//					}
+//				}
+//			}
+//
+//		return tmpArray;
+//	}
