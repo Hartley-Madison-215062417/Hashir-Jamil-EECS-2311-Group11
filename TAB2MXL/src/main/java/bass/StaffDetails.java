@@ -27,24 +27,13 @@ public class StaffDetails{
 	@XmlElement(name = "staff-tuning")
 	StaffTuning s4;
 	
-	@XmlElement(name = "staff-tuning")
-	StaffTuning s5;
-	
-	@XmlElement(name = "staff-tuning")
-	StaffTuning s6;
-	
 	public StaffDetails() {
 		
 		staffLines = 6;
-		s1 = new StaffTuning(1, "E", 2);
-		s2 = new StaffTuning(2, "A", 2);
-		s3 = new StaffTuning(3, "D", 3);
-		s4 = new StaffTuning(4, "G", 3);
-		s5 = new StaffTuning(5, "B", 3);
-		s6 = new StaffTuning(6, "E", 4);
-		
-		
-		
+		s1 = new StaffTuning(1, "E", 1);
+		s2 = new StaffTuning(2, "A", 1);
+		s3 = new StaffTuning(3, "D", 2);
+		s4 = new StaffTuning(4, "G", 2);
 		
 	}
 
@@ -88,21 +77,6 @@ public class StaffDetails{
 		this.s4 = s4;
 	}
 
-	public StaffTuning getS5() {
-		return s5;
-	}
-
-	public void setS5(StaffTuning s5) {
-		this.s5 = s5;
-	}
-
-	public StaffTuning getS6() {
-		return s6;
-	}
-
-	public void setS6(StaffTuning s6) {
-		this.s6 = s6;
-	}
 	
 //	@Override 
 //	public String toString() {
