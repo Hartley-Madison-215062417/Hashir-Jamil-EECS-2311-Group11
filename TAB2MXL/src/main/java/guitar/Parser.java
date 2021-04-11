@@ -657,6 +657,7 @@ public class Parser {
 
 	
 	
+	
 private void createSlides(char[][] firstMeasure, int i, int j, Note n) {
 	
 	if(firstMeasure[i][j+1] == '/' && firstMeasure[i][j-1] != '/') {
@@ -859,9 +860,7 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
 	}
-
-
-
+	
 		
 	
 }

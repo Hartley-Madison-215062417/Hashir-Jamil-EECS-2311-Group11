@@ -85,7 +85,7 @@ public static void main(String[] args) {
 		JAXBContext jc = JAXBContext.newInstance(Part.class);
 		Marshaller ms = jc.createMarshaller();
 		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		//ms.marshal(part,System.out);
+		ms.marshal(part,System.out);
 		
 		
 //		Parser p = new Parser("prototypeGuitarTab.txt");
