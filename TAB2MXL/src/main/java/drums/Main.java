@@ -21,12 +21,41 @@ public class Main {
 			int width = parsed[0].length;
 			ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);
 			
-			part part = p.createMusicalPart(tmpArray1);
+			//part part = p.createMusicalPart(tmpArray1);
+//			Key k = new Key(0);
+//			Time t = new Time(4,4);
+//			Clef c = new Clef("percussion", 2);
+//			Attributes a = new Attributes(k,t,c);
 			
-			JAXBContext jc = JAXBContext.newInstance(part.class);
+			
+//			JAXBContext jc = JAXBContext.newInstance(part.class);
+//			Marshaller ms = jc.createMarshaller();
+//			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//			ms.marshal(part,System.out);
+			
+//			JAXBContext jc = JAXBContext.newInstance(Attributes.class);
+//			Marshaller ms = jc.createMarshaller();
+//			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//			ms.marshal(a,System.out);
+			
+		//	Measure m = new Measure();
+			Unpitched u = new Unpitched("C", 1);
+			Note n1 = new Note(u,2,"P1-I39", 1, "eigth", "up","x","0");
+			
+			Measure m = new Measure();
+			m.getNotes().add(n1);
+			part pa = new part();
+			pa.getPart().add(m);
+			ScorePartwise spa = new ScorePartwise();
+			spa.getParts().add(pa);
+			
+			
+			JAXBContext jc = JAXBContext.newInstance(ScorePartwise.class);
 			Marshaller ms = jc.createMarshaller();
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			ms.marshal(part,System.out);
+			ms.marshal(spa,System.out);
+			
+			
 			
 		}catch (JAXBException ex) {
 			System.out.println(""+ex.getMessage());

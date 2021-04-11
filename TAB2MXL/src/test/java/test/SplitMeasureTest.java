@@ -276,5 +276,228 @@ public class SplitMeasureTest {
         
 
 	}
+	
+	
+	/*
+	 * Code dump
+	 */
+	
+//	 public ArrayList<char[][]> measureSplitter (char[][] parsed) {
+//		
+//			ArrayList<char[][]> tmpArray = new ArrayList<char[][]>();
+//			int newRow = 0;
+//			int newCol = 0;
+//			int counter = 0;
+//			int newColEnd = 0;
+//
+//			int prevColEnd = 0;
+//		//	int width = parsed[0].length; // width of the entire 2D array with all measures 
+//			int k = 0;
+//			int i = 0;
+//			int ttlRow = parsed.length;
+//			boolean bounds = false;
+//			System.out.println(ttlRow);
+//
+//			int width = parsed[0].length;
+//
+//			
+//			/*
+//			 * implement a CHECK for repeats
+//			 */
+//			
+//			
+////<<<<<<< HEAD
+////			System.out.println("initial length of char matrix: " + parsed[0].length);
+////			if(parsed[0].length == 0) {
+////				i++;
+////				while(parsed[i].length == 0) {
+////					i++;
+////=======
+//			
+////			for(i = 0; i < width; i++) {
+////				if(parsed[0][i] != '|') {
+////				}
+////				else {
+////					counter++;
+////					if(counter == 1) {
+////						newCol = i+1;
+////					}
+////					if(counter > 1) {
+////						if(counter > 2) {
+////							newCol ++;
+////						}
+////						newColEnd = i;
+////						char[][] newMeasure = new char[6][newColEnd];
+////						int tmpCol = 0;
+////						while(newCol < newColEnd) {
+////							for(newRow = 0; newRow < 6; newRow++) {
+////								newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+////							}
+////							
+////							tmpCol++;
+////							newCol++;
+////						}
+////						
+////						tmpArray.add(newMeasure);
+////						
+////					}
+////>>>>>>> branch 'develop' of https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11
+//				
+//
+//		
+//			
+//			for(; i < ttlRow; i++) { 
+//				boolean bnd = (parsed[i].length == 0);
+//				
+//				// going through the entire 2D array of all measures, then i = 0 we are in the first column 
+//				if(bnd == false) {
+//				//for(int k = 0; k < parsed[i].length; k++) {
+//				//System.out.println(" On row " + i + ", the length is " + parsed[i].length + " and k is " + k);
+//				//if(i != width - 1) 
+//				
+//				//if(!(parsed[0][i] == '|' && parsed[0][i+1] == '|' )) {
+//
+//
+//				
+//					if(parsed[i][k] == '|') {
+//						bounds = true;
+//					}
+//				
+//				
+//				if(bounds == true) {
+//					
+//					newCol = k+1;
+//					newRow = i;
+//					
+//					char[][] newMeasure = new char[6][parsed[i].length];
+//					
+//					int r = 0;
+//					int c = 0;
+//						
+//					while(parsed.length > newRow) {
+//					while(parsed[i][newCol] != '|') {
+//						//newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+//						newMeasure[r][c]=parsed[newRow][newCol];
+//						//System.out.print(parsed[i][newCol]);
+//						
+//						newCol++;
+//						c++;
+//						
+//					}
+//					newRow++;
+//					r++;
+//					
+//					
+//					
+//					//System.out.println(" ");
+//					
+//					c = 0;
+//					//newCol = k+1;
+//					}
+//					
+//					
+//					tmpArray.add(newMeasure);
+//
+//				}
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//				
+//					
+//
+////				else { //in the first row if any element is '|'
+////					System.out.println(parsed[i].length);
+////					if(parsed[i][k] != '|') {
+////						bounds = true;
+////					}
+////				} 
+//					
+////				if(bnd == false && bounds == true) { // for all other elements in 2D char array of all measures 
+////					counter++; 
+////					if(counter == 1) { //if counter is 1
+////						newCol = i; // new column = column number + 1
+////						System.out.println("newCol is started as " + newCol);
+////					}
+////					if(counter >= 1) { // if counter is more than 1
+////						if(counter > 2) { // if counter is more than 2
+////							newCol = 1 + i; // new column = column number + 1
+////						}
+////						//System.out.println(" line 174 is accessed");
+////						//System.out.println("prevColEnd: " + prevColEnd);
+////						//System.out.println("newColEnd " + newColEnd);
+////						
+////						prevColEnd = newColEnd;
+////						newColEnd = i; // new column end is the current column number 
+////						
+////						char[][] newMeasure = new char[6][newColEnd - prevColEnd-1
+////						                                  ]; //create a new measure with 6 rows and _____ columns 
+////						int tmpCol = 0; // counter
+////						System.out.println("Before loop: newCol is " + newCol);
+////						System.out.println("Before loop: newColEnd is " + newColEnd);
+////						System.out.println("Before loop: tmpCol is " + tmpCol);
+////						//while(newCol < newColEnd) {
+////							//if(parsed.length != 0) {
+////							for(newRow = 0; newRow < 6; newRow++) {
+//////								System.out.println("newRow is " + newRow);
+//////								System.out.println("tmpCol is " + tmpCol);
+//////								System.out.println("newCol is " + newCol);
+////								System.out.println("writing loop is accessed");
+////								newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+////							//}
+////							}
+////							tmpCol++;
+////							newCol++;
+////							
+////					//	}
+////						
+////						if(parsed[i].length == 0) {
+////							i++;
+////							//k = 0;
+////							while(parsed[i].length == 0) {
+////								i++;
+////							}
+////						}
+////						
+////						tmpArray.add(newMeasure);
+////					}
+////				}
+////				System.out.println(" k is " + k);
+////				
+//			
+//			
+//			//} // end of the really big for loop
+//				}
+//			
+//
+//		//return tmpArray;
+//			}
+//			return tmpArray;
+//	} //end of the method
+	
+	
+	
+	
 
 }

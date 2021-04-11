@@ -123,7 +123,7 @@ public class Parser {
 	
 	
 	 public ArrayList<char[][]> measureSplitter (char[][] parsed) {
-			
+			System.out.println("measureSplitter accessed");
 			ArrayList<char[][]> tmpArray = new ArrayList<char[][]>(); //an array list of all the measures to be returned later
 			int newRow = 0; // no of rows 
 			int newCol = 0; // no of columns 

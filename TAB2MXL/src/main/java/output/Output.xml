@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <score-partwise version="3.1">
+    <part-list>
+        <score-part scoreInstrumentID="P1">
+            <part-name>Drumset</part-name>
+        </score-part>
+    </part-list>
     <work>
         <work-title>Untitled</work-title>
     </work>
-    <part-list>
-        <score-part id="P1">
-            <part-name>Classical Guitar</part-name>
-        </score-part>
-    </part-list>
     <part id="P1">
         <measure number="1">
-            <barline location="right">
-                <bar-style>light-heavy</bar-style>
-            </barline>
             <attributes>
-                <divisions>2</divisions>
+                <divisions>4</divisions>
                 <key>
                     <fifths>0</fifths>
                 </key>
@@ -23,162 +20,356 @@
                     <beat-type>4</beat-type>
                 </time>
                 <clef>
-                    <sign>TAB</sign>
-                    <line>5</line>
+                    <sign>percussion</sign>
+                    <line>2</line>
                 </clef>
-                <staff-details>
-                    <staff-lines>6</staff-lines>
-                    <staff-tuning line="1">
-                        <tuning-step>E</tuning-step>
-                        <tuning-octave>2</tuning-octave>
-                    </staff-tuning>
-                    <staff-tuning line="2">
-                        <tuning-step>A</tuning-step>
-                        <tuning-octave>2</tuning-octave>
-                    </staff-tuning>
-                    <staff-tuning line="3">
-                        <tuning-step>D</tuning-step>
-                        <tuning-octave>3</tuning-octave>
-                    </staff-tuning>
-                    <staff-tuning line="4">
-                        <tuning-step>G</tuning-step>
-                        <tuning-octave>3</tuning-octave>
-                    </staff-tuning>
-                    <staff-tuning line="5">
-                        <tuning-step>B</tuning-step>
-                        <tuning-octave>3</tuning-octave>
-                    </staff-tuning>
-                    <staff-tuning line="6">
-                        <tuning-step>E</tuning-step>
-                        <tuning-octave>4</tuning-octave>
-                    </staff-tuning>
-                </staff-details>
             </attributes>
             <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>1</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I43</instrumentID>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>6</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
+                <stem>up</stem>
+                <notehead>x</notehead>
             </note>
             <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>2</octave>
-                </pitch>
-                <duration>1</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>5</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
             </note>
             <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>4</string>
-                        <fret>2</fret>
-                    </technical>
-                </notations>
             </note>
             <note>
-                <pitch>
-                    <step>G</step>
-                    <alter>1</alter>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>3</string>
-                        <fret>1</fret>
-                    </technical>
-                </notations>
             </note>
             <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>2</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
             </note>
             <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>4</octave>
-                </pitch>
-                <duration>1</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>1</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
+                <stem>down</stem>
+            </note>
+            <barline/>
+        </measure>
+        <measure number="2">
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
             </note>
             <note>
-                <pitch>
-                    <step>B</step>
-                    <octave>3</octave>
-                </pitch>
-                <duration>1</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>2</string>
-                        <fret>0</fret>
-                    </technical>
-                </notations>
             </note>
             <note>
-                <pitch>
-                    <step>G</step>
-                    <alter>1</alter>
-                    <octave>3</octave>
-                </pitch>
-                <duration>3</duration>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
                 <voice>1</voice>
-                <type>eighth</type>
-                <notations>
-                    <technical>
-                        <string>3</string>
-                        <fret>1</fret>
-                    </technical>
-                </notations>
+                <stem>up</stem>
             </note>
-            <barline location="right">
-                <bar-style>light-heavy</bar-style>
-            </barline>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+                <stem>down</stem>
+            </note>
+            <barline/>
+        </measure>
+        <measure number="3">
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I50</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+                <notehead>x</notehead>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I43</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+                <notehead>x</notehead>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>C</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I39</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I43</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+                <notehead>x</notehead>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>D</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I46</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I36</instrumentID>
+                <voice>2</voice>
+                <stem>down</stem>
+            </note>
+            <barline/>
+        </measure>
+        <measure number="4">
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I43</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+                <notehead>x</notehead>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+                <stem>down</stem>
+            </note>
+            <barline/>
+        </measure>
+        <measure number="5">
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+                <stem>up</stem>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <voice>1</voice>
+                <stem>down</stem>
+            </note>
+            <barline/>
+        </measure>
+        <measure number="6">
+            <note>
+                <unpitched>
+                    <display-step>A</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I50</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+                <notehead>x</notehead>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I43</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+                <notehead>x</notehead>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>C</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I39</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I43</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+                <notehead>x</notehead>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>D</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I46</instrumentID>
+                <voice>1</voice>
+                <stem>up</stem>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>0</display-octave>
+                </unpitched>
+                <duration>2</duration>
+                <instrumentID>P1-I36</instrumentID>
+                <voice>2</voice>
+                <stem>down</stem>
+            </note>
+            <barline/>
         </measure>
     </part>
 </score-partwise>
