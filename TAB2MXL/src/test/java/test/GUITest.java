@@ -843,14 +843,14 @@ class ClickableButtonTest_JUnit5Hamcrest {
        	
        }
     
-    @Test
-    void no_input_error_test(FxRobot robot) {
-    	robot.clickOn("#button");
-    	robot.clickOn("#Convert");
-        TextArea a =(TextArea)scene3.lookup("#inputbox");
-        System.out.print(a.getText());
-        assertTrue(a.getText().contentEquals("no input was entered"));
-      
-          	
-          }
+//    @Test
+//    void no_input_error_test(FxRobot robot) {
+//    	robot.clickOn("#button");
+//    	robot.clickOn("#Convert");
+//        TextArea a =(TextArea)scene3.lookup("#inputbox");
+//        System.out.print(a.getText());
+//        assertTrue(a.getText().contentEquals("no input was entered"));
+//      
+//          	
+//          }
 }

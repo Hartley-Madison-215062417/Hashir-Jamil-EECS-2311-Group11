@@ -84,6 +84,7 @@ public class Main extends Application{
 	
 	public static void main(String[] args) {
 		
+		//GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 		launch(args);
 						
 	}
@@ -336,16 +337,18 @@ public class Main extends Application{
 				        TextArea textbox2 = new TextArea(); 
 				        textbox2.setLayoutX(540);//250,750
 				        textbox2.setLayoutY(150);//100,150
-				        textbox2.setMinSize(350,800);
-				        textbox2.setPrefHeight(500);
+				        //textbox2.setMinSize(100,500);
+				        textbox2.setPrefHeight(600);
+				        textbox2.setPrefWidth(350);
                 		textbox2.appendText("Error: Entered input was not recognized as Tablature. Check More Info button for formatting rules");
                 		textbox2.setFont(Font.font("Courier", FontWeight.NORMAL, 11));
                 		
                 		TextArea inputbox = new TextArea(); 
 				        inputbox.setLayoutX(170);
 				        inputbox.setLayoutY(150);
-				        inputbox.setMinSize(350,700);
-				        inputbox.setPrefHeight(500);
+				        //inputbox.setMinSize(100,500);
+				        inputbox.setPrefHeight(600);
+				        inputbox.setPrefWidth(350);
                 		inputbox.appendText("Error: Entered input was not recognized as Tablature. Check More Info button for formatting fules");
                 		inputbox.setFont(Font.font("Courier", FontWeight.NORMAL, 11));
 				        

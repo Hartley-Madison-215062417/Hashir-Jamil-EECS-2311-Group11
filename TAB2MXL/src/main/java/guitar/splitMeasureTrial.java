@@ -1,6 +1,7 @@
 
 package guitar;
 
+import java.awt.GraphicsEnvironment;
 import java.util.ArrayList;
 
 public class splitMeasureTrial {
@@ -12,6 +13,14 @@ public static void main(String[] args) {
 		int width = parsed[0].length; //gets the length of the entire first row
 		
 		ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);
+
+		
+		String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+
+			    for ( int i = 0; i < fonts.length; i++ )
+			    {
+			      System.out.println(fonts[i]);
+			    }
 		
 		System.out.println();
 		System.out.println("Printing only first measure stored in array list: ");
