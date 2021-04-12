@@ -1214,54 +1214,48 @@ public class Main extends Application{
 		                        			edit_button.setDisable(false);
 		                        			edit_button2.setDisable(false);
 		                        			
+		                        			DetermineInstrument det = new DetermineInstrument(input);
+			                        		ScorePartwise sp1 = new ScorePartwise();
+			                        		scorePartwise sp2 =  new scorePartwise();
+			                        		File output = new File("src//main//java//output//Output.xml");
+			                                
+			                        		System.out.println("before if st: " + det.inst);
+			                        		if(det.inst.equals("drums")) {
+			                        			System.out.println("in if st: " + det.inst);
+			                        			System.out.println("got past det.inst.equals");
+			                        			ArrayList<char[][]> temp2 = det.GetParsed("drums");
+			                        			part part = det.partd;
+			                        			System.out.println(part);
+			                        			sp1.getParts().add(part);
+			                        			
+				                        		JAXBContext jc = JAXBContext.newInstance(ScorePartwise.class); //this is where the red exception is being thrown 
+				                        		Marshaller ms = jc.createMarshaller();
+				                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+				                        		ms.marshal(sp1,new File("src//main//java//output//Output.xml")); //This is where the superclass exception is thrown
+				      
+
+				                        		output = new File("src//main//java//output//Output.xml");
+				                        		ms.marshal(sp1,output);
+			                        		}
+			                        		else {
+			                        			
+			                        			ArrayList<char[][]> temp2 = det.GetParsed("guitar");
+			                        			Part part = det.partg;
+			                        			sp2.getParts().add(part);
+			                        			
+				                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
+				                        		Marshaller ms = jc.createMarshaller();
+				                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+				                        		ms.marshal(sp2,new File("src//main//java//output//Output.xml"));
+				      
+
+				                        		output = new File("src//main//java//output//Output.xml");
+				                        		ms.marshal(sp2,output);
+			                        		}
 			                              
 		                     
-				  
-		                        		Parser p = new Parser(input);
-		                        		//change??
-		                                char[][] parsed = p.getTabCharMatrix();
-		                                
-		                                ArrayList<char[][]> testArrayList4 = p.measureSplitter(parsed);
-		                            
-		                                /*
-		                                 * Here, we need to add a call to a parser method.
-		                                 * It will separate the measures into individual char arrays,
-		                                 * then, it will put them into an ArrayList in order.
-		                                 * Change the .add below. (remove them)
-		                                 * The return will be the ArrayList.
-		                                 */
-		                            //    testArrayList4.add(parsed);
-		                            //    testArrayList4.add(parsed);
-		                                
-		                                
-		                           //     char[][] tmp = testArrayList4.get(0);
-		                                
-//		                                for (int i = 0; i < testArrayList3.size() ; i++) {
-//		                                	System.out.print(testArrayList3.get(i));
-//		                                }
-		                                
-//		                                char[][] tmp2 = testArrayList4.get(1);
-//		                                for (int i = 0; i < tmp2.length ; i++) {
-//		                                    System.out.println(p.getTabCharMatrix()[i]);
-//		                                }
-//		                                
-//		                        	
-
-		                        		Part part = p.createMusicalPart(testArrayList4);
-		                        		scorePartwise sp = new scorePartwise();
-		                        		sp.getParts().add(part);
-		                        		
-		                        		JAXBContext jc = JAXBContext.newInstance(scorePartwise.class);
-		                        		Marshaller ms = jc.createMarshaller();
-		                        		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-		                        		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
-		      
-
-		                        		File output = new File("src//main//java//output//Output.xml");
-		                        		ms.marshal(sp,output);
-		  
-
 		                        		try {
 		                        	        Scanner s = new Scanner(output);
 		                        	        textbox2.clear();
@@ -1283,7 +1277,6 @@ public class Main extends Application{
 			                               
 		                        	        
 		                        	    } catch (FileNotFoundException ex) {
-		                        	        System.err.println(ex);
 		                        	    }}
 		                        	
 		                        	}catch (JAXBException ex) {
