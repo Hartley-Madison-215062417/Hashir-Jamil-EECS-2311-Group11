@@ -666,7 +666,7 @@ public class Main extends Application{
 //		      
 //
 //		                        		File output = new File("src//main//java//output//Output.xml");
-
+		                	    		  System.out.println("size of input: " + input.length());
 		                        		DetermineInstrument det = new DetermineInstrument(input);
 		                        		ScorePartwise sp1 = new ScorePartwise();
 		                        		scorePartwise sp2 =  new scorePartwise();

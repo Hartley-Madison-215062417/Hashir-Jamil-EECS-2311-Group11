@@ -202,7 +202,7 @@ public class Note {
 			String[] relevantData = new String[24];
 			int k = 0;
 			
-			System.out.println("length of allStep" + allStep.length);
+			//System.out.println("length of allStep" + allStep.length);
 			
 			
 			for (int i = location; i <= allStep.length; i++) {
@@ -216,9 +216,9 @@ public class Note {
 					relevantData[k] = allStep[0];
 					k++;
 				}else {
-					System.out.println("The value of i now: " + i);
-					System.out.println("The value of k now: " + k);
-					System.out.println("Copying and pasting: " + allStep[i]);
+					//System.out.println("The value of i now: " + i);
+					//System.out.println("The value of k now: " + k);
+					//System.out.println("Copying and pasting: " + allStep[i]);
 					relevantData[k] = allStep[i];
 					if(k == 23)
 						break;

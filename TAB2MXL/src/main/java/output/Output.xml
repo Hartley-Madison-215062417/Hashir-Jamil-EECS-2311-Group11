@@ -1,1 +1,22 @@
-<!--comment-->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<score-partwise version="3.1">
+    <work>
+        <work-title>Untitled</work-title>
+    </work>
+    <part-list>
+        <score-part id="P1">
+            <part-name>Classical Guitar</part-name>
+        </score-part>
+    </part-list>
+    <part id="P1">
+        <measure number="2">
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+            </barline>
+            <barline location="right">
+                <bar-style>light-heavy</bar-style>
+                <repeat direction="backward"/>
+            </barline>
+        </measure>
+    </part>
+</score-partwise>

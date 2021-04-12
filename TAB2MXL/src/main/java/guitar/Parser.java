@@ -505,6 +505,7 @@ public class Parser {
 								if(input[inputRow][j+1] == 'e' || input[inputRow][j+1] == 'E') {
 									if(input[inputRow][j+2] == 'p' || input[inputRow][j+2] == 'P') {
 										repeatCounter = 1;
+										int numRep = input[inputRow].length;
 										for(int h = 0; h < input[inputRow].length; h++) {
 											if(input[inputRow][h] == '0' ) {
 												
@@ -709,7 +710,7 @@ public class Parser {
 		}
 	*/
 		
-		System.out.println("here?");
+		//System.out.println("here?");
 		for(int i = 0; i < firstMeasure.length; i++) {
 			for(int j =0; j < firstMeasure[0].length; j++) {
 				if (i == 0 && firstMeasure[i+1][j] == '|') {
