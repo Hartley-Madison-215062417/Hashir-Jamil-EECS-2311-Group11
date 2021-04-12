@@ -93,6 +93,7 @@ public class DetermineInstrument {
 					if(len[k][j] == 'o' || len[k][j] == 'O' || len[k][j] == 'x' || len[k][j] == 'X' || len[k][j] == 'd' || len[k][j] == 'f') {
 						return "drums";
 					}
+					
 				}
 				System.out.println(" ");
 				//System.out.println("length of measureList.get(i).length is " + measureList.get(i).length);
