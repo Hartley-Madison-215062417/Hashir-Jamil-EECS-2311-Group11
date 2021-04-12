@@ -86,11 +86,12 @@ public class DetermineInstrument {
 			char[][] len = measureList.get(i);
 			int lennn = len[i].length;
 			for(int j = 0; j < lennn; j++) {
-				System.out.println("Code reached second for loop");
+				System.out.println("Code reached second for loop, len.length = " + len.length);
 				for(int k = 0; k < len.length; k++) {
 					System.out.println("Code reached third for loop");
 					System.out.print(len[k][j]);
 					if(len[k][j] == 'o' || len[k][j] == 'O' || len[k][j] == 'x' || len[k][j] == 'X' || len[k][j] == 'd' || len[k][j] == 'f') {
+						System.out.println("returning drums");
 						return "drums";
 					}
 					
@@ -104,15 +105,17 @@ public class DetermineInstrument {
 			
 			char[][] temp = measureList.get(h);
 			if(temp.length >= 6) {
+				System.out.println("returning guitar");
 				return "guitar";
 			}
 			else if(temp.length <= 5 && temp.length > 0) {
+				System.out.println("returning bass");
 				return "bass";
 			}
 		}
 
 		
-		
+		System.out.println("returning failsafe guitar");
 		return "guitar";
 	}
 	
