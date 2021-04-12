@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -45,6 +46,7 @@ import javafx.stage.Stage;
 public class EditPopup{
 	static String choice="";
 	static Scene scene2;
+	static int number = 0;
 	
 	public static void display()
 	{
@@ -172,25 +174,35 @@ public class EditPopup{
 					                    @Override
 					                    public void handle(final ActionEvent e) {
 											choice = "Time Signature";
-											
 											String input_text = change.getText();
+											if(input_text.length()!=3) {
+												change.clear();
+												change.appendText("Invalid input. Please make sure to enter beats/beat type without any additional text/spaces");
+											}
+											else {
 											char numerator = input_text.charAt(0);
 											char denom = input_text.charAt(2);
 											
+											String measure_choice = measure.getText();
 									
 											File xml = new File("src//main//java//output//Output.xml");
 												
 											DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 									        DocumentBuilder dBuilder;
+									        
+									        if(measure_choice.equalsIgnoreCase("all")) {
+									        
 									        try {
 									            dBuilder = dbFactory.newDocumentBuilder();
 									            Document doc = dBuilder.parse(xml);
 									            doc.getDocumentElement().normalize();
-
+									            
+									            number =1;
 
 										        NodeList nodes = doc.getElementsByTagName("time");
-										     
-										        Node node = nodes.item(0);
+										        for(int i=0;i<nodes.getLength();i++) {
+										       
+										        Node node = nodes.item(i);
 										        if (node.getNodeType() == Node.ELEMENT_NODE) {
 											        Element element = (Element) node;
 											        Node beat = element.getElementsByTagName("beats").item(0).getFirstChild();
@@ -200,6 +212,7 @@ public class EditPopup{
 											        type.setNodeValue(String.valueOf(denom));
 											        
 											        
+										        }
 										        }
 										        
 									            doc.getDocumentElement().normalize();
@@ -218,8 +231,59 @@ public class EditPopup{
 									        } catch (SAXException | ParserConfigurationException | IOException | TransformerException e1) {
 									            e1.printStackTrace();
 									        }
-					                    	
-					                    }});
+									        }
+									        else if(isNumeric(measure_choice)) {
+									        	int num = Integer.parseInt(measure_choice);
+									        	number = num;
+									  
+									        	
+										        try {
+										            dBuilder = dbFactory.newDocumentBuilder();
+										            Document doc = dBuilder.parse(xml);
+										            doc.getDocumentElement().normalize();
+										            
+										            
+
+											        NodeList nodes = doc.getElementsByTagName("time");
+											       
+											        Node node = nodes.item(num-1);
+											        if (node.getNodeType() == Node.ELEMENT_NODE) {
+												        Element element = (Element) node;
+												        Node beat = element.getElementsByTagName("beats").item(0).getFirstChild();
+												        beat.setNodeValue(String.valueOf(numerator));
+												        
+												       Node type = element.getElementsByTagName("beat-type").item(0).getFirstChild();
+												        type.setNodeValue(String.valueOf(denom));
+												        
+												        
+											        }
+											        
+										            doc.getDocumentElement().normalize();
+										            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+										            Transformer trans = transformerFactory.newTransformer();
+										            DOMSource dom = new DOMSource(doc);
+										            xml.delete();
+	 				    				            StreamResult newfile = new StreamResult(new File("src//main//java//output//Output.xml"));
+										          //  StreamResult newfile = new StreamResult(new File("updated.xml"));
+										           // transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+										            trans.transform(dom, newfile);
+										            
+										            popupwindow.close();
+										            
+										            
+										        } catch (SAXException | ParserConfigurationException | IOException | TransformerException e1) {
+										            e1.printStackTrace();
+										        }
+									        }
+									     
+									        
+									        else{
+									        	measure.clear();
+									        	measure.appendText("Invalid input");
+									        }
+									        
+									        
+											}  }});
 						
                     	}
                     	
@@ -307,6 +371,15 @@ public class EditPopup{
 
 		       
 	       
+	}
+	public static boolean isNumeric(String s) {
+		try {
+	        int i = Integer.parseInt(s);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+		
 	}
 	
 	private static void getValue(ComboBox combo) {
