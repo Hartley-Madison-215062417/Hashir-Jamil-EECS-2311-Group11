@@ -730,6 +730,7 @@ public class Main extends Application{
 			                        	        if (check3 == true || errors == true){
 			                        	        	ErrorPopup.display();
 			                        	        }
+			                        	
 				                               
 			                        	        
 			                        	    } catch (FileNotFoundException ex) {
@@ -1086,6 +1087,7 @@ public class Main extends Application{
 		                        	        if (check == true || errors == true){
 		                        	        	ErrorPopup.display();
 		                        	        }
+		                        	        inputbox.appendText("Instument Detected: "+ det.inst);
 		                        
 		                        	        
 		                        	    } catch (FileNotFoundException ex) {
@@ -1277,6 +1279,7 @@ public class Main extends Application{
 		                        	        if (check3 == true || errors == true){
 		                        	        	ErrorPopup.display();
 		                        	        }
+		                        	        inputbox.appendText("Instument Detected: "+ det.inst);
 			                               
 		                        	        
 		                        	    } catch (FileNotFoundException ex) {
