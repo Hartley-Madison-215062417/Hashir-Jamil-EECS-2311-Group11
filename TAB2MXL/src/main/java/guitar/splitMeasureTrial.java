@@ -17,10 +17,10 @@ public static void main(String[] args) {
 		
 		String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 
-			    for ( int i = 0; i < fonts.length; i++ )
-			    {
-			      System.out.println(fonts[i]);
-			    }
+//			    for ( int i = 0; i < fonts.length; i++ )
+//			    {
+//			      System.out.println(fonts[i]);
+//			    }
 		
 		System.out.println();
 		System.out.println("Printing only first measure stored in array list: ");
@@ -68,6 +68,14 @@ public static void main(String[] args) {
 			System.out.println(" ");
 		}
 		
+		if(p.stringTune.size() > 0) {
+			System.out.println("Printing guitar type, from first to last row: ");
+			System.out.println("guitarTuning size: " + p.stringTune.size());
+				for(int m = 0; m < p.stringTune.size(); m++) {
+					System.out.println(p.stringTune.get(m));
+				}
+		}
+		 
 		
 		
 		
