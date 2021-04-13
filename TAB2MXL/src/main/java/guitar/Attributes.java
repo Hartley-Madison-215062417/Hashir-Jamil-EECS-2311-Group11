@@ -106,13 +106,12 @@ public class Attributes {
 	@XmlElement
 	int divisions;
 
-	
 	@XmlElement
 	Key key;
 	
 	@XmlElement
 	Time time;
-	
+
 	@XmlElement
 	Clef clef;
 	
@@ -167,6 +166,10 @@ public class Attributes {
 
 	public int getDivisions() {
 		return divisions;
+	}
+	
+	public void setDivisions(int divisions) {
+		this.divisions = divisions;
 	}
 	
 	
