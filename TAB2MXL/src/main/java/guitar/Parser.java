@@ -348,6 +348,7 @@ public class Parser {
 	private Part part = new Part();
 	private scorePartwise scorepartwise = new scorePartwise();
 	int hnum =1;
+	ArrayList<String> stringTune = new ArrayList<String>();
 	
 	
 	/*
@@ -467,6 +468,9 @@ public class Parser {
 		int rowCount = 6;
 		int contLoop = 0;
 		int theresTooManyVars = 0;
+		stringTune = new ArrayList<String>();
+		boolean mesDurNeeded = false;
+		boolean writeInGuitarTuning = false;
 		
 		//@Madison needs to implement a check for repeats
 		
@@ -558,6 +562,371 @@ public class Parser {
 					}
 					if(counter >= 2) {
 						newMeasure = new char[6][mesDur];
+					}
+				}
+				else {
+					if(input[inputRow][inputCol] == 'A') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("A#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("Ab");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("A");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'B') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("B#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("Bb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("B");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'C') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("C#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("Cb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("C");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+					}
+					if(input[inputRow][inputCol] == 'D') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("D#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("Db");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("D");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'E') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("E#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("Eb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("E");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'F') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("F#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("Fb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("F");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'G') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("G#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("Gb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("G");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'a') {
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("a#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("ab");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("a");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'b') {
+						
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("b#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("bb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("b");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'c') {
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("c#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("cb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("c");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+						
+					}
+					if(input[inputRow][inputCol] == 'd') {
+						
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("d#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("db");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("d");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+						
+					}
+					if(input[inputRow][inputCol] == 'e') {
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("e#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("eb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("e");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+						
+					}
+					if(input[inputRow][inputCol] == 'f') {
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("f#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("fb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("f");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[inputRow][inputCol] == 'g') {
+						if(input[inputRow][inputCol+1] == '#') {
+							stringTune.add("g#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[inputRow][inputCol+1] == 'b') {
+							stringTune.add("gb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("g");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+				}
+				
+				if(mesDurNeeded == true) {
+					for(int g = 1;input[inputRow][inputCol+g] != '|';g++) {
+						mesDur++;
 					}
 				}
 				
@@ -679,6 +1048,374 @@ public class Parser {
 			
 			}
 	
+		
+		if(writeInGuitarTuning == true) {
+			int whatRow = stringTune.size();
+			char[][] firstie = tmpArray.get(0);
+			System.out.println("whatRow = " + whatRow + " and firstie.length = " + firstie.length);
+			if(whatRow < firstie.length) {
+				
+				int theRow = whatRow;
+				int theCol = 0;
+				while(whatRow < firstie.length) {
+					
+					if(input[theRow][theCol] == 'A') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("A#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("Ab");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("A");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'B') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("B#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("Bb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("B");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'C') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("C#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("Cb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("C");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+					}
+					if(input[theRow][theCol] == 'D') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("D#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("Db");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("D");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'E') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("E#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("Eb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("E");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'F') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("F#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("Fb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("F");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'G') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("G#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("Gb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("G");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'a') {
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("a#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("ab");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("a");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'b') {
+						
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("b#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("bb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("b");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'c') {
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("c#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("cb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("c");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+						
+					}
+					if(input[theRow][theCol] == 'd') {
+						
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("d#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("db");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("d");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+						
+					}
+					if(input[theRow][theCol] == 'e') {
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("e#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("eb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("e");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+						
+					}
+					if(input[theRow][theCol] == 'f') {
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("f#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("fb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
+						}
+						else {
+						stringTune.add("f");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
+						}
+						
+					}
+					if(input[theRow][theCol] == 'g') {
+						if(input[theRow][theCol+1] == '#') {
+							stringTune.add("g#");
+
+						}
+						if(input[theRow][theCol+1] == 'b') {
+							stringTune.add("gb");
+
+						}
+						else {
+						stringTune.add("g");
+
+						}
+						
+					}
+
+					
+					theRow++;
+					whatRow ++;
+				}
+			}
+		}
+		
+		
 		return tmpArray;
 		
 	} //end of the method

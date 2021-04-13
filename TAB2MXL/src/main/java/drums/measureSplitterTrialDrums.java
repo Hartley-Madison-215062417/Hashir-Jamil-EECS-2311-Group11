@@ -51,9 +51,6 @@ public class measureSplitterTrialDrums {
 			for(int j = 0; j < tmpPrint2.length; j++) {
 				System.out.println(" ");
 				for(int k = 0; k < tmpPrint2[0].length; k++) {
-					/*if(tmpPrint2[j][k] != '-')
-						System.out.print('&');
-					else */
 						System.out.print(tmpPrint2[j][k]);
 				}
 			}
