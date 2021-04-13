@@ -324,7 +324,9 @@ package guitar;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 //
 //import tab2mxl.Division;
@@ -740,7 +742,7 @@ public class Parser {
 		
 		
 		
-		if (m.number == 1) {
+		
 			Key k = new Key(0);
 			Time t = new Time(4, 4);
 			Clef c = new Clef("TAB", 5);
@@ -751,7 +753,6 @@ public class Parser {
 			m.attributes.setClef(c);
 			m.attributes.setSd(sd);
 									
-		}
 		
 		Measure.measureNumber++;
 		
@@ -1052,6 +1053,57 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 	public scorePartwise createScore(Part p) {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
+	}
+	
+	public Map<String, Integer> typeTable(Attributes a) {
+		Map<String, Integer> typeTable= new HashMap<String, Integer>(); // the type of note, the duration
+		Map<Integer, String> noteType = new HashMap<Integer, String>(); // the number corresponding to note type, name of type of note 
+		
+		noteType.put(1, "whole");
+		noteType.put(2, "half");
+		noteType.put(4, "quarter");
+		noteType.put(8, "eighth");
+		noteType.put(16, "sixteenth");
+		
+		String beatType = "";
+		int divisions = 0;
+		int durWhole = 0;
+		
+		for(Map.Entry<Integer, String> entry : noteType.entrySet()) {
+			if(a.getTime().beats == entry.getKey()) { //find the name of the note from the number 
+				beatType = entry.getValue();
+				divisions = a.divisions;
+			}
+		}
+		
+		//now check what the duration would be for a whole note 
+		if(beatType == "whole")
+			durWhole = divisions;
+		else if(beatType == "half")
+			durWhole = divisions*2;
+		else if(beatType == "quarter")
+			durWhole = divisions*4;
+		else if(beatType == "eighth")
+			durWhole = divisions*8;
+		else if(beatType == "sixteenth")
+			durWhole = divisions*16;
+		
+		//fill the typeTable that will be used later for reference with the type of note and corresponding duration
+		typeTable.put("whole", durWhole);
+		typeTable.put("half", durWhole/2);
+		typeTable.put("quarter", durWhole/4);
+		typeTable.put("eighth", durWhole/8);
+		typeTable.put("sixteenth", durWhole/16);
+		//System.out.println("=======================");
+		//System.out.println("printing the note and type table");
+//		for(Map.Entry<Integer, String> entry: noteType.entrySet()) {
+//			System.out.println("note number: " + entry.getKey() + " note name:" + entry.getValue());
+//		}
+		for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
+			System.out.println("note name: " + entry.getKey() + " note duration:" + entry.getValue());
+		}
+		//System.out.println("=======================");
+		return typeTable;
 	}
 	
 		

@@ -29,7 +29,7 @@ public class StaffDetails{
 	
 	public StaffDetails() {
 		
-		staffLines = 6;
+		staffLines = 4;
 		s1 = new StaffTuning(1, "E", 1);
 		s2 = new StaffTuning(2, "A", 1);
 		s3 = new StaffTuning(3, "D", 2);
