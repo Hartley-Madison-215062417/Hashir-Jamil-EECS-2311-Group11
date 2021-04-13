@@ -24,7 +24,12 @@ public class Parser {
 	 * Defualt contructor 
 	 */
 	public Parser() {
-
+		tabList = null;
+		inputFile = null;
+		tabCharMatrix = null;
+		part = null;
+		scorepartwise = null;
+		hnum = 1;
 	}
 	
 
