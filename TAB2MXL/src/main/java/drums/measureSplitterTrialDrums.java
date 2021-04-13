@@ -10,7 +10,7 @@ public class measureSplitterTrialDrums {
 		Parser p = new Parser("drumTestTab.txt");
 		char[][] parsed = p.getTabCharMatrix();
 		
-		int width = parsed[0].length; //gets the length of the entire first row
+		//int width = parsed[0].length; //gets the length of the entire first row
 		
 		ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);
 		
@@ -60,79 +60,12 @@ public class measureSplitterTrialDrums {
 			System.out.println(" ");
 		}
 		
-		
-		
-		
-
-
-		ArrayList<char[][]> tmpArray = new ArrayList<char[][]>();
-		int newRow = 0;
-		int newCol = 0;
-		int counter = 0;
-		int newColEnd = 0;
-
-		
-		for(int i = 0; i < width; i++) {
-			if(parsed[0][i] != '|') {
+		System.out.println("Printing drum type, from first to last row: ");
+		System.out.println("drumType size: " + p.drumType.size());
+			for(int m = 0; m < p.drumType.size(); m++) {
+				System.out.println(p.drumType.get(m));
 			}
-			else {
-				counter++;
-				if(counter == 1) {
-					newCol = i+1;
-				}
-				if(counter > 1) {
-					newColEnd = i;
-					char[][] newMeasure = new char[6][newColEnd];
-					while(newCol < newColEnd) {
-						for(newRow = 0; newRow < 6; newRow++) {
-							newMeasure[newRow][newCol] = parsed[newRow][newCol];
-						}
-						newCol++;
-					}
-					
-					tmpArray.add(newMeasure);
-					
-				}
-			}
-			
-			
-			
-		}
 
-
-	
-
-
-
-
-
-
-		for(int i = 0; i < width; i++) {
-			if(parsed[0][i] != '|') {
-			}
-			else {
-				counter++;
-				if(counter == 1) {
-					newCol = i+1;
-				}
-				if(counter > 1) {
-					newColEnd = i;
-					char[][] newMeasure = new char[6][newColEnd];
-					while(newCol < newColEnd) {
-						for(newRow = 0; newRow < 6; newRow++) {
-							newMeasure[newRow][newCol] = parsed[newRow][newCol];
-						}
-						newCol++;
-					}
-					
-					tmpArray.add(newMeasure);
-					
-				}
-			}
-			
-			
-			
-		}
 
 	}
 

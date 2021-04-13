@@ -16,6 +16,7 @@ public class Parser {
 	private part part = new part();
 	private ScorePartwise scorepartwise = new ScorePartwise();
 	private int hnum = 1;
+	ArrayList<String> drumType = new ArrayList<String>();
 	
 	public Parser() {
 		
@@ -81,8 +82,8 @@ public class Parser {
 		int newRow = 0; // no of rows 
 		int newCol = 0; // no of columns 
 		int counter = 0; 
-		//int newColEnd = 0;
-		//int prevColEnd = 0;
+		int newColEnd = 0;
+		int prevColEnd = 0;
 	//	int width = parsed[0].length; // width of the entire 2D array with all measures 
 		int inputCol = 0;
 		int inputRow = 0;
@@ -95,6 +96,9 @@ public class Parser {
 		int rowCount = 6;
 		int contLoop = 0;
 		int theresTooManyVars = 0;
+		drumType = new ArrayList<String>();
+		boolean mesDurNeeded = false;
+		boolean writeInDrumType = false;
 		
 		//@Madison needs to implement a check for repeats
 		
@@ -115,7 +119,6 @@ public class Parser {
 				theresTooManyVars = 1;
 			}
 			mesDur = 0;
-			
 			boolean bnd = (input[inputRow].length == 0);
 			
 			// going through the entire 2D array of all measures, then i = 0 we are in the first column 
@@ -188,10 +191,168 @@ public class Parser {
 						newMeasure = new char[6][mesDur];
 					}
 				}
+				else if(input[inputRow][inputCol] == 'C') {
+					if(input[inputRow][inputCol+1] == 'C') {
+						drumType.add("CC");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					if(input[inputRow][inputCol+1] == 'H') {
+						drumType.add("CH");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					if(input[inputRow][inputCol+1] == 'F') {
+						drumType.add("CF");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'H') {
+					if(input[inputRow][inputCol+1] == 'H') {
+						drumType.add("HH");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					if(input[inputRow][inputCol+1] == 'F') {
+						drumType.add("HF");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					if(input[inputRow][inputCol+1] == 'T') {
+						drumType.add("HT");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'R') {
+					if(input[inputRow][inputCol+1] == 'D') {
+						drumType.add("RD");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					else if(input[inputRow][inputCol+1] == 'C') {
+						drumType.add("RC");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'S') {
+					if(input[inputRow][inputCol+1] == 'N') {
+						drumType.add("SN");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					if(input[inputRow][inputCol+1] == 'C') {
+						drumType.add("SC");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					if(input[inputRow][inputCol+1] == 'H') {
+						drumType.add("SH");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'T') {
+					if(input[inputRow][inputCol+1] == '1') {
+						drumType.add("T1");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					else if(input[inputRow][inputCol+1] == '2') {
+						drumType.add("T2");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+					else if(input[inputRow][inputCol+1] == '3') {
+						drumType.add("T3");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'F') {
+					if(input[inputRow][inputCol+1] == 'T') {
+						drumType.add("FT");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'B') {
+					if(input[inputRow][inputCol+1] == 'D') {
+						drumType.add("BD");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'S') {
+					if(input[inputRow][inputCol+1] == 'C') {
+						drumType.add("SC");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'O') {
+					if(input[inputRow][inputCol+1] == 'H') {
+						drumType.add("BD");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+				else if(input[inputRow][inputCol] == 'S') {
+					if(input[inputRow][inputCol+1] == 'H') {
+						drumType.add("SH");
+						inputCol = inputCol + 2;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInDrumType = true;
+					}
+				}
+
+				
+				if(mesDurNeeded == true) {
+					for(int g = 1;input[inputRow][inputCol+g] != '|';g++) {
+						mesDur++;
+					}
+				}
 				
 				if(bounds == true) {
-					
-				
 						
 						int colCount = inputCol+1;
 						newCol = colCount;
@@ -247,9 +408,7 @@ public class Parser {
 						}
 						
 						r++;
-					
-					
-					
+
 						newRow++;
 						if(multiMes == true) {
 							newCol = theresTooManyVars;
@@ -259,17 +418,17 @@ public class Parser {
 							
 						}
 
-						
 						c = 0;
 					}
 					
 					tmpArray.add(newMeasure);
-					
+					int teeeemp = input[inputRow].length;
 					
 					chk = ((colCount+1) < input[inputRow].length);
 					if(chk == true) {
 						theresTooManyVars = colCount + 1;
 						newCol = colCount + 1;
+						//colCount = newCol;
 						multiMes = true;
 						String whore = "Kai";
 					}
@@ -279,8 +438,12 @@ public class Parser {
 					else {
 						contLoop = -1;
 					}
+
 					
-	
+					
+					
+				
+					
 				} //contLoop checkpoint
 					inputRow = inputRow + 5;
 					
@@ -289,6 +452,141 @@ public class Parser {
 				}
 			
 			}
+		
+		if(writeInDrumType == true) {
+			int whatRow = drumType.size();
+			char[][] firstie = tmpArray.get(0);
+			System.out.println("whatRow = " + whatRow + " and firstie.length = " + firstie.length);
+			if(whatRow < firstie.length) {
+				
+				int theRow = whatRow;
+				int theCol = 0;
+				while(whatRow < firstie.length) {
+					
+					
+					
+					if(input[theRow][theCol] == 'C') {
+						if(input[theRow][theCol+1] == 'C') {
+							drumType.add("CC");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'H') {
+						if(input[theRow][theCol+1] == 'H') {
+							drumType.add("HH");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'R') {
+						if(input[theRow][theCol+1] == 'D') {
+							drumType.add("RD");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'S') {
+						if(input[theRow][theCol+1] == 'N') {
+							drumType.add("SN");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'T') {
+						if(input[theRow][theCol+1] == '1') {
+							drumType.add("T1");
+						
+
+						}
+						else if(input[theRow][theCol+1] == '2') {
+							drumType.add("T2");
+							
+
+						}
+						else if(input[theRow][theCol+1] == '3') {
+							drumType.add("T3");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'F') {
+						if(input[theRow][theCol+1] == 'T') {
+							drumType.add("FT");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'B') {
+						if(input[theRow][theCol+1] == 'D') {
+							drumType.add("BD");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'S') {
+						if(input[theRow][theCol+1] == 'C') {
+							drumType.add("SC");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'O') {
+						if(input[theRow][theCol+1] == 'H') {
+							drumType.add("OH");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'S') {
+						if(input[theRow][theCol+1] == 'H') {
+							drumType.add("SH");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'C') {
+						if(input[theRow][theCol+1] == 'H') {
+							drumType.add("CH");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'H') {
+						if(input[theRow][theCol+1] == 'F') {
+							drumType.add("HF");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'S') {
+						if(input[theRow][theCol+1] == 'D') {
+							drumType.add("SD");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'H') {
+						if(input[theRow][theCol+1] == 'T') {
+							drumType.add("HT");
+							
+
+						}
+					}
+					if(input[theRow][theCol] == 'M') {
+						if(input[theRow][theCol+1] == 'T') {
+							drumType.add("MT");
+							
+
+						}
+					}
+					
+					theRow++;
+					whatRow ++;
+				}
+			}
+		}
+		
 	
 		return tmpArray;
 		
