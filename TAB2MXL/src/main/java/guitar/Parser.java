@@ -1479,7 +1479,7 @@ public class Parser {
 		
 		
 		
-<<<<<<< HEAD
+
 
 			Key k = new Key(0);
 			Time t = new Time(4, 4);
@@ -1791,7 +1791,7 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
 	}
-<<<<<<< HEAD
+
 	
 	public Map<String, Integer> typeTable(Attributes a) {
 		Map<String, Integer> typeTable= new HashMap<String, Integer>(); // the type of note, the duration
@@ -1843,12 +1843,10 @@ private void calculateHnum(char[][] firstMeasure, int j) {
 		//System.out.println("=======================");
 		return typeTable;
 	}
-	
-=======
 
 
 
->>>>>>> branch 'develop' of https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11.git
+
 		
 	
 }
