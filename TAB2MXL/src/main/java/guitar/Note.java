@@ -166,7 +166,11 @@ public class Note {
 			String[] relevantData = new String[24];
 			int k = 0;
 			
+<<<<<<< HEAD
 //			System.out.println("length of allStep" + allStep.length);
+=======
+			//System.out.println("length of allStep" + allStep.length);
+>>>>>>> branch 'develop' of https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11.git
 			
 			
 			for (int i = location; i <= allStep.length; i++) {
@@ -180,9 +184,15 @@ public class Note {
 					relevantData[k] = allStep[0];
 					k++;
 				}else {
+<<<<<<< HEAD
 //					System.out.println("The value of i now: " + i);
 //					System.out.println("The value of k now: " + k);
 //					System.out.println("Copying and pasting: " + allStep[i]);
+=======
+					//System.out.println("The value of i now: " + i);
+					//System.out.println("The value of k now: " + k);
+					//System.out.println("Copying and pasting: " + allStep[i]);
+>>>>>>> branch 'develop' of https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11.git
 					relevantData[k] = allStep[i];
 					if(k == 23)
 						break;

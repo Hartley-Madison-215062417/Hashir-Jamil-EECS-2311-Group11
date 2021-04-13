@@ -197,6 +197,7 @@ class ClickableButtonTest_JUnit5Hamcrest {
 		        info.setFitHeight(90);
 		        info.setFitWidth(90);
 		        info_button.setGraphic(info);
+		        info_button.setId("info");
 		        
 
 		        info_button.setLayoutX(690);
@@ -311,6 +312,7 @@ class ClickableButtonTest_JUnit5Hamcrest {
 				        edit.setFitHeight(70);
 				        edit.setFitWidth(70);
 				        edit_button.setGraphic(edit);
+				        edit_button.setId("edit");
 				        
 
 				        edit_button.setLayoutX(850);
@@ -590,7 +592,7 @@ class ClickableButtonTest_JUnit5Hamcrest {
 		                	    		  textbox2.clear();
 		                	    		  textbox2.appendText("no input was entered");
 		                	    	  }
-		                	    	  else {
+		                	    	  else if(inputbox.getText().equals("Error: currently not supported")== false){
 		                        		Parser p = new Parser(input);
 		                        		//change??
 		                                char[][] parsed = p.getTabCharMatrix();
@@ -842,7 +844,7 @@ class ClickableButtonTest_JUnit5Hamcrest {
        	assertTrue(a.isVisible());
        	
        }
-    
+
     @Test
     void no_input_error_test(FxRobot robot) {
     	robot.clickOn("#button");
@@ -853,4 +855,47 @@ class ClickableButtonTest_JUnit5Hamcrest {
       
           	
           }
+    
+    @Test
+    void invalid_input_error_test(FxRobot robot) {
+    	robot.clickOn("#button");
+    	TextArea a =(TextArea)scene2.lookup("#input");
+    	a.appendText("this is not a tablature");
+    	robot.clickOn("#Convert");
+        TextArea a2 =(TextArea)scene3.lookup("#inputbox");
+        assertTrue(a2.getText().contentEquals("Error: currently not supported"));
+      
+          	
+          }
+    @Test
+    void restart_works_test(FxRobot robot) {
+    	robot.clickOn("#button");
+    	TextArea a =(TextArea)scene2.lookup("#input");
+    	a.appendText("this is not a tablature");
+    	robot.clickOn("#Convert");
+    	robot.clickOn("#restart");
+    	TextArea a2 =(TextArea)scene2.lookup("#input");
+       	assertTrue(a2.isVisible());
+          	
+          }
+    
+    @Test
+    void edit_works_test(FxRobot robot) {
+    	robot.clickOn("#button");
+    	TextArea a =(TextArea)scene2.lookup("#input");
+    	a.appendText("this is not a tablature");
+    	robot.clickOn("#Convert");
+      	Button button2 =(Button)scene3.lookup("#edit");
+       	assertTrue(button2.isVisible());
+          	
+          }
+    
+    @Test
+    void more_info_test(FxRobot robot) {
+    	robot.clickOn("#button");
+      	Button button2 =(Button)scene2.lookup("#info");
+       	assertTrue(button2.isVisible());
+          	
+          }
+
 }
