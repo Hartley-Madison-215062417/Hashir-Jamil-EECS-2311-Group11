@@ -12,6 +12,8 @@ Requirements Document: https://docs.google.com/document/d/1pVPcSlWZSVxPaG2V9xS1X
 
 Testing Document: https://docs.google.com/document/d/1ZVb7k4VUYleGTj-IFbwS8Edt0hZY7AQqKSz6mK6-SpE/edit?usp=sharing
 
+Design Document: https://docs.google.com/document/d/1MUhcK4RA3zX-ddxMZMvHAxJ5DksNsFhmpSmXo0kfpl0/edit?usp=sharing
+
 
 Quick Setup:
 
@@ -33,5 +35,5 @@ Quick Setup:
 
 [prototypeGuitarTab.txt](https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11/files/6073463/prototypeGuitarTab.txt)
 
-
+[Design Document](https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11/files/6308068/Design_Document_1.pdf)
 
