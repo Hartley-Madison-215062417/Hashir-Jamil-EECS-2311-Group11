@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name ="note")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"chord","grace","pitch","duration","voice","type","notations",})
+@XmlType(propOrder= {"chord","grace","pitch","duration","voice","type","notations"})
 
 public class Note {
 	
@@ -32,6 +32,11 @@ public class Note {
 	@XmlElement
 	Chord chord;
 	
+
+	@XmlElement
+	Grace grace;
+	
+	
 	public Chord getChord() {
 		return chord;
 	}
@@ -39,20 +44,16 @@ public class Note {
 	public void setChord(Chord chord) {
 		this.chord = chord;
 	}
-
-	@XmlElement
-	Grace grace;
 	
 	public Note() {
 		super();
 		this.type = "eighth";
 	}
 	
-	public Note(Pitch pitch, int duration, int voice, String type, Notations notations) {
+	public Note(Pitch pitch, int duration,String type, Notations notations) {
 		super();
 		this.pitch = pitch;
 		this.duration = duration;
-		//this.voice = voice;
 		this.type = type;
 		this.notations = notations;
 	}

@@ -1,20 +1,4 @@
 package guitar;
-//
-//public class Notation {
-//	private Technical technical;
-//	
-//	public Notation(int stringNum, int fretNum) {
-//		this.technical = new Technical(stringNum, fretNum);
-//	}
-//	
-//	public Technical getTechnical() {
-//		return this.technical;
-//	}
-//
-//	
-//	
-//}	
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -38,6 +22,13 @@ public class Notations {
 
 	public Notations() {
 		super();
+	}
+
+	public Notations(Technical technical, Slur slur, Slide slide) {
+		super();
+		this.technical = technical;
+		this.slur = slur;
+		this.slide = slide;
 	}
 
 	public Notations(Technical technical) {

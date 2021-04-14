@@ -14,9 +14,9 @@ public class scorePartwise {
 	
 	@XmlElement(name = "part-list")
 	partList partlist = new partList();
-	
-	@XmlElement(name = "work")
-	Work work = new Work();
+//	
+//	@XmlElement(name = "work")
+//	Work work = new Work();
 	
 	@XmlElement(name ="part",type = Part.class)
 	ArrayList<Part> parts = new ArrayList<Part>();
@@ -45,13 +45,13 @@ public class scorePartwise {
 	public double getVersion() {
 		return version;
 	}
-	public void setWork(Work work) {
-		this.work = work;
-	}
-
-	public Work getWork() {
-		return work;
-	}
+//	public void setWork(Work work) {
+//		this.work = work;
+//	}
+//
+//	public Work getWork() {
+//		return work;
+//	}
 	
 	
 

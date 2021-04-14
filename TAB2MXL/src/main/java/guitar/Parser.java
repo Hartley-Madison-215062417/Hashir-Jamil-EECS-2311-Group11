@@ -21,7 +21,7 @@ public class Parser {
 	
 	
 	/*
-	 * Defualt contructor 
+	 * Default constructor that sets all the instance variables to null or default values 
 	 */
 	public Parser() {
 		tabList = null;
@@ -56,7 +56,7 @@ public class Parser {
 	
 	
 	/**
-	 * 
+	 *  Reads the input file given to the application and adds it line by line into tabList
 	 */
 	private void readFile() {
 
@@ -1106,114 +1106,125 @@ public class Parser {
 	 */
 	public Measure createMeasure(char[][] firstMeasure) {
 		
-		
 		//the first measure does not include the vertical bars
 		Measure m = new Measure();
 		m.setNumber(Measure.measureNumber);
-		
-		if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') {
-			m.getBarline1().setRepeat(new Repeat());
-			m.getBarline1().getRepeat().setDirection("forward");
-		}
-		
-		
-/*	
-		if(Measure.measureNumber == 3) {
-		System.out.println("TESTING");
-		
-		for(int i = 0; i < firstMeasure.length; i++) {
-			for(int j =0; j < firstMeasure[0].length; j++) {
-				if(firstMeasure[i][j] == ' ') {
-					System.out.print('a');
-				}
-				
-				System.out.print(firstMeasure[i][j]+ " ");
-			}
-			System.out.println();
-		}
-		
-		System.out.println(firstMeasure[2][18]);
-		System.out.println("TESTING");
-		}
-	*/
-		
-		System.out.println("here?");
-		for(int i = 0; i < firstMeasure.length; i++) {
-			for(int j =0; j < firstMeasure[0].length; j++) {
-				if (i == 0 && firstMeasure[i+1][j] == '|') {
-					System.out.println("Hello");
-					m.getBarline2().setRepeat(new Repeat());
-					m.getBarline2().getRepeat().setDirection("backward");
-				}
-			}
-		}
-		
-		
-		
-		
-
-
-			Key k = new Key(0);
-			Time t = new Time(4, 4);
-			Clef c = new Clef("TAB", 5);
-			StaffDetails sd = new StaffDetails();
-			m.attributes = new Attributes();
-			m.attributes.setKey(k);
-			m.attributes.setTime(t);
-			m.attributes.setClef(c);
-			m.attributes.setSd(sd);
-									
-
-		
 		Measure.measureNumber++;
 		
-		
+		//checking for beginning of repeat
+				if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') { //if the '*' symbol is encountered in the 2nd or 3rd line of first column
+					m.setBarline1(new Barline());
+					m.getBarline1().setRepeat(new Repeat());
+					m.getBarline1().getRepeat().setDirection("forward");
+					//setting the formatting
+					m.setDirection(new Direction());
+					m.getDirection().getDirectionType().getWords().setRelativeX("256.27");
+					m.getDirection().getDirectionType().getWords().setRelativeY("16.01");
+					m.getDirection().getDirectionType().getWords().setContent("repeat 4 times");
+				}
+				
+		//checking for end of repeat
+				for(int i = 0; i < firstMeasure.length; i++) {
+					for(int j =0; j < firstMeasure[0].length; j++) {
+						if (i == 0 && firstMeasure[i+1][j] == '|') { //if the there is '|' in the 2nd column of first row 
+							//repeatEndExist = true;
+							m.setBarline2(new Barline());
+							m.getBarline2().setRepeat(new Repeat());
+							m.getBarline2().getRepeat().setDirection("backward");
+							
+						}
+					}
+				}
+						
+		Key k = new Key(0);
+		Time t = new Time(4, 4);
+		Clef c = new Clef("TAB", 5);
+		StaffDetails sd = new StaffDetails();
+		m.attributes = new Attributes();
+		m.attributes.setKey(k);
+		m.attributes.setTime(t);
+		m.attributes.setClef(c);
+		m.attributes.setSd(sd);
+		m.attributes.setDivisions(calculateDivision(t.getBeats(), firstMeasure[0].length));						
 		
 		for (int j = 0; j < firstMeasure[0].length; j++) 
 			for (int i = 0; i < firstMeasure.length; i++) {
-				Note n = new Note();
 				
 				if(firstMeasure[i][j] >= '0' && firstMeasure[i][j] <= '9' ) {
 					
-					
-					
-				if ((firstMeasure[i][j-1] >= '0' &&  firstMeasure[i][j-1] <= '9') == false) { //if double digit
-						//setting fret
+					if ((firstMeasure[i][j-1] >= '0' &&  firstMeasure[i][j-1] <= '9') == false) { 
+						Note n = new Note();
+						
+						
+						/*Handle Double Digit Frets*/
 						if(firstMeasure[i][j+1] >= '0' && firstMeasure[i][j+1] <= '9' ) {
+							
 							StringBuilder num = new StringBuilder();
 							num.append(firstMeasure[i][j]);
 							num.append(firstMeasure[i][j+1]);
 							int fret = Integer.parseInt(num.toString());
-							n.getNotations().getTechnical().setFret(fret);							
+							n.getNotations().getTechnical().setFret(fret);	
+							
+							if(((i - 1) > -1) && (i + 1) < 6) {
+								System.out.println("Checking conditions to include a chord");
+								if(Character.isDigit(firstMeasure[i-1][j + 1]) || Character.isDigit(firstMeasure[i+1][j + 1])) {
+									System.out.println("Note is middle string is part of a chord");
+									n.setChord(new Chord());
+									//chordExist = true;
+								}
+								
+							}else if((i - 1) == -1 && Character.isDigit(firstMeasure[i+1][j + 1])) {
+								System.out.println("Note in first string is part of a chord");
+								n.setChord(new Chord());
+								//chordExist = true;
+							}else if((i+1) >= firstMeasure.length && Character.isDigit(firstMeasure[i-1][j + 1])) {
+								System.out.println("Note in last string is part of a chord");
+								n.setChord(new Chord());
+								//chordExist = true;
+							}
 						
-						if(firstMeasure[i][j+2] =='h' || firstMeasure[i][j-1] =='h') {
+							if(firstMeasure[i][j+2] =='h' || firstMeasure[i][j-1] =='h') {
 							if(firstMeasure[i][j-1] =='g') {
 								Grace g = new Grace();
 								n.setGrace(g);
 							}
 							createHammerOns(firstMeasure,i,j+1,n);
 		
-						}
-						else if(firstMeasure[i][j+2] =='p' || firstMeasure[i][j-1] =='p') {
+							}
+							else if(firstMeasure[i][j+2] =='p' || firstMeasure[i][j-1] =='p') {
 							if(firstMeasure[i][j-1] =='g') {
 								Grace g = new Grace();
 								n.setGrace(g);
 							}
 							createPullOffs(firstMeasure, i,j+1,n);
-						}
+							}
 						
-						else if (firstMeasure[i][j+2] =='/' || firstMeasure[i][j-1] =='/') {
+							else if (firstMeasure[i][j+2] =='/' || firstMeasure[i][j-1] =='/') {
 							if(firstMeasure[i][j-1] =='g') {
 								Grace g = new Grace();
 								n.setGrace(g);
 							}
 							createSlides(firstMeasure,i,j+1,n);
-						}
+							}
 						}
 
 						
 						else {				
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
+							
+							if(((i - 1) > -1) && (i + 1) < 6)
+								if(Character.isDigit(firstMeasure[i-1][j]) || Character.isDigit(firstMeasure[i+1][j])) {
+									n.setChord(new Chord());
+									//chordExist = true;
+								}else if((i - 1) == -1 && Character.isDigit(firstMeasure[i+1][j])) {
+									n.setChord(new Chord());
+									//chordExist = true;
+								}
+								if((i+1) >= firstMeasure.length && Character.isDigit(firstMeasure[i-1][j])) {
+									//System.out.println("last string note");
+									n.setChord(new Chord());
+									//chordExist = true;
+								}
 							
 							if(firstMeasure[i][j+1] =='h' || firstMeasure[i][j-1] =='h') {
 								if(firstMeasure[i][j-1] =='g') {
@@ -1246,12 +1257,6 @@ public class Parser {
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
 						
-						//setting wrong duration
-//						int duration = 0;
-//						for(int k = j; k < firstMeasure[0].length; k++) {
-//							duration++;
-//							n.setDuration(duration);
-//						}
 						n.setDuration(firstMeasure[0].length - j);
 						//System.out.println(firstMeasure[0].length);
 						
@@ -1259,11 +1264,13 @@ public class Parser {
 						
 						if(n.getNotations().getTechnical().getFret()!=0) {
 						n.updatePitch(n);
+						
+						m.getNotes().add(n);
 						}
 						
 						
 					}
-				m.getNotes().add(n);	
+					
 						
 				}
 				
@@ -1271,14 +1278,7 @@ public class Parser {
 				
 			}
 		m.updateDuration(m);
-		
-		//testing
-//		for (Note n: m.getNotes()) {
-//		System.out.print(n.getNotations().getTechnical().getFret());
-//		System.out.print(" " +n.getNotations().getTechnical().getString());
-//		System.out.println(" "+n.getDuration());
-//		}
-		//System.out.println("end");
+
 		return m;
 		
 		}
@@ -1415,40 +1415,13 @@ private void createHammerOns(char[][] firstMeasure, int i, int j,Note n) {
 	}
 
 
-private void calculateHnum(char[][] firstMeasure, int j) {
-	for (int i=0;i<6;i++){
-	if (firstMeasure[i][j] == 'h') {
-		
-		//cannot finish this without chords
-		
-	}
-	}
-	
-		
+	public int calculateDivision(int beats, int lengthMeasure) {
+		int division = 0; 
+		//int lengthMeasure = firstMeasure[0].length;
+		division = (lengthMeasure - 1)/beats; 
+		return division; // division is the duration of the beat in time signature 
 	}
 
-
-//	public ArrayList<Integer> createChordArray(List<Note> notes){
-//		ArrayList<Integer> chordArray = new ArrayList<>();
-//		for(int i =0; i<notes.size();i++) {
-//			Note n = notes.get(i);
-//			int current =n.getDuration();
-//			int next = notes.get(i+1).getDuration();
-//			
-//			if(current == next){
-//				chordArray.add(i);
-//				
-//			}
-//			
-//			
-//			
-//		}
-//		return chordArray;
-//		
-//	}
-	
-	
-	
 	public Part createMusicalPart(ArrayList<char[][]> measures) {
 		
 		for (char[][] measure : measures) {

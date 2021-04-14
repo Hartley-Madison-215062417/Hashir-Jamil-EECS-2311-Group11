@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "measure")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"barline1","number", "attributes","notes","barline2", "direction"})
+@XmlType(propOrder= {"barline1", "direction", "number", "attributes", "notes", "barline2"})
 public class Measure {
 	
 	@XmlAttribute

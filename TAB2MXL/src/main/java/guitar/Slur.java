@@ -17,9 +17,7 @@ public class Slur {
 	String type;
 	
 	@XmlAttribute
-	String placement ="above";
-	
-	
+	final String placement ="above";
 
 	public Slur(int num, String type) {
 		super();
@@ -54,12 +52,6 @@ public class Slur {
 	public String getPlacement() {
 		return placement;
 	}
-
-	public void setPlacement(String placement) {
-		this.placement = placement;
-	}
-
-	
 	
 
 }
