@@ -17,7 +17,7 @@ public class Direction {
 	String placement;
 	
 	@XmlElement
-	DirectionType directionType;
+	DirectionType directionType = new DirectionType();
 
 	public String getPlacement() {
 		return placement;
