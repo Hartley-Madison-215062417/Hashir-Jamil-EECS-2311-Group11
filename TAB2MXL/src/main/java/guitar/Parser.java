@@ -1208,8 +1208,9 @@ public class Parser {
 							}
 						}
 
-						
+						/*Handle Single Digit Frets*/
 						else {				
+							System.out.println("Single digit fret encountered");
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
 							
 							if(((i - 1) > -1) && (i + 1) < 6)
@@ -1254,6 +1255,7 @@ public class Parser {
 						
 						
 						}
+						System.out.println("string has been set");
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
 						
@@ -1262,19 +1264,17 @@ public class Parser {
 						
 						n.setDefaultStep(n);
 						
-						if(n.getNotations().getTechnical().getFret()!=0) {
+						if(n.getNotations().getTechnical().getFret()!=0) 
 						n.updatePitch(n);
 						
+						System.out.println("adding note");
 						m.getNotes().add(n);
-						}
 						
 						
 					}
 					
 						
 				}
-				
-			
 				
 			}
 		m.updateDuration(m);

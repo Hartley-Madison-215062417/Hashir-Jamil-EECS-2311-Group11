@@ -180,7 +180,7 @@ public class Note {
 //				System.out.println("The value of i is:" + i);
 				
 				if(i == allStep.length) {
-					System.out.println("again");
+					//System.out.println("again");
 					i = 0;
 					relevantData[k] = allStep[0];
 					k++;
