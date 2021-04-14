@@ -1255,6 +1255,10 @@ public class Parser {
 						
 						
 						}
+						
+						if(firstMeasure[i][j-1] == '[')
+							n.getNotations().getTechnical().setHarmonic(new Harmonic());
+						
 						System.out.println("string has been set");
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
@@ -1265,9 +1269,13 @@ public class Parser {
 						n.setDefaultStep(n);
 						
 						if(n.getNotations().getTechnical().getFret()!=0) 
-						n.updatePitch(n);
+							n.updatePitch(n);
+						
+						Map<String, Integer> typeTable= typeTable(m.attributes);
+						Note.updateType(n, typeTable);
 						
 						System.out.println("adding note");
+						
 						m.getNotes().add(n);
 						
 						
