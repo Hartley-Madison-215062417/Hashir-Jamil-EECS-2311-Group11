@@ -1,6 +1,8 @@
 package guitar;
 
 
+import java.util.Map;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -233,6 +235,18 @@ public class Note {
 			
 			return n;
 			
+		}
+		
+		public static void updateType(Note n, Map<String, Integer> typeTable) {
+			System.out.println("updating type");
+			System.out.println("step: " + n.getPitch().getStep());
+			System.out.println("octave: " + n.getPitch().getOctave());
+			for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
+				if(n.getDuration() == entry.getValue()) {
+					System.out.println("The type is: " + entry.getKey());
+					n.setType(entry.getKey());
+				}
+			}
 		}
 		
 	
