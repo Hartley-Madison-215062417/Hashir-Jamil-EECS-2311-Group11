@@ -14,9 +14,9 @@ public class scorePartwise {
 	
 	@XmlElement(name = "part-list")
 	partList partlist = new partList();
-//	
-//	@XmlElement(name = "work")
-//	Work work = new Work();
+	
+	@XmlElement(name = "work")
+	Work work = new Work();
 	
 	@XmlElement(name ="part",type = Part.class)
 	ArrayList<Part> parts = new ArrayList<Part>();
