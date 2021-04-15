@@ -6,11 +6,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.sun.xml.txw2.annotation.XmlAttribute;
+
 
 @XmlRootElement(name = "score-part")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"partName","id", "instrumentName"})
+@XmlType(propOrder = {"partName","id", "scoreInst"})
 
 
 public class scorePart {
@@ -23,7 +23,7 @@ public class scorePart {
 	String id = "P1";
 	
 	@XmlElement(name = "score-instrument")
-	ScoreInstrument instrumentName;
+	ScoreInstrument scoreInst = new ScoreInstrument();
 	
 	
 	public scorePart() {
@@ -33,16 +33,18 @@ public class scorePart {
 	public scorePart(ScoreInstrument instrumentName) {
 		super();
 		this.id = "P1";
-		this.instrumentName = instrumentName;
+		ScoreInstrument I1 = new ScoreInstrument();
+		I1.setId("P1-I36");
+		I1.setInstrumentName("Snare");
 	}
 	
 	
 	public ScoreInstrument getInstrumentName() {
-		return instrumentName;
+		return scoreInst;
 	}
 
 	public void setInstrumentName(ScoreInstrument instrumentName) {
-		this.instrumentName = instrumentName;
+		this.scoreInst = instrumentName;
 	}
 
 	public String getPartName() {
