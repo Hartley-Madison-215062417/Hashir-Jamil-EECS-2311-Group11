@@ -220,7 +220,7 @@ public class Measure {
 		
 	}
 	
-	public Map<String, Integer> typeTable(Attributes a) {
+	public static Map<String, Integer> typeTable(Attributes a) {
 		Map<String, Integer> typeTable= new HashMap<String, Integer>(); // the type of note, the duration
 		Map<Integer, String> noteType = new HashMap<Integer, String>(); // the number corresponding to note type, name of type of note 
 		
@@ -235,7 +235,8 @@ public class Measure {
 		int durWhole = 0;
 		
 		for(Map.Entry<Integer, String> entry : noteType.entrySet()) {
-			if(a.getTime().beats == entry.getKey()) { //find the name of the note from the number 
+			if(a.getTime().beatType == entry.getKey()) { //find the name of the note from the number 
+				System.out.println("inside if");
 				beatType = entry.getValue();
 				divisions = a.divisions;
 			}
