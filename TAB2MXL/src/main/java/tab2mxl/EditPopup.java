@@ -47,8 +47,8 @@ public class EditPopup{
 	static String choice="";
 	static Scene scene2;
 	static int number = 0;
-	static int beats = 4;
-	static int beatType = 4;
+	public static int beats = 4;
+	public static int beatType = 4;
 	
 	public static void display()
 	{
@@ -184,8 +184,8 @@ public class EditPopup{
 											else {
 											char numerator = input_text.charAt(0);
 											char denom = input_text.charAt(2);
-											beats = numerator;
-											beatType = denom;
+											beats = Character.getNumericValue(numerator);
+											beatType = Character.getNumericValue(denom);
 											
 											String measure_choice = measure.getText();
 									
