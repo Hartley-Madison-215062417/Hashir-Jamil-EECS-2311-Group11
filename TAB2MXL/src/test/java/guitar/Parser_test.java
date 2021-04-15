@@ -79,5 +79,115 @@ public class Parser_test {
 		assertEquals(expected, actual);
 		
 	}
+	
+	@Test
+	void testExpectedTypeDuration3() {
+		//let the total no of dashes in a measure be 96
+		Attributes a = new Attributes();
+		Time t = new Time(2, 2);
+		a.setTime(t);
+		a.setDivisions(48);
+
+		Map<String, Integer> actual = new HashMap<String, Integer>();
+		actual = Measure.typeTable(a);
+		
+		Map<String, Integer> expected = new HashMap<String, Integer>(){{
+			put("whole", 96);
+			put("half", 48);
+			put("quarter", 24);
+			put("eighth", 12);
+			put("sixteenth", 6);
+			
+		}};
+		
+		System.out.println("expected: ");
+		for(Entry<String, Integer> entry: expected.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+		
+		System.out.println("actual");
+		for(Entry<String, Integer> entry: actual.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+		
+		assertEquals(expected, actual);
+		
+	}
+	
+	
+	@Test
+	void testExpectedTypeDuration4() {
+		//let the total no of dashes in a measure be 96
+		Attributes a = new Attributes();
+		Time t = new Time(6, 16);
+		a.setTime(t);
+		a.setDivisions(3);
+
+		Map<String, Integer> actual = new HashMap<String, Integer>();
+		actual = Measure.typeTable(a);
+		
+		Map<String, Integer> expected = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
+			
+		}};
+		
+		System.out.println("expected: ");
+		for(Entry<String, Integer> entry: expected.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+		
+		System.out.println("actual");
+		for(Entry<String, Integer> entry: actual.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+		
+		assertEquals(expected, actual);
+		
+	}
+	
+	@Test
+	void testExpectedTypeDuration5() {
+		//let the total no of dashes in a measure be 96
+		Attributes a = new Attributes();
+		Time t = new Time(6, 16);
+		a.setTime(t);
+		a.setDivisions(3);
+
+		Map<String, Integer> actual = new HashMap<String, Integer>();
+		actual = Measure.typeTable(a);
+		
+		Map<String, Integer> expected = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
+			
+		}};
+		
+		System.out.println("expected: ");
+		for(Entry<String, Integer> entry: expected.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+		
+		System.out.println("actual");
+		for(Entry<String, Integer> entry: actual.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+		
+		assertEquals(expected, actual);
+		
+	}
+	
+	//time signature with 1 as denom not written cause such time signatures are 
+	//uncommon
+	
+	/*Testing guitar.Note.updateType()*/
+	
+	
 
 }
