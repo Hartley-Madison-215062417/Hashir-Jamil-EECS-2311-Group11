@@ -2,17 +2,20 @@ package drums;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "score-instrument")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"instrumentName", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15", "d16", "d17", "d18", "d19", "d20", "d21", "d22", "d23", "d24"})
+@XmlType(propOrder = {"instrumentName", "id", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15", "d16", "d17", "d18", "d19", "d20", "d21", "d22", "d23", "d24"})
 
 
 public class ScoreInstrument {
 	
+	@XmlAttribute
+	String id;
 	
 	@XmlElement(name = "score-instrument")
 	String instrumentName;
@@ -92,6 +95,8 @@ public class ScoreInstrument {
 	
 	
 	public ScoreInstrument() {
+		
+		
 		
 		d1 = new InstrumentName("Bass Drum 1", "P1-I36");
 		d2 = new InstrumentName("Bass Drum 2", "P1-I37");
