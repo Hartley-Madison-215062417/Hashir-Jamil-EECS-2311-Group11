@@ -14,7 +14,7 @@ public class Parser_test {
 	 *the duration of the note. 
 	 */
 	@Test
-	void testExpectedTypeDuration() {
+	void testExpectedTypeDuration1() {
 		Attributes a = new Attributes();
 		Time t = new Time(4, 4);
 		a.setTime(t);
@@ -29,6 +29,40 @@ public class Parser_test {
 			put("quarter", 4);
 			put("eighth", 2);
 			put("sixteenth", 1);
+			
+		}};
+		
+//		System.out.println("expected: ");
+//		for(Entry<String, Integer> entry: expected.entrySet()) {
+//			System.out.println(entry.getKey() + ":" + entry.getValue());
+//		}
+//		
+//		System.out.println("actual");
+//		for(Entry<String, Integer> entry: actual.entrySet()) {
+//			System.out.println(entry.getKey() + ":" + entry.getValue());
+//		}
+		
+		assertEquals(expected, actual);
+		
+	}
+	
+	@Test
+	void testExpectedTypeDuration2() {
+		//let the total no of dashes in a measure be 36
+		Attributes a = new Attributes();
+		Time t = new Time(6, 8);
+		a.setTime(t);
+		a.setDivisions(6);
+
+		Map<String, Integer> actual = new HashMap<String, Integer>();
+		actual = Measure.typeTable(a);
+		
+		Map<String, Integer> expected = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
 			
 		}};
 		
