@@ -630,6 +630,7 @@ public class Parser {
 						mesDur++;
 					}
 				}
+
 				
 				if(bounds == true) {
 					
@@ -649,6 +650,11 @@ public class Parser {
 						 */
 						
 					
+							if(mesDurNeeded == true) {
+								for(int g = 1;input[inputRow][inputCol+g] != '|';g++) {
+									mesDur++;
+								}
+							}
 					
 						newRow = inputRow;
 				
