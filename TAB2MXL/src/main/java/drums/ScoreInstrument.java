@@ -96,6 +96,8 @@ public class ScoreInstrument {
 	
 	public ScoreInstrument() {
 		
+		
+		
 //		d1 = new InstrumentName("Bass Drum 1", "P1-I36");
 //		d2 = new InstrumentName("Bass Drum 2", "P1-I37");
 //		d3 = new InstrumentName("Side Stick", "P1-I38");
