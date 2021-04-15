@@ -14,7 +14,7 @@ public class PartList {
 	
 	
 	@XmlElement(name ="score-part")
-scorePart scorepart = new scorePart();
+	scorePart scorepart = new scorePart();
 
 	public scorePart getScorepart() {
 		return scorepart;

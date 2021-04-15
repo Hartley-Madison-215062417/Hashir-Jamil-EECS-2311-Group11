@@ -22,6 +22,7 @@ public class InstrumentName {
 	public InstrumentName(String instrumentName) {
 		super();
 		this.instrumentName = instrumentName;
+
 	}
 	
 	
