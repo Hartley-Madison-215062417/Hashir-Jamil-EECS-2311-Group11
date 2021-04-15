@@ -408,12 +408,9 @@ public class ScoreInstrument {
 		return d23;
 	}
 
-
-
 	public void setD23(InstrumentName d23) {
 		this.d23 = d23;
 	}
-
 
 
 	public InstrumentName getD24() {
