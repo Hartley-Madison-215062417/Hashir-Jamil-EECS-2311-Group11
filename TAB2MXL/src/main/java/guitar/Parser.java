@@ -690,8 +690,10 @@ public class Parser {
 								else if(chk == false) {
 									contLoop = -1;
 								}
-								newMeasure = new char[6][mesDur];
+								newMeasure = new char[rowCount][mesDur];
 							}
+							mesDur = 0;
+							mesDurNeeded = true;
 						}
 						
 						r++;
