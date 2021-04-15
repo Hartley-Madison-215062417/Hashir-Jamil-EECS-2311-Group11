@@ -235,7 +235,7 @@ public class Measure {
 		int durWhole = 0;
 		
 		for(Map.Entry<Integer, String> entry : noteType.entrySet()) {
-			if(a.getTime().beatType == entry.getKey()) { //find the name of the note from the number 
+			if(a.getTime().beatType	== entry.getKey()) { //find the name of the note from the number 
 				System.out.println("inside if");
 				beatType = entry.getValue();
 				divisions = a.divisions;
