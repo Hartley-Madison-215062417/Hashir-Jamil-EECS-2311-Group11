@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "technical")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"hnew","h","pnew","p","string","fret"})
+@XmlType(propOrder= {"hnew","h","pnew","p","string","fret","harmonic"})
 public class Technical {
 	
 	@XmlElement
@@ -29,6 +29,9 @@ public class Technical {
 	@XmlElement(name = "pull-off")
 	pullOff pnew;
 	
+
+	@XmlElement(name = "harmonic")
+	Harmonic harmonic;
 
 	public Technical() {
 		super();
@@ -83,6 +86,14 @@ public class Technical {
 
 	public void setPnew(pullOff pnew) {
 		this.pnew = pnew;
+	}
+	
+	public Harmonic getHarmonic() {
+		return harmonic;
+	}
+
+	public void setHarmonic(Harmonic harmonic) {
+		this.harmonic = harmonic;
 	}
 }
 

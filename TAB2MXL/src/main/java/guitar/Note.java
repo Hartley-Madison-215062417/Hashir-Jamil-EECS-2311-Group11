@@ -1,6 +1,8 @@
 package guitar;
 
 
+import java.util.Map;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -9,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name ="note")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"chord","grace","pitch","duration","voice","type","notations",})
+@XmlType(propOrder= {"chord","grace","pitch","duration","voice","type","notations"})
 
 public class Note {
 	
@@ -23,7 +25,7 @@ public class Note {
 	final int voice = 1;
 	
 	@XmlElement
-	String type = "eighth";
+	String type;
 	
 	@XmlElement
 	Notations notations = new Notations();
@@ -32,6 +34,11 @@ public class Note {
 	@XmlElement
 	Chord chord;
 	
+
+	@XmlElement
+	Grace grace;
+	
+	
 	public Chord getChord() {
 		return chord;
 	}
@@ -39,20 +46,16 @@ public class Note {
 	public void setChord(Chord chord) {
 		this.chord = chord;
 	}
-
-	@XmlElement
-	Grace grace;
 	
 	public Note() {
 		super();
 		this.type = "eighth";
 	}
 	
-	public Note(Pitch pitch, int duration, int voice, String type, Notations notations) {
+	public Note(Pitch pitch, int duration,String type, Notations notations) {
 		super();
 		this.pitch = pitch;
 		this.duration = duration;
-		//this.voice = voice;
 		this.type = type;
 		this.notations = notations;
 	}
@@ -133,42 +136,6 @@ public class Note {
 		
 	}
 	
-	
-	public void updatePitchnew(Note n) {
-		// define an array of string with relevant data 
-		String[] allStep = {"C","C#","D","D#","E","F","F#","G","G#","A","A#","B"};
-		
-		// get the fret 
-		int fret = n.getNotations().getTechnical().getFret();
-		
-		
-		// get default step
-		String defaultStep = n.getPitch().getStep();
-		int location = 0;
-		
-		for(int i = 0; i < allStep.length; i++) {
-			if(allStep[i].equals(defaultStep)) {
-				location = i + 1;
-				break;
-			}
-		}
-		
-		String[] relevantData= {};
-		int k = 0;
-		
-		for (int i = location; i < allStep.length; i++) {
-			relevantData[k] = allStep[i];
-			if(location == allStep.length) {
-				i = 0;
-			}
-			k++;
-		}
-		
-		
-		
-		
-		
-	}
 		/*
 		 * Updated the pitch of a given note based on fret number
 		 * @para n note whose pitch needs to be updated
@@ -202,23 +169,29 @@ public class Note {
 			String[] relevantData = new String[24];
 			int k = 0;
 			
+
+//			System.out.println("length of allStep" + allStep.length);
+
 			//System.out.println("length of allStep" + allStep.length);
+
 			
 			
 			for (int i = location; i <= allStep.length; i++) {
 				
 				
-				System.out.println("The value of i is:" + i);
+//				System.out.println("The value of i is:" + i);
 				
 				if(i == allStep.length) {
-					System.out.println("again");
+					//System.out.println("again");
 					i = 0;
 					relevantData[k] = allStep[0];
 					k++;
 				}else {
+
 					//System.out.println("The value of i now: " + i);
 					//System.out.println("The value of k now: " + k);
 					//System.out.println("Copying and pasting: " + allStep[i]);
+
 					relevantData[k] = allStep[i];
 					if(k == 23)
 						break;
@@ -262,6 +235,18 @@ public class Note {
 			
 			return n;
 			
+		}
+		
+		public static void updateType(Note n, Map<String, Integer> typeTable) {
+			System.out.println("updating type");
+			System.out.println("step: " + n.getPitch().getStep());
+			System.out.println("octave: " + n.getPitch().getOctave());
+			for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
+				if(n.getDuration() == entry.getValue()) {
+					System.out.println("The type is: " + entry.getKey());
+					n.setType(entry.getKey());
+				}
+			}
 		}
 		
 	

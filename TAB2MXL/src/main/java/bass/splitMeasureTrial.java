@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class splitMeasureTrial {
 public static void main(String[] args) {
 		
-		Parser p = new Parser("prototypeBass.txt");
+		Parser p = new Parser("prototypeGuitarTab.txt");
 		char[][] parsed = p.getTabCharMatrix();
 		
 		int width = parsed[0].length; //gets the length of the entire first row

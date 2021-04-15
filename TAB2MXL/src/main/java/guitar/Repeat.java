@@ -28,5 +28,10 @@ public class Repeat {
 		this.direction = direction;
 	}
 	
+	public Repeat(String direction) {
+		super();
+		this.direction = direction;
+	}
+	
 
 }

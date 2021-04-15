@@ -49,6 +49,14 @@ public class Slide {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+
+	public Slide(String linetype, int number, String type) {
+		super();
+		this.linetype = linetype;
+		this.number = number;
+		this.type = type;
+	}
 	
 	
 			

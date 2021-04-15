@@ -45,13 +45,13 @@ public class scorePartwise {
 	public double getVersion() {
 		return version;
 	}
-	public void setWork(Work work) {
-		this.work = work;
-	}
-
-	public Work getWork() {
-		return work;
-	}
+//	public void setWork(Work work) {
+//		this.work = work;
+//	}
+//
+//	public Work getWork() {
+//		return work;
+//	}
 	
 	
 

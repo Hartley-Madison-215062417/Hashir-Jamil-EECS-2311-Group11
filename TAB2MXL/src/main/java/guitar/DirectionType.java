@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
 public class DirectionType {
 	
 	@XmlElement
-	Words words;
+	Words words = new Words();
 
 	public Words getWords() {
 		return words;
