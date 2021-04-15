@@ -220,7 +220,7 @@ public class Measure {
 		
 	}
 	
-	public Map<String, Integer> typeTable(Attributes a) {
+	public static Map<String, Integer> typeTable(Attributes a) {
 		Map<String, Integer> typeTable= new HashMap<String, Integer>(); // the type of note, the duration
 		Map<Integer, String> noteType = new HashMap<Integer, String>(); // the number corresponding to note type, name of type of note 
 		
