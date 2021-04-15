@@ -1140,7 +1140,7 @@ public class Parser {
 						
 		Key k = new Key(0);
 		Time t = new Time(EditPopup.beats, EditPopup.beatType);
-		System.out.println("beats: " + t.getBeats() + "beatType:" + t.getBeatType());
+		//System.out.println("beats: " + t.getBeats() + "beatType:" + t.getBeatType());
 		Clef c = new Clef("TAB", 5);
 		StaffDetails sd = new StaffDetails();
 		m.attributes = new Attributes();
