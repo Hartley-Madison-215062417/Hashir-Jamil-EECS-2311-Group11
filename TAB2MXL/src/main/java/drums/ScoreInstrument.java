@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "score-instrument")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"instrumentName", "id", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15", "d16", "d17", "d18", "d19", "d20", "d21", "d22", "d23", "d24"})
+@XmlType(propOrder = {"id", "instrumentName", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15", "d16", "d17", "d18", "d19", "d20", "d21", "d22", "d23", "d24"})
 
 
 public class ScoreInstrument {
@@ -96,32 +96,32 @@ public class ScoreInstrument {
 	
 	public ScoreInstrument() {
 		
+		id = "P1";
 		
-		
-		d1 = new InstrumentName("Bass Drum 1", "P1-I36");
-		d2 = new InstrumentName("Bass Drum 2", "P1-I37");
-		d3 = new InstrumentName("Side Stick", "P1-I38");
-		d4 = new InstrumentName("Snare","P1-I39");
-		d5 = new InstrumentName("Low Floor Tom", "P1-I42");
-		d6 = new InstrumentName("Closed Hi-Hat", "P1-I43");
-		d7 = new InstrumentName("High Floor Tom", "P1-I44");
-		d8 = new InstrumentName("Pedal Hi-Hat", "P1-I45");
-		d9 = new InstrumentName("Low Tom", "P1-I46");
-		d10 = new InstrumentName("Open Hi-Hat", "P1-I47");
-		d11 = new InstrumentName("Low-Mid Tom", "P1-I48");
-		d12 = new InstrumentName("Hi-Mid Tom", "P1-I49");
-		d13 = new InstrumentName("Crash Symbol 1", "P1-I50");
-		d14 = new InstrumentName("High Tom","P1-I51");
-		d15 = new InstrumentName("Ride Cymbal 2", "P1-I52");
-		d16 = new InstrumentName("Chinese Cymbal", "P1-I53");
-		d17 = new InstrumentName("Ride Bell", "P1-I54");
-		d18 = new InstrumentName("Tambourine", "P1-I55");
-		d19 = new InstrumentName("Splash Cymbal","P1-I56");
-		d20 = new InstrumentName("Cowbell","P1-I57");
-		d21 = new InstrumentName("Crash Cymbal 2","P1-I58");
-		d22 = new InstrumentName("Ride Cymbal 2", "P1-I60");
-		d23 = new InstrumentName("Open Hi Conga","P1-I64");
-		d24 = new InstrumentName("Low Conga","P1-I65");
+//		d1 = new InstrumentName("Bass Drum 1", "P1-I36");
+//		d2 = new InstrumentName("Bass Drum 2", "P1-I37");
+//		d3 = new InstrumentName("Side Stick", "P1-I38");
+//		d4 = new InstrumentName("Snare","P1-I39");
+//		d5 = new InstrumentName("Low Floor Tom", "P1-I42");
+//		d6 = new InstrumentName("Closed Hi-Hat", "P1-I43");
+//		d7 = new InstrumentName("High Floor Tom", "P1-I44");
+//		d8 = new InstrumentName("Pedal Hi-Hat", "P1-I45");
+//		d9 = new InstrumentName("Low Tom", "P1-I46");
+//		d10 = new InstrumentName("Open Hi-Hat", "P1-I47");
+//		d11 = new InstrumentName("Low-Mid Tom", "P1-I48");
+//		d12 = new InstrumentName("Hi-Mid Tom", "P1-I49");
+//		d13 = new InstrumentName("Crash Symbol 1", "P1-I50");
+//		d14 = new InstrumentName("High Tom","P1-I51");
+//		d15 = new InstrumentName("Ride Cymbal 2", "P1-I52");
+//		d16 = new InstrumentName("Chinese Cymbal", "P1-I53");
+//		d17 = new InstrumentName("Ride Bell", "P1-I54");
+//		d18 = new InstrumentName("Tambourine", "P1-I55");
+//		d19 = new InstrumentName("Splash Cymbal","P1-I56");
+//		d20 = new InstrumentName("Cowbell","P1-I57");
+//		d21 = new InstrumentName("Crash Cymbal 2","P1-I58");
+//		d22 = new InstrumentName("Ride Cymbal 2", "P1-I60");
+//		d23 = new InstrumentName("Open Hi Conga","P1-I64");
+//		d24 = new InstrumentName("Low Conga","P1-I65");
 				
 		
 		

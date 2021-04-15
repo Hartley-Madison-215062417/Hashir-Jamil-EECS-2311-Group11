@@ -11,8 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class InstrumentName {
 	
-	@XmlAttribute
-	String id;
+
 
 	@XmlElement(name = "instrument-name")
 	public String instrumentName;
@@ -22,10 +21,10 @@ public class InstrumentName {
 		super();
 	}
 	
-	public InstrumentName(String instrumentName, String id) {
+	public InstrumentName(String instrumentName) {
 		super();
 		this.instrumentName = instrumentName;
-		this.id = id;
+		
 	}
 	
 	
