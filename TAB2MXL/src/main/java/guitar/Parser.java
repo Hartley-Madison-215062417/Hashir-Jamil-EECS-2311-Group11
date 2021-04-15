@@ -468,7 +468,7 @@ public class Parser {
 		int rowCount = 6;
 		int contLoop = 0;
 		int theresTooManyVars = 0;
-		stringTune = new ArrayList<String>();
+		this.stringTune = new ArrayList<String>();
 		boolean mesDurNeeded = false;
 		boolean writeInGuitarTuning = false;
 		
@@ -584,7 +584,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("A");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -610,7 +610,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("B");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -636,7 +636,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("C");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -661,7 +661,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("D");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -687,7 +687,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("E");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -713,7 +713,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("F");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -739,7 +739,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("G");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -764,7 +764,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("a");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -790,7 +790,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("b");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -815,7 +815,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("c");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -841,7 +841,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("d");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -866,7 +866,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("e");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -891,7 +891,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("f");
-						inputCol = inputCol + 2;
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -915,7 +915,7 @@ public class Parser {
 						}
 						else {
 						stringTune.add("g");
-						inputCol = inputCol + 2;
+						//inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1013,7 +1013,7 @@ public class Parser {
 						newCol = colCount + 1;
 						//colCount = newCol;
 						multiMes = true;
-						String whore = "Kai";
+						
 					}
 					else if((colCount+1) < input[inputRow].length){
 						contLoop = -1;
@@ -1063,22 +1063,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("A#");
+							this.stringTune.add("A#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("Ab");
+							this.stringTune.add("Ab");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("A");
-						inputCol = inputCol + 2;
+						this.stringTune.add("A");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1089,22 +1089,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("B#");
+							this.stringTune.add("B#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("Bb");
+							this.stringTune.add("Bb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("B");
-						inputCol = inputCol + 2;
+							this.stringTune.add("B");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1115,22 +1115,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("C#");
+							this.stringTune.add("C#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("Cb");
+							this.stringTune.add("Cb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("C");
-						inputCol = inputCol + 2;
+							this.stringTune.add("C");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1140,22 +1140,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("D#");
+							this.stringTune.add("D#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("Db");
+							this.stringTune.add("Db");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("D");
-						inputCol = inputCol + 2;
+							this.stringTune.add("D");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1166,22 +1166,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("E#");
+							this.stringTune.add("E#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("Eb");
+							this.stringTune.add("Eb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("E");
-						inputCol = inputCol + 2;
+							this.stringTune.add("E");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1192,22 +1192,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("F#");
+							this.stringTune.add("F#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("Fb");
+							this.stringTune.add("Fb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("F");
-						inputCol = inputCol + 2;
+							this.stringTune.add("F");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1218,22 +1218,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("G#");
+							this.stringTune.add("G#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("Gb");
+							this.stringTune.add("Gb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("G");
-						inputCol = inputCol + 2;
+							this.stringTune.add("G");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1243,22 +1243,22 @@ public class Parser {
 					if(input[theRow][theCol] == 'a') {
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("a#");
+							this.stringTune.add("a#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("ab");
+							this.stringTune.add("ab");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("a");
-						inputCol = inputCol + 2;
+							this.stringTune.add("a");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1269,22 +1269,22 @@ public class Parser {
 						
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("b#");
+							this.stringTune.add("b#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("bb");
+							this.stringTune.add("bb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("b");
-						inputCol = inputCol + 2;
+							this.stringTune.add("b");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1294,22 +1294,22 @@ public class Parser {
 					if(input[theRow][theCol] == 'c') {
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("c#");
+							this.stringTune.add("c#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("cb");
+							this.stringTune.add("cb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("c");
-						inputCol = inputCol + 2;
+							this.stringTune.add("c");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1320,22 +1320,22 @@ public class Parser {
 					if(input[theRow][theCol] == 'd') {
 						
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("d#");
+							this.stringTune.add("d#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("db");
+							this.stringTune.add("db");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("d");
-						inputCol = inputCol + 2;
+							this.stringTune.add("d");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1345,22 +1345,22 @@ public class Parser {
 					}
 					if(input[theRow][theCol] == 'e') {
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("e#");
+							this.stringTune.add("e#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("eb");
+							this.stringTune.add("eb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("e");
-						inputCol = inputCol + 2;
+							this.stringTune.add("e");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1370,22 +1370,22 @@ public class Parser {
 					}
 					if(input[theRow][theCol] == 'f') {
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("f#");
+							this.stringTune.add("f#");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("fb");
+							this.stringTune.add("fb");
 							inputCol = inputCol + 2;
 							bounds = true;
 							mesDurNeeded = true;
 							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("f");
-						inputCol = inputCol + 2;
+							this.stringTune.add("f");
+						inputCol = inputCol + 1;
 						bounds = true;
 						mesDurNeeded = true;
 						writeInGuitarTuning = true;
@@ -1394,16 +1394,25 @@ public class Parser {
 					}
 					if(input[theRow][theCol] == 'g') {
 						if(input[theRow][theCol+1] == '#') {
-							stringTune.add("g#");
-
+							this.stringTune.add("g#");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
 						}
 						if(input[theRow][theCol+1] == 'b') {
-							stringTune.add("gb");
-
+							this.stringTune.add("gb");
+							inputCol = inputCol + 2;
+							bounds = true;
+							mesDurNeeded = true;
+							writeInGuitarTuning = true;
 						}
 						else {
-						stringTune.add("g");
-
+							this.stringTune.add("g");
+						inputCol = inputCol + 1;
+						bounds = true;
+						mesDurNeeded = true;
+						writeInGuitarTuning = true;
 						}
 						
 					}
