@@ -10,7 +10,7 @@ import com.sun.xml.txw2.annotation.XmlAttribute;
 
 @XmlRootElement(name = "score-part")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"partName","scoreInstrumentID", "instrumentName"})
+@XmlType(propOrder = {"partName","id", "instrumentName"})
 
 
 public class scorePart {
@@ -19,8 +19,8 @@ public class scorePart {
 	@javax.xml.bind.annotation.XmlElement(name = "part-name")
 	final String partName = "Drumset";
 	
-	@XmlElement
-	String scoreInstrumentID = "P1";
+	@javax.xml.bind.annotation.XmlAttribute
+	String id = "P1";
 	
 	@XmlElement(name = "score-instrument")
 	ScoreInstrument instrumentName;
@@ -32,7 +32,7 @@ public class scorePart {
 	
 	public scorePart(ScoreInstrument instrumentName) {
 		super();
-		this.scoreInstrumentID = "P1";
+		this.id = "P1";
 		this.instrumentName = instrumentName;
 	}
 	
@@ -48,13 +48,15 @@ public class scorePart {
 	public String getPartName() {
 		return partName;
 	}
-	
-	public String getScoreInstrumentID() {
-		return scoreInstrumentID;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
-	public void setScoreInstrumentID(String scoreInstrumentID) {
-		this.scoreInstrumentID = scoreInstrumentID;
-	}
+	
 
 }
