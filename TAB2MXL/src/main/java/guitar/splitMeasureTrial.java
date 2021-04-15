@@ -114,44 +114,6 @@ public static void main(String[] args) {
 		/*
 		 * char array [row][col]
 		 */
-	/*
-	 * THE METHOD STARTS HERE	
-	 */
-		ArrayList<char[][]> tmpArray = new ArrayList<char[][]>();
-		int newRow = 0;
-		int newCol = 0;
-		int counter = 0;
-		int newColEnd = 0;
-
-		
-		for(int i = 0; i < width; i++) {
-			if(parsed[0][i] != '|') {
-			}
-			else {
-				counter++;
-				if(counter == 1) {
-					newCol = i+1;
-				}
-				if(counter > 1) {
-					newColEnd = i;
-					char[][] newMeasure = new char[6][newColEnd];
-					while(newCol < newColEnd) {
-						for(newRow = 0; newRow < 6; newRow++) {
-							newMeasure[newRow][newCol] = parsed[newRow][newCol];
-						}
-						newCol++;
-					}
-					
-					tmpArray.add(newMeasure);
-					
-				}
-			}
-			
-			
-			
-		}
-
-
 	
 
 
@@ -251,34 +213,6 @@ public static void main(String[] args) {
 	 * THE METHOD STARTS HERE	
 	 */
 
-
-		
-		for(int i = 0; i < width; i++) {
-			if(parsed[0][i] != '|') {
-			}
-			else {
-				counter++;
-				if(counter == 1) {
-					newCol = i+1;
-				}
-				if(counter > 1) {
-					newColEnd = i;
-					char[][] newMeasure = new char[6][newColEnd];
-					while(newCol < newColEnd) {
-						for(newRow = 0; newRow < 6; newRow++) {
-							newMeasure[newRow][newCol] = parsed[newRow][newCol];
-						}
-						newCol++;
-					}
-					
-					tmpArray.add(newMeasure);
-					
-				}
-			}
-			
-			
-			
-		}
 
 
 	}
