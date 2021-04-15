@@ -22,29 +22,14 @@ public class ScoreInstrument {
 	
 	public ScoreInstrument() {
 		super();
-		//this.id = "hello";
-		//this.instrumentName = new String("Snare");
-		
-
-		
-
-
-				
-		
-		
-		
 	}
 	
-	
-
 	public ScoreInstrument(String id, String instrumentName) {
 		super();
 		System.out.println("in constructor");
 		this.id = id;
 		this.instrumentName = instrumentName;
 	}
-
-
 
 	public String getId() {
 		return id;
@@ -55,21 +40,13 @@ public class ScoreInstrument {
 		this.id = id;
 	}
 
-
 	public String getInstrumentName() {
 		return instrumentName;
 	}
 
-
 	public void setInstrumentName(String instrumentName) {
 		this.instrumentName = instrumentName;
 	}
-
-
-
-	
-	
-
 
 
 }
