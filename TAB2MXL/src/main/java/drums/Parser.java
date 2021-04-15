@@ -76,7 +76,24 @@ public class Parser {
 	
 	
 	public ArrayList<char[][]> measureSplitter (char[][] input) {
-		char[][] newMeasure = new char[6][input[0].length];
+		
+		int countTheRows = 0;
+		boolean startedReading = false;
+		for(int amntRow = 0; amntRow < input.length; amntRow++) {
+			if(input[amntRow].length == 0) {
+				if(countTheRows > 0) {
+					startedReading = true;
+				}
+				if(startedReading == true) {
+					break;
+				}
+			}
+			else {
+				countTheRows++;
+			}
+		}
+		
+		char[][] newMeasure = new char[countTheRows][input[0].length];
 		
 		ArrayList<char[][]> tmpArray = new ArrayList<char[][]>(); //an array list of all the measures to be returned later
 		int newRow = 0; // no of rows 
@@ -93,7 +110,7 @@ public class Parser {
 		boolean chk = false;
 		int repeatCounter = 0;
 		boolean multiMes = false;
-		int rowCount = 6;
+		int rowCount = countTheRows;
 		int contLoop = 0;
 		int theresTooManyVars = 0;
 		drumType = new ArrayList<String>();
@@ -188,7 +205,7 @@ public class Parser {
 					
 					}
 					if(counter >= 2) {
-						newMeasure = new char[6][mesDur];
+						newMeasure = new char[countTheRows][mesDur];
 					}
 				}
 				else if(input[inputRow][inputCol] == 'C') {
@@ -403,7 +420,7 @@ public class Parser {
 								else if(chk == false) {
 									contLoop = -1;
 								}
-								newMeasure = new char[6][mesDur];
+								newMeasure = new char[countTheRows][mesDur];
 							}
 						}
 						
@@ -422,7 +439,7 @@ public class Parser {
 					}
 					
 					tmpArray.add(newMeasure);
-					int teeeemp = input[inputRow].length;
+					//int teeeemp = input[inputRow].length;
 					
 					chk = ((colCount+1) < input[inputRow].length);
 					if(chk == true) {
@@ -430,7 +447,6 @@ public class Parser {
 						newCol = colCount + 1;
 						//colCount = newCol;
 						multiMes = true;
-						String whore = "Kai";
 					}
 					else if((colCount+1) < input[inputRow].length){
 						contLoop = -1;
@@ -439,10 +455,6 @@ public class Parser {
 						contLoop = -1;
 					}
 
-					
-					
-					
-				
 					
 				} //contLoop checkpoint
 					inputRow = inputRow + 5;

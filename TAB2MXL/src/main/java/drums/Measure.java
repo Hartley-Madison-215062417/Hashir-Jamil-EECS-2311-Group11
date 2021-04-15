@@ -15,9 +15,6 @@ import drums.Attributes;
 import drums.Note;
 
 
-
-
-
 @XmlRootElement(name = "measure")
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder= {"number","attributes","notes","barline"})
