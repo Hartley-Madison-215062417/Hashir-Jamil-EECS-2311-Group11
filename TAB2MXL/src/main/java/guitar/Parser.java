@@ -667,6 +667,8 @@ public class Parser {
 						
 						while(input[inputRow][newCol] != '|') {
 						//newMeasure[newRow][tmpCol] = parsed[newRow][newCol];
+//							System.out.println("r: " + r + " c:" + c);
+//							System.out.println("newRow: " + newRow + " newCol: " + newCol);
 							newMeasure[r][c]=input[newRow][newCol];
 							//System.out.print(parsed[i][newCol]);
 							newCol++;
@@ -1251,6 +1253,11 @@ public class Parser {
 							}
 							createSlides(firstMeasure,i,j+1,n);
 							}
+							
+							if(firstMeasure[i][j-1] == '[' && firstMeasure[i][j+2] == ']')
+								n.getNotations().getTechnical().setHarmonic(new Harmonic());
+							
+							
 						}
 
 						/*Handle Single Digit Frets*/
@@ -1296,13 +1303,13 @@ public class Parser {
 								}
 								createSlides(firstMeasure,i,j,n);
 							}
-					
-						
+							
+							if(firstMeasure[i][j-1] == '[' && firstMeasure[i][j+1] == ']')
+								n.getNotations().getTechnical().setHarmonic(new Harmonic());
 						
 						}
 						
-						if(firstMeasure[i][j-1] == '[')
-							n.getNotations().getTechnical().setHarmonic(new Harmonic());
+						
 						
 						System.out.println("string has been set");
 						//setting string
