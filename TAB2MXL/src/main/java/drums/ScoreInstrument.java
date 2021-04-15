@@ -13,40 +13,40 @@ import javax.xml.bind.annotation.XmlType;
 
 
 public class ScoreInstrument {
-	
-	@XmlAttribute
-	String id;
-	
-	@XmlElement(name = "instrument-name")
-	String instrumentName;
-	
-	public ScoreInstrument() {
-		super();
-	}
-	
-	public ScoreInstrument(String id, String instrumentName) {
-		super();
-		System.out.println("in constructor");
-		this.id = id;
-		this.instrumentName = instrumentName;
-	}
+    
+    @XmlAttribute
+    String id;
+    
+    @XmlElement(name = "instrument-name")
+    String instrumentName;
+    
+    public ScoreInstrument() {
+        super();
+    }
+    
+    public ScoreInstrument(String id, String instrumentName) {
+        super();
+        System.out.println("in constructor");
+        this.id = id;
+        this.instrumentName = instrumentName;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getInstrumentName() {
-		return instrumentName;
-	}
+    public String getInstrumentName() {
+        return instrumentName;
+    }
 
-	public void setInstrumentName(String instrumentName) {
-		this.instrumentName = instrumentName;
-	}
+    public void setInstrumentName(String instrumentName) {
+        this.instrumentName = instrumentName;
+    }
 
 
 }

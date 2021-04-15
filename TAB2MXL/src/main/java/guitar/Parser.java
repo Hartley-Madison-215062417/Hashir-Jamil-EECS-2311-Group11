@@ -201,6 +201,10 @@ public class Parser {
 				if(input[inputRow][inputCol] == '|') {
 					chk = ((inputCol+1) <= input.length);
 					if(chk == true) {
+						if(input[inputRow][inputCol+1] == '|') {
+							inputCol = inputCol + 1;
+						}
+						else {
 						for(int j = 0; j < input[inputRow].length; j++) {
 							if(input[inputRow][j] == 'r' || input[inputRow][j] == 'R') {
 								if(input[inputRow][j+1] == 'e' || input[inputRow][j+1] == 'E') {
@@ -244,7 +248,7 @@ public class Parser {
 								}
 							}
 						}//end of repeat check
-						
+					}
 						counter ++;
 						bounds = true;
 						
@@ -626,6 +630,7 @@ public class Parser {
 						mesDur++;
 					}
 				}
+
 				
 				if(bounds == true) {
 					
@@ -645,6 +650,11 @@ public class Parser {
 						 */
 						
 					
+							if(mesDurNeeded == true) {
+								for(int g = 1;input[inputRow][inputCol+g] != '|';g++) {
+									mesDur++;
+								}
+							}
 					
 						newRow = inputRow;
 				

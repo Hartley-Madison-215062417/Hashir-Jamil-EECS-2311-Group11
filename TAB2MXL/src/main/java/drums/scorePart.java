@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = {"partName","id", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15", "d16", "d17", "d18", "d19", "d20", "d21", "d22", "d23", "d24"})
 
+
 public class scorePart {
 	
 	//@XmlAttribute
@@ -96,10 +97,20 @@ public class scorePart {
 	
 	public scorePart() {
 		super();
+		this.id = "P1";
+		ScoreInstrument I1 = new ScoreInstrument();
+		I1.setId("P1-I39");
+		I1.setInstrumentName("Snare");
 	}
 	
 	public scorePart(ScoreInstrument instrumentName) {
 		super();
+		this.id = "P1";
+		ScoreInstrument I1 = new ScoreInstrument();
+		I1.setId("P1-I39");
+		I1.setInstrumentName("Snare");
+
+
 	}
 	
 	public String getPartName() {
