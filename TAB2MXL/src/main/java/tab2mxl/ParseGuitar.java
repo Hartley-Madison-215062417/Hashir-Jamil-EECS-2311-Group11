@@ -7,7 +7,6 @@ import guitar.scorePartwise;
 import guitar.Part;
 import guitar.Parser;
 
-
 public class ParseGuitar {
 	
 	ArrayList<char[][]> tmp = new ArrayList<char[][]>();

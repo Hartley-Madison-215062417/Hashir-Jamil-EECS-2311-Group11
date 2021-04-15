@@ -3,9 +3,9 @@ package tab2mxl;
 import java.io.File;
 import java.util.ArrayList;
 
-import guitar.Parser;
-import guitar.Part;
-import guitar.scorePartwise;
+import bass.Parser;
+import bass.Part;
+import bass.scorePartwise;
 
 public class ParseBass {
 	

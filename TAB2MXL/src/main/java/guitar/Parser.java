@@ -122,8 +122,26 @@ public class Parser {
 	
 	
 	public ArrayList<char[][]> measureSplitter (char[][] input) {
-		char[][] newMeasure = new char[6][input[0].length];
 		
+		int countTheRows = 0;
+		boolean startedReading = false;
+		for(int amntRow = 0; amntRow < input.length; amntRow++) {
+			if(input[amntRow].length == 0) {
+				if(countTheRows > 0) {
+					startedReading = true;
+				}
+				if(startedReading == true) {
+					break;
+				}
+			}
+			else {
+				countTheRows++;
+			}
+		}
+		//System.out.println("countTheRows is " + countTheRows + " and input.length is " + input.length + " and input[1] is " + input[1].length);
+		
+		char[][] newMeasure = new char[countTheRows][input[0].length];
+
 		ArrayList<char[][]> tmpArray = new ArrayList<char[][]>(); //an array list of all the measures to be returned later
 		int newRow = 0; // no of rows 
 		int newCol = 0; // no of columns 
@@ -139,7 +157,7 @@ public class Parser {
 		boolean chk = false;
 		int repeatCounter = 0;
 		boolean multiMes = false;
-		int rowCount = 6;
+		int rowCount = countTheRows;
 		int contLoop = 0;
 		int theresTooManyVars = 0;
 		this.stringTune = new ArrayList<String>();
@@ -150,6 +168,9 @@ public class Parser {
 		
 		
 		System.out.println("initial length of char matrix: " + input[0].length);
+		
+		
+		
 		if(input[0].length == 0) {
 			inputRow++;
 			while(input[inputRow].length == 0) {
@@ -235,7 +256,7 @@ public class Parser {
 					
 					}
 					if(counter >= 2) {
-						newMeasure = new char[6][mesDur];
+						newMeasure = new char[countTheRows][mesDur];
 					}
 				}
 				else {

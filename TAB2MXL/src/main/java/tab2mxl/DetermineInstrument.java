@@ -147,14 +147,31 @@ public class DetermineInstrument {
 	
 	
 	public ArrayList<char[][]> measureSplitter (char[][] input) {
-		char[][] newMeasure = new char[6][input[0].length];
+		
+		int countTheRows = 0;
+		boolean startedReading = false;
+		for(int amntRow = 0; amntRow < input.length; amntRow++) {
+			if(input[amntRow].length == 0) {
+				if(countTheRows > 0) {
+					startedReading = true;
+				}
+				if(startedReading == true) {
+					break;
+				}
+			}
+			else {
+				countTheRows++;
+			}
+		}
+		
+		char[][] newMeasure = new char[countTheRows][input[0].length];
 		
 		ArrayList<char[][]> tmpArray = new ArrayList<char[][]>(); //an array list of all the measures to be returned later
 		int newRow = 0; // no of rows 
 		int newCol = 0; // no of columns 
 		int counter = 0; 
-		//int newColEnd = 0;
-		//int prevColEnd = 0;
+		int newColEnd = 0;
+		int prevColEnd = 0;
 	//	int width = parsed[0].length; // width of the entire 2D array with all measures 
 		int inputCol = 0;
 		int inputRow = 0;
@@ -164,9 +181,12 @@ public class DetermineInstrument {
 		boolean chk = false;
 		int repeatCounter = 0;
 		boolean multiMes = false;
-		int rowCount = 6;
+		int rowCount = countTheRows;
 		int contLoop = 0;
 		int theresTooManyVars = 0;
+		//drumType = new ArrayList<String>();
+		boolean mesDurNeeded = false;
+		boolean writeInDrumType = false;
 		
 		//@Madison needs to implement a check for repeats
 		
@@ -179,6 +199,7 @@ public class DetermineInstrument {
 			}
 		}
 		
+		
 		for(; inputRow < ttlRow; inputRow++) {
 			if(multiMes == true) {
 				theresTooManyVars = 1;
@@ -187,14 +208,18 @@ public class DetermineInstrument {
 				theresTooManyVars = 1;
 			}
 			mesDur = 0;
-			
 			boolean bnd = (input[inputRow].length == 0);
 			
 			// going through the entire 2D array of all measures, then i = 0 we are in the first column 
 			if(bnd == false) {
 			
 			//System.out.println(" On row " + i + ", the length is " + parsed[i].length + " and k is " + k);
-
+				
+				if(input[inputRow][inputCol] != '|') {
+					while(input[inputRow][inputCol] != '|') {
+						inputCol++;
+					}
+				}
 
 			
 				if(input[inputRow][inputCol] == '|') {
@@ -205,7 +230,6 @@ public class DetermineInstrument {
 								if(input[inputRow][j+1] == 'e' || input[inputRow][j+1] == 'E') {
 									if(input[inputRow][j+2] == 'p' || input[inputRow][j+2] == 'P') {
 										repeatCounter = 1;
-										int numRep = input[inputRow].length;
 										for(int h = 0; h < input[inputRow].length; h++) {
 											if(input[inputRow][h] == '0' ) {
 												
@@ -258,13 +282,18 @@ public class DetermineInstrument {
 					
 					}
 					if(counter >= 2) {
-						newMeasure = new char[6][mesDur];
+						newMeasure = new char[countTheRows][mesDur];
+					}
+				}
+
+				
+				if(mesDurNeeded == true) {
+					for(int g = 1;input[inputRow][inputCol+g] != '|';g++) {
+						mesDur++;
 					}
 				}
 				
 				if(bounds == true) {
-					
-				
 						
 						int colCount = inputCol+1;
 						newCol = colCount;
@@ -315,14 +344,12 @@ public class DetermineInstrument {
 								else if(chk == false) {
 									contLoop = -1;
 								}
-								newMeasure = new char[6][mesDur];
+								newMeasure = new char[countTheRows][mesDur];
 							}
 						}
 						
 						r++;
-					
-					
-					
+
 						newRow++;
 						if(multiMes == true) {
 							newCol = theresTooManyVars;
@@ -332,19 +359,18 @@ public class DetermineInstrument {
 							
 						}
 
-						
 						c = 0;
 					}
 					
 					tmpArray.add(newMeasure);
-					
+					//int teeeemp = input[inputRow].length;
 					
 					chk = ((colCount+1) < input[inputRow].length);
 					if(chk == true) {
 						theresTooManyVars = colCount + 1;
 						newCol = colCount + 1;
+						//colCount = newCol;
 						multiMes = true;
-						
 					}
 					else if((colCount+1) < input[inputRow].length){
 						contLoop = -1;
@@ -352,8 +378,8 @@ public class DetermineInstrument {
 					else {
 						contLoop = -1;
 					}
+
 					
-	
 				} //contLoop checkpoint
 					inputRow = inputRow + 5;
 					
@@ -362,6 +388,7 @@ public class DetermineInstrument {
 				}
 			
 			}
+		
 	
 		return tmpArray;
 		
