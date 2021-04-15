@@ -6,8 +6,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
+import guitar.Measure;
 
-public class Parser_test {
+public class Measure_test {
 	
 	/**
 	 *Testing the type of a note. Type of a note is assigned based on 
@@ -187,7 +188,120 @@ public class Parser_test {
 	//uncommon
 	
 	/*Testing guitar.Note.updateType()*/
+	@Test
+	void testNoteType1() {
+		Measure m = new Measure();
+		
+		Note n = new Note();
+		m.getNotes().add(n);
+		
+		Map<String, Integer> reference = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
+			
+		}};
+		n.setDuration(12);
+		String expected = "quarter";
+		m.updateType(n, reference);
+		String actual = n.getType();
+		
+		assertEquals(expected, actual);
+	}
 	
+	@Test
+	void testNoteType2() {
+		Measure m = new Measure();
+		
+		Note n = new Note();
+		m.getNotes().add(n);
+		
+		Map<String, Integer> reference = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
+			
+		}};
+		n.setDuration(48);
+		String expected = "whole";
+		m.updateType(n, reference);
+		String actual = n.getType();
+		
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void testNoteType3() {
+		Measure m = new Measure();
+		
+		Note n = new Note();
+		m.getNotes().add(n);
+		
+		Map<String, Integer> reference = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
+			
+		}};
+		n.setDuration(24);
+		String expected = "half";
+		m.updateType(n, reference);
+		String actual = n.getType();
+		
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void testNoteType4() {
+		Measure m = new Measure();
+		
+		Note n = new Note();
+		m.getNotes().add(n);
+		
+		Map<String, Integer> reference = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
+			
+		}};
+		n.setDuration(6);
+		String expected = "eighth";
+		m.updateType(n, reference);
+		String actual = n.getType();
+		
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void testNoteType5() {
+		Measure m = new Measure();
+		
+		Note n = new Note();
+		m.getNotes().add(n);
+		
+		Map<String, Integer> reference = new HashMap<String, Integer>(){{
+			put("whole", 48);
+			put("half", 24);
+			put("quarter", 12);
+			put("eighth", 6);
+			put("sixteenth", 3);
+			
+		}};
+		n.setDuration(3);
+		String expected = "sixteenth";
+		m.updateType(n, reference);
+		String actual = n.getType();
+		
+		assertEquals(expected, actual);
+	}
 	
 
 }
