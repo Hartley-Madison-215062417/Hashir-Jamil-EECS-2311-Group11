@@ -1178,7 +1178,7 @@ public class Parser {
 		m.attributes.setTime(t);
 		m.attributes.setClef(c);
 		m.attributes.setSd(sd);
-		m.attributes.setDivisions(calculateDivision(t.getBeats(), firstMeasure[0].length));						
+		//m.attributes.setDivisions(calculateDivision(t.getBeats(), firstMeasure[0].length));						
 		
 		for (int j = 0; j < firstMeasure[0].length; j++) 
 			for (int i = 0; i < firstMeasure.length; i++) {
@@ -1289,8 +1289,8 @@ public class Parser {
 						
 						}
 						
-						if(firstMeasure[i][j-1] == '[')
-							n.getNotations().getTechnical().setHarmonic(new Harmonic());
+						//if(firstMeasure[i][j-1] == '[')
+							//n.getNotations().getTechnical().setHarmonic(new Harmonic());
 						
 						System.out.println("string has been set");
 						//setting string
@@ -1305,7 +1305,7 @@ public class Parser {
 							n.updatePitch(n);
 						
 						Map<String, Integer> typeTable= typeTable(m.attributes);
-						Note.updateType(n, typeTable);
+						//Note.updateType(n, typeTable);
 						
 						System.out.println("adding note");
 						
