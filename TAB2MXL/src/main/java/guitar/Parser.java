@@ -101,27 +101,12 @@ public class Parser {
 	public char[][] getTabCharMatrix() {
 		return this.tabCharMatrix;
 	}
-	
-	public char[][] getFirstLine(char[][] old) {
-		int col = this.tabList.get(0).length();	
-		char[][] current = new char[6][col];
 		
-		for(int i=0; i<6; i++) {
-			  for(int j=0; j<this.tabList.get(0).length(); j++) {
-					  current[i][j]=old[i][j];
-					  
-				 
-			  }}
-		
-		return current;
-		
-		}
 	
 	/*
 	 * @Author: Madison Hartley
 	 * DM me for questions about method below.
 	 */
-	
 	
 	public ArrayList<char[][]> measureSplitter (char[][] input) {
 		
@@ -651,7 +636,7 @@ public class Parser {
 						 */
 						
 					
-							if(mesDurNeeded == true) {
+						if(mesDurNeeded == true) {
 								for(int g = 1;input[inputRow][colCount+g] != '|';g++) {
 									mesDur++;
 								}
@@ -1143,9 +1128,6 @@ public class Parser {
 	} //end of the method
 	
 	
-	 
-
-	
 	/*
 	 * this method gets a 2d char array of one measure
 	 * and creates note objects for each note in the 
@@ -1477,7 +1459,7 @@ private void createHammerOns(char[][] firstMeasure, int i, int j,Note n) {
 	}
 
 
-	public int calculateDivision(int beats, int lengthMeasure) {
+	public static int calculateDivision(int beats, int lengthMeasure) {
 		int division = 0; 
 		//int lengthMeasure = firstMeasure[0].length;
 		division = (lengthMeasure - 1)/beats; 
@@ -1552,7 +1534,72 @@ private void createHammerOns(char[][] firstMeasure, int i, int j,Note n) {
 	}
 
 
+	public List<String> getTabList() {
+		return tabList;
+	}
 
+
+	public void setTabList(List<String> tabList) {
+		this.tabList = tabList;
+	}
+
+
+	public File getInputFile() {
+		return inputFile;
+	}
+
+
+	public void setInputFile(File inputFile) {
+		this.inputFile = inputFile;
+	}
+
+
+	public Part getPart() {
+		return part;
+	}
+
+
+	public void setPart(Part part) {
+		this.part = part;
+	}
+
+
+	public scorePartwise getScorepartwise() {
+		return scorepartwise;
+	}
+
+
+	public void setScorepartwise(scorePartwise scorepartwise) {
+		this.scorepartwise = scorepartwise;
+	}
+
+
+	public int getHnum() {
+		return hnum;
+	}
+
+
+	public void setHnum(int hnum) {
+		this.hnum = hnum;
+	}
+
+
+	public ArrayList<String> getStringTune() {
+		return stringTune;
+	}
+
+
+	public void setStringTune(ArrayList<String> stringTune) {
+		this.stringTune = stringTune;
+	}
+
+
+	public void setTabCharMatrix(char[][] tabCharMatrix) {
+		this.tabCharMatrix = tabCharMatrix;
+	}
+
+
+	
 
 		
 	
