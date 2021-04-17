@@ -19,7 +19,7 @@ public class Parser {
 	private Part part = new Part();
 	private scorePartwise scorepartwise = new scorePartwise();
 	int hnum =1;
-	ArrayList<String> stringTune = new ArrayList<String>();
+	List<String> stringTune = new ArrayList<String>();
 	
 	
 	/*
@@ -1584,7 +1584,7 @@ private void createHammerOns(char[][] firstMeasure, int i, int j,Note n) {
 	}
 
 
-	public ArrayList<String> getStringTune() {
+	public List<String> getStringTune() {
 		return stringTune;
 	}
 

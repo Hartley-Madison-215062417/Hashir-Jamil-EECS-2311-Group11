@@ -47,6 +47,7 @@ public class Note{
 
 	public Note(Unpitched unpitched, int duration, String instrumentID, int voice, String type, String stem, String notehead, String beamNumber) {
 		super();
+		int divisions = 4;
 		this.unpitched = unpitched;
 		this.duration = 2;
 		this.instrumentID = instrumentID;

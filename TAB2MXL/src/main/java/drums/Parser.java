@@ -16,8 +16,60 @@ public class Parser {
 	private part part = new part();
 	private ScorePartwise scorepartwise = new ScorePartwise();
 	private int hnum = 1;
-	ArrayList<String> drumType = new ArrayList<String>();
+	List<String> drumType = new ArrayList<String>();
 	
+	public List<String> getTabList() {
+		return tabList;
+	}
+
+	public void setTabList(List<String> tabList) {
+		this.tabList = tabList;
+	}
+
+	public File getInputFile() {
+		return inputFile;
+	}
+
+	public void setInputFile(File inputFile) {
+		this.inputFile = inputFile;
+	}
+
+	public part getPart() {
+		return part;
+	}
+
+	public void setPart(part part) {
+		this.part = part;
+	}
+
+	public ScorePartwise getScorepartwise() {
+		return scorepartwise;
+	}
+
+	public void setScorepartwise(ScorePartwise scorepartwise) {
+		this.scorepartwise = scorepartwise;
+	}
+
+	public int getHnum() {
+		return hnum;
+	}
+
+	public void setHnum(int hnum) {
+		this.hnum = hnum;
+	}
+
+	public List<String> getDrumType() {
+		return drumType;
+	}
+
+	public void setDrumType(List<String> drumType) {
+		this.drumType = drumType;
+	}
+
+	public void setTabCharMatrix(char[][] tabCharMatrix) {
+		this.tabCharMatrix = tabCharMatrix;
+	}
+
 	public Parser() {
 		
 	}
