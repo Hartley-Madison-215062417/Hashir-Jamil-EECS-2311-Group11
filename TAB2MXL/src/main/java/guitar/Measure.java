@@ -108,6 +108,8 @@ public class Measure {
 	 * @pre the measure contains a chord
 	 */
 	public void updateDuration(Measure m) {
+		
+		System.out.println("==========before updating duration========");
 
 		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
 		List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
@@ -199,24 +201,55 @@ public class Measure {
 
 			}
 			Map<String, Integer> reference = typeTable(m.getAttributes());
+			System.out.println();
 			updateType(m.notes.get(i), reference);
 		}
 
 	}
 
-	public void updateType(Note n, Map<String, Integer> reference) {
-
-		for(Map.Entry<String, Integer> entry: reference.entrySet()) {
-			if(n.getDuration() == entry.getValue()) {
-				//System.out.println("The duration is: " + n.getDuration());
-				//System.out.println("The type is: " + entry.getKey());
-				n.setType(entry.getKey());
-			}
-		}
-
-
+//	public void updateType(Note n, Map<String, Integer> reference) {
+//
+//		for(Map.Entry<String, Integer> entry: reference.entrySet()) {
+//			if(n.getDuration() == entry.getValue()) {
+//				//System.out.println("The duration is: " + n.getDuration());
+//				//System.out.println("The type is: " + entry.getKey());
+//				n.setType(entry.getKey());
+//			}
+//		}
+//
+//
+//	}
+	public static void updateType(Note n, Map<String, Integer> typeTable) {
+		System.out.println("entered updateType");
+//		System.out.println("updating type");
+//		System.out.println("step: " + n.getPitch().getStep());
+//		System.out.println("octave: " + n.getPitch().getOctave());
+//		for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
+//			if(n.getDuration() == entry.getValue()) {
+//				//System.out.println("The type is: " + entry.getKey());
+//				n.setType(entry.getKey());
+//			}
+//		}	
+		
+		 for (Map.Entry<String, Integer> entry : typeTable.entrySet()) {
+		        System.out.println(entry.getKey() + ":" + entry.getValue());
+		    }
+		
+		if(n.duration >= typeTable.get("whole"))
+			n.setType("whole");
+		else if(n.duration >= typeTable.get("half"))
+			n.setType("half");
+		else if(n.duration >= typeTable.get("quarter"))
+			n.setType("quarter");
+		else if(n.duration >= typeTable.get("eighth")) {
+			System.out.println("the duration is: " + n.getDuration());
+			n.setType("eighth");}
+		else if(n.duration >= typeTable.get("sixteenth"))
+		n.setType("sixteenth");
+		
 	}
 
+	
 	public static Map<String, Integer> typeTable(Attributes a) {
 		Map<String, Integer> typeTable= new HashMap<String, Integer>(); // the type of note, the duration
 		Map<Integer, String> noteType = new HashMap<Integer, String>(); // the number corresponding to note type, name of type of note 

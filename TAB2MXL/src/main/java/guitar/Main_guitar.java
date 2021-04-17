@@ -13,7 +13,7 @@ public static void main(String[] args) {
 	
 	try {
 		
-		Parser p = new Parser("prototypeGuitarTab2.txt");
+		Parser p = new Parser("guitar_basic.txt");
 		char[][] parsed = p.getTabCharMatrix();
 		int width = parsed[0].length; //gets the length of the entire first row
 		ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);

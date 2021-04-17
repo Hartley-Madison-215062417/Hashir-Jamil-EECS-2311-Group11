@@ -1309,7 +1309,10 @@ public class Parser {
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
 						
+						System.out.println("length of the measure: " + firstMeasure[0].length);
+						System.out.println("j: " + j);
 						n.setDuration(firstMeasure[0].length - j);
+						
 						//System.out.println(firstMeasure[0].length);
 						
 						Note.setDefaultStep(n, m);
@@ -1317,9 +1320,7 @@ public class Parser {
 						if(n.getNotations().getTechnical().getFret()!=0) 
 							n.updatePitch(n);
 						
-						Map<String, Integer> typeTable= typeTable(m.attributes);
-						Note.updateType(n, typeTable);
-						
+						Map<String, Integer> typeTable= typeTable(m.attributes);						
 						//System.out.println("adding note");
 						
 						m.getNotes().add(n);
@@ -1331,6 +1332,7 @@ public class Parser {
 				}
 				
 			}
+		System.out.println("update duration has been called");
 		m.updateDuration(m);
 
 		return m;
