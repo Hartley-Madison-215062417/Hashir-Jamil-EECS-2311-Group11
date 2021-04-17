@@ -1170,12 +1170,21 @@ public class Parser {
 		Time t = new Time(EditPopup.beats, EditPopup.beatType);
 		//System.out.println("beats: " + t.getBeats() + "beatType:" + t.getBeatType());
 		Clef c = new Clef("TAB", 5);
-		StaffDetails sd = new StaffDetails();
+		
 		m.attributes = new Attributes();
 		m.attributes.setKey(k);
 		m.attributes.setTime(t);
 		m.attributes.setClef(c);
-		m.attributes.setSd(sd);
+		
+		//if the tab file does not contain any tuning then set to default tuning
+		if(stringTune.size() == 0) {
+			StaffDetails sd = new StaffDetails();
+			m.attributes.setSd(sd);
+		}else {//if the tab file contains tuning then set it accordingly 
+			StaffDetails sd = new StaffDetails(stringTune);
+			m.attributes.setSd(sd);
+		}
+		
 		m.attributes.setDivisions(calculateDivision(t.getBeats(), firstMeasure[0].length));						
 		
 		for (int j = 0; j < firstMeasure[0].length; j++) 
@@ -1188,6 +1197,7 @@ public class Parser {
 						
 						
 						/*Handle Double Digit Frets*/
+						if(j + 1 < firstMeasure[0].length)
 						if(firstMeasure[i][j+1] >= '0' && firstMeasure[i][j+1] <= '9' ) {
 							
 							StringBuilder num = new StringBuilder();
@@ -1302,7 +1312,7 @@ public class Parser {
 						n.setDuration(firstMeasure[0].length - j);
 						//System.out.println(firstMeasure[0].length);
 						
-						n.setDefaultStep(n);
+						Note.setDefaultStep(n, m);
 						
 						if(n.getNotations().getTechnical().getFret()!=0) 
 							n.updatePitch(n);
