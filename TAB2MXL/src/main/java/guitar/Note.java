@@ -174,6 +174,9 @@ public class Note {
 		 * @pre only called if fret number is 0
 		 */
 		public Note updatePitch(Note n) {
+			System.out.println("==============");
+			System.out.println("default step:" + n.getPitch().getStep());
+			System.out.println("defualt octave:" + n.getPitch().getOctave());
 			int octave; //an integer number 
 			
 			int fret = n.getNotations().getTechnical().getFret(); // fret has already been stored while parsing the 2D char array
@@ -236,7 +239,13 @@ public class Note {
 			/*Setting the Step*/
 						
 			String actualStep = relevantData[fret-1]; // the actual step should be within the array 
+			System.out.println("actual step: " + actualStep);
 			
+			System.out.println("relevantData:");
+			for(int i = 0; i < relevantData.length; i++) {
+				System.out.print(relevantData[i] + " ");
+			}
+			System.out.println();
 			char cStep = actualStep.charAt(0); // steps can contain 2 chars, for example C#, here the step will be C
 			
 			String aStep = String.valueOf(cStep); // converting from char to string
@@ -254,16 +263,23 @@ public class Note {
 			/*Setting the Octave*/
 			
 			int octaveCounter = n.getPitch().getOctave(); //getting the default pitch that we set 
-			
+				
 			for(int i = 0; i < relevantData.length; i++) { // going through the relevant data
-				if (relevantData[i] == "C") octaveCounter++; // if we reach a C, the octave increases 
+				if (relevantData[i] == "C") {
+					octaveCounter++; // if we reach a C, the octave increases 
+					System.out.println("octave counter now:" + octaveCounter);
+				}
+				
 				char c = relevantData[i].charAt(0);// getting the pitch step 
 				String d = String.valueOf(c);
-				if (d == n.getPitch().getStep() &&  fret == i+1) 
+				System.out.println("current step: " + d +  "current fret: " + (i+1));
+				if (d.equals(n.getPitch().getStep()) &&  fret == i + 1) {
+					System.out.println("SETTING OCTAVE");
 					n.getPitch().setOctave(octaveCounter);
+				}
 			}
 			
-			
+			System.out.println("final octave: " + n.getPitch().getOctave());
 			return n;
 			
 		}
@@ -274,7 +290,7 @@ public class Note {
 //			System.out.println("octave: " + n.getPitch().getOctave());
 			for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
 				if(n.getDuration() == entry.getValue()) {
-					System.out.println("The type is: " + entry.getKey());
+					//System.out.println("The type is: " + entry.getKey());
 					n.setType(entry.getKey());
 				}
 			}
