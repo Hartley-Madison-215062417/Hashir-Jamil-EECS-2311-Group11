@@ -154,7 +154,7 @@ public class Parser {
 		//@Madison needs to implement a check for repeats
 		
 		
-		System.out.println("initial length of char matrix: " + input[0].length);
+		//System.out.println("initial length of char matrix: " + input[0].length);
 		
 		
 		
@@ -750,7 +750,7 @@ public class Parser {
 		if(writeInGuitarTuning == true) {
 			int whatRow = stringTune.size();
 			char[][] firstie = tmpArray.get(0);
-			System.out.println("whatRow = " + whatRow + " and firstie.length = " + firstie.length);
+			//System.out.println("whatRow = " + whatRow + " and firstie.length = " + firstie.length);
 			if(whatRow < firstie.length) {
 				
 				int theRow = whatRow;
@@ -1256,7 +1256,7 @@ public class Parser {
 
 						/*Handle Single Digit Frets*/
 						else {				
-							System.out.println("Single digit fret encountered");
+							//System.out.println("Single digit fret encountered");
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
 							
 							if(((i - 1) > -1) && (i + 1) < 6)
@@ -1305,7 +1305,7 @@ public class Parser {
 						
 						
 						
-						System.out.println("string has been set");
+						//System.out.println("string has been set");
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
 						
@@ -1320,7 +1320,7 @@ public class Parser {
 						Map<String, Integer> typeTable= typeTable(m.attributes);
 						Note.updateType(n, typeTable);
 						
-						System.out.println("adding note");
+						//System.out.println("adding note");
 						
 						m.getNotes().add(n);
 						
@@ -1536,9 +1536,9 @@ private void createHammerOns(char[][] firstMeasure, int i, int j,Note n) {
 //		for(Map.Entry<Integer, String> entry: noteType.entrySet()) {
 //			System.out.println("note number: " + entry.getKey() + " note name:" + entry.getValue());
 //		}
-		for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
-			System.out.println("note name: " + entry.getKey() + " note duration:" + entry.getValue());
-		}
+//		for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
+//			System.out.println("note name: " + entry.getKey() + " note duration:" + entry.getValue());
+//		}
 		//System.out.println("=======================");
 		return typeTable;
 	}
