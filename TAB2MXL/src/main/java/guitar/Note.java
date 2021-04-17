@@ -104,7 +104,7 @@ public class Note {
 //		this.voice = voice;
 //	}
 //	
-	public void setDefaultStep(Note n) {
+	public static void setDefaultStep(Note n) {
 
 		int string = n.getNotations().getTechnical().getString();		
 		
@@ -131,6 +131,37 @@ public class Note {
 		}
 		else if(string == 6) {
 			n.getPitch().setStep("E");
+			n.getPitch().setOctave(2);
+		}
+		
+	}
+	
+	public static void setDefaultStep(Note n, Measure m) {
+		int string = n.getNotations().getTechnical().getString();		
+		
+		if(string == 1) {
+			n.getPitch().setStep(m.getAttributes().getSd().getS1().getTuningStep());
+			n.getPitch().setOctave(4);
+		}
+		else if(string == 2) {
+			n.getPitch().setStep(m.getAttributes().getSd().getS2().getTuningStep());
+			n.getPitch().setOctave(3);
+		}
+		else if(string == 3) {
+			n.getPitch().setStep(m.getAttributes().getSd().getS3().getTuningStep());
+			n.getPitch().setOctave(3);
+		}
+		else if(string == 4) {
+			n.getPitch().setStep(m.getAttributes().getSd().getS4().getTuningStep());
+			n.getPitch().setOctave(3);
+		}
+		else if(string == 5) {
+			n.getPitch().setStep(m.getAttributes().getSd().getS5().getTuningStep());
+			n.getPitch().setOctave(2);
+			
+		}
+		else if(string == 6) {
+			n.getPitch().setStep(m.getAttributes().getSd().getS6().getTuningStep());
 			n.getPitch().setOctave(2);
 		}
 		
