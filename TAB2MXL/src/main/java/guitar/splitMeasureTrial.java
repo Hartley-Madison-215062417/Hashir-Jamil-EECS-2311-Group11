@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class splitMeasureTrial {
 public static void main(String[] args) {
 		
-		Parser p = new Parser("prototypeGuitarTab.txt");
+		Parser p = new Parser("prototypeGuitarTab2.txt");
 		char[][] parsed = p.getTabCharMatrix();
 		
 		int width = parsed[0].length; //gets the length of the entire first row
@@ -68,12 +68,14 @@ public static void main(String[] args) {
 			System.out.println(" ");
 		}
 		
+		System.out.println("The size of tuning arraylist is: " + p.stringTune.size());
 		if(p.stringTune.size() > 0) {
 			System.out.println("Printing guitar type, from first to last row: ");
 			System.out.println("guitarTuning size: " + p.stringTune.size());
 				for(int m = 0; m < p.stringTune.size(); m++) {
 					System.out.println(p.stringTune.get(m));
 				}
+			System.out.println("testing: " + p.stringTune.get(1));
 		}
 		 
 		

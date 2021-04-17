@@ -115,11 +115,11 @@ public class Measure {
 		//duration of 1 chord, it has to be rewritten for each chord
 		int chordDuration = 0; 
 
-		System.out.println("notes.size(): " + m.notes.size());
+		//System.out.println("notes.size(): " + m.notes.size());
 		
 		//looping through a list of all notes inside 1 measure
 		for (int i = 0; i <= m.notes.size()-1; i++) {
-			System.out.println("entered for loop");
+			//System.out.println("entered for loop");
 
 			//System.out.println("test0");
 
@@ -188,7 +188,7 @@ public class Measure {
 
 				//if not part of a chord
 				else{
-					System.out.println("not part of chord");
+					//System.out.println("not part of chord");
 					m.notes.get(i).setDuration((m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration()));
 				}
 

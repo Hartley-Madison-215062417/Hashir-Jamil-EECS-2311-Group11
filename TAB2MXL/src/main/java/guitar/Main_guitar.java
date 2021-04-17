@@ -7,13 +7,13 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-public class Main {
+public class Main_guitar {
 
 public static void main(String[] args) {
 	
 	try {
 		
-		Parser p = new Parser("GRepeat.txt");
+		Parser p = new Parser("prototypeGuitarTab2.txt");
 		char[][] parsed = p.getTabCharMatrix();
 		int width = parsed[0].length; //gets the length of the entire first row
 		ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);

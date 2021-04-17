@@ -154,7 +154,7 @@ public class Parser {
 		//@Madison needs to implement a check for repeats
 		
 		
-		System.out.println("initial length of char matrix: " + input[0].length);
+		//System.out.println("initial length of char matrix: " + input[0].length);
 		
 		
 		
@@ -750,7 +750,7 @@ public class Parser {
 		if(writeInGuitarTuning == true) {
 			int whatRow = stringTune.size();
 			char[][] firstie = tmpArray.get(0);
-			System.out.println("whatRow = " + whatRow + " and firstie.length = " + firstie.length);
+			//System.out.println("whatRow = " + whatRow + " and firstie.length = " + firstie.length);
 			if(whatRow < firstie.length) {
 				
 				int theRow = whatRow;
@@ -1170,12 +1170,21 @@ public class Parser {
 		Time t = new Time(EditPopup.beats, EditPopup.beatType);
 		//System.out.println("beats: " + t.getBeats() + "beatType:" + t.getBeatType());
 		Clef c = new Clef("TAB", 5);
-		StaffDetails sd = new StaffDetails();
+		
 		m.attributes = new Attributes();
 		m.attributes.setKey(k);
 		m.attributes.setTime(t);
 		m.attributes.setClef(c);
-		m.attributes.setSd(sd);
+		
+		//if the tab file does not contain any tuning then set to default tuning
+		if(stringTune.size() == 0) {
+			StaffDetails sd = new StaffDetails();
+			m.attributes.setSd(sd);
+		}else {//if the tab file contains tuning then set it accordingly 
+			StaffDetails sd = new StaffDetails(stringTune);
+			m.attributes.setSd(sd);
+		}
+		
 		m.attributes.setDivisions(calculateDivision(t.getBeats(), firstMeasure[0].length));						
 		
 		for (int j = 0; j < firstMeasure[0].length; j++) 
@@ -1188,6 +1197,7 @@ public class Parser {
 						
 						
 						/*Handle Double Digit Frets*/
+						if(j + 1 < firstMeasure[0].length)
 						if(firstMeasure[i][j+1] >= '0' && firstMeasure[i][j+1] <= '9' ) {
 							
 							StringBuilder num = new StringBuilder();
@@ -1246,7 +1256,7 @@ public class Parser {
 
 						/*Handle Single Digit Frets*/
 						else {				
-							System.out.println("Single digit fret encountered");
+							//System.out.println("Single digit fret encountered");
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
 							
 							if(((i - 1) > -1) && (i + 1) < 6)
@@ -1295,14 +1305,14 @@ public class Parser {
 						
 						
 						
-						System.out.println("string has been set");
+						//System.out.println("string has been set");
 						//setting string
 						n.getNotations().getTechnical().setString(i+1);
 						
 						n.setDuration(firstMeasure[0].length - j);
 						//System.out.println(firstMeasure[0].length);
 						
-						n.setDefaultStep(n);
+						Note.setDefaultStep(n, m);
 						
 						if(n.getNotations().getTechnical().getFret()!=0) 
 							n.updatePitch(n);
@@ -1310,7 +1320,7 @@ public class Parser {
 						Map<String, Integer> typeTable= typeTable(m.attributes);
 						Note.updateType(n, typeTable);
 						
-						System.out.println("adding note");
+						//System.out.println("adding note");
 						
 						m.getNotes().add(n);
 						
@@ -1526,9 +1536,9 @@ private void createHammerOns(char[][] firstMeasure, int i, int j,Note n) {
 //		for(Map.Entry<Integer, String> entry: noteType.entrySet()) {
 //			System.out.println("note number: " + entry.getKey() + " note name:" + entry.getValue());
 //		}
-		for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
-			System.out.println("note name: " + entry.getKey() + " note duration:" + entry.getValue());
-		}
+//		for(Map.Entry<String, Integer> entry: typeTable.entrySet()) {
+//			System.out.println("note name: " + entry.getKey() + " note duration:" + entry.getValue());
+//		}
 		//System.out.println("=======================");
 		return typeTable;
 	}
