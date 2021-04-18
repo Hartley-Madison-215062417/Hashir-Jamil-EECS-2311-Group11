@@ -219,16 +219,26 @@ public class Note {
 					//System.out.println("again");
 					i = 0;
 					relevantData[k] = allStep[0];
-					k++;
+					System.out.println("value of k:" + k);
+					if(k == 23) {
+						System.out.println("k is 23");
+						break;
+					}
+					else 
+						k++;
 				}else {
 
 					//System.out.println("The value of i now: " + i);
 					//System.out.println("The value of k now: " + k);
 					//System.out.println("Copying and pasting: " + allStep[i]);
 
+					System.out.println("value of k:" + k);
+					System.out.println("value of i:" + i);
 					relevantData[k] = allStep[i];
-					if(k == 23)
+					if(k == 23) {
+						System.out.println("k is 23");
 						break;
+					}
 					else 
 						k++;
 				}
