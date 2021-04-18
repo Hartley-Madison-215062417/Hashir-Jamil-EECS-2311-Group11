@@ -81,7 +81,9 @@ public class DetermineInstrument {
 	
 	public String determineInstrument(char[][] tabMatrix) {
 		
+		
 		ArrayList<char[][]> measureList = measureSplitter(tabMatrix);
+		System.out.println("measureList size: " + measureList.size());
 		
 		for(int i = 0; i < measureList.size(); i++) {
 			//System.out.println("Code reached first for loop");
@@ -94,6 +96,7 @@ public class DetermineInstrument {
 					System.out.print(len[k][j]);
 					if(len[k][j] == 'o' || len[k][j] == 'O' || len[k][j] == 'x' || len[k][j] == 'X' || len[k][j] == 'd' || len[k][j] == 'f') {
 						System.out.println("returning drums");
+						System.out.println("measureList size: " + measureList.size());
 						return "drums";
 					}
 					
@@ -108,16 +111,19 @@ public class DetermineInstrument {
 			char[][] temp = measureList.get(h);
 			if(temp.length >= 6) {
 				System.out.println("returning guitar");
+				System.out.println("measureList size: " + measureList.size());
 				return "guitar";
 			}
 			else if(temp.length <= 5 && temp.length > 0) {
 				System.out.println("returning bass");
-				return "bass";
+				System.out.println("measureList size: " + measureList.size());
+				return "guitar";
 			}
 		}
 
 		
 		System.out.println("returning failsafe guitar");
+		System.out.println("measureList size: " + measureList.size());
 		return "guitar";
 	}
 	
@@ -128,12 +134,14 @@ public class DetermineInstrument {
 			ParseDrums dr = new ParseDrums(inputFile);
 			partd = dr.getPart();
 			measureList = dr.tmp;
+			System.out.println("measureList size: " + measureList.size());
 			return dr.tmp;
 		}
 		else if(inst.equals("guitar")) {
 			ParseGuitar gr = new ParseGuitar(inputFile);
 			partg=gr.getPart();
 			measureList = gr.tmp;
+			System.out.println("measureList size: " + measureList.size());
 			return gr.tmp;
 		}
 		else if(inst.equals("base")) {
