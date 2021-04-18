@@ -109,7 +109,7 @@ public class Measure {
 	 */
 	public void updateDuration(Measure m) {
 		
-		System.out.println("==========before updating duration========");
+		//System.out.println("==========before updating duration========");
 
 		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
 		List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
@@ -201,7 +201,7 @@ public class Measure {
 
 			}
 			Map<String, Integer> reference = typeTable(m.getAttributes());
-			System.out.println();
+			//System.out.println();
 			updateType(m.notes.get(i), reference);
 		}
 
@@ -220,7 +220,7 @@ public class Measure {
 //
 //	}
 	public static void updateType(Note n, Map<String, Integer> typeTable) {
-		System.out.println("entered updateType");
+	//	System.out.println("entered updateType");
 //		System.out.println("updating type");
 //		System.out.println("step: " + n.getPitch().getStep());
 //		System.out.println("octave: " + n.getPitch().getOctave());
@@ -242,7 +242,7 @@ public class Measure {
 		else if(n.duration >= typeTable.get("quarter"))
 			n.setType("quarter");
 		else if(n.duration >= typeTable.get("eighth")) {
-			System.out.println("the duration is: " + n.getDuration());
+			//System.out.println("the duration is: " + n.getDuration());
 			n.setType("eighth");}
 		else if(n.duration >= typeTable.get("sixteenth"))
 		n.setType("sixteenth");
