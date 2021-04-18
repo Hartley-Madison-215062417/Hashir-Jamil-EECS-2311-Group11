@@ -88,6 +88,8 @@ public class Main extends Application{
 		
 		//GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 		launch(args);
+		
+		int textboxOrFileChooser = 0;
 						
 	}
 
@@ -681,7 +683,7 @@ public class Main extends Application{
 				                        		if(det.inst.equals("drums")) {
 				                        			//System.out.println("in if st: " + det.inst);
 				                        			//System.out.println("got past det.inst.equals");
-				                        			ArrayList<char[][]> temp2 = det.GetParsed("drums");
+				                        			//ArrayList<char[][]> temp2 = det.GetParsed("drums");
 				                        			part part = det.partd;
 				                        			System.out.println(part);
 				                        			sp1.getParts().add(part);
@@ -698,7 +700,7 @@ public class Main extends Application{
 				                        		}
 				                        		else {
 				                        			
-				                        			ArrayList<char[][]> temp2 = det.GetParsed("guitar");
+				                        			//ArrayList<char[][]> temp2 = det.GetParsed("guitar");
 				                        			Part part = det.partg;
 				                        			sp2.getParts().add(part);
 				                        			
@@ -1010,6 +1012,8 @@ public class Main extends Application{
 			                        			edit_button.setDisable(false);
 			                        			edit_button2.setDisable(false);
 
+			                        			int textboxOrFileChooser = 0; 
+			                        			
 		                        		      DetermineInstrument det = new DetermineInstrument(temp);
 		                        		      ScorePartwise sp1 = new ScorePartwise();
 				                        		scorePartwise sp2 =  new scorePartwise();
@@ -1221,6 +1225,8 @@ public class Main extends Application{
 		                        			edit_button.setDisable(false);
 		                        			edit_button2.setDisable(false);
 		                        			
+		                        			
+		                        			
 		                        			DetermineInstrument det = new DetermineInstrument(input);
 			                        		ScorePartwise sp1 = new ScorePartwise();
 			                        		scorePartwise sp2 =  new scorePartwise();
@@ -1230,7 +1236,7 @@ public class Main extends Application{
 			                        		if(det.inst.equals("drums")) {
 			                        			System.out.println("in if st: " + det.inst);
 			                        			System.out.println("got past det.inst.equals");
-			                        			ArrayList<char[][]> temp2 = det.GetParsed("drums");
+			                        			//ArrayList<char[][]> temp2 = det.GetParsed("drums");
 			                        			part part = det.partd;
 			                        			System.out.println(part);
 			                        			sp1.getParts().add(part);
@@ -1247,7 +1253,7 @@ public class Main extends Application{
 			                        		}
 			                        		else {
 			                        			
-			                        			ArrayList<char[][]> temp2 = det.GetParsed("guitar");
+			                        			//ArrayList<char[][]> temp2 = det.GetParsed("guitar");
 			                        			Part part = det.partg;
 			                        			sp2.getParts().add(part);
 			                        			
