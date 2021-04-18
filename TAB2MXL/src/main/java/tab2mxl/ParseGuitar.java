@@ -59,10 +59,10 @@ public class ParseGuitar {
 		this.p = new Parser(file);
 		this.parsed = p.getTabCharMatrix();
 		this.tmp = p.measureSplitter(parsed);
-		this.tmp.add(parsed);
 		this.part = p.createMusicalPart(tmp);
 		this.sp = new scorePartwise();
 		this.sp.getParts().add(part);
+		System.out.print("hiii" + this.tmp.size());
 	}
 
 }

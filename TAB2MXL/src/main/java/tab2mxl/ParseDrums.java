@@ -22,7 +22,6 @@ public class ParseDrums {
 		this.p = new Parser(file);
 		this.parsed = p.getTabCharMatrix();
 		this.tmp = p.measureSplitter(parsed);
-		this.tmp.add(parsed);
 		this.part = p.createMusicalPart(tmp);
 		this.sp = new ScorePartwise();
 		this.part = this.p.createMusicalPart(tmp);
