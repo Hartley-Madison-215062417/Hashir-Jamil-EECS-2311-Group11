@@ -108,7 +108,11 @@ public class Measure {
 	 * @pre the measure contains a chord
 	 */
 	public void updateDuration(Measure m) {
+<<<<<<< HEAD
 		//
+=======
+		
+>>>>>>> branch 'develop' of https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11.git
 		//System.out.println("==========before updating duration========");
 
 		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
@@ -202,7 +206,7 @@ public class Measure {
 
 			}
 			Map<String, Integer> reference = typeTable(m.getAttributes());
-			System.out.println();
+			//System.out.println();
 			updateType(m.notes.get(i), reference);
 		}
 
@@ -221,7 +225,11 @@ public class Measure {
 //
 //	}
 	public static void updateType(Note n, Map<String, Integer> typeTable) {
+<<<<<<< HEAD
 		//System.out.println("entered updateType");
+=======
+	//	System.out.println("entered updateType");
+>>>>>>> branch 'develop' of https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11.git
 //		System.out.println("updating type");
 //		System.out.println("step: " + n.getPitch().getStep());
 //		System.out.println("octave: " + n.getPitch().getOctave());
@@ -243,7 +251,7 @@ public class Measure {
 		else if(n.duration >= typeTable.get("quarter"))
 			n.setType("quarter");
 		else if(n.duration >= typeTable.get("eighth")) {
-			System.out.println("the duration is: " + n.getDuration());
+			//System.out.println("the duration is: " + n.getDuration());
 			n.setType("eighth");}
 		else if(n.duration >= typeTable.get("sixteenth"))
 		n.setType("sixteenth");

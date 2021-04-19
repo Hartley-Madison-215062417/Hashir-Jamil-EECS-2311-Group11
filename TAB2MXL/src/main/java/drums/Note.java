@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="note")
@@ -35,6 +36,9 @@ public class Note{
 	
 	@XmlElement
 	String beamNumber;
+	
+	@XmlTransient
+	int lineNum;
 
 
 	
@@ -60,6 +64,22 @@ public class Note{
 
 
 	}
+	
+	
+
+	public String getInstrumentID() {
+		return instrumentID;
+	}
+
+	public void setInstrumentID(String instrumentID) {
+		this.instrumentID = instrumentID;
+	}
+	
+	
+	
+	
+	
+	
 
 	public Unpitched getUnpitched() {
 		return unpitched;
@@ -77,13 +97,6 @@ public class Note{
 		this.duration = duration;
 	}
 
-	public String getInstrumentID() {
-		return instrumentID;
-	}
-
-	public void setInstrumentID(String instrumentID) {
-		this.instrumentID = instrumentID;
-	}
 
 	public int getVoice() {
 		return voice;
