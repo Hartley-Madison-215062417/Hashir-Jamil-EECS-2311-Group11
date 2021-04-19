@@ -1259,14 +1259,17 @@ public class Parser {
 							//System.out.println("Single digit fret encountered");
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
 							
-							if(((i - 1) > -1) && (i + 1) < 6)
-								if(Character.isDigit(firstMeasure[i-1][j]) || Character.isDigit(firstMeasure[i+1][j])) {
-									n.setChord(new Chord());
-									//chordExist = true;
-								}else if((i - 1) == -1 && Character.isDigit(firstMeasure[i+1][j])) {
-									n.setChord(new Chord());
+							if(((i - 1) > -1) && (i + 1) < 6) { // middle strings, 2,3,4,5
+								if((!Character.isDigit(firstMeasure[i-1][j])) && Character.isDigit(firstMeasure[i+1][j])) {
+									
+							//chordExist = true;
+								}
+								else if(Character.isDigit(firstMeasure[i-1][j]) || Character.isDigit(firstMeasure[i+1][j])) {
+											n.setChord(new Chord());
 									//chordExist = true;
 								}
+							}
+							
 								if((i+1) >= firstMeasure.length && Character.isDigit(firstMeasure[i-1][j])) {
 									//System.out.println("last string note");
 									n.setChord(new Chord());
@@ -1332,7 +1335,7 @@ public class Parser {
 				}
 				
 			}
-		System.out.println("update duration has been called");
+		//System.out.println("update duration has been called");
 		m.updateDuration(m);
 
 		return m;

@@ -153,39 +153,6 @@ public class Measure_test {
 
 	}
 
-	@Test
-	void testExpectedTypeDuration5() {
-		//let the total no of dashes in a measure be 96
-		Attributes a = new Attributes();
-		Time t = new Time(6, 16);
-		a.setTime(t);
-		a.setDivisions(3);
-
-		Map<String, Integer> actual = new HashMap<String, Integer>();
-		actual = Measure.typeTable(a);
-
-		Map<String, Integer> expected = new HashMap<String, Integer>(){{
-			put("whole", 48);
-			put("half", 24);
-			put("quarter", 12);
-			put("eighth", 6);
-			put("sixteenth", 3);
-
-		}};
-
-		//		System.out.println("expected: ");
-		//		for(Entry<String, Integer> entry: expected.entrySet()) {
-		//			System.out.println(entry.getKey() + ":" + entry.getValue());
-		//		}
-		//
-		//		System.out.println("actual");
-		//		for(Entry<String, Integer> entry: actual.entrySet()) {
-		//			System.out.println(entry.getKey() + ":" + entry.getValue());
-		//		}
-
-		assertEquals(expected, actual);
-
-	}
 
 	//time signature with 1 as denom not written cause such time signatures are 
 	//uncommon
@@ -289,7 +256,7 @@ public class Measure_test {
 
 		Note n = new Note();
 		m.getNotes().add(n);
-
+		
 		Map<String, Integer> reference = new HashMap<String, Integer>(){{
 			put("whole", 48);
 			put("half", 24);
@@ -547,118 +514,6 @@ public class Measure_test {
 	}
 
 	
-	/*Testing for this tab file 
-	|-------------------------|
-	|-2-----------------------|
-	|-2-----------------------|
-	|-2-----------------------|
-	|-0-----------------------|
-	|-----5-------------------|
-	 */
-	
-	@Test
-	void testDuration4() {
-
-		//System.out.println("testDuration");
-		Attributes a = new Attributes();
-		Time t = new Time(4, 4);
-		a.setTime(t);
-		
-		Measure m = new Measure();
-		m.setAttributes(a);
-		
-		Note n1 = new Note();
-		n1.getNotations().getTechnical().setFret(0);
-		n1.setDuration(24);
-
-		Note n2 = new Note();
-		n2.getNotations().getTechnical().setFret(4);
-		n2.setDuration(24);
-
-		Note n3 = new Note();
-		n3.getNotations().getTechnical().setFret(2);
-		n3.setDuration(24);
-
-		Note n4 = new Note();
-		n4.getNotations().getTechnical().setFret(5);
-		n4.setDuration(24);
-		
-		Note n5 = new Note();
-		n5.getNotations().getTechnical().setFret(5);
-		n5.setDuration(20);
-
-		
-		List<Note> actual = m.getNotes();	
-		//Collections.addAll(actual, n1, n2, n3, n4);
-		actual.add(n1);
-		actual.add(n2);
-		actual.add(n3);
-		actual.add(n4);
-		actual.add(n5);
-		
-		m.updateDuration(m);
-		System.out.println("3# Size of notes array is: " + m.getNotes().size());
-		
-		List<Note> expected = new ArrayList<Note>();
-
-		Note k1 = new Note();
-		k1.getNotations().getTechnical().setFret(0);
-		k1.setDuration(4);
-
-		Note k2 = new Note();
-		k2.getNotations().getTechnical().setFret(4);
-		k2.setDuration(4);
-
-		Note k3 = new Note();
-		k3.getNotations().getTechnical().setFret(2);
-		k3.setDuration(4);
-
-		Note k4 = new Note();
-		k4.getNotations().getTechnical().setFret(5);
-		k4.setDuration(4);
-		
-		Note k5 = new Note();
-		k5.getNotations().getTechnical().setFret(5);
-		k5.setDuration(20);
-
-		Collections.addAll(expected, k1, k2, k3, k4, k5);
-		assertAll(
-				 "heading",
-				 () -> assertEquals(k1.getDuration(), n1.getDuration()),
-			      () -> assertEquals(k2.getDuration(), n2.getDuration()),
-			      () -> assertEquals(k3.getDuration(), n3.getDuration()),
-			      () -> assertEquals(k4.getDuration(), n4.getDuration())
-		);
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

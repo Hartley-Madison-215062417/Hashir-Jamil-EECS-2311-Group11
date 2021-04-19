@@ -80,8 +80,8 @@ public class DetermineInstrument {
 	
 	
 	public String determineInstrument(char[][] tabMatrix) {
-		
 		ArrayList<char[][]> measureList = measureSplitter(tabMatrix);
+		System.out.println("1.no of measures: " + measureList.size());		
 		
 		for(int i = 0; i < measureList.size(); i++) {
 			//System.out.println("Code reached first for loop");
@@ -94,6 +94,7 @@ public class DetermineInstrument {
 					System.out.print(len[k][j]);
 					if(len[k][j] == 'o' || len[k][j] == 'O' || len[k][j] == 'x' || len[k][j] == 'X' || len[k][j] == 'd' || len[k][j] == 'f') {
 						System.out.println("returning drums");
+						System.out.println("2.no of measures: " + measureList.size());	
 						return "drums";
 					}
 					
@@ -102,7 +103,6 @@ public class DetermineInstrument {
 				//System.out.println("length of measureList.get(i).length is " + measureList.get(i).length);
 			}
 		}
-		
 		for(int h = 0; h < measureList.size(); h++) {
 			
 			char[][] temp = measureList.get(h);
@@ -115,8 +115,7 @@ public class DetermineInstrument {
 				return "bass";
 			}
 		}
-
-		
+		System.out.println("3.no of measures: " + measureList.size());	
 		System.out.println("returning failsafe guitar");
 		return "guitar";
 	}
@@ -142,6 +141,7 @@ public class DetermineInstrument {
 		else {
 			return null;
 		}
+		System.out.println("3.no of measures: " + measureList.size());	
 		return measureList;
 	}
 	
@@ -149,7 +149,7 @@ public class DetermineInstrument {
 	
 	
 	public ArrayList<char[][]> measureSplitter (char[][] input) {
-		
+		System.out.println("entered measureSplitter");
 		int countTheRows = 0;
 		boolean startedReading = false;
 		for(int amntRow = 0; amntRow < input.length; amntRow++) {
@@ -198,7 +198,7 @@ public class DetermineInstrument {
 		//@Madison needs to implement a check for repeats
 		
 		
-		System.out.println("initial length of char matrix: " + input[0].length);
+		//System.out.println("initial length of char matrix: " + input[0].length);
 		
 		
 		
@@ -1453,7 +1453,7 @@ public class DetermineInstrument {
 			}
 		}
 		
-		
+		System.out.println("no of measures is = " + tmpArray.size());
 		return tmpArray;
 		
 	} //end of the method

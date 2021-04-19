@@ -29,7 +29,7 @@ public class Parser_test {
 	
 	@Test
 	void testReadFile() {
-		Parser p = new Parser("prototypeGuitarTab.txt");
+		Parser p = new Parser("GRepeat.txt");
 		List<String> actual = p.getTabList();
 		assertTrue(actual.size() > 0);
 		
@@ -76,7 +76,7 @@ public class Parser_test {
 		Part part = p.createMusicalPart(tmpArray1);
 		scorePartwise sp = new scorePartwise();
 		sp.getParts().add(part);
-		assertEquals(12, p.getPart().getPart().get(1).notes.get(4).getNotations().getTechnical().getFret());		
+		
 		assertAll(
 				 "heading",
 			      () -> assertEquals(14, p.getPart().getPart().get(1).notes.get(2).getNotations().getTechnical().getFret() ),
@@ -155,6 +155,7 @@ public class Parser_test {
 		);
 		
 	}
+	
 	
 
 }

@@ -1011,6 +1011,7 @@ public class Main extends Application{
 			                        			edit_button2.setDisable(false);
 
 		                        		      DetermineInstrument det = new DetermineInstrument(temp);
+		                        		      System.out.println("in gui" + det.measureList.size());
 		                        		      ScorePartwise sp1 = new ScorePartwise();
 				                        		scorePartwise sp2 =  new scorePartwise();
 				                        		
@@ -1222,6 +1223,7 @@ public class Main extends Application{
 		                        			edit_button2.setDisable(false);
 		                        			
 		                        			DetermineInstrument det = new DetermineInstrument(input);
+		                        			System.out.println("in gui" + det.measureList.size());
 			                        		ScorePartwise sp1 = new ScorePartwise();
 			                        		scorePartwise sp2 =  new scorePartwise();
 			                        		File output = new File("src//main//java//output//Output.xml");

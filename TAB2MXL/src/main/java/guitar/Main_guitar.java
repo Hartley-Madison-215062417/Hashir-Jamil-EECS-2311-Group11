@@ -25,6 +25,7 @@ public static void main(String[] args) {
 		Marshaller ms = jc.createMarshaller();
 		ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		ms.marshal(sp,System.out);	
+		ms.marshal(sp,new File("src//main//java//output//Output.xml"));
 		
 	}catch (JAXBException ex) {
 		// TODO Auto-generated catch block

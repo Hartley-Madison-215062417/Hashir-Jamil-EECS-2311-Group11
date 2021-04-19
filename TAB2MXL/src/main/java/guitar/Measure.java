@@ -108,8 +108,8 @@ public class Measure {
 	 * @pre the measure contains a chord
 	 */
 	public void updateDuration(Measure m) {
-		
-		System.out.println("==========before updating duration========");
+		//
+		//System.out.println("==========before updating duration========");
 
 		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
 		List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
@@ -174,6 +174,7 @@ public class Measure {
 					}
 
 					indexArray.removeAll(indexArray);
+					
 
 				}
 
@@ -220,7 +221,7 @@ public class Measure {
 //
 //	}
 	public static void updateType(Note n, Map<String, Integer> typeTable) {
-		System.out.println("entered updateType");
+		//System.out.println("entered updateType");
 //		System.out.println("updating type");
 //		System.out.println("step: " + n.getPitch().getStep());
 //		System.out.println("octave: " + n.getPitch().getOctave());
@@ -231,9 +232,9 @@ public class Measure {
 //			}
 //		}	
 		
-		 for (Map.Entry<String, Integer> entry : typeTable.entrySet()) {
-		        System.out.println(entry.getKey() + ":" + entry.getValue());
-		    }
+//		 for (Map.Entry<String, Integer> entry : typeTable.entrySet()) {
+//		        System.out.println(entry.getKey() + ":" + entry.getValue());
+//		    }
 		
 		if(n.duration >= typeTable.get("whole"))
 			n.setType("whole");
