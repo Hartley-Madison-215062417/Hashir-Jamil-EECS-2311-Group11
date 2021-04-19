@@ -127,6 +127,12 @@ public class Parser {
 
 	
 	
+	public char[][] getSplitMeasure(char[][] input) {
+		ArrayList<char[][]> tmpArray = measureSplitter(input);
+		System.out.println(" number of measures gotten: " + tmpArray.size());
+		return tmpArray.get(0);
+	}
+	
 	public ArrayList<char[][]> measureSplitter (char[][] input) {
 		
 		int countTheRows = 0;
@@ -875,6 +881,10 @@ public class Parser {
 		scorepartwise.getParts().add(p);
 		return scorepartwise;
 	}
+	
+	
+	
+	
 	
 
 }

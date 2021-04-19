@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ import drums.Parser;
 import drums.Measure;
 import drums.part;
 import drums.Time;
+
+import tab2mxl.ParseDrums;
 
 public class DrumsJUnit {
 
@@ -40,13 +43,18 @@ public class DrumsJUnit {
 		private List<Measure> measureList = new ArrayList<Measure>();
 		private List<Note> notes = new ArrayList<Note>();
 		private Measure m;
-		
+	
 		private ArrayList<char[][]>tmpArray1 = new ArrayList<char[][]>();
 		private ArrayList<char[][]>tmpArray2 = new ArrayList<char[][]>();
-		
-		private Parser p5;
-		private char[][] parsed2;
+//		
+//		private Parser p5;
+//		private char[][] parsed2;
+		private ArrayList<char[][]>output;
 		private ArrayList<char[][]>output2;
+		
+		
+		private File file = new File("drumTestTab.txt");
+	//	private ParseDrums pardrum = new ParseDrums(file);
 		
 		
 		
@@ -57,8 +65,10 @@ public class DrumsJUnit {
 			p3 = new Parser("drumTestTab.txt");
 			
 			
-			//m = p1.createMeasure(ca);
-			
+//			
+//			
+//			//m = p1.createMeasure(ca);
+//			
 			n1 = new Note();
 			n1.setDuration(2);
 			
@@ -75,12 +85,12 @@ public class DrumsJUnit {
 			t2 = new Time(4,4);
 			
 			part = new part();
-			
-			
-			
-			p5 = new Parser("drumTestTab.txt");
-			parsed2 = p5.getTabCharMatrix();
-			output2 = p5.measureSplitter(parsed2);
+//			
+//			
+//			
+//			p5 = new Parser("drumTestTab.txt");
+//			parsed2 = p5.getTabCharMatrix();
+//			output2 = p5.measureSplitter(parsed2);
 			
 			
 
@@ -143,34 +153,78 @@ public class DrumsJUnit {
 
 		}
 		
-		@Test
-		public void testMeasureSplitter() {
+		
+		
+//		@Test
+//		public void TestMeasureSplitter() {
+//			
+//		//	output = pardrum.getTmp();
+//			
+//			
+//			//assertNotNull(pardrum);
+//			
+//		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		@Test
+//		public void testMeasureSplitter() {
+//
+//			Parser p = new Parser("drumTestTab.txt");
+//			char[][] parsed = p.getTabCharMatrix();
+//			ArrayList<char[][]>output = p.measureSplitter(parsed);
+//			
+//			assertNotNull(output);
+//			assertNotEquals(output, tmpArray1);
+//			
+//			
+//		}
+//		
+//		@Test
+//		public void testMeasureSplitter2() {
+//			
+//			assertNotNull(output2);
+//			//assertNotEquals(output2,tmpArray1);
+////			
+////			char[][] path3 = new char[2][4];
+////			path3[1][1] = '|';
+////			path3[1][2] = '-';
+////			path3[1][3] = '-';
+////			path3[1][4] = '|';
+////			path3[2][1] = '|';
+////			path3[2][2] = '-';
+////			path3[2][3] = '-';
+////			path3[2][4] = '|';
+////			
+////			Parser par = new Parser("|--|");
+////			output = par.measureSplitter(par.getTabCharMatrix());
+////			
+////			Parser par2 = new Parser();
+////			output2 = par2.measureSplitter(path3);
+////			
+////			assertNotNull(output2);
+////			assertNotNull(output);
+//			
+//			
+//		}
+		
+		
 
-			Parser p = new Parser("drumTestTab.txt");
-			char[][] parsed = p.getTabCharMatrix();
-			ArrayList<char[][]>output = p.measureSplitter(parsed);
-			
-			assertNotNull(output);
-			assertNotEquals(output, tmpArray1);
-			
-			
-		}
-		
-		@Test
-		public void testMeasureSplitter2() {
-			
-			assertNotNull(output2);
-			//assertNotEquals(output2,tmpArray1);
-			
-		}
-		
-		
-		@Test 
-		public void setAndGetCharMatrix() {
-			
-			
-			
-		}
 	
 
 }

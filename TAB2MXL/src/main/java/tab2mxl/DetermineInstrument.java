@@ -209,9 +209,8 @@ public class DetermineInstrument {
 		System.out.println("initial length of char matrix: " + input[0].length);
 		
 		
-		
+		int whatshappening = input[0].length;
 		if(input[0].length == 0) {
-			inputRow++;
 			while(input[inputRow].length == 0) {
 				inputRow++;
 			}
