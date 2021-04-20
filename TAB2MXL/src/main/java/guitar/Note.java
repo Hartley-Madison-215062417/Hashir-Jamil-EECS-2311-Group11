@@ -172,19 +172,19 @@ public class Note {
 		
 		if(string == 1) {
 			n.getPitch().setStep(m.getAttributes().getSdb().getS1().getTuningStep());
-			n.getPitch().setOctave(4);
+			n.getPitch().setOctave(2);
 		}
 		else if(string == 2) {
 			n.getPitch().setStep(m.getAttributes().getSdb().getS2().getTuningStep());
-			n.getPitch().setOctave(3);
+			n.getPitch().setOctave(2);
 		}
 		else if(string == 3) {
 			n.getPitch().setStep(m.getAttributes().getSdb().getS3().getTuningStep());
-			n.getPitch().setOctave(3);
+			n.getPitch().setOctave(1);
 		}
 		else if(string == 4) {
 			n.getPitch().setStep(m.getAttributes().getSdb().getS4().getTuningStep());
-			n.getPitch().setOctave(3);
+			n.getPitch().setOctave(1);
 		}
 	}
 	
