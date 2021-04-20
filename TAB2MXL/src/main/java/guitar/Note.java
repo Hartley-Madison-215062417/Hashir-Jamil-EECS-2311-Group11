@@ -52,13 +52,13 @@ public class Note {
 		this.type = "eighth";
 	}
 	
-	public Note(Pitch pitch, int duration,String type, Notations notations) {
-		super();
-		this.pitch = pitch;
-		this.duration = duration;
-		this.type = type;
-		this.notations = notations;
-	}
+//	public Note(Pitch pitch, int duration,String type, Notations notations) {
+//		super();
+//		this.pitch = pitch;
+//		this.duration = duration;
+//		this.type = type;
+//		this.notations = notations;
+//	}
 	public Note(int s, int f) {
 		// TODO Auto-generated constructor stub
 	}
@@ -104,39 +104,39 @@ public class Note {
 //		this.voice = voice;
 //	}
 //	
-	public static void setDefaultStep(Note n) {
-
-		int string = n.getNotations().getTechnical().getString();		
-		
-		if(string == 1) {
-			n.getPitch().setStep("E");
-			n.getPitch().setOctave(4);
-		}
-		else if(string == 2) {
-			n.getPitch().setStep("B");
-			n.getPitch().setOctave(3);
-		}
-		else if(string == 3) {
-			n.getPitch().setStep("G");
-			n.getPitch().setOctave(3);
-		}
-		else if(string == 4) {
-			n.getPitch().setStep("D");
-			n.getPitch().setOctave(3);
-		}
-		else if(string == 5) {
-			n.getPitch().setStep("A");
-			n.getPitch().setOctave(2);
-			
-		}
-		else if(string == 6) {
-			n.getPitch().setStep("E");
-			n.getPitch().setOctave(2);
-		}
-		
-	}
+//	public static void setDefaultStep(Note n) {
+//
+//		int string = n.getNotations().getTechnical().getString();		
+//		
+//		if(string == 1) {
+//			n.getPitch().setStep("E");
+//			n.getPitch().setOctave(4);
+//		}
+//		else if(string == 2) {
+//			n.getPitch().setStep("B");
+//			n.getPitch().setOctave(3);
+//		}
+//		else if(string == 3) {
+//			n.getPitch().setStep("G");
+//			n.getPitch().setOctave(3);
+//		}
+//		else if(string == 4) {
+//			n.getPitch().setStep("D");
+//			n.getPitch().setOctave(3);
+//		}
+//		else if(string == 5) {
+//			n.getPitch().setStep("A");
+//			n.getPitch().setOctave(2);
+//			
+//		}
+//		else if(string == 6) {
+//			n.getPitch().setStep("E");
+//			n.getPitch().setOctave(2);
+//		}
+//		
+//	}
 	
-	public static void setDefaultStep(Note n, Measure m) {
+	public static void setDefaultStepg(Note n, Measure m) {
 		int string = n.getNotations().getTechnical().getString();		
 		
 		if(string == 1) {
@@ -165,6 +165,27 @@ public class Note {
 			n.getPitch().setOctave(2);
 		}
 		
+	}
+	
+	public static void setDefaultStepb(Note n, Measure m) {
+		int string = n.getNotations().getTechnical().getString();		
+		
+		if(string == 1) {
+			n.getPitch().setStep(m.getAttributes().getSdb().getS1().getTuningStep());
+			n.getPitch().setOctave(4);
+		}
+		else if(string == 2) {
+			n.getPitch().setStep(m.getAttributes().getSdb().getS2().getTuningStep());
+			n.getPitch().setOctave(3);
+		}
+		else if(string == 3) {
+			n.getPitch().setStep(m.getAttributes().getSdb().getS3().getTuningStep());
+			n.getPitch().setOctave(3);
+		}
+		else if(string == 4) {
+			n.getPitch().setStep(m.getAttributes().getSdb().getS4().getTuningStep());
+			n.getPitch().setOctave(3);
+		}
 	}
 	
 		/*

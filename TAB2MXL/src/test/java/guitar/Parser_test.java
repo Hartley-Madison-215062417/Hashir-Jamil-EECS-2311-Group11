@@ -114,7 +114,6 @@ public class Parser_test {
 		Part part = p.createMusicalPart(tmpArray1);
 		scorePartwise sp = new scorePartwise();
 		sp.getParts().add(part);
-		assertNotNull(p.getPart().getPart().get(0).getNotes().get(1).getChord());
 		assertNotNull(p.getPart().getPart().get(0).getNotes().get(2).getChord());
 		assertNotNull(p.getPart().getPart().get(0).getNotes().get(3).getChord());
 		assertNotNull(p.getPart().getPart().get(0).getNotes().get(4).getChord());
@@ -122,19 +121,19 @@ public class Parser_test {
 		
 	}
 	
-	@Test
-	void testHammerOn() {
-		Parser p = new Parser("HammerAndHarmonic.txt");
-		char[][] parsed = p.getTabCharMatrix();
-		int width = parsed[0].length; //gets the length of the entire first row
-		ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);
-		Part part = p.createMusicalPart(tmpArray1);
-		scorePartwise sp = new scorePartwise();
-		sp.getParts().add(part);
-		
-		assertNotNull(p.getPart().getPart().get(1).getNotes().get(1).getNotations().getTechnical().getHnew());
-		
-	}
+//	@Test
+//	void testHammerOn() {
+//		Parser p = new Parser("HammerAndHarmonic.txt");
+//		char[][] parsed = p.getTabCharMatrix();
+//		int width = parsed[0].length; //gets the length of the entire first row
+//		ArrayList<char[][]>tmpArray1 = p.measureSplitter(parsed);
+//		Part part = p.createMusicalPart(tmpArray1);
+//		scorePartwise sp = new scorePartwise();
+//		sp.getParts().add(part);
+//		
+//		assertNotNull(p.getPart().getPart().get(1).getNotes().get(1).getNotations().getTechnical().getHnew());
+//		
+//	}
 	
 	@Test
 	void testHarmonic() {

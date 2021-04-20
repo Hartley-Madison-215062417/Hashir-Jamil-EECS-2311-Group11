@@ -20,6 +20,7 @@ public class Parser {
 	private scorePartwise scorepartwise = new scorePartwise();
 	int hnum =1;
 	List<String> stringTune = new ArrayList<String>();
+	static int ctr;
 	
 	
 	/*
@@ -125,6 +126,8 @@ public class Parser {
 				countTheRows++;
 			}
 		}
+		
+		ctr = countTheRows;
 		//System.out.println("countTheRows is " + countTheRows + " and input.length is " + input.length + " and input[1] is " + input[1].length);
 		
 		char[][] newMeasure = new char[countTheRows][input[0].length];
@@ -1140,6 +1143,7 @@ public class Parser {
 		Measure m = new Measure();
 		m.setNumber(Measure.measureNumber);
 		Measure.measureNumber++;
+		int repeatNumber = 1;
 		
 		//checking for beginning of repeat
 				if (firstMeasure[2][0] == '*' && firstMeasure[3][0] == '*') { //if the '*' symbol is encountered in the 2nd or 3rd line of first column
@@ -1148,9 +1152,12 @@ public class Parser {
 					m.getBarline1().getRepeat().setDirection("forward");
 					//setting the formatting
 					m.setDirection(new Direction());
-					m.getDirection().getDirectionType().getWords().setRelativeX("256.27");
-					m.getDirection().getDirectionType().getWords().setRelativeY("16.01");
-					m.getDirection().getDirectionType().getWords().setContent("repeat 4 times");
+					repeatNumber = Character.getNumericValue(firstMeasure[0][firstMeasure[0].length-1]);
+					//if u figure out how to get words to work
+					//m.getDirection().getDirectionType().getWords().setRelativeX("256.27");
+					//m.getDirection().getDirectionType().getWords().setRelativeY("16.01");
+					//m.getDirection().getDirectionType().getWords().setContent("repeat 4 times");
+					m.getDirection().getDirectionType().setWords("repeat " + repeatNumber + " times");
 				}
 				
 		//checking for end of repeat
@@ -1177,12 +1184,23 @@ public class Parser {
 		m.attributes.setClef(c);
 		
 		//if the tab file does not contain any tuning then set to default tuning
+		if(ctr == 6) {
 		if(stringTune.size() == 0) {
-			StaffDetails sd = new StaffDetails();
+			StaffDetailsG sd = new StaffDetailsG();
 			m.attributes.setSd(sd);
 		}else {//if the tab file contains tuning then set it accordingly 
-			StaffDetails sd = new StaffDetails(stringTune);
+			StaffDetailsG sd = new StaffDetailsG(stringTune);
 			m.attributes.setSd(sd);
+		}}
+		
+		else if(ctr == 4) {
+			if(stringTune.size() == 0) {
+				StaffDetailsB sd = new StaffDetailsB();
+				m.attributes.setSdb(sd);
+			}else {//if the tab file contains tuning then set it accordingly 
+				StaffDetailsB sd = new StaffDetailsB(stringTune);
+				m.attributes.setSdb(sd);
+			}
 		}
 		
 		m.attributes.setDivisions(calculateDivision(t.getBeats(), firstMeasure[0].length));						
@@ -1259,7 +1277,7 @@ public class Parser {
 							//System.out.println("Single digit fret encountered");
 							n.getNotations().getTechnical().setFret(Character.getNumericValue(firstMeasure[i][j]));
 							
-							if(((i - 1) > -1) && (i + 1) < 6) { // middle strings, 2,3,4,5
+							if(((i - 1) > -1) && (i + 1) < ctr) { // middle strings, 2,3,4,5
 								if((!Character.isDigit(firstMeasure[i-1][j])) && Character.isDigit(firstMeasure[i+1][j])) {
 									
 							//chordExist = true;
@@ -1317,8 +1335,10 @@ public class Parser {
 						n.setDuration(firstMeasure[0].length - j);
 						
 						//System.out.println(firstMeasure[0].length);
-						
-						Note.setDefaultStep(n, m);
+						if(ctr == 6)
+						Note.setDefaultStepg(n, m);
+						else 
+							Note.setDefaultStepb(n, m);
 						
 						if(n.getNotations().getTechnical().getFret()!=0) 
 							n.updatePitch(n);

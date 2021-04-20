@@ -100,7 +100,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "attributes")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"divisions", "key", "time", "clef", "sd"})
+@XmlType(propOrder = {"divisions", "key", "time", "clef", "sd", "sdb"})
 public class Attributes {
 	
 	@XmlElement
@@ -114,17 +114,18 @@ public class Attributes {
 
 	@XmlElement
 	Clef clef;
+
+	@XmlElement (name = "staff-details")
+	StaffDetailsG sd;
 	
 	@XmlElement (name = "staff-details")
-	StaffDetails sd;
-	
-	
+	StaffDetailsB sdb;
 
 	public Attributes() {
 		super();
 	}
 
-	public Attributes(Key key, Time time, Clef clef, StaffDetails sd) {
+	public Attributes(Key key, Time time, Clef clef, StaffDetailsG sd) {
 		super();
 		this.key = key;
 		this.time = time;
@@ -156,11 +157,11 @@ public class Attributes {
 		this.clef = clef;
 	}
 
-	public StaffDetails getSd() {
+	public StaffDetailsG getSd() {
 		return sd;
 	}
 
-	public void setSd(StaffDetails sd) {
+	public void setSd(StaffDetailsG sd) {
 		this.sd = sd;
 	}
 
@@ -170,6 +171,15 @@ public class Attributes {
 	
 	public void setDivisions(int divisions) {
 		this.divisions = divisions;
+	}
+	
+
+	public StaffDetailsB getSdb() {
+		return sdb;
+	}
+
+	public void setSdb(StaffDetailsB sdb) {
+		this.sdb = sdb;
 	}
 	
 	
