@@ -12,15 +12,27 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder= {"words"})
 public class DirectionType {
 	
+//	@XmlElement
+//	Words words = new Words();
+//
+//	public Words getWords() {
+//		return words;
+//	}
+//
+//	public void setWords(Words words) {
+//		this.words = words;
+//	}
+//	
 	@XmlElement
-	Words words = new Words();
+	String words;
 
-	public Words getWords() {
+	public String getWords() {
 		return words;
 	}
 
-	public void setWords(Words words) {
+	public void setWords(String words) {
 		this.words = words;
 	}
+	
 	
 }

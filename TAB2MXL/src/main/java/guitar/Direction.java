@@ -14,17 +14,13 @@ import javax.xml.bind.annotation.XmlType;
 public class Direction {
 	
 	@XmlAttribute
-	String placement;
+	final String placement = "above";
 	
 	@XmlElement
 	DirectionType directionType = new DirectionType();
 
 	public String getPlacement() {
 		return placement;
-	}
-
-	public void setPlacement(String placement) {
-		this.placement = placement;
 	}
 
 	public DirectionType getDirectionType() {
