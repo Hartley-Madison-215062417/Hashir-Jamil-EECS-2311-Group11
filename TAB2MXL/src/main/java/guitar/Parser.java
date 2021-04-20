@@ -1206,6 +1206,15 @@ public class Parser {
 			}
 		}
 		
+		else if(ctr ==5 ) {
+			if(stringTune.size() == 0) {
+				StaffDetailsB5 sd = new StaffDetailsB5();
+				m.attributes.setSdb5(sd);
+			}else {//if the tab file contains tuning then set it accordingly 
+				StaffDetailsB5 sd = new StaffDetailsB5(stringTune);
+				m.attributes.setSdb5(sd);
+			}
+		}
 		m.attributes.setDivisions(calculateDivision(t.getBeats(), firstMeasure[0].length));						
 		
 		for (int j = 0; j < firstMeasure[0].length; j++) 

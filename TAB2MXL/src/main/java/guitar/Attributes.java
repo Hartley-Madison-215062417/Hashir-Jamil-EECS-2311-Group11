@@ -100,7 +100,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "attributes")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = {"divisions", "key", "time", "clef", "sd", "sdb"})
+@XmlType(propOrder = {"divisions", "key", "time", "clef", "sd", "sdb", "sdb5"})
 public class Attributes {
 	
 	@XmlElement
@@ -120,6 +120,9 @@ public class Attributes {
 	
 	@XmlElement (name = "staff-details")
 	StaffDetailsB sdb;
+	
+	@XmlElement (name = "staff-details")
+	StaffDetailsB5 sdb5;
 
 	public Attributes() {
 		super();
@@ -181,6 +184,16 @@ public class Attributes {
 	public void setSdb(StaffDetailsB sdb) {
 		this.sdb = sdb;
 	}
+
+	public StaffDetailsB5 getSdb5() {
+		return sdb5;
+	}
+
+	public void setSdb5(StaffDetailsB5 sd2) {
+		this.sdb5 = sd2;
+	}
+	
+	
 	
 	
 }
