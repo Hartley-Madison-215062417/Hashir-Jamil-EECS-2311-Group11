@@ -109,11 +109,6 @@ public class Measure {
 	 */
 	public void updateDuration(Measure m) {
 
-<<<<<<< HEAD
-=======
-		
->>>>>>> branch 'develop' of https://github.com/Hartley-Madison-215062417/Hashir-Jamil-EECS-2311-Group11.git
-
 		//System.out.println("==========before updating duration========");
 
 		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
