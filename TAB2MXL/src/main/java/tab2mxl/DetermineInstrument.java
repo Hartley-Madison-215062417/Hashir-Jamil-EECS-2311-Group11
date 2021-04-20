@@ -93,7 +93,7 @@ public class DetermineInstrument {
 				//System.out.println("Code reached second for loop, len.length = " + len.length);
 				for(int k = 0; k < len.length; k++) {
 					//System.out.println("Code reached third for loop");
-					System.out.print(len[k][j]);
+					//System.out.print(len[k][j]);
 					if(len[k][j] == 'o' || len[k][j] == 'O' || len[k][j] == 'x' || len[k][j] == 'X' || len[k][j] == 'd' || len[k][j] == 'f') {
 						System.out.println("returning drums");
 						System.out.println("measureList size: " + measureList.size());
