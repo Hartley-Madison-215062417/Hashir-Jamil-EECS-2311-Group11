@@ -118,7 +118,16 @@ public class DrumsJUnit {
 			assertSame(n2,n4);
 			assertNotSame(n3,n2);
 			assertNotSame(n1,n2);
+			assertNotNull(n2.getDuration());
 			assertNotNull(n3);
+			n2.setInstrumentID("P1-I45");
+			assertEquals("P1-I45",n2.getInstrumentID());
+			n2.setStem("up");
+			assertEquals("up",n2.getStem());
+			n2.setNotehead("x");
+			assertEquals("x",n2.getNotehead());
+
+
 			
 		}
 		
@@ -127,8 +136,12 @@ public class DrumsJUnit {
 		public void testTime() {
 			
 			assertNotSame(t1,t2);
+			assertNotNull(t1.getBeats());
+			assertNotNull(t1.getBeatType());
 			assertEquals(4,t1.getBeats());
 			assertEquals(4,t2.getBeats());
+			t2.setBeatType(3);
+			assertEquals(3,t2.getBeatType());
 			
 		}
 		

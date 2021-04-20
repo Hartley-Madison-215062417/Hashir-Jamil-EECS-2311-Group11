@@ -704,79 +704,13 @@ public class Parser {
 		for(int j = 0; j < 1; j++) {
 			for(int i = 0; i < firstMeasure.length; i++) {
 				Note n = new Note();
-				char c = firstMeasure[i][j];
-				if(c == 'C') {
-					n.setInstrumentID("P1-I50");
-					n.setVoice(1);
-					n.setStem("up");
-					n.setNotehead("x");
-					asID[i] = "P1-I50";
-					n.getUnpitched().setStep("A");
-					System.out.println("Step is " + n.getUnpitched().getStep());
-					
-					
-				}else if(c == 'R') {
-					n.setInstrumentID("P1-I52");
-					asID[i] = "P1-I52";
-					System.out.println("Step is " + n.getUnpitched().getStep());
-					
-				}else if(c == 'H') {
-					char e = firstMeasure [i][j];
-					if(e == 'T') {
-						n.setInstrumentID("P1-I48");
-						n.setVoice(1);
-						n.setStem("up");
-					
-						asID[i] = "P1-I48";
-						n.getUnpitched().setStep("E");
-						System.out.println("Step is " + n.getUnpitched().getStep());
-						
-					}else if(e == 'H'){
-						n.setInstrumentID("P1-I43");
-						n.setVoice(1);
-						n.setStem("up");
-						n.setNotehead("x");
-						asID[i] = "P1-I43";
-						n.getUnpitched().setStep("G");
-						System.out.println("Step is " + n.getUnpitched().getStep());
-					
-					}
-					else if(e == 'F') {
-						n.setInstrumentID("P1-I45");
-						asID[i] = "P1-I45";
-						System.out.println("Step is " + n.getUnpitched().getStep());
-					}
-					else {
-						System.out.println("Step is not good " + n.getUnpitched().getStep());
-					}
-				}else if(c == 'S') {
-					n.setInstrumentID("P1-I39");
-					n.setVoice(1);
-					n.setStem("up");
-					asID[i] = "P1-I39";
-					n.getUnpitched().setStep("C");
-					System.out.println("Step is " + n.getUnpitched().getStep());
-					
-				}else if(c == 'M') {
-					n.setInstrumentID("P1-I46");
-					n.setVoice(1);
-					n.setStem("up");
-					asID[i] = "P1-I46";
-					n.getUnpitched().setStep("D");
-					System.out.println("Step is " + n.getUnpitched().getStep());
-					
-				}else if (c == 'B') {
-					n.setInstrumentID("P1-I36");
-					n.setVoice(2);
-					n.setStem("down"); 
-					asID[i] = "P1-I36";
-					n.getUnpitched().setStep("F");
-					System.out.println("Step is " + n.getUnpitched().getStep());
+				
+				if(i == 0 && firstMeasure.length > i) {
 					
 				}
-				
+
 				if(firstMeasure[i][j] == 'x') {
-					n.setInstrumentID("P1-I43");
+					//n.setInstrumentID("P1-I43");
 					n.setVoice(1);
 					n.setStem("up");
 					n.setNotehead("x");
@@ -784,7 +718,11 @@ public class Parser {
 					type.append(firstMeasure[i][j]);
 				}
 				else if(firstMeasure[i][j] == 'X') {
-					
+					n.setVoice(1);
+					n.setStem("up");
+					n.setNotehead("x");
+					StringBuilder type = new StringBuilder();
+					type.append(firstMeasure[i][j]);
 				}
 				else if(firstMeasure[i][j] == 'o' ) {
 					n.setInstrumentID(asID[i]);
@@ -803,24 +741,166 @@ public class Parser {
 					type.append(firstMeasure[i][j]);
 				}
 				else if(firstMeasure[i][j] == 'O') {
+					n.setInstrumentID(asID[i]);
+					n.setVoice(1);
+					int tmp = firstMeasure.length;
+					if((tmp/2) >= i) {
+						n.setStem("up");
+					}
+					else {
+						n.setStem("down");
+					}
+					n.setVoice(1); 
+					// do not set notehead here
 					
-				}
-				else if(firstMeasure[i][j] == 'f') {
 					StringBuilder type = new StringBuilder();
 					type.append(firstMeasure[i][j]);
 				}
-				else if(firstMeasure[i][j] == 'd') {
-					
+				else if(firstMeasure[i][j] == 'f') {
+					StringBuilder type = new StringBuilder();
+					Grace g = new Grace();
+					n.setGrace(g);
+					type.append(firstMeasure[i][j]);
 				}
-				else if(firstMeasure[i][j] == '@') {
-					
+				
+				String s = drumType.get(i);
+				
+				if(s.equals("r")|| s.equals("rd")|| s.equals("RD")||s.equals("R")) {
+					n.setInstrumentID("P1-I52");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I52";
+					n.getUnpitched().setStep("A");
+					n.getUnpitched().setOctave(5);
 				}
-				else if(firstMeasure[i][j] == 'b') {
-					
+				else if(s.equals("C") || s.equals("c") ||s.equals("cc")||s.equals("CC")) {
+					n.setInstrumentID("P1-I50");
+					n.setVoice(1);
+					n.setStem("up");
+					n.setNotehead("x");
+					asID[i] = "P1-I50";
+					n.getUnpitched().setStep("A");
+					n.getUnpitched().setOctave(5);
 				}
-				else if(firstMeasure[i][j] == 'g') {
-					
+				else if(s.equals("SD") || s.equals("sd" ) ||s.equals("s") ||s.equals("sd")) {
+					n.setInstrumentID("P1-I39");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I39";
+					n.getUnpitched().setStep("C");
+					n.getUnpitched().setOctave(5);
 				}
+				else if(s.equals("SN") || s.equals("sn")) {
+					n.setInstrumentID("P1-I39");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I39";
+					n.getUnpitched().setStep("C");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("FT") || s.equals("ft")) {
+					n.setInstrumentID("P1-I44");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I44";
+					n.getUnpitched().setStep("A");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("B") || s.equals("b")) {
+					n.setInstrumentID("P1-I36");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I36";
+					n.getUnpitched().setStep("F");
+					n.getUnpitched().setOctave(4);
+				}
+				else if(s.equals("BD") || s.equals("bd")) {
+					n.setInstrumentID("P1-I36");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I36";
+					n.getUnpitched().setStep("F");
+					n.getUnpitched().setOctave(4);
+				}
+				else if(s.equals("HH") || s.equals("hh")) {
+					n.setInstrumentID("P1-I43");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I43";
+					n.getUnpitched().setStep("G");
+					n.getUnpitched().setOctave(5);
+					n.setNotehead("x");
+				}
+				else if(s.equals("HF") || s.equals("hf")) {
+					n.setInstrumentID("P1-I45");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I45";
+					n.getUnpitched().setStep("D");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("T1") || s.equals("t1")) {
+					n.setInstrumentID("P1-I48");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I48";
+					n.getUnpitched().setStep("E");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("HT") || s.equals("ht")) {
+					n.setInstrumentID("P1-I48");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I48";
+					n.getUnpitched().setStep("E");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("T") || s.equals("t")) {
+					n.setInstrumentID("P1-I48");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I48";
+					n.getUnpitched().setStep("E");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("T2") || s.equals("t2")) {
+					n.setInstrumentID("P1-I46");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I46";
+					n.getUnpitched().setStep("D");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("MT") || s.equals("mt")) {
+					n.setInstrumentID("P1-I46");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I46";
+					n.getUnpitched().setStep("D");
+					n.getUnpitched().setOctave(5);
+				}
+				else if(s.equals("T3") || s.equals("t3")) {
+					n.setInstrumentID("P1-I46");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I46";
+					n.getUnpitched().setStep("A");
+					n.getUnpitched().setOctave(4);
+				}
+				else if(s.equals("LT") || s.equals("lt")) {
+					n.setInstrumentID("P1-I46");
+					n.setVoice(1);
+					n.setStem("up");
+					asID[i] = "P1-I46";
+					n.getUnpitched().setStep("A");
+					n.getUnpitched().setOctave(4);
+				}
+				
+				
+				
+				
+				
+				
 				
 				
 				m.getNotes().add(n);
@@ -831,32 +911,15 @@ public class Parser {
 		}
 		
 
-		
-
-				
-				/*
-				 * Symbols: o - drum, x - cymbol, 
-				 * capitalized to denote accent or strong hit.
-				 * 
-				 * Check for capital or lowercase?
-				 * 
-				 * Other letters:
-				 * they denote the drum used.
-				 * Ride: r, rd
-				 * Crash: c, cr
-				 * High Tom: st (small tom), t1 (tom 1)
-				 * Medium Tom: mt or t2
-				 * Floor Tom: ft or t3
-				 * Hi-Hat: h or Hh ("x" and "o" can also mean closed and open hats, respectively.
-				 * Snare drum: s or sd
-				 * Bass drum: b or bd
-				 */
-
+		m.updateDuration(m);
 		
 		return m;
 		
 		
 	}
+
+	
+	
 	
 	/*
 	 * Adds all the measures to a part 

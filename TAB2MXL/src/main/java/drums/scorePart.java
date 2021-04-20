@@ -98,21 +98,213 @@ public class scorePart {
 	public scorePart() {
 		super();
 		this.id = "P1";
-		ScoreInstrument I1 = new ScoreInstrument();
-		I1.setId("P1-I39");
-		I1.setInstrumentName("Snare");
+		//ScoreInstrument I1 = new ScoreInstrument();
+		//I1.setId("P1-I39");
+		//I1.setInstrumentName("Snare");
 	}
 	
 	public scorePart(ScoreInstrument instrumentName) {
 		super();
 		this.id = "P1";
-		ScoreInstrument I1 = new ScoreInstrument();
-		I1.setId("P1-I39");
-		I1.setInstrumentName("Snare");
+		//ScoreInstrument I1 = new ScoreInstrument();
+		//I1.setId("P1-I39");
+		//I1.setInstrumentName("Snare");
 
 
 	}
 	
+	public ScoreInstrument getD1() {
+		return d1;
+	}
+
+	public void setD1(ScoreInstrument d1) {
+		this.d1 = d1;
+	}
+
+	public ScoreInstrument getD2() {
+		return d2;
+	}
+
+	public void setD2(ScoreInstrument d2) {
+		this.d2 = d2;
+	}
+
+	public ScoreInstrument getD3() {
+		return d3;
+	}
+
+	public void setD3(ScoreInstrument d3) {
+		this.d3 = d3;
+	}
+
+	public ScoreInstrument getD4() {
+		return d4;
+	}
+
+	public void setD4(ScoreInstrument d4) {
+		this.d4 = d4;
+	}
+
+	public ScoreInstrument getD5() {
+		return d5;
+	}
+
+	public void setD5(ScoreInstrument d5) {
+		this.d5 = d5;
+	}
+
+	public ScoreInstrument getD6() {
+		return d6;
+	}
+
+	public void setD6(ScoreInstrument d6) {
+		this.d6 = d6;
+	}
+
+	public ScoreInstrument getD7() {
+		return d7;
+	}
+
+	public void setD7(ScoreInstrument d7) {
+		this.d7 = d7;
+	}
+
+	public ScoreInstrument getD8() {
+		return d8;
+	}
+
+	public void setD8(ScoreInstrument d8) {
+		this.d8 = d8;
+	}
+
+	public ScoreInstrument getD9() {
+		return d9;
+	}
+
+	public void setD9(ScoreInstrument d9) {
+		this.d9 = d9;
+	}
+
+	public ScoreInstrument getD10() {
+		return d10;
+	}
+
+	public void setD10(ScoreInstrument d10) {
+		this.d10 = d10;
+	}
+
+	public ScoreInstrument getD11() {
+		return d11;
+	}
+
+	public void setD11(ScoreInstrument d11) {
+		this.d11 = d11;
+	}
+
+	public ScoreInstrument getD12() {
+		return d12;
+	}
+
+	public void setD12(ScoreInstrument d12) {
+		this.d12 = d12;
+	}
+
+	public ScoreInstrument getD13() {
+		return d13;
+	}
+
+	public void setD13(ScoreInstrument d13) {
+		this.d13 = d13;
+	}
+
+	public ScoreInstrument getD14() {
+		return d14;
+	}
+
+	public void setD14(ScoreInstrument d14) {
+		this.d14 = d14;
+	}
+
+	public ScoreInstrument getD15() {
+		return d15;
+	}
+
+	public void setD15(ScoreInstrument d15) {
+		this.d15 = d15;
+	}
+
+	public ScoreInstrument getD16() {
+		return d16;
+	}
+
+	public void setD16(ScoreInstrument d16) {
+		this.d16 = d16;
+	}
+
+	public ScoreInstrument getD17() {
+		return d17;
+	}
+
+	public void setD17(ScoreInstrument d17) {
+		this.d17 = d17;
+	}
+
+	public ScoreInstrument getD18() {
+		return d18;
+	}
+
+	public void setD18(ScoreInstrument d18) {
+		this.d18 = d18;
+	}
+
+	public ScoreInstrument getD19() {
+		return d19;
+	}
+
+	public void setD19(ScoreInstrument d19) {
+		this.d19 = d19;
+	}
+
+	public ScoreInstrument getD20() {
+		return d20;
+	}
+
+	public void setD20(ScoreInstrument d20) {
+		this.d20 = d20;
+	}
+
+	public ScoreInstrument getD21() {
+		return d21;
+	}
+
+	public void setD21(ScoreInstrument d21) {
+		this.d21 = d21;
+	}
+
+	public ScoreInstrument getD22() {
+		return d22;
+	}
+
+	public void setD22(ScoreInstrument d22) {
+		this.d22 = d22;
+	}
+
+	public ScoreInstrument getD23() {
+		return d23;
+	}
+
+	public void setD23(ScoreInstrument d23) {
+		this.d23 = d23;
+	}
+
+	public ScoreInstrument getD24() {
+		return d24;
+	}
+
+	public void setD24(ScoreInstrument d24) {
+		this.d24 = d24;
+	}
+
 	public String getPartName() {
 		return partName;
 	}

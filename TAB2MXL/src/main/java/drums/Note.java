@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="note")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead","beamNumber"})
+@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead","beamNumber", "grace"})
 
 public class Note{
 
@@ -19,7 +19,7 @@ public class Note{
 	Unpitched unpitched = new Unpitched();
 
 	@XmlElement
-	int duration = 2;
+	int duration = 4;
 
 	@XmlElement
 	String instrumentID;
@@ -42,13 +42,39 @@ public class Note{
 	@XmlTransient
 	int lineNum;
 	
-	@XmlTransient
-	String s = new String();
-
-
+	@XmlElement
+	Grace grace;
 	
 
+	@XmlTransient
+	String s = new String();
+	
+	
+	
+	
+	public int getLineNum() {
+		return lineNum;
+	}
 
+	public void setLineNum(int lineNum) {
+		this.lineNum = lineNum;
+	}
+
+	public Grace getGrace() {
+		return grace;
+	}
+
+	public void setGrace(Grace grace) {
+		this.grace = grace;
+	}
+
+	public String getS() {
+		return s;
+	}
+
+	public void setS(String s) {
+		this.s = s;
+	}
 
 	public Note() {
 		super();
@@ -58,7 +84,7 @@ public class Note{
 		super();
 		int divisions = 4;
 		this.unpitched = unpitched;
-		this.duration = 2;
+		this.duration = duration;
 		this.instrumentID = instrumentID;
 		this.voice = voice;
 		this.type = type;

@@ -156,101 +156,10 @@ public class Measure {
 	
 	
 	
-	public void updateDuration(Measure m) {
+	public int updateDuration(Measure m) {
 
-		//array to store to index of each note in 1 chord, it has to be rewritten for each chord
-		List<Integer> indexArray = new ArrayList<Integer>();//considering that guitar will only have 6 strings
-
-		//duration of 1 chord, it has to be rewritten for each chord
-		int chordDuration = 0; 
-
-		//System.out.println("notes.size(): " + m.notes.size());
 		
-		//looping through a list of all notes inside 1 measure
-		for (int i = 0; i <= m.notes.size()-1; i++) {
-			//System.out.println("entered for loop");
-
-			//System.out.println("test0");
-
-			//if last note in measure 
-			if(i == m.notes.size()-1) {
-				/* TO CHECK HOW MANY TIMES THIS FUNCTION IS CALLED - don't need to call if measure doesn't contain a chord
-				System.out.println("The value of i: " + i);
-				System.out.println("The size of the notes: " + notes.size());
-				System.out.println("First note's step: " + notes.get(1).getPitch().getStep() + " octave " + notes.get(1).getPitch().getOctave());
-				System.out.println("This note is the last note of the chord");
-				 */
-
-				//System.out.println("This note is the last note of the chord");
-				chordDuration = m.getNotes().get(i).getDuration();
-				//System.out.println("The duration of this chord is: " + chordDuration);
-
-				//if not first note in measure 
-				if (i!=0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
-					chordDuration = m.getNotes().get(i).getDuration(); 
-
-					for (int index: indexArray) {
-						m.notes.get(index).setDuration(chordDuration);						
-					}
-
-					m.notes.get(i).setDuration(chordDuration);	
-					indexArray.removeAll(indexArray);
-				}
-
-
-
-			}
-
-			//if the note is not the last note
-			else {
-
-				//if it is the last note of a chord
-				if (i!=0 && m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() != 0 && m.notes.get(i-1).getDuration() - m.notes.get(i).getDuration() == 0 ) {
-
-
-					if(i!= m.notes.size()-1) {
-
-						chordDuration = (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration());
-						m.notes.get(i).setDuration(chordDuration);
-					}
-
-
-					for (int index: indexArray) {
-
-						m.notes.get(index).setDuration(chordDuration);						
-					}
-
-					indexArray.removeAll(indexArray);
-
-				}
-
-
-
-				//if it is a note in the chord, but not last note in chord
-				else if (m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration() == 0) {
-
-					indexArray.add(i);
-
-
-				}	
-
-
-				//if not part of a chord
-				else{
-					System.out.println("not part of chord");
-					m.notes.get(i).setDuration((m.notes.get(i).getDuration() - m.notes.get(i + 1).getDuration()));
-				}
-
-
-//				if(i == m.notes.size()-1) {
-//					m.notes.get(i).setDuration(m.notes.get(i).getDuration());
-//				}
-
-			}
-			Map<String, Integer> reference = typeTable(m.getAttributes());
-			updateType(m.notes.get(i), reference);
-		}
-
+		return 8;
 	}
 	
 	
