@@ -22,8 +22,8 @@ public class PopupGUI {
     label1.setLayoutY(250);
     
 	ImageView format = new ImageView("file:format.png");
-    format.setFitHeight(200);
-    format.setFitWidth(200);      
+    format.setFitHeight(400);
+    format.setFitWidth(400);      
 	     
 
 	VBox layout= new VBox(10);
@@ -35,7 +35,7 @@ public class PopupGUI {
 	
 	layout.setAlignment(Pos.CENTER);
 	      
-	Scene scene1= new Scene(layout, 600, 300);
+	Scene scene1= new Scene(layout, 700, 500);
 	      
 	popupwindow.setScene(scene1);
 	popupwindow.showAndWait();
