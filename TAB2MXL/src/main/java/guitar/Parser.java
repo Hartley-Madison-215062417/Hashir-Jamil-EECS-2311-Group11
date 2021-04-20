@@ -20,6 +20,7 @@ public class Parser {
 	private scorePartwise scorepartwise = new scorePartwise();
 	int hnum =1;
 	List<String> stringTune = new ArrayList<String>();
+	static int ctr;
 	
 	
 	/*
@@ -125,6 +126,8 @@ public class Parser {
 				countTheRows++;
 			}
 		}
+		
+		ctr = countTheRows;
 		//System.out.println("countTheRows is " + countTheRows + " and input.length is " + input.length + " and input[1] is " + input[1].length);
 		
 		char[][] newMeasure = new char[countTheRows][input[0].length];
@@ -1135,6 +1138,9 @@ public class Parser {
 	 * the measure object
 	 */
 	public Measure createMeasure(char[][] firstMeasure) {
+		
+		
+		
 		
 		//the first measure does not include the vertical bars
 		Measure m = new Measure();
