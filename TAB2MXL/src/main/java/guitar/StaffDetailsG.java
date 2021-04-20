@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder= {"staffLines", "s1", "s2", "s3", "s4", "s5", "s6"})
 
-public class StaffDetails{
+public class StaffDetailsG{
 	
 	@XmlElement(name = "staff-lines")
 	int staffLines;
@@ -35,8 +35,7 @@ public class StaffDetails{
 	@XmlElement(name = "staff-tuning")
 	StaffTuning s6;
 	
-	public StaffDetails() {
-		
+	public StaffDetailsG() {
 		staffLines = 6;
 		s1 = new StaffTuning(1, "E", 2);
 		s2 = new StaffTuning(2, "A", 2);
@@ -44,10 +43,9 @@ public class StaffDetails{
 		s4 = new StaffTuning(4, "G", 3);
 		s5 = new StaffTuning(5, "B", 3);
 		s6 = new StaffTuning(6, "E", 4);
-		
 	}
 	
-	public StaffDetails(List<String> stringTune) {
+	public StaffDetailsG(List<String> stringTune) {
 		staffLines = 6;
 		s1 = new StaffTuning(1, stringTune.get(0), 2);
 		s2 = new StaffTuning(2, stringTune.get(1), 2);
