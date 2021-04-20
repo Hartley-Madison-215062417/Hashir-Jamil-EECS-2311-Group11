@@ -171,6 +171,31 @@ public class Note {
 		int string = n.getNotations().getTechnical().getString();		
 		
 		if(string == 1) {
+			n.getPitch().setStep(m.getAttributes().getSdb5().getS1().getTuningStep());
+			n.getPitch().setOctave(2);
+		}
+		else if(string == 2) {
+			n.getPitch().setStep(m.getAttributes().getSdb5().getS2().getTuningStep());
+			n.getPitch().setOctave(2);
+		}
+		else if(string == 3) {
+			n.getPitch().setStep(m.getAttributes().getSdb5().getS3().getTuningStep());
+			n.getPitch().setOctave(2);
+		}
+		else if(string == 4) {
+			n.getPitch().setStep(m.getAttributes().getSdb5().getS4().getTuningStep());
+			n.getPitch().setOctave(1);
+		}
+		else if(string == 5) {
+			n.getPitch().setStep(m.getAttributes().getSdb5().getS4().getTuningStep());
+			n.getPitch().setOctave(1);
+		}
+	}
+	
+	public static void setDefaultStepb5(Note n, Measure m) {
+		int string = n.getNotations().getTechnical().getString();		
+		
+		if(string == 1) {
 			n.getPitch().setStep(m.getAttributes().getSdb().getS1().getTuningStep());
 			n.getPitch().setOctave(2);
 		}
@@ -183,6 +208,10 @@ public class Note {
 			n.getPitch().setOctave(1);
 		}
 		else if(string == 4) {
+			n.getPitch().setStep(m.getAttributes().getSdb().getS4().getTuningStep());
+			n.getPitch().setOctave(1);
+		}
+		else if (string == 5) {
 			n.getPitch().setStep(m.getAttributes().getSdb().getS4().getTuningStep());
 			n.getPitch().setOctave(1);
 		}
