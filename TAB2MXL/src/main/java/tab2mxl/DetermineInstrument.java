@@ -145,12 +145,16 @@ public class DetermineInstrument {
 			return gr.tmp;
 		}
 		else if(inst.equals("base")) {
-			
+			ParseGuitar gr = new ParseGuitar(inputFile);
+			partg=gr.getPart();
+			measureList = gr.tmp;
+			System.out.println("measureList size: " + measureList.size());
+			return gr.tmp;
 		}
 		else {
 			return null;
 		}
-		return measureList;
+		
 	}
 	
 	
