@@ -26,7 +26,7 @@ public class ScoreInstrument {
     
     public ScoreInstrument(String id, String instrumentName) {
         super();
-        System.out.println("in constructor");
+       // System.out.println("in constructor");
         this.id = id;
         this.instrumentName = instrumentName;
     }

@@ -93,7 +93,7 @@ public class DetermineInstrument {
 				//System.out.println("Code reached second for loop, len.length = " + len.length);
 				for(int k = 0; k < len.length; k++) {
 					//System.out.println("Code reached third for loop");
-					System.out.print(len[k][j]);
+					//System.out.print(len[k][j]);
 					if(len[k][j] == 'o' || len[k][j] == 'O' || len[k][j] == 'x' || len[k][j] == 'X' || len[k][j] == 'd' || len[k][j] == 'f') {
 						System.out.println("returning drums");
 						System.out.println("measureList size: " + measureList.size());
@@ -145,12 +145,16 @@ public class DetermineInstrument {
 			return gr.tmp;
 		}
 		else if(inst.equals("base")) {
-			
+			ParseGuitar gr = new ParseGuitar(inputFile);
+			partg=gr.getPart();
+			measureList = gr.tmp;
+			System.out.println("measureList size: " + measureList.size());
+			return gr.tmp;
 		}
 		else {
 			return null;
 		}
-		return measureList;
+		
 	}
 	
 	
@@ -209,9 +213,8 @@ public class DetermineInstrument {
 		System.out.println("initial length of char matrix: " + input[0].length);
 		
 		
-		
+		int whatshappening = input[0].length;
 		if(input[0].length == 0) {
-			inputRow++;
 			while(input[inputRow].length == 0) {
 				inputRow++;
 			}

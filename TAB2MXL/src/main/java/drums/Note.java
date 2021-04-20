@@ -1,5 +1,7 @@
 package drums;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -9,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="note")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead","beamNumber"})
+@XmlType(propOrder= {"unpitched","duration","instrumentID","voice","type","stem","notehead","beamNumber", "grace"})
 
 public class Note{
 
@@ -17,7 +19,7 @@ public class Note{
 	Unpitched unpitched = new Unpitched();
 
 	@XmlElement
-	int duration = 2;
+	int duration = 4;
 
 	@XmlElement
 	String instrumentID;
@@ -39,11 +41,40 @@ public class Note{
 	
 	@XmlTransient
 	int lineNum;
-
-
+	
+	@XmlElement
+	Grace grace;
 	
 
+	@XmlTransient
+	String s = new String();
+	
+	
+	
+	
+	public int getLineNum() {
+		return lineNum;
+	}
 
+	public void setLineNum(int lineNum) {
+		this.lineNum = lineNum;
+	}
+
+	public Grace getGrace() {
+		return grace;
+	}
+
+	public void setGrace(Grace grace) {
+		this.grace = grace;
+	}
+
+	public String getS() {
+		return s;
+	}
+
+	public void setS(String s) {
+		this.s = s;
+	}
 
 	public Note() {
 		super();
@@ -53,7 +84,7 @@ public class Note{
 		super();
 		int divisions = 4;
 		this.unpitched = unpitched;
-		this.duration = 2;
+		this.duration = duration;
 		this.instrumentID = instrumentID;
 		this.voice = voice;
 		this.type = type;
@@ -65,6 +96,57 @@ public class Note{
 
 	}
 	
+	public int countLines(List<String> drumType) {
+		lineNum = drumType.size();
+		
+		
+		if(drumType.size() >= 1) {
+			this.s = drumType.get(0);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 2) {
+			this.s = drumType.get(1);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 3) {
+			this.s = drumType.get(2);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 4) {
+			this.s = drumType.get(3);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 5) {
+			this.s = drumType.get(4);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 6) {
+			this.s = drumType.get(5);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 7) {
+			this.s = drumType.get(6);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 8) {
+			this.s = drumType.get(7);
+			setInstrumentID(s);
+		}
+		if(drumType.size() >= 9) {
+			this.s = drumType.get(8);
+			setInstrumentID(s);
+		}
+		
+
+		
+		return lineNum;
+	}
+	
+	/*
+	 * Grab the size of the list of drum types. then, get 0 -> size-1
+	 * 
+	 * if: string num = 1, get drumType[0] for instrumentID
+	 */
 	
 
 	public String getInstrumentID() {

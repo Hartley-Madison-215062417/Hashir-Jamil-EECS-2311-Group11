@@ -62,7 +62,7 @@ public class ParseGuitar {
 		this.part = p.createMusicalPart(tmp);
 		this.sp = new scorePartwise();
 		this.sp.getParts().add(part);
-		System.out.print("hiii" + this.tmp.size());
+		//System.out.print("hiii" + this.tmp.size());
 	}
 
 }

@@ -1167,15 +1167,15 @@ public class Main extends Application{
 		                	      while (scanner.hasNext()) {
 		                              String line = scanner.nextLine();
 		                              if (line.length()>0) {
-		                            	  if(line.charAt(0) == '|' || line.charAt(1) == '|') {
+//		                            	  if(line.charAt(0) == '|' || line.charAt(1) == '|') {
 		    
 		                            		  writer.write(line);
 			                                  writer.write("\n");
-		                            	  }
-		                            	  else{
-		                            		  writer.write("\n");
-		                            		  errors = true;
-		                            	  }
+//		                            	  }
+//		                            	  else{
+//		                            		  writer.write("\n");
+//		                            		  errors = true;
+//		                            	  }
 		                              }
 		                           else if(line.length() ==0){
 		                            		  writer.write(line);

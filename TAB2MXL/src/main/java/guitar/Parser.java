@@ -1139,6 +1139,9 @@ public class Parser {
 	 */
 	public Measure createMeasure(char[][] firstMeasure) {
 		
+		
+		
+		
 		//the first measure does not include the vertical bars
 		Measure m = new Measure();
 		m.setNumber(Measure.measureNumber);
